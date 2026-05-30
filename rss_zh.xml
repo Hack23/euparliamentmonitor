@@ -1,0 +1,2997 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>EU议会监测 - 新闻</title>
+    <link>https://euparliamentmonitor.com</link>
+    <description>关于欧洲议会的开放政治情报 — 表决、动议、委员会工作与立法流程，每日从欧洲议会开放数据中提炼，并以 14 种语言呈现。</description>
+    <language>zh</language>
+    <lastBuildDate>Sat, 30 May 2026 06:33:15 GMT</lastBuildDate>
+    <atom:link href="https://euparliamentmonitor.com/rss_zh.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>突发: EP Breaking News: AI Trade</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-29-breaking-zh.html</link>
+      <description>2026-05-29 — 中文 — 突发新闻 — Breaking — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-29-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会委员会报告，2026-05-29</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-29-committee-reports-zh.html</link>
+      <description>2026-05-29 — 中文 — 委员会活动 — Committee Reports — 报告周（2026-05-22 → 2026-05-29）处于2026年5月斯特拉斯堡全体会议（2026年5月20日闭幕）之后的会期间隔。</description>
+      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-29-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>行政简报 — 欧洲议会提案 | 2026-05-29</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-29-propositions-zh.html</link>
+      <description>2026-05-29 — 中文 — 立法程序 — Propositions — 2026年5月20日，欧洲议会同步通过了欧盟贸易综合人工智能战略——确认欧盟在全球推广其人工智能治理框架的雄心。</description>
+      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-29-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>📋 执行摘要 — 欧洲议会下周展望 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-29-week-ahead-zh.html</link>
+      <description>2026-05-29 — 中文 — 下周预告 — Week Ahead — 欧洲议会日历、委员会会议和全体辩论 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-29-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>情报简报 — 欧洲议会：突发新闻 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-breaking-zh.html</link>
+      <description>2026-05-28 — 中文 — 突发新闻 — Breaking — 突发新闻：欧洲议会在斯特拉斯堡全会（2026年5月19–21日）通过具有里程碑意义的人工智能贸易战略及阿富汗妇女权利决议</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会委员会报告，2026-05-28</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-committee-reports-zh.html</link>
+      <description>2026-05-28 — 中文 — 委员会活动 — Committee Reports — 欧洲议会以高度丰硕的委员会成果圆满完成了2026年5月的全体会议：截至2026年5月20日，共有50项采纳文本记录在案，涵盖对外关系、贸易政策、国防工业合。</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会选举周期 — 执行摘要 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-election-cycle-zh.html</link>
+      <description>2026-05-28 — 中文 — 选举周期 — Election Cycle — 2026-05-28 · T-1105 — 距2029年6月6~9日欧洲议会选举 · 分析期间： 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-election-cycle-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会月度回顾：2026年4月28日</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-month-in-review-zh.html</link>
+      <description>2026-05-28 — 中文 — 每月回顾 — Month In Review — 2026年5月标志着欧洲议会治理的转折点。在短短一个月内，欧洲议会采纳了涵盖国防工业战略、数字平台责任、财政架构、动物福利改革和选举程序的立法。</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-month-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: session&apos;s output can</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-motions-zh.html</link>
+      <description>2026-05-28 — 中文 — 全体投票与决议 — Motions — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-propositions-zh.html</link>
+      <description>2026-05-28 — 中文 — 立法程序 — Propositions — European Parliament Advances AI-Trade Doctrine and Ratifies。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>议会任期展望: Likely 55-75%, central</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-term-outlook-zh.html</link>
+      <description>2026-05-28 — 中文 — 议会任期展望 — Term Outlook — 欧洲议会多年期展望 — 联盟轨迹、政纲履行进度、Spitzenkandidaten 信号与议席投射区间</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-term-outlook-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会最新动态，2026-05-27</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-27-breaking-zh.html</link>
+      <description>2026-05-27 — 中文 — 突发新闻 — Breaking — 2026年5月19日至21日这一周，欧洲议会在三个战略上相互关联的领域采取行动：经济安全（外国投资审查）、国防整合（欧盟–加拿大SAFE机制）和数字贸易竞。</description>
+      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-27-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 委员会报告（2026-05-27） ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-27-committee-reports-zh.html</link>
+      <description>2026-05-27 — 中文 — 委员会活动 — Committee Reports — 2026年5月欧洲议会全体会议标志着一个高产出立法周，同时推进了三个战略优先事项：人工智能贸易治理、渔业外交和外部伙伴关系架构。</description>
+      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-27-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>🗳️ 执行简报 — 欧洲议会决议 | 2026-05-27</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-27-motions-zh.html</link>
+      <description>2026-05-27 — 中文 — 全体投票与决议 — Motions — 欧洲议会全体会议（斯特拉斯堡，2026年5月19日至20日）通过了10项决议，共同定义了欧盟在四个关键战略领域的战略立场：。</description>
+      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-27-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>情报简报 — 欧洲议会提案 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-27-propositions-zh.html</link>
+      <description>2026-05-27 — 中文 — 立法程序 — Propositions — 🟢 高置信度（WEP：90~95%）— 欧洲议会2026年5月全会产生了完成立法与战略决议的历史性组合，欧洲人工智能贸易战略（2025/2112(INI。</description>
+      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-27-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会全体会议执行简报 — 突发新闻 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-26-breaking-zh.html</link>
+      <description>2026-05-26 — 中文 — 突发新闻 — Breaking — 重要性：关键 | Admiralty评级：A1 议会通过了关于欧盟外国投资审查的条例，以针对半导体、人工智能、量子计算、国防、关键能源基础设施和战略性医疗。</description>
+      <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-26-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会委员会报告 | 2026-05-26</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-26-committee-reports-zh.html</link>
+      <description>2026-05-26 — 中文 — 委员会活动 — Committee Reports — 欧洲议会委员会系统在监控可见度有限的情况下，以高立法需求迎来2026年5月26日这一周 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-26-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会决议 — 2026-05-26</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-26-motions-zh.html</link>
+      <description>2026-05-26 — 中文 — 全体投票与决议 — Motions — 欧洲议会 2026 年 5 月 19 日至 23 日全体会议结束了 EP10 立法期单次会议最具影响力的贸易与安全立法一揽子计划。</description>
+      <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-26-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会提案（2026-05-26）</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-26-propositions-zh.html</link>
+      <description>2026-05-26 — 中文 — 立法程序 — Propositions — 欧洲议会以2021年后新冠疫情时期以来最为复杂的立法格局进入2026年5月26日这一周。三条同步推进的立法轨道要求政治关注与联合政府管理。</description>
+      <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-26-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 欧洲议会突发新闻（第二稿·扩展版） ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-25-breaking-zh.html</link>
+      <description>2026-05-25 — 中文 — 突发新闻 — Breaking — 核心评估（WEP可能，60–75%置信度）： 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-25-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>情报简报 — 欧洲议会委员会报告：创纪录活动的悖论</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-25-committee-reports-zh.html</link>
+      <description>2026-05-25 — 中文 — 委员会活动 — Committee Reports — 政策制定者、记者和欧盟观察人士：本周欧洲议会委员会情报的三点核心： 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-25-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会执行简报：决议 — 2026年5月18-25日周</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-25-motions-zh.html</link>
+      <description>2026-05-25 — 中文 — 全体投票与决议 — Motions — 可信度：🟡 MEDIUM（记名表决数据尚未公布；已通过文本更新确认全体会议结果）</description>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-25-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会提案 — 高级情报简报 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-25-propositions-zh.html</link>
+      <description>2026-05-25 — 中文 — 立法程序 — Propositions — 斯特拉斯堡全体会议（5月19–21日）产出了EP10在外交上最重要的立法一揽子方案之一，通过欧盟-乌兹别克斯坦EPCA标志着自2019年互联互通战略以来对。</description>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-25-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报：欧洲议会周度回顾 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-23-week-in-review-zh.html</link>
+      <description>2026-05-23 — 中文 — 每周回顾 — Week In Review — 2026年4月28至30日，欧洲议会斯特拉斯堡全体会议通过了14项立法事项，标志着议会在2024–2029届任期内对数字监管执法的最大力度推进，同时通过了。</description>
+      <pubDate>Sat, 23 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-23-week-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会突发新闻 | 2026-05-22</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-22-breaking-zh.html</link>
+      <description>2026-05-22 — 中文 — 突发新闻 — Breaking — 置信度： 🟢 高 | 来源评级：A1（欧洲议会通过文本）| WEP：几乎确定</description>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-22-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会委员会活动（2026年5月18日至2</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-22-committee-reports-zh.html</link>
+      <description>2026-05-22 — 中文 — 委员会活动 — Committee Reports — 随着多项高优先级议题接近全体会议准备就绪阶段，欧洲议会委员会系统进入2025–2026年立法秋季的最后冲刺阶段。</description>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-22-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会动议与决议：执行简报 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-22-motions-zh.html</link>
+      <description>2026-05-22 — 中文 — 全体投票与决议 — Motions — WEP区间：可能（65–85%） | 时间跨度：3–6个月 | 海军情报等级：B2</description>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-22-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会立法提案 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-22-propositions-zh.html</link>
+      <description>2026-05-22 — 中文 — 立法程序 — Propositions — 数据质量说明: 欧洲议会API增强层在本次会话中不可用（HTTP 404）。所有评估基于经确认的getadoptedtexts(year=2026)数据和。</description>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-22-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>📋 执行简报 — 欧洲议会本周展望 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-22-week-ahead-zh.html</link>
+      <description>2026-05-22 — 中文 — 下周预告 — Week Ahead — 要点：WEP 可能性较高（60–68%）——本周将是一个委员会密集周，ReArm Europe和贸易政策议题有望取得进展 Admiralty。</description>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-22-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会最新动态 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-21-breaking-zh.html</link>
+      <description>2026-05-21 — 中文 — 突发新闻 — Breaking — 欧洲议会于2026年5月20日完成重要全体会议，共采纳八项主要文件，包括关于欧盟贸易人工智能战略的突破性决议（T10-0183/2026）、欧盟-乌兹别克。</description>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-21-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会委员会报告 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-21-committee-reports-zh.html</link>
+      <description>2026-05-21 — 中文 — 委员会活动 — Committee Reports — 可能性较高（65–75%）：欧洲议会2026年春季委员会季节将完成其主要立法目标——通过SAFE法规、批准《综合一揽子》第一次审议立场，以及《绿色协议》二。</description>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-21-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>📰 执行摘要 — 欧洲议会动议 2026-05-21 周</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-21-motions-zh.html</link>
+      <description>2026-05-21 — 中文 — 全体投票与决议 — Motions — 欧洲议会在5月19日至20日斯特拉斯堡全体会议上通过了八项文件。其中欧盟人工智能贸易战略（TA-10-2026-0183）在战略上最具影响力。</description>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-21-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行情报简报 — 欧洲议会提案 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-21-propositions-zh.html</link>
+      <description>2026-05-21 — 中文 — 立法程序 — Propositions — 欧洲议会2026年5月小型全体会议（5月19-20日）通过了7项立法行为，涵盖人工智能/贸易战略、森林治理、双边伙伴关系、渔业以及联合国大会立场设定。</description>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-21-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>分析行政简报 — 欧洲议会委员会报告 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-20-committee-reports-zh.html</link>
+      <description>2026-05-20 — 中文 — 委员会活动 — Committee Reports — 欧洲议会24个常设委员会在2026年5月13日至20日当周继续开展立法工作，此时处于第十届立法会期（EP10，2024至2029年）第二年。</description>
+      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-20-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧盟立法提案 | 2026-05-20</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-20-propositions-zh.html</link>
+      <description>2026-05-20 — 中文 — 立法程序 — Propositions — 2026年4月28〜30日斯特拉斯堡欧洲议会全会产出8份采纳文本，综合来看揭示出欧洲议会同时以监管机构、地缘政治行为者、预算设计师和公民保护者四重角色运作。</description>
+      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-20-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会突发新闻 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-18-breaking-zh.html</link>
+      <description>2026-05-18 — 中文 — 突发新闻 — Breaking — 欧洲议会在斯特拉斯堡完成了2026年4月全体会议，以密集的立法与决议产出收尾，通过了涵盖技术监管、外交政策、预算治理和社会权利的9项实质性法令。</description>
+      <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-18-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会委员会报告 | 2026-05-18</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-18-committee-reports-zh.html</link>
+      <description>2026-05-18 — 中文 — 委员会活动 — Committee Reports — KA-1：EP10标准委员会日历有效 ✓ | KA-2：EPP-S&amp;D-Renew联合执政维持 ✓ | KA-3：。</description>
+      <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-18-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会提案动态 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-18-propositions-zh.html</link>
+      <description>2026-05-18 — 中文 — 立法程序 — Propositions — 欧洲议会最近的立法提案、程序跟踪和流水线状态 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-18-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>简报摘要 — 欧洲议会最新动态 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-17-breaking-zh.html</link>
+      <description>2026-05-17 — 中文 — 突发新闻 — Breaking — 重要性: 极为重要 | WEP: 非常合理（85~95%） | 海军部: A2</description>
+      <pubDate>Sun, 17 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-17-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>高管简报 — 欧洲议会 最新动态 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-16-breaking-zh.html</link>
+      <description>2026-05-16 — 中文 — 突发新闻 — Breaking — 2026年4月欧洲议会全会（斯特拉斯堡，4月28日至30日）在数字监管执法、乌克兰战争问责、农业可持续性、欧盟邻国民主韧性及网络剥削治理等方面取得了密集的。</description>
+      <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-16-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会每周回顾 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-16-week-in-review-zh.html</link>
+      <description>2026-05-16 — 中文 — 每周回顾 — Week In Review — 先行结论：4月28至30日斯特拉斯堡全体会议呈现了EP第10届任期迄今最为协调的立法周，在单一三天会期内将2027年预算谈判的金融架构、数字执法问责制和差。</description>
+      <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-16-week-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 快讯：欧洲议会2026年4月全体会议结果</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-15-breaking-zh.html</link>
+      <description>2026-05-15 — 中文 — 突发新闻 — Breaking — 五项关键事实： 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-15-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 欧洲议会委员会报告 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-15-committee-reports-zh.html</link>
+      <description>2026-05-15 — 中文 — 委员会活动 — Committee Reports — 欧洲议会委员会系统于2026年5月中旬正处于第十届任期（2024-2029年）的密集立法阶段 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-15-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 欧洲议会决议 · 2026-05-15</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-15-motions-zh.html</link>
+      <description>2026-05-15 — 中文 — 全体投票与决议 — Motions — 可能（60–80%）— 决议反映了在数字监管和地缘政治团结方面强有力的跨党派共识</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-15-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报：欧洲议会立法提案 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-15-propositions-zh.html</link>
+      <description>2026-05-15 — 中文 — 立法程序 — Propositions — 欧洲议会在2026年第一、二季度展现出非凡的立法速度，2026年1月至5月间共通过51项正式文本 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-15-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会本周议程：2026年5月19日至22日</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-15-week-ahead-zh.html</link>
+      <description>2026-05-15 — 中文 — 下周预告 — Week Ahead — 欧洲议会将于2026年5月19日至22日在斯特拉斯堡举行全体会议。在三个主要会议日共有约57项议程，本周被定位为EP10的中等活跃立法周。</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-15-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行情报简报 — 欧洲议会 最新新闻 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-14-breaking-zh.html</link>
+      <description>2026-05-14 — 中文 — 突发新闻 — Breaking — 2026年4月28-30日在布鲁塞尔举行的欧洲议会全体会议产生了密度异常高的立法成果，涵盖2028-2034年多年期财务框架（MFF）中期报告、2024年。</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-14-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会委员会报告 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-14-committee-reports-zh.html</link>
+      <description>2026-05-14 — 中文 — 委员会活动 — Committee Reports — 欧洲议会委员会体系以至少七个常设委员会的充实立法议程开启了2026年5月12至16日这一周 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-14-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会选举周期（2024-2029年任期，</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-14-election-cycle-zh.html</link>
+      <description>2026-05-14 — 中文 — 选举周期 — Election Cycle — 很可能（60-80%）· 时间跨度： 2029年6月6日（PE10任期届满）。情报信心： B2（可能属实，通常可信赖）。</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-14-election-cycle-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会动议及通过文本 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-14-motions-zh.html</link>
+      <description>2026-05-14 — 中文 — 全体投票与决议 — Motions — 欧洲议会斯特拉斯堡全体会议（4月28日至30日）在五个主题集群内通过了13项重要文本： 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-14-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会提案 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-14-propositions-zh.html</link>
+      <description>2026-05-14 — 中文 — 立法程序 — Propositions — 2026年4月28日至30日在斯特拉斯堡召开的欧洲议会全会产生了覆盖数字执法、农业韧性、刑事司法、地缘政治参与及机构治理的重要立法成果。</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-14-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会 – 来年展望 — 执行简报 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-14-year-ahead-zh.html</link>
+      <description>2026-05-14 — 中文 — 年度展望 — Year Ahead — 欧洲议会2026–2027年立法年度在三大结构性现实中展开：一是由EPP主导的议席集团（占总议席25.5%，183名欧洲议员），需要组建多方联合；。</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-14-year-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会委员会活动，2026年5月6日至13日</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-13-committee-reports-zh.html</link>
+      <description>2026-05-13 — 中文 — 委员会活动 — Committee Reports — 2026年5月6日至13日这一周，是迄今最为清晰地表明EP10已从欧盟监管的扩张阶段（EP9的绿色新政 / 人工智能法规 /。</description>
+      <pubDate>Wed, 13 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-13-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EP10选举周期 — 行政摘要 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-13-election-cycle-zh.html</link>
+      <description>2026-05-13 — 中文 — 选举周期 — Election Cycle — 欧洲议会EP10届期（2024–2029年）已进入其决定性的第二年，结构上向右倾斜的议会正在应对历史性的危机汇聚：。</description>
+      <pubDate>Wed, 13 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-13-election-cycle-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会动议与通过文本：2026年4月至5月</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-13-motions-zh.html</link>
+      <description>2026-05-13 — 中文 — 全体投票与决议 — Motions — 2026年4月欧洲议会全体会议周（4月28日至30日）以四项基础性决议为核心：数字市场监管执法、俄罗斯对乌克兰的责任、亚美尼亚民主韧性，以及网络欺凌应对措。</description>
+      <pubDate>Wed, 13 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-13-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报——欧洲议会立法提案 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-13-propositions-zh.html</link>
+      <description>2026-05-13 — 中文 — 立法程序 — Propositions — 本轮分析的五项通过文本合并来看呈现出显著的战略连贯性。各项分别针对不同领域，但都共享单一结构逻辑：弥合欧盟监管雄心与监管实效之间的差距。</description>
+      <pubDate>Wed, 13 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-13-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会重大突发新闻 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-12-breaking-zh.html</link>
+      <description>2026-05-12 — 中文 — 突发新闻 — Breaking — 发生了什么： 2026年4月底的欧洲议会全体会议产生了历史性的密集立法成果。五天内，欧洲议员采纳了2028-2034年多年期财政框架（MFF）中期报告，向。</description>
+      <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-12-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会议案，2026年4月12日至5月12日</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-12-motions-zh.html</link>
+      <description>2026-05-12 — 中文 — 全体投票与决议 — Motions — 截至2026年5月12日的30天周期产生了101项通过文本（超过EP9的节奏），并结晶出EP10的工作身份：。</description>
+      <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-12-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会提案 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-12-propositions-zh.html</link>
+      <description>2026-05-12 — 中文 — 立法程序 — Propositions — 2026年5月5日至12日这一周，三项具有里程碑意义的立法措施完成了最终发布或通过，标志着EP10第一个完整立法年的关键时刻。</description>
+      <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-12-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会：实时分析，2026年5月11日</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-breaking-zh.html</link>
+      <description>2026-05-11 — 中文 — 突发新闻 — Breaking — 2026年4月28–30日斯特拉斯堡全体会议产生三项重大成果： 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会委员会报告 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-committee-reports-zh.html</link>
+      <description>2026-05-11 — 中文 — 委员会活动 — Committee Reports — 2026年5月4日至11日一周，欧洲议会委员会格局的特点是后4月巩固期及6月全体会议准备，发生在一个结构性分裂的议会（9个政治团体；碎片化指数：高；。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — EP10 选举周期概览（2024–2029）</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-election-cycle-zh.html</link>
+      <description>2026-05-11 — 中文 — 选举周期 — Election Cycle — 2024 年选举产生了 9 个议会党团、717 名议员的 EP10，碎片化指数 6.58 为 EP6（2004–2009）以来最高值。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-election-cycle-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 欧洲议会，未来一个月： ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-month-ahead-zh.html</link>
+      <description>2026-05-11 — 中文 — 下月预告 — Month Ahead — 欧洲议会正进入一个关键的四周时期，这一时期由其5月第一次完整斯特拉斯堡全体会议（2026年5月18至21日）以及迈向6月届会的立法日程所定义。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-month-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会行政简报：动议 — 2026年5月11日 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-motions-zh.html</link>
+      <description>2026-05-11 — 中文 — 全体投票与决议 — Motions — 2026年4月28日至30日在斯特拉斯堡举行的欧洲议会全体会议推进了密集的立法议程，同时涵盖数字权利执法、更新对乌克兰和亚美尼亚的地缘政治承诺、启动202。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>行政简报 — 欧洲议会立法提案 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-propositions-zh.html</link>
+      <description>2026-05-11 — 中文 — 立法程序 — Propositions — 欧洲议会正经历2026年春季的立法集中强化阶段。2026年4月末至5月初，一系列具有里程碑意义的立法成果相继出炉。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行情报简报 — EP10 第十届欧洲议会届期展望（至20</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-term-outlook-zh.html</link>
+      <description>2026-05-11 — 中文 — 议会任期展望 — Term Outlook — 欧洲议会多年期展望 — 联盟轨迹、政纲履行进度、Spitzenkandidaten 信号与议席投射区间</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-term-outlook-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报：欧洲议会未来一年展望（2026年5月 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-year-ahead-zh.html</link>
+      <description>2026-05-11 — 中文 — 年度展望 — Year Ahead — 欧洲议会正面临2024年选举以来最为关键的十二个月。欧洲人民党（EPP）在高度分裂的九党议会中的主导地位（183/717席，25.5%）迫使各方在三大系统。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-year-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会最新快讯 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-10-breaking-zh.html</link>
+      <description>2026-05-10 — 中文 — 突发新闻 — Breaking — 欧洲议会通过了一项具有里程碑意义的决议，要求更积极地执行《数字市场法》（DMA），对象包括Alphabet（谷歌）、Apple、Meta、亚马逊和微软等指。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-10-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 欧洲议会任期展望（2026 → 2031）</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-10-term-outlook-zh.html</link>
+      <description>2026-05-10 — 中文 — 议会任期展望 — Term Outlook — EP10进入任期后半段，维持着一个结构上受限但仍能运作的大联合（EPP+S&amp;D+Renew，396席，超过多数门槛+37席），首次面对一个在数量上具有可行。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-10-term-outlook-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会周展望：2026年5月18–21日</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-10-week-ahead-zh.html</link>
+      <description>2026-05-10 — 中文 — 下周预告 — Week Ahead — 2026年5月18–21日斯特拉斯堡欧洲议会（EP）全体会议正值欧洲一体化关键时刻。四天内安排了53项全体活动——包括周二、周三、周四的关键投票。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-10-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报：欧洲议会 — 未来一年，2026年5月至2027</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-10-year-ahead-zh.html</link>
+      <description>2026-05-10 — 中文 — 年度展望 — Year Ahead — 欧洲议会年度战略展望 — 欧委会工作方案、三主席国、立法优先事项与 12 个月战略风险面</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-10-year-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会年度回顾：2025年5月至2026年5月 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-10-year-in-review-zh.html</link>
+      <description>2026-05-10 — 中文 — 年度回顾 — Year In Review — KIJ-1：EPP主导的中间派联盟维持至2026年 EPP–S&amp;D–Renew结构性联盟（396/717席，55.2%）在包括乌克兰援助、人工智能法案实施。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-10-year-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会新闻 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-09-breaking-zh.html</link>
+      <description>2026-05-09 — 中文 — 突发新闻 — Breaking — 2026年5月，欧洲议会正面临法律问责危机、数字监管执法之争和制度碎片化压力三重前所未有的汇聚 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-09-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>选举周期: EPP remains dominant</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-09-election-cycle-zh.html</link>
+      <description>2026-05-09 — 中文 — 选举周期 — Election Cycle — 欧洲议会双重选举简报 — 任期回顾结合议席投射、联盟可行性与 Spitzenkandidaten 算术</description>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-09-election-cycle-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>议会任期展望: EPP remains dominant</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-09-term-outlook-zh.html</link>
+      <description>2026-05-09 — 中文 — 议会任期展望 — Term Outlook — 欧洲议会多年期展望 — 联盟轨迹、政纲履行进度、Spitzenkandidaten 信号与议席投射区间</description>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-09-term-outlook-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>本周回顾: Five developments demand</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-09-week-in-review-zh.html</link>
+      <description>2026-05-09 — 中文 — 每周回顾 — Week In Review — 欧洲议会最近完整报告周分析 — 投票、委员会决定和立法进展 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-09-week-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>年度回顾: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-09-year-in-review-zh.html</link>
+      <description>2026-05-09 — 中文 — 年度回顾 — Year In Review — The European Parliament&apos;s tenth term entered its second。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-09-year-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: Key Legislative ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-08-breaking-zh.html</link>
+      <description>2026-05-08 — 中文 — 突发新闻 — Breaking — The Digital Markets Act (DMA, Regulation 2022/1925) entered。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-08-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: 2.1 Digital ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-08-committee-reports-zh.html</link>
+      <description>2026-05-08 — 中文 — 委员会活动 — Committee Reports — 最近立法成果、效能指标和关键委员会活动分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-08-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: April 28–30 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-08-motions-zh.html</link>
+      <description>2026-05-08 — 中文 — 全体投票与决议 — Motions — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-08-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-08-propositions-zh.html</link>
+      <description>2026-05-08 — 中文 — 立法程序 — Propositions — 欧洲议会最近的立法提案、程序跟踪和流水线状态 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-08-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>议会任期展望: EPP remains dominant</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-08-term-outlook-zh.html</link>
+      <description>2026-05-08 — 中文 — 议会任期展望 — Term Outlook — Term outlook (2026-05-08): with 185 seats, EPP controls。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-08-term-outlook-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下周预告: Strasbourg plenary of</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-08-week-ahead-zh.html</link>
+      <description>2026-05-08 — 中文 — 下周预告 — Week Ahead — 欧洲议会日历、委员会会议和全体辩论 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-08-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-07-breaking-zh.html</link>
+      <description>2026-05-07 — 中文 — 突发新闻 — Breaking — The European Parliament&apos;s final April 2026 plenary 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-07-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: DMA Enforcement Gap</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-07-motions-zh.html</link>
+      <description>2026-05-07 — 中文 — 全体投票与决议 — Motions — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-07-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>议会任期展望: EP10 Term Synthesis</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-07-term-outlook-zh.html</link>
+      <description>2026-05-07 — 中文 — 议会任期展望 — Term Outlook — The European Parliament&apos;s tenth term (EP10) is proceeding。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-07-term-outlook-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>来年展望: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-07-year-ahead-zh.html</link>
+      <description>2026-05-07 — 中文 — 年度展望 — Year Ahead — 欧洲议会年度战略展望 — 欧委会工作方案、三主席国、立法优先事项与 12 个月战略风险面</description>
+      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-07-year-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>年度回顾: EP10 Year 2 is the most</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-07-year-in-review-zh.html</link>
+      <description>2026-05-07 — 中文 — 年度回顾 — Year In Review — 欧洲议会年度回顾 — 联盟图谱、议题吞吐量、政纲履行计分卡与累计政治风险轨迹</description>
+      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-07-year-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下月展望: Overall confidence: 🟡</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-06-month-ahead-zh.html</link>
+      <description>2026-05-06 — 中文 — 下月预告 — Month Ahead — 欧洲议会战略展望 — 立法里程碑、委员会日程和政策议程 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-06-month-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-06-motions-zh.html</link>
+      <description>2026-05-06 — 中文 — 全体投票与决议 — Motions — The European Parliament in EP10 Year 2 (2026) is operating。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-06-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: week of 29 April – 6 May</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-06-propositions-zh.html</link>
+      <description>2026-05-06 — 中文 — 立法程序 — Propositions — 欧洲议会最近的立法提案、程序跟踪和流水线状态 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-06-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: Extended Executive Brief</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-05-breaking-zh.html</link>
+      <description>2026-05-05 — 中文 — 突发新闻 — Breaking — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-05-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: 28 April – 1 May</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-05-committee-reports-zh.html</link>
+      <description>2026-05-05 — 中文 — 委员会活动 — Committee Reports — 最近立法成果、效能指标和关键委员会活动分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-05-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: EU Parliament Motions</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-05-motions-zh.html</link>
+      <description>2026-05-05 — 中文 — 全体投票与决议 — Motions — The European Parliament&apos;s April plenary session was 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-05-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: Digital sovereignty</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-05-propositions-zh.html</link>
+      <description>2026-05-05 — 中文 — 立法程序 — Propositions — The EP&apos;s DMA enforcement resolution (TA-10-2026-0160)。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-05-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>季度回顾: EU Parliament Quarter in</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-05-quarter-in-review-zh.html</link>
+      <description>2026-05-05 — 中文 — 季度回顾 — Quarter In Review — 欧洲议会季度回顾 — 联盟轨迹、议题吞吐量增量、异常投票与滚动政治风险趋势 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-05-quarter-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: Three Tier-1 Breaking</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-04-breaking-zh.html</link>
+      <description>2026-05-04 — 中文 — 突发新闻 — Breaking — Russia-Ukraine Accountability Resolution (TA-10-2026-0161)。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-04-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: only binding</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-04-committee-reports-zh.html</link>
+      <description>2026-05-04 — 中文 — 委员会活动 — Committee Reports — 最近立法成果、效能指标和关键委员会活动分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-04-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-04-motions-zh.html</link>
+      <description>2026-05-04 — 中文 — 全体投票与决议 — Motions — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-04-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU Parliament ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-04-propositions-zh.html</link>
+      <description>2026-05-04 — 中文 — 立法程序 — Propositions — 欧洲议会最近的立法提案、程序跟踪和流水线状态 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-04-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>议会任期展望: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-04-term-outlook-zh.html</link>
+      <description>2026-05-04 — 中文 — 议会任期展望 — Term Outlook — 欧洲议会多年期展望 — 联盟轨迹、政纲履行进度、Spitzenkandidaten 信号与议席投射区间</description>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-04-term-outlook-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>来年展望: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-04-year-ahead-zh.html</link>
+      <description>2026-05-04 — 中文 — 年度展望 — Year Ahead — 欧洲议会年度战略展望 — 欧委会工作方案、三主席国、立法优先事项与 12 个月战略风险面</description>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-04-year-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>月度回顾: April 2026 marked the</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-03-month-in-review-zh.html</link>
+      <description>2026-05-03 — 中文 — 每月回顾 — Month In Review — 欧洲议会综合分析 — 立法成果、联盟动态和政策趋势 背景: April 2026 marked the。</description>
+      <pubDate>Sun, 03 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-03-month-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-01-breaking-zh.html</link>
+      <description>2026-05-01 — 中文 — 突发新闻 — Breaking — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-01-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: EP10 Year 2 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-01-committee-reports-zh.html</link>
+      <description>2026-05-01 — 中文 — 委员会活动 — Committee Reports — The April 2026 plenary close provides definitive。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-01-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下月展望: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-01-month-ahead-zh.html</link>
+      <description>2026-05-01 — 中文 — 下月预告 — Month Ahead — 欧洲议会战略展望 — 立法里程碑、委员会日程和政策议程 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-01-month-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-01-motions-zh.html</link>
+      <description>2026-05-01 — 中文 — 全体投票与决议 — Motions — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-01-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: Governance Milestone</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-01-propositions-zh.html</link>
+      <description>2026-05-01 — 中文 — 立法程序 — Propositions — The signing of the Anti-Corruption Regulation (Regulation。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-01-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下周预告: Decision Window: May 4-8</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-01-week-ahead-zh.html</link>
+      <description>2026-05-01 — 中文 — 下周预告 — Week Ahead — 欧洲议会日历、委员会会议和全体辩论 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-01-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: EU Parliament Breaking</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-30-breaking-zh.html</link>
+      <description>2026-04-30 — 中文 — 突发新闻 — Breaking — TA-10-2026-0112 | Procedure: 2025/2246(BUI) | dateAdopted。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-30-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下月展望: EU Parliament&apos;s next 30</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-30-month-ahead-zh.html</link>
+      <description>2026-04-30 — 中文 — 下月预告 — Month Ahead — 欧洲议会战略展望 — 立法里程碑、委员会日程和政策议程 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-30-month-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: April 28–29 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-30-motions-zh.html</link>
+      <description>2026-04-30 — 中文 — 全体投票与决议 — Motions — The April 28–29 Strasbourg plenary (attendance 663 / 92.2 % 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-30-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: EU Parliament Plenary</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-29-breaking-zh.html</link>
+      <description>2026-04-29 — 中文 — 突发新闻 — Breaking — The European Parliament convened for a major plenary vote。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-29-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: Parliament ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-29-committee-reports-zh.html</link>
+      <description>2026-04-29 — 中文 — 委员会活动 — Committee Reports — 最近立法成果、效能指标和关键委员会活动分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-29-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下月展望: Most Consequential ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-29-month-ahead-zh.html</link>
+      <description>2026-04-29 — 中文 — 下月预告 — Month Ahead — 欧洲议会战略展望 — 立法里程碑、委员会日程和政策议程 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-29-month-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>月度回顾: EU Parliament in April</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-29-month-in-review-zh.html</link>
+      <description>2026-04-29 — 中文 — 每月回顾 — Month In Review — 欧洲议会综合分析 — 立法成果、联盟动态和政策趋势 背景: The EU Parliament in April。</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-29-month-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: four most ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-29-motions-zh.html</link>
+      <description>2026-04-29 — 中文 — 全体投票与决议 — Motions — The 28 April plenary day delivered 17 adopted texts 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-29-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: April 28, 2026 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-29-propositions-zh.html</link>
+      <description>2026-04-29 — 中文 — 立法程序 — Propositions — 欧洲议会最近的立法提案、程序跟踪和流水线状态 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-29-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: EP Breaking: Strasbourg</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-28-breaking-zh.html</link>
+      <description>2026-04-28 — 中文 — 突发新闻 — Breaking — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-28-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: European ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-28-committee-reports-zh.html</link>
+      <description>2026-04-28 — 中文 — 委员会活动 — Committee Reports — The European Parliament&apos;s spring 2026 legislative session。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-28-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>月度回顾: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-28-month-in-review-zh.html</link>
+      <description>2026-04-28 — 中文 — 每月回顾 — Month In Review — 欧洲议会综合分析 — 立法成果、联盟动态和政策趋势 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-28-month-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: landmark cluster of</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-28-motions-zh.html</link>
+      <description>2026-04-28 — 中文 — 全体投票与决议 — Motions — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-28-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-28-propositions-zh.html</link>
+      <description>2026-04-28 — 中文 — 立法程序 — Propositions — The European Parliament&apos;s 10th term entered its most。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-28-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: Trade War Dynamics: The</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-27-breaking-zh.html</link>
+      <description>2026-04-27 — 中文 — 突发新闻 — Breaking — Trade War Dynamics: The EP&apos;s adoption of EU customs duty。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-27-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: European ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-27-committee-reports-zh.html</link>
+      <description>2026-04-27 — 中文 — 委员会活动 — Committee Reports — The European Parliament&apos;s legislative committees delivered。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-27-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下月展望: European Parliament is</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-27-month-ahead-zh.html</link>
+      <description>2026-04-27 — 中文 — 下月预告 — Month Ahead — 欧洲议会战略展望 — 立法里程碑、委员会日程和政策议程 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-27-month-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>月度回顾: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-27-month-in-review-zh.html</link>
+      <description>2026-04-27 — 中文 — 每月回顾 — Month In Review — The European Parliament completed its most consequential。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-27-month-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-27-motions-zh.html</link>
+      <description>2026-04-27 — 中文 — 全体投票与决议 — Motions — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-27-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: week of April 20–27</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-27-propositions-zh.html</link>
+      <description>2026-04-27 — 中文 — 立法程序 — Propositions — 欧洲议会最近的立法提案、程序跟踪和流水线状态 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-27-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下月展望: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-26-month-ahead-zh.html</link>
+      <description>2026-04-26 — 中文 — 下月预告 — Month Ahead — 欧洲议会战略展望 — 立法里程碑、委员会日程和政策议程 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-26-month-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>月度回顾: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-26-month-in-review-zh.html</link>
+      <description>2026-04-26 — 中文 — 每月回顾 — Month In Review — The European Parliament completed a landmark legislative。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-26-month-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下周预告: EU Parliament Week ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-26-week-ahead-zh.html</link>
+      <description>2026-04-26 — 中文 — 下周预告 — Week Ahead — 欧洲议会日历、委员会会议和全体辩论 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-26-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>本周回顾: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-26-week-in-review-zh.html</link>
+      <description>2026-04-26 — 中文 — 每周回顾 — Week In Review — 欧洲议会最近完整报告周分析 — 投票、委员会决定和立法进展 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-26-week-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 24 April breaking-news</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-24-breaking-zh.html</link>
+      <description>2026-04-24 — 中文 — 突发新闻 — Breaking — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-24-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EP Motions, 25 March – 24 Apr…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-24-motions-runmotions-run-1777010709-zh.html</link>
+      <description>2026-04-24 — 中文 — 全体投票与决议 — Motions Runmotions Run 1777010709 — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-24-motions-runmotions-run-1777010709-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: March 2026 plenary</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-24-motions-zh.html</link>
+      <description>2026-04-24 — 中文 — 全体投票与决议 — Motions — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-24-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: 30-day propositions</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-24-propositions-zh.html</link>
+      <description>2026-04-24 — 中文 — 立法程序 — Propositions — 欧洲议会最近的立法提案、程序跟踪和流水线状态 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-24-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: *Eight days after T-0, the</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-23-breaking-zh.html</link>
+      <description>2026-04-23 — 中文 — 突发新闻 — Breaking — *Eight days after T-0, the run undertakes a retrospective。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-23-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: morning ANALYSIS_ONLY</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-21-breaking-192-zh.html</link>
+      <description>2026-04-21 — 中文 — 突发新闻 — Breaking 192 — No breaking event surfaced. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-21-breaking-192-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: Combined with completion</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-21-breaking-3ff728a7-15fa-4d2d-af0e-73c3e1ff-zh.html</link>
+      <description>2026-04-21 — 中文 — 突发新闻 — Breaking 3ff728a7 15fa 4d2d Af0e 73c3e1ff — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-21-breaking-3ff728a7-15fa-4d2d-af0e-73c3e1ff-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Run 193, 21 April 2026 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-21-breaking-run193-zh.html</link>
+      <description>2026-04-21 — 中文 — 突发新闻 — Breaking Run193 — Run 193 (afternoon probe) crossed the 20/50 significance threshold at 22/50 a… 发布日期 2026-04-21. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-21-breaking-run193-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Run 192, 21 April 2026 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-21-breaking-zh.html</link>
+      <description>2026-04-21 — 中文 — 突发新闻 — Breaking — Run 192 is the morning ANALYSIS_ONLY probe on Day 1 of the post-Easter work w… 发布日期 2026-04-21. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-21-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 11th consecutive ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-20-breaking-190-zh.html</link>
+      <description>2026-04-20 — 中文 — 突发新闻 — Breaking 190 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-20-breaking-190-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: records Recess Day 8 / API</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-20-breaking-191-zh.html</link>
+      <description>2026-04-20 — 中文 — 突发新闻 — Breaking 191 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-20-breaking-191-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-20 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-20-breaking-breaking-run191-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-20 · 分析运行 breaking-breaking-run191, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-20 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-20-breaking-breaking-run191-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EP10的创纪录季度：从住房权到贸易战——欧洲议会定义其政治身份</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-20-motions-run46-zh.html</link>
+      <description>欧洲议会（EP）2026年第一季度产生了前所未有的567次记名投票和180项决议——两项数据均创历史新高，与2025年420次记名投票和135项决议相比，表明议会正以约三倍于此前年度的速度运转。3月26日的全体会议使这一势头具象化：在布鲁塞尔的单次会议中，议会同时通过了涵盖五个政策维度的14份文件——应对美国关税的贸易措施、欧中协议、完成银行业联盟、反腐指令以及数字空间儿童保护。从住房权到贸易战，EP10的决议浪潮不仅体现了制度性生产力，更折射出一个已将复合危机内化于心的议会所具备的战略政治清晰度。</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-20-motions-run46-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: Defence Integration</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-20-motions-zh.html</link>
+      <description>2026-04-20 — 中文 — 全体投票与决议 — Motions — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-20-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: establishes the T-8 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-19-breaking-186-zh.html</link>
+      <description>2026-04-19 — 中文 — 突发新闻 — Breaking 186 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-19-breaking-186-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: records significance 14/50</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-19-breaking-187-zh.html</link>
+      <description>2026-04-19 — 中文 — 突发新闻 — Breaking 187 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-19-breaking-187-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: records significance 18/50</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-19-breaking-188-zh.html</link>
+      <description>2026-04-19 — 中文 — 突发新闻 — Breaking 188 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-19-breaking-188-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下月展望: Parliament returns from</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-19-month-ahead-zh.html</link>
+      <description>2026-04-19 — 中文 — 下月预告 — Month Ahead — Parliament returns from Easter recess on April 27, 2026 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-19-month-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>一天，十八部法律：EP10三月冲刺证明欧洲议会的立法成熟度</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-19-month-in-review-run5-zh.html</link>
+      <description>3月26日布鲁塞尔小型全体会议通过了 18项独立立法文件 — 这是EP10自2024年7月成立以来单次会议的最高产出。这些文件涵盖了银行法、刑事司法、贸易政策、人工智能、儿童数字保护、国际协议和议会程序。这一集中的立法冲刺紧随其后是23天的复活节休会（4月14日至26日），是一种刻意的制度性治国之举：欧洲人民党主导的联盟 — 与社会民主党、复兴欧洲和绿色党/欧洲自由联盟协同合作 — 将政治上异质的文件打包成一个无法忽视的单一方案，阻止了反对派通过程序消耗来拖延个别文件的能力。银行业联盟 — 一个十年的承诺 — 终于得以实现。欧盟首个具有约束力的反腐指令正式启动。针对美国关税和中国配额的双轨贸…</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-19-month-in-review-run5-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>月度回顾: single most ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-19-month-in-review-zh.html</link>
+      <description>2026-04-19 — 中文 — 每月回顾 — Month In Review — 欧洲议会综合分析 — 立法成果、联盟动态和政策趋势 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-19-month-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: records the highest ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-breaking-183-zh.html</link>
+      <description>2026-04-18 — 中文 — 突发新闻 — Breaking 183 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-breaking-183-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: records the first positive</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-breaking-184-zh.html</link>
+      <description>2026-04-18 — 中文 — 突发新闻 — Breaking 184 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-breaking-184-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: confirms API plateau ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-breaking-185-zh.html</link>
+      <description>2026-04-18 — 中文 — 突发新闻 — Breaking 185 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-breaking-185-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-18 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-breaking-breaking-run183-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-18 · 分析运行 breaking-breaking-run183, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-18 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-breaking-breaking-run183-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-18 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-breaking-breaking-run184-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-18 · 分析运行 breaking-breaking-run184, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-18 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-breaking-breaking-run184-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-18 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-breaking-breaking-run185-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-18 · 分析运行 breaking-breaking-run185, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-18 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-breaking-breaking-run185-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>议会复活节休会为创纪录第一季度画上句号 — 六项新文本揭示未竟事宜</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-week-in-review-run12-zh.html</link>
+      <description>2026年4月14日，欧洲议会在议会历史学家将称之为第十届欧洲议会前两年最雄心勃勃的立法冲刺活动之后进入复活节休会。2026年第一季度通过的104项文本和567次记名投票——欧洲议会开放数据门户确认的数字——使议会实现了超越所有可比时期历史基准的季度成绩。仅3月26日的超级全体会议就产生了9项重要通过文本，通过同时采纳DGSD2、BRRD3和SRMR3完成了历时14年的银行业联盟项目。随后4月7日至10日前后的会期又增加了至少6项额外文本（TA-10-2026-0099至TA-10-2026-0104），尽管其内容因复活节维护而暂时不可获取，但其存在已在通过文本订阅源中得到确认。议会今春不仅…</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-week-in-review-run12-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>本周回顾: week of April 11–18</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-week-in-review-zh.html</link>
+      <description>2026-04-18 — 中文 — 每周回顾 — Week In Review — 欧洲议会最近完整报告周分析 — 投票、委员会决定和立法进展 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-week-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: DEGRADED-mode run — the EP</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-breaking-180-zh.html</link>
+      <description>2026-04-17 — 中文 — 突发新闻 — Breaking 180 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-breaking-180-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: extends prior recess-probe</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-breaking-181-zh.html</link>
+      <description>2026-04-17 — 中文 — 突发新闻 — Breaking 181 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-breaking-181-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: fourth breaking probe of</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-breaking-182-zh.html</link>
+      <description>2026-04-17 — 中文 — 突发新闻 — Breaking 182 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-breaking-182-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-17 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-breaking-breaking-run182-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-17 · 分析运行 breaking-breaking-run182, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-17 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-breaking-breaking-run182-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports Run 53, 17…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-committee-reports-run53-zh.html</link>
+      <description>2026-04-17 — 中文 — 委员会活动 — Committee Reports Run53 — Run 53 is a recess-window analytical run that re-scores the March 2026 Strasb… 发布日期 2026-04-17. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-committee-reports-run53-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: recess-window</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-committee-reports-zh.html</link>
+      <description>2026-04-17 — 中文 — 委员会活动 — Committee Reports — 最近立法成果、效能指标和关键委员会活动分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Propositions Run 45, 17 April…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-propositions-run45-zh.html</link>
+      <description>2026-04-17 — 中文 — 立法程序 — Propositions Run45 — Run 45 is a recess-window propositions analytical run anchored on the EP10 Ye… 发布日期 2026-04-17. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-propositions-run45-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: recess-window ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-propositions-zh.html</link>
+      <description>2026-04-17 — 中文 — 立法程序 — Propositions — 欧洲议会最近的立法提案、程序跟踪和流水线状态 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Week Ahead: April 27–30 Stras…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-week-ahead-run14-zh.html</link>
+      <description>2026-04-17 — 中文 — 下周预告 — Week Ahead Run14 — **The April 27–30 Strasbourg plenary is read by the run as &quot;among the most co… 发布日期 2026-04-17. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-week-ahead-run14-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下周预告: run&apos;s three-debate ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-week-ahead-zh.html</link>
+      <description>2026-04-17 — 中文 — 下周预告 — Week Ahead — 欧洲议会日历、委员会会议和全体辩论 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: per-document-intelligence</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-breaking-176-zh.html</link>
+      <description>2026-04-16 — 中文 — 突发新闻 — Breaking 176 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-breaking-176-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: T+2 post-tariff ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-breaking-177-zh.html</link>
+      <description>2026-04-16 — 中文 — 突发新闻 — Breaking 177 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-breaking-177-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-16 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-breaking-breaking-run176-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-16 · 分析运行 breaking-breaking-run176, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-16 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-breaking-breaking-run176-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-16 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-breaking-breaking-run177-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-16 · 分析运行 breaking-breaking-run177, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-16 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-breaking-breaking-run177-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: documents the</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-committee-reports-1677eddd-9ddd-4b92-a3b7-876a5a4c-zh.html</link>
+      <description>2026-04-16 — 中文 — 委员会活动 — Committee Reports 1677eddd 9ddd 4b92 A3b7 876a5a4c — 最近立法成果、效能指标和关键委员会活动分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-committee-reports-1677eddd-9ddd-4b92-a3b7-876a5a4c-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: independent ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-committee-reports-485c93f9-8c68-4b20-a7bb-fb4f6e5a-zh.html</link>
+      <description>2026-04-16 — 中文 — 委员会活动 — Committee Reports 485c93f9 8c68 4b20 A7bb Fb4f6e5a — 最近立法成果、效能指标和关键委员会活动分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-committee-reports-485c93f9-8c68-4b20-a7bb-fb4f6e5a-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports Run 50, 16…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-committee-reports-run50-zh.html</link>
+      <description>2026-04-16 — 中文 — 委员会活动 — Committee Reports Run50 — Run 50 documents the record Q1 2026 committee output: 114 legislative acts ad… 发布日期 2026-04-16. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-committee-reports-run50-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports Run 52, 16…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-committee-reports-run52-zh.html</link>
+      <description>2026-04-16 — 中文 — 委员会活动 — Committee Reports Run52 — Run 52 is the independent re-confirmation of the Q1 2026 record (104 adopted… 发布日期 2026-04-16. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-committee-reports-run52-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: Main Committees</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-04-16 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: Main Committees 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Propositions Run 44, 16 April…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-propositions-run44-zh.html</link>
+      <description>2026-04-16 — 中文 — 立法程序 — Propositions Run44 — Run 44 documents that the European Parliament has entered the 27 March – 26 A… 发布日期 2026-04-16. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-propositions-run44-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: documents that the ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-propositions-zh.html</link>
+      <description>2026-04-16 — 中文 — 立法程序 — Propositions — 欧洲议会最近的立法提案、程序跟踪和流水线状态 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: marks Tariff T-0 — the</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-breaking-173-zh.html</link>
+      <description>2026-04-15 — 中文 — 突发新闻 — Breaking 173 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-breaking-173-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: extends &apos;s Tariff T-0</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-breaking-174-zh.html</link>
+      <description>2026-04-15 — 中文 — 突发新闻 — Breaking 174 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-breaking-174-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: article frontmatter ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-breaking-175-zh.html</link>
+      <description>2026-04-15 — 中文 — 突发新闻 — Breaking 175 — The article frontmatter exhibits the known recursive title。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-breaking-175-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-15 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-breaking-breaking-run173-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-15 · 分析运行 breaking-breaking-run173, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-15 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-breaking-breaking-run173-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-15 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-breaking-breaking-run174-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-15 · 分析运行 breaking-breaking-run174, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-15 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-breaking-breaking-run174-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-15 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-breaking-breaking-run175-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-15 · 分析运行 breaking-breaking-run175, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-15 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-breaking-breaking-run175-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports Run 49, 15…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-committee-reports-run49-zh.html</link>
+      <description>2026-04-15 — 中文 — 委员会活动 — Committee Reports Run49 — Run 49 records the operational activation of BOTH TA-10-2026-0096 and TA-10-2… 发布日期 2026-04-15. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-committee-reports-run49-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: records the ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-committee-reports-zh.html</link>
+      <description>2026-04-15 — 中文 — 委员会活动 — Committee Reports — 最近立法成果、效能指标和关键委员会活动分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Propositions: Tariff T-0 Pipe…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-propositions-run43-zh.html</link>
+      <description>2026-04-15 — 中文 — 立法程序 — Propositions Run43 — *On T-0 day itself, the run reframes the propositions narrative as pipeline t… 发布日期 2026-04-15. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-propositions-run43-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: structural finding is</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-propositions-zh.html</link>
+      <description>2026-04-15 — 中文 — 立法程序 — Propositions — *On T-0 day itself, the run reframes the propositions。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: T-1 pre-Tariff-T-0 probe</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-169-zh.html</link>
+      <description>2026-04-14 — 中文 — 突发新闻 — Breaking 169 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-169-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: identifies three ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-170-zh.html</link>
+      <description>2026-04-14 — 中文 — 突发新闻 — Breaking 170 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-170-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: synthesis run that ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-171-zh.html</link>
+      <description>2026-04-14 — 中文 — 突发新闻 — Breaking 171 — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-171-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: *This run delivers the</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-172-zh.html</link>
+      <description>2026-04-14 — 中文 — 突发新闻 — Breaking 172 — *This run delivers the period&apos;s most important structural。 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-172-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-14 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run169-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-14 · 分析运行 breaking-breaking-run169, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-14 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run169-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-14 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run170-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-14 · 分析运行 breaking-breaking-run170, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-14 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run170-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-14 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run171-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-14 · 分析运行 breaking-breaking-run171, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-14 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run171-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-14 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run172-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-14 · 分析运行 breaking-breaking-run172, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-14 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run172-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports: Six-Stakeh…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-committee-reports-run48-zh.html</link>
+      <description>2026-04-14 — 中文 — 委员会活动 — Committee Reports Run48 — This run&apos;s distinguishing contribution is the six-stakeholder-perspective str… 发布日期 2026-04-14. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-committee-reports-run48-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: Q1 record output</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-committee-reports-zh.html</link>
+      <description>2026-04-14 — 中文 — 委员会活动 — Committee Reports — 最近立法成果、效能指标和关键委员会活动分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Propositions: Day-Before-Tari…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-propositions-run42-zh.html</link>
+      <description>2026-04-14 — 中文 — 立法程序 — Propositions Run42 — Parliament returns from Easter recess facing what the run characterises as &quot;t… 发布日期 2026-04-14. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-propositions-run42-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: scenario outlook is the</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-propositions-zh.html</link>
+      <description>2026-04-14 — 中文 — 立法程序 — Propositions — 欧洲议会最近的立法提案、程序跟踪和流水线状态 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Week Ahead: Post-Easter Retur…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-week-ahead-run13-zh.html</link>
+      <description>2026-04-14 — 中文 — 下周预告 — Week Ahead Run13 — The week of April 14–21 is dominated by a single binary trigger: TA-10-2026-0… 发布日期 2026-04-14. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-week-ahead-run13-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下周预告: run records the most</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-week-ahead-zh.html</link>
+      <description>2026-04-14 — 中文 — 下周预告 — Week Ahead — 欧洲议会日历、委员会会议和全体辩论 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: *This is an analysis-only</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-breaking-zh.html</link>
+      <description>2026-04-13 — 中文 — 突发新闻 — Breaking — *This is an analysis-only run on the final recess day 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: Q1 2026 committee</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-committee-reports-43b9989e-4e2a-4672-aa00-f50e936a-zh.html</link>
+      <description>2026-04-13 — 中文 — 委员会活动 — Committee Reports 43b9989e 4e2a 4672 Aa00 F50e936a — 最近立法成果、效能指标和关键委员会活动分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-committee-reports-43b9989e-4e2a-4672-aa00-f50e936a-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: article exhibits</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-committee-reports-44-zh.html</link>
+      <description>2026-04-13 — 中文 — 委员会活动 — Committee Reports 44 — 最近立法成果、效能指标和关键委员会活动分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-committee-reports-44-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports: Q1 2026 Po…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-committee-reports-run47-zh.html</link>
+      <description>2026-04-13 — 中文 — 委员会活动 — Committee Reports Run47 — Q1 2026 committee output ranks ECON and INTA as the two most consequential co… 发布日期 2026-04-13. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-committee-reports-run47-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports Run 44, 13…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-committee-reports-zh.html</link>
+      <description>2026-04-13 — 中文 — 委员会活动 — Committee Reports — Run 44 is a T-2 pre-Tariff-activation committee-track positioning run (T-0 =… 发布日期 2026-04-13. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EP10 Month Ahead: April 13…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-month-ahead-run4-zh.html</link>
+      <description>2026-04-13 — 中文 — 下月预告 — Month Ahead Run4 — Three convergent crises define the 30-day window from end-of-Easter-recess to… 发布日期 2026-04-13. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-month-ahead-run4-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下月展望: Renew-ECR cohesion at</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-month-ahead-zh.html</link>
+      <description>2026-04-13 — 中文 — 下月预告 — Month Ahead — 欧洲议会战略展望 — 立法里程碑、委员会日程和政策议程 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-month-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-04-13 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-motions-39-zh.html</link>
+      <description>2026-04-13 — 中文 — 全体投票与决议 — Motions 39 — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-motions-39-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: extends &apos;s ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-motions-40-zh.html</link>
+      <description>2026-04-13 — 中文 — 全体投票与决议 — Motions 40 — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-motions-40-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: March 26 pre-Easter</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-motions-b3749573-d54d-4d01-94be-4b538541-zh.html</link>
+      <description>2026-04-13 — 中文 — 全体投票与决议 — Motions B3749573 D54d 4d01 94be 4b538541 — 欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-motions-b3749573-d54d-4d01-94be-4b538541-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-04-13 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-motions-motions-run40-zh.html</link>
+      <description>欧洲议会最近的全体投票、通过文本、政党凝聚力分析和投票异常检测 发布日期 2026-04-13 · 分析运行 motions-motions-run40, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 全体投票与决议: 2026-04-13 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-motions-motions-run40-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>March 26 plenary ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-motions-run41-zh.html</link>
+      <description>2026-04-13 — 中文 — 全体投票与决议 — Motions Run41 — adopted 7 texts including 3 CRITICAL items. 发布日期 2026-04-13. 面向跟踪欧盟机构民主问责、 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-motions-run41-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>Legislative Procedures: Tarif…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-propositions-run41-zh.html</link>
+      <description>2026-04-13 — 中文 — 立法程序 — Propositions Run41 — Q2 2026 opens with a single dominant file: TA-10-2026-0096 US Tariff Counterm… 发布日期 2026-04-13. 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-propositions-run41-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: Q2 2026 opens with a</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-propositions-zh.html</link>
+      <description>2026-04-13 — 中文 — 立法程序 — Propositions — 欧洲议会最近的立法提案、程序跟踪和流水线状态 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 报告163号，2026年4月12日（T-3）</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-12-breaking-zh.html</link>
+      <description>2026-04-12 — 中文 — 突发新闻 — Breaking — 报告163号是T-3活性化前整合探测报告——TA-0096 / TA-0097 法定运作状态前三天 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-12-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 运行157，2026年4月11日（复活节休会</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-breaking-157-zh.html</link>
+      <description>2026-04-11 — 中文 — 突发新闻 — Breaking 157 — 运行157是关税发动（T-0 = 4月15日）前的复活节休会第16天，T-4探测运行 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-breaking-157-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>情报简报 — 运行158，2026年4月11日（复活节休会</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-breaking-158-zh.html</link>
+      <description>2026-04-11 — 中文 — 突发新闻 — Breaking 158 — 运行158（复活节休会最后一个周末）在264,000字预计算统计数据基准线的基础上，增加了11,600字的联盟动态分析，从而扩展了运行157。</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-breaking-158-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-11 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-breaking-breaking-run157-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-11 · 分析运行 breaking-breaking-run157, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-11 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-breaking-breaking-run157-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-11 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-breaking-breaking-run158-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-11 · 分析运行 breaking-breaking-run158, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-11 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-breaking-breaking-run158-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-04-11</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-03-12至2026-04-11投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-04-11 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-propositions-zh.html</link>
+      <description>关于&quot;legislative pipeline as of 2026-04-11&quot;的这一议会活动对政治团体动态具有重大影响，影响着联盟构建策略和团体间谈判立场。 发布日期 2026-04-11 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下周预告: 2026-04-12 至 2026-04-19</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-week-ahead-zh.html</link>
+      <description>欧洲议会日历、委员会会议和全体辩论 发布日期 2026-04-11 · 分析运行 week-ahead, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 下周预告: 2026-04-12 至 2026-04-19 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 欧洲议会每周回顾：2026年4月4日至11日</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-week-in-review-zh.html</link>
+      <description>2026-04-11 — 中文 — 每周回顾 — Week In Review — 🟡 中等（无实时数据馈送；风险轨迹基于预计算统计数据及14次历史运行推断；截至4月10日，EP API全部13个端点均已停止运行）。</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-week-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 会话156，2026年4月10日（复活节休假</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-breaking-156-zh.html</link>
+      <description>2026-04-10 — 中文 — 突发新闻 — Breaking 156 — 会话156是复活节休假第15天，T-5突发探测运行，在28分钟分析窗口（18:17–18:45 UTC）内完成。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-breaking-156-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-10 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-breaking-breaking-run156-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-10 · 分析运行 breaking-breaking-run156, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-10 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-breaking-breaking-run156-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — Breaking，2026年4月10日</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-breaking-breaking-zh.html</link>
+      <description>2026-04-10 — 中文 — 突发新闻 — Breaking Breaking — 4月10日简报记录了 dataAvailability: Unavailable 状态下的复活节假期第15天。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-breaking-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行情报简报 — 委员会报告，2026年4月10日</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-committee-reports-zh.html</link>
+      <description>2026-04-10 — 中文 — 委员会活动 — Committee Reports — 2026年第一季度产出为104项采纳文本，较2025年节奏增长+46.2%——这是2004至2026年观测序列中单季度最高生产率。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 动议，2026年4月10日 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-motions-zh.html</link>
+      <description>2026-04-10 — 中文 — 全体投票与决议 — Motions — 休会日动议运行服务于程序性连续性目的：它们维持分析管道的日常节奏，并保持用户对产物可用性的期望。零维度读数是无最新动议采纳的休会日的正确输出。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 提案，2026年4月10日 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-propositions-PROP-2026-04-10-001-zh.html</link>
+      <description>2026-04-10 — 中文 — 立法程序 — Propositions PROP 2026 04 10 001 — 4月10日提案综合分析将ECON委员会的结构性工作负荷集中确定为2026年第二季度提案轨道的主导信号：</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-propositions-PROP-2026-04-10-001-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 提案-2，2026年4月10日 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-propositions-b09ab207-720b-4834-9df1-c8e93e95-zh.html</link>
+      <description>2026-04-10 — 中文 — 立法程序 — Propositions B09ab207 720b 4834 9df1 C8e93e95 — 4月10日第二次提案执行记录了1个已确认的政治维度（相对于此前动议执行中的0个）。唯一维度是ECON瓶颈假设（从主要提案执行中延续而来）。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-propositions-b09ab207-720b-4834-9df1-c8e93e95-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-04-10 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 周前瞻：复活节后委员会重启（4月10–17日</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-week-ahead-zh.html</link>
+      <description>2026-04-10 — 中文 — 下周预告 — Week Ahead — 🟡 中等（19个分析文件；联盟/跨届/深度分析/利益相关者/投票模式均为本地 🟢 高） 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — Breaking，2026年4月9日</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-09-breaking-zh.html</link>
+      <description>2026-04-09 — 中文 — 突发新闻 — Breaking — 4月9日简报识别到新的立法积压风险（12/25 高）：30件以上已通过文本 + 13项COD程序必须在4天委员会窗口（4月14-17日）内处理。</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-09-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 委员会报告，2026年4月9日 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-09-committee-reports-zh.html</link>
+      <description>2026-04-09 — 中文 — 委员会活动 — Committee Reports — 最近立法成果、效能指标和关键委员会活动分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-09-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 提案，2026年4月9日 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-09-propositions-zh.html</link>
+      <description>2026-04-09 — 中文 — 立法程序 — Propositions — 4月9日提案综合报告记录了议会休会前的产出基准线：2026年1月20日至3月26日期间在6次全体会议上通过的100项文本。</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-09-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>高管简报 — Breaking，2026年4月8日</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-08-breaking-zh.html</link>
+      <description>2026-04-08 — 中文 — 突发新闻 — Breaking — 4月8日Breaking简报记录了休会前库存快照：57份通过文本 | 0个事件 | 0项程序 | 737条议员更新已追踪。</description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-08-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 委员会报告，2026年4月8日 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-08-committee-reports-zh.html</link>
+      <description>2026-04-08 — 中文 — 委员会活动 — Committee Reports — 程序性连续性运行在机构关闭期间保存分析记录。4月8日的委员会报告运行就是这样一个锚点。</description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-08-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 动议，2026年4月8日 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-08-motions-zh.html</link>
+      <description>2026-04-08 — 中文 — 全体投票与决议 — Motions — 4月8日动议分析运行在假期前收尾阶段记录0个政治维度浮现。程序连续性输出。可信度：新内容为低-中；连续性为高；海军代码：B3。</description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-08-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 提案，2026年4月8日 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-08-propositions-zh.html</link>
+      <description>2026-04-08 — 中文 — 立法程序 — Propositions — 4月8日提案分析运行在休会前缩减阶段记录确认0个政治维度。程序性连续性输出以2026年第一季度基准线为锚点（100个文本 / 6次全体会议 / 10周；。</description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-08-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 复活节休会第12日夜间更新（距委员会周T-6</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-07-breaking-24097229534-zh.html</link>
+      <description>2026-04-07 — 中文 — 突发新闻 — Breaking 24097229534 — *第12日夜间breaking-2是相对于上午基线的12小时增量评估 — 休会期间配对AM/PM情报节奏的首个有结构的运营示例。</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-07-breaking-24097229534-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>行政简报 — 复活节休会第12天 晨间情报报告 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-07-breaking-d9f79a7a-aa2f-4a35-aa13-d6df91d7-zh.html</link>
+      <description>2026-04-07 — 中文 — 突发新闻 — Breaking D9f79a7a Aa2f 4a35 Aa13 D6df91d7 — 第12天晨间运行是本届立法期的结构性支柱 — 凭借44项分析产出和3,391行内容，本次运行在整个18天休会期间产出了最全面的单次运行休会前语料库分析。</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-07-breaking-d9f79a7a-aa2f-4a35-aa13-d6df91d7-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-04-07 — EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-07-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-04-07 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-04-07 — EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-07-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 委员会报告：ECON第二季度主导地图</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-07-committee-reports-zh.html</link>
+      <description>2026-04-07 — 中文 — 委员会活动 — Committee Reports — 这次委员会报告第12天运行是ECON第二季度主导地图 — 是4月6日揭示的委员会权力集中发现的更深入版本，附加一个关键内容：。</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-07-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 动议：投票模式压力测试第12日 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-07-motions-zh.html</link>
+      <description>2026-04-07 — 中文 — 全体投票与决议 — Motions — analysis/daily/2026-04-07/motions/ (06:39 UTC) 复活节休会第12日/共18日。</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-07-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会执行简报 — 提案：第12天 三方对话带宽诊断</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-07-propositions-zh.html</link>
+      <description>2026-04-07 — 中文 — 立法程序 — Propositions — 运行：analysis/daily/2026-04-07/propositions/ (05:46 UTC) 覆盖范围：。</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-07-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 复活节星期一第二次分析： ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-2-zh.html</link>
+      <description>2026-04-06 — 中文 — 突发新闻 — Breaking Breaking 2 — *第2次分析（复活节星期一06:45 UTC）的独特贡献是发现了双轨联合模式：SRMR3（TA-10-2026-0092）通过中右翼轨道（EPP+ECR+。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-2-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行情报简报 — 复活节星期一 执行3： ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-3-zh.html</link>
+      <description>2026-04-06 — 中文 — 突发新闻 — Breaking Breaking 3 — analysis/daily/2026-04-06/breaking-3/（12:15 UTC） 复活节休会日 11/18 正午；。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-3-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 复活节星期一第4次运行： ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-4-zh.html</link>
+      <description>2026-04-06 — 中文 — 突发新闻 — Breaking Breaking 4 — *第4次运行是复活节星期一的每日情报收尾 — 18天休会期中监控最密集的一天，在议会活动为零的单个日历日产出了8次工作流运行、61个以上分析制品以及约16。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-4-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>行政简报 — 复活节假期期间 | 2026-04-06</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-zh.html</link>
+      <description>2026-04-06 — 中文 — 突发新闻 — Breaking Breaking — 复活节星期一按设计仅产生零项议会活动，但此次运行却记录了两周假期中最重要的结构性发现： 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 委员会报告：复活节休会第11天 回顾性总结</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-committee-reports-zh.html</link>
+      <description>2026-04-06 — 中文 — 委员会活动 — Committee Reports — *本次复活节周一运行生成对休会前语料库的委员会权力回顾分析 — 作为同一日期突发新闻集群的分析补充：</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 动议：休会前投票分散回顾分析 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-motions-zh.html</link>
+      <description>2026-04-06 — 中文 — 全体投票与决议 — Motions — 本次复活节星期一运行产生休会前RCV投票分散回顾分析 — 同日委员会报告运行的分析性补充 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 提案：休会前立法流程回顾 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-propositions-zh.html</link>
+      <description>2026-04-06 — 中文 — 立法程序 — Propositions — 本复活节星期一提案运行生成2026年第一季度立法流程回顾分析 — 包含11,320行文章和20种分析方法论，是EP10语料库迄今为止单次运行中最全面的提案。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 快讯（跨届次更新）| 2026-04-05</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-05-breaking-breaking-2-zh.html</link>
+      <description>2026-04-05 — 中文 — 突发新闻 — Breaking Breaking 2 — 2026-04-05 跨届次情报更新；欧洲议会休会第10天（共18天）— 无新议会活动可报告 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-05-breaking-breaking-2-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 速报（休会中期战略综合） ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-05-breaking-breaking-3-zh.html</link>
+      <description>2026-04-05 — 中文 — 突发新闻 — Breaking Breaking 3 — 休会中期战略综合（第18天中的第10天）确认了延续至2026年第二季度的三个持续情报主题 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-05-breaking-breaking-3-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 突发新闻 | 2026-04-05 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-05-breaking-breaking-zh.html</link>
+      <description>2026-04-05 — 中文 — 突发新闻 — Breaking Breaking — 2026-04-05 无突发新闻动态；EP 处于复活节休会期（第 10 天，共 18 天，2026 年 3 月 27 日 → 4 月 13 日）。</description>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-05-breaking-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>活动概述 — 第一季度立法管道（突发新闻） ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-2-zh.html</link>
+      <description>2026-04-04 — 中文 — 突发新闻 — Breaking Breaking 2 — EP10的2026年第一季度在占主导地位的PPE联盟算术所显示的结构性脆弱性下，仍实现了实质性的立法管道产出。</description>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-2-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 突发新闻（休会前分析，第3轮） ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-3-zh.html</link>
+      <description>2026-04-04 — 中文 — 突发新闻 — Breaking Breaking 3 — 2026年4月4日无新突发事件；欧洲议会正值复活节休会（3月27日 → 4月13日） 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-3-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 突发新闻（已采用文本深度分析） ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-4-zh.html</link>
+      <description>2026-04-04 — 中文 — 突发新闻 — Breaking Breaking 4 — 已采用文本的周度订阅源返回了85件，涵盖三个不同的议会活动时期——70件来自当前EP10 2026会期，其余为早期窗口的延续。</description>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-4-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 突发新闻（联盟动态）| 2026-04-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-zh.html</link>
+      <description>2026-04-04 — 中文 — 突发新闻 — Breaking Breaking — 2026年4月4日的联盟计算确认了前一天的结构性状况：欧洲人民党（EPP）38%的非对称主导地位，以及Renew–ECR凝聚力信号（~0.95）的持续。</description>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 每周回顾 | 2026-04-04 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-04-week-in-review-zh.html</link>
+      <description>2026-04-04 — 中文 — 每周回顾 — Week In Review — 3月30日→4月4日这一周是完全的休会期，主要分析/行动情报发现并非立法性的，而是集中于两点： 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-04-week-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 紧急（API可靠性）| 2026-04-03</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-breaking-breaking-2-zh.html</link>
+      <description>2026-04-03 — 中文 — 突发新闻 — Breaking Breaking 2 — 欧洲议会数据门户信息源API处于中断状态 — 8个必需信息源中有5个在3次独立运行（06:00、12:15、18:15 UTC）中全部失败。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-breaking-breaking-2-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 速报（反腐败与制度改革） ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-breaking-breaking-3-zh.html</link>
+      <description>2026-04-03 — 中文 — 突发新闻 — Breaking Breaking 3 — 2026年3月全体会议产生了一套连贯的四文件制度改革方案——这是自2022年12月卡塔尔门危机以来最重要的此类组合。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-breaking-breaking-3-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 突发新闻（联合动态） | 2026-04-03</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-breaking-breaking-zh.html</link>
+      <description>2026-04-03 — 中文 — 突发新闻 — Breaking Breaking — EP10联合算术揭示了一个以欧洲人民党（EPP）为中心的结构性不对称议会（占样本席位38%），Renew–ECR之间呈现显著结盟信号0.95。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-breaking-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 委员会报告 | 2026-04-03</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-committee-reports-zh.html</link>
+      <description>2026-04-03 — 中文 — 委员会活动 — Committee Reports — 2026-04-03 未索引任何委员会文件；欧洲议会信息流 API 处于已确认的性能下降状态（参见配套评估 breaking-2）。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 决议动议 | 2026-04-03 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-motions-zh.html</link>
+      <description>2026-04-03 — 中文 — 全体投票与决议 — Motions — 2026-04-03无新决议动议提交；休会第2周（共4周），姊妹文章breaking-2确认数据馈送状态降级。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 提案 | 2026-04-03 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-propositions-zh.html</link>
+      <description>2026-04-03 — 中文 — 立法程序 — Propositions — 2026-04-03未开启任何新的欧盟委员会提案或欧洲议会自主程序。 运行9be5bca6-de96-4303-80ff-33cb5f24b51b返回。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 下周展望 | 2026-04-03 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-week-ahead-zh.html</link>
+      <description>2026-04-03 — 中文 — 下周预告 — Week Ahead — 欧洲议会日历、委员会会议和全体辩论 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 最新新闻 | 2026-04-02 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-02-breaking-zh.html</link>
+      <description>2026-04-02 — 中文 — 突发新闻 — Breaking — 3月休会后第二天；突出发现是数据管道退化，而非欧洲议会活动。 文章的YAML前置元数据因递归嵌套引号转义链（title: 和 description。</description>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-02-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 欧洲议会委员会报告 | 2026-04-02</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-02-committee-reports-zh.html</link>
+      <description>2026-04-02 — 中文 — 委员会活动 — Committee Reports — 2026-04-02无新委员会报告；共4周休会中的第2周持续进行。 运行 b64d7ca7-e49c-4fb7-9203-9946d31bfcae。</description>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-02-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 决议采纳提案 | 2026-04-02</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-02-motions-zh.html</link>
+      <description>2026-04-02 — 中文 — 全体投票与决议 — Motions — 2026-04-02无新提案提交；议会休会第2周（共4周）持续进行中。 运行c93513b6-9f22-4b36-a984-d0512328769c返回0。</description>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-02-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>情报简报 — 欧洲议会提案 | 2026-04-02</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-02-propositions-zh.html</link>
+      <description>2026-04-02 — 中文 — 立法程序 — Propositions — 2026年4月2日未开启任何新的委员会提案或欧洲议会自主倡议程序。 运行 a3fdcdee-e95c-4a90-a4de-4c41509e1c1d 返回。</description>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-02-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>行政摘要 — 突发新闻 | 2026-04-01 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-01-breaking-zh.html</link>
+      <description>2026-04-01 — 中文 — 突发新闻 — Breaking — 2026-04-01未检测到任何突发新闻。 欧洲议会正处于32天的会期间休会期（3月27日→4月26日），介于布鲁塞尔小型全体会议（3月25〜26日）与下。</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-01-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行摘要 — 委员会报告 | 2026-04-01</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-01-committee-reports-zh.html</link>
+      <description>2026-04-01 — 中文 — 委员会活动 — Committee Reports — 2026-04-01 无新委员会报告；为三月后委员会休会首日。 运行 64ada77d-c1f3-48f7-804d-be58857d0f18 返回 0。</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-01-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下月展望 | 2026-04-01 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-01-month-ahead-zh.html</link>
+      <description>2026-04-01 — 中文 — 下月预告 — Month Ahead — 2026年4月展望以4月27日至30日斯特拉斯堡全会和4月13日至17日筹备委员会周为核心 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-01-month-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>动议与决议草案 | 2026-04-01 ・ EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-01-motions-zh.html</link>
+      <description>2026-04-01 — 中文 — 全体投票与决议 — Motions — 2026年4月1日未登记任何新决议草案。 分析运行 6ab9ff5b-5062-4c7c-8625-af376a01eb16。</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-01-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 提案 | 2026-04-01 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-01-propositions-zh.html</link>
+      <description>2026-04-01 — 中文 — 立法程序 — Propositions — 2026-04-01 未索引任何欧盟委员会新提案或欧洲议会自主倡议文件。 分析运行 4cf3b11a-f38e-4a3c-a81c-5c73d6eb8ad。</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-01-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>执行简报 — 突发新闻 | 2026-03-31 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-31-breaking-zh.html</link>
+      <description>2026-03-31 — 中文 — 突发新闻 — Breaking — 2026年3月31日无突发信号；欧洲议会3月后首个休会周最后一天。 议会处于布鲁塞尔小型全体会议（3月25~26日）与斯特拉斯堡全体会议（4月27~30日。</description>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-31-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-31-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-31 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-31-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-31</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-31-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-03-01至2026-03-31投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-31 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-31-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-31-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-31 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-31-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-30-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-30 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-30-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-30</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-30-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-02-28至2026-03-30投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-30 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-30-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-30-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-30 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-30-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>月度回顾: EP10 ecosystem snapshot</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-28-month-in-review-zh.html</link>
+      <description>2026-03-28 — 中文 — 每月回顾 — Month In Review — 欧洲议会综合分析 — 立法成果、联盟动态和政策趋势 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-28-month-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>本周回顾: 2026-03-21 至 2026-03-28</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-28-week-in-review-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-03-21至2026-03-28投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-28 · 分析运行 week-in-review, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-28-week-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: Routine inter-sessional</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-27-breaking-zh.html</link>
+      <description>2026-03-27 — 中文 — 突发新闻 — Breaking — 投票异常、联盟变化和关键MEP活动的情报分析 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者。</description>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-27-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会委员会活动报告：ENVI、ECON、AFET、LIBE、AGRI — 28项通过文本</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-27-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-27 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 欧洲议会委员会活动报告：ENVI、ECON、AFET、LIBE、AGRI — 28项通过文本 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-27-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-27</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-27-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-02-25至2026-03-27投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-27 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-27-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-27-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-27 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-27-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>快讯：重要议会动态 — 2026-03-26 — 18项文本</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-26-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-26 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 快讯：重要议会动态 — 2026-03-26 — 18项文本 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-26-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会委员会活动报告：ENVI、ECON、AFET、LIBE、AGRI — 26项通过文本</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-26-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-26 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 欧洲议会委员会活动报告：ENVI、ECON、AFET、LIBE、AGRI — 26项通过文本 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-26-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-25</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-25-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-25 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-03-25 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-25-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-25</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-25-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-02-23至2026-03-25投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-25 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-25-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-25-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-25 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-25-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-24</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-24-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-24 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-03-24 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-24-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-24-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-24 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-24-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-24</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-24-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-02-22至2026-03-24投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-24 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-24-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-24-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-24 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-24-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-23</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-23-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-23 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-03-23 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-23-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-23-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-23 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-23-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-23</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-23-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-02-21至2026-03-23投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-23 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-23-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-23-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-23 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-23-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>本周回顾: 2026-03-14 至 2026-03-21</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-21-week-in-review-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-03-14至2026-03-21投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-21 · 分析运行 week-in-review, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-21-week-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-20-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-20 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-20-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-20</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-20-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-02-18至2026-03-20投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-20 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-20-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-20-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-20 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-20-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下周预告: 2026-03-21 至 2026-03-28</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-20-week-ahead-zh.html</link>
+      <description>议会背景: 根据欧洲议会数据 — parliamentary schedules determine the legislative agenda affecting EU citizens directly. 发布日期 2026-03-20 · 分析运行 week-ahead, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-20-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-19-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-19 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-19-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-19</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-19-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-02-17至2026-03-19投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-19 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-19-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-19-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-19 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-19-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-18</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-18-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-18 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-03-18 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-18-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-18-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-18 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-18-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-18-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-18 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-18-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-17</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-17-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-17 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-03-17 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-17-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-17</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-17-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-02-15至2026-03-17投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-17 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-17-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-17-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-17 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-17-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-16</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-16-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-16 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-03-16 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-16-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-16</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-16-motions-zh.html</link>
+      <description>2026年3月10日至12日的欧洲议会全体会议产生了八份涉及人工智能版权、欧盟-加拿大地缘政治合作、欧洲央行领导层以及重型车辆排放信用等广泛议题的通过文本。本次会议反映了欧洲议会广泛的立法议程及其对内部治理和国际事务的参与。 发布日期 2026-03-16 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-16-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-16-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-16 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-16-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-13</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-13-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-13 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-03-13 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-13-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-13-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-13 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-13-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-13</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-13-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中值得注意的政治动态。基于2026-02-11至2026-03-13期间的通过文本和记录活动，本分析为立法优先事项和决策模式提供了见解。 发布日期 2026-03-13 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-13-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-13-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-13 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-13-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下周预告: 2026-03-14 至 2026-03-21</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-13-week-ahead-zh.html</link>
+      <description>议会背景: 根据欧洲议会数据 — parliamentary schedules determine the legislative agenda affecting EU citizens directly. 发布日期 2026-03-13 · 分析运行 week-ahead, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-13-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-12</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-12-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-12 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-03-12 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-12-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-12-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-12 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-12-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-12</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-12-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-02-10至2026-03-12投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-12 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-12-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-11</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-11-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-11 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-03-11 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-11-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-11-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-11 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-11-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-11</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-11-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-02-09至2026-03-11投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-11 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-11-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-11-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-11 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-11-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-10</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-10-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-10 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-03-10 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-10-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-10-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-10 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-10-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-10</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-10-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-02-08至2026-03-10投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-10 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-10-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-10-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-10 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-10-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-09</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-09-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, 对2026-02-07至2026-03-09投票记录的分析为立法决策和政党纪律提供了见解。 发布日期 2026-03-09 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-09-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-09-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-09 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-09-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下周预告: 2026-03-10 至 2026-03-17</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-09-week-ahead-zh.html</link>
+      <description>欧洲议会日历、委员会会议和全体辩论 发布日期 2026-03-09 · 分析运行 week-ahead, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 下周预告: 2026-03-10 至 2026-03-17 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-09-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>本周回顾: 2026-02-28 至 2026-03-07</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-07-week-in-review-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, analysis of voting records from 2026-02-28 to 2026-03-07 provides insights into legislative decision-making and party discipline.</description>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-07-week-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-06</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-06-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-06 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-03-06 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-06-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-06-committee-reports-zh.html</link>
+      <description>第十届议会在2026年1至2月期间产生了56项通过文本——如果这一速度持续下去，2026年将成为EP10最具生产力的年份。2月10日至12日的全体会议尤为密集，关于气候、移民、国防和贸易的文本在三天内全部通过。 发布日期 2026-03-06 · 分析运行 committee-reports…</description>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-06-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-06</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-06-motions-zh.html</link>
+      <description>最近的议会活动揭示了欧洲议会中的关键投票模式、政党凝聚力趋势和值得注意的政治动态。 根据欧洲议会数据, analysis of voting records from 2026-02-04 to 2026-03-06 provides insights into legislative decision-making and party discipline.</description>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-06-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-06-propositions-zh.html</link>
+      <description>欧洲议会最近的立法提案、程序跟踪和流水线状态 发布日期 2026-03-06 · 分析运行 propositions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 立法程序: EU议会监测 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-06-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-05</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-05-breaking-zh.html</link>
+      <description>投票异常、联盟变化和关键MEP活动的情报分析 发布日期 2026-03-05 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: 突发: 重大议会进展 — 2026-03-05 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-05-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-05-committee-reports-zh.html</link>
+      <description>最近立法成果、效能指标和关键委员会活动分析 发布日期 2026-03-05 · 分析运行 committee-reports, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报 背景: EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI 面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者</description>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-05-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-05</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-05-motions-zh.html</link>
+      <description>欧洲议会在2026年通过了56项文本，涵盖从乌克兰支持和国防伙伴关系到工人权利、反贫困战略和人权等关键领域。2026年2月24日的最近一次全体会议通过了一项关于俄罗斯对乌克兰战争的里程碑式决议(TA-10-2026-0056)，标志着冲突进入第四年。此前2月的会议重点讨论了欧盟-南方共同市场协议的农业保障条款(TA-10-2026-0030)、通过安全国家框架的移民政策(TA-10-2026-0025)和战略防御伙伴关系(TA-10-2026-0040)。</description>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-05-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧盟议会立法管线：2026年初登记八项新的普通立法程序</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-05-propositions-zh.html</link>
+      <description>欧洲议会在2026年第一季度登记了60多项新的立法程序，显示EP10任期立法议程正在加速推进。八项新的普通立法程序（COD）— 从2026/0008(COD)到2026/0059(COD) — 已进入委员会阶段，同时进行的还有五项预算程序、四项非立法行为和九项自主报告。截至2026-03-05，通过EP开放数据门户记录的这一活动激增，反映了欧盟委员会在EP10第二年推进国防开支、清洁工业协议和人工智能法案实施等关键优先事项的决心。</description>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-05-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发：欧洲议会推进乌克兰援助、移民改革和贸易保障措施</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-04-breaking-zh.html</link>
+      <description>欧洲议会在2026年2月的三次全体会议上通过了19项文本，推进了关于乌克兰财政支持、移民和庇护改革、欧盟-南方共同市场贸易保障措施和人权的重要立法。十六项新的立法程序也已启动，标志着EP10立法活动的加速。 发布日期 2026-03-04 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-04-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-03-committee-reports-zh.html</link>
+      <description>随着欧洲议会第十届任期进入正轨，五个关键委员会——ENVI、ECON、AFET、LIBE和AGRI——正在推动一项由日益加剧的政治碎片化和议会构成右倾化所塑造的立法议程。在议会党团有效数量达到6.50、自2019年以来不可能实现两党多数的情况下，委员会工作已成为在全体会议投票前构建多党联盟的关键场所。</description>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-03-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-03</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-03-motions-zh.html</link>
+      <description>欧洲议会在2026年初进入了立法活动加速期，年初至今已通过56项文本（T10-0001/2026至T10-0056/2026）。这一产出反映了EP10政治动态的巩固，2024年选举后的右倾趋势继续重塑联盟构建和立法优先事项。 发布日期 2026-03-03 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-03-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-03-propositions-zh.html</link>
+      <description>欧洲议会第十届任期正在加速其立法工作量，2025年初已登记20项新程序——13项属于普通立法程序（COD），5项非立法事务（NLE），1项预算程序和1项旧合作程序。这一增长发生在拥有720名议员的议会面临史上最高碎片化指数6.50的背景下，这迫使每一项立法多数都需要更广泛的联盟。在欧洲人民党（EPP）持有188个席位（26.1%）且自2019年以来没有任何两党联盟能够实现多数的情况下，提案管线既反映了当前任期的雄心，也反映了其政治复杂性。</description>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-03-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>突发: 重大议会进展 — 2026-03-02</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-02-breaking-zh.html</link>
+      <description>欧洲议会在2026年初已通过超过55项文本，标志着EP10最高产的立法期之一。分裂的第十届议会——其中两党多数不可能——继续展示其在国防、贸易、移民、数字主权和乌克兰支持等关键政策领域跨党团联盟构建的能力。 发布日期 2026-03-02 · 分析运行 breaking, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-02-breaking-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>EU议会委员会活动报告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-02-committee-reports-zh.html</link>
+      <description>随着欧洲议会第十届任期找到其立法节奏，五个重量级委员会——ENVI、ECON、AFET、LIBE和AGRI——正在一个前所未有的多极政治格局中航行。碎片化指数达到历史最高的6.50，自2019年以来两党多数已不可能实现，每项立法行为现在都需要艰难的三集团联盟。</description>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-02-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-03-02</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-02-motions-zh.html</link>
+      <description>欧洲议会第十届任期进入第二个完整年度，议会碎片化程度达到2004年以来的最高水平。议会碎片化指数6.14创历史新高，这意味着动议和决议越来越需要跨越传统左右分界线的联盟。2024年选举中显现的右倾趋势继续重塑哪些动议获得推动力。 发布日期 2026-03-02 · 分析运行 motions, 附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报…</description>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-02-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-02-propositions-zh.html</link>
+      <description>欧洲议会第十届任期正在加速其立法机器。2025年已启动295项程序，预计2026年将达405项，EP10的立法管道正全速运转。当前会期已通过78项立法行为，较2024年EP9/EP10过渡期的72项显著增长。从数字税制改革到化学品监管和国防政策，议会的立法议程反映了欧盟最紧迫的战略优先事项。</description>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-02-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>月度展望：2026年3月 — EP10春季立法攻势</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-01-month-ahead-zh.html</link>
+      <description>2026年3月，欧洲议会进入第十届议会第二个春季，开启了一个要求严格的立法篇章。720名议员现已完全融入委员会工作，立法生产速度预计将显著加快。预计算的议会统计数据预测全年将有53次全体会议和114项立法行为——与2024年EP9/EP10过渡期（38次会议和72项法律行为）相比有显著增长。</description>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-01-month-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>月度展望：2026年3月战略前瞻</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-28-month-ahead-zh.html</link>
+      <description>2026年3月标志着欧洲议会立法日历中的关键月份，该机构进入第十届议会任期的第二季度。随着春季会议期间全面展开，欧洲议会议员面临着斯特拉斯堡全体会议和布鲁塞尔委员会工作的密集日程。立法管线保持稳健，势头强劲且未发现瓶颈——这表明机构间协调高效。包括数字化转型、环境监管和国防合作在内的关键政策领域将主导议程。</description>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-28-month-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>月度回顾：2026年2月</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-28-month-in-review-zh.html</link>
+      <description>2026年2月，欧洲议会在第十届议会进入第二年之际保持了强劲的立法节奏。立法管道健康指数达到满分——100分中的100分，没有任何延迟程序——这表明机构间协调高效。议会在地缘政治压力加大以及气候、数字治理和国防政策议程不断深化的背景下处理了繁重的工作量。</description>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-28-month-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>每周回顾：2026年2月21日至28日</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-28-week-in-review-zh.html</link>
+      <description>欧洲议会2月21日至28日的一周是选区和委员会工作期，没有安排全体投票。尽管如此，议员们在幕后保持活跃：超过二十份书面议会质询被正式提交，表明在多个政策领域持续进行立法监督。政治团体的稳定性保持高位，未检测到投票异常或叛离信号——这反映了第十届议会任期的巩固阶段。</description>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-28-week-in-review-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会委员会活动：废弃物、凝聚力和国防塑造立法议程</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-27-committee-reports-zh.html</link>
+      <description>欧洲议会常设委员会正将一项雄心勃勃的立法计划推进至关键阶段。废弃物框架指令关于纺织品和食品废弃物的新规定、对ERDF和凝聚力基金的战略修正、CSDP防务年度审查、欧洲司法合作署案件管理系统现代化以及重新调整的农业关税配额均在立法管道中推进。本分析基于EP开放数据门户的通过文本、委员会效能数据和管道信息，评估第十届议会任期五个关键委员会——ENVI、ECON、AFET、LIBE和AGRI——的产出和方向。</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-27-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>全体投票与决议: 2026-02-27</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-27-motions-zh.html</link>
+      <description>欧洲议会第10届任期已进入立法产出加速阶段，2025年通过了30项文本，涵盖人权紧急情况、经济治理改革和安全政策变化。对欧洲议会数据的分析表明，议会在同时应对外部威胁——从伊朗的系统性压迫到俄罗斯的贸易干扰——的同时，推进数字税收、废物管理和凝聚力政策方面的雄心勃勃的内部改革。</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-27-motions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法加速：欧洲议会在2026年初处理50多项已通过文本和7项新COD提案</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-27-propositions-zh.html</link>
+      <description>根据欧洲议会开放数据门户网站的数据，欧洲议会已经为2026年登记了至少50项新的立法程序。提交节奏显示立法工作正在持续加速：其中包括7个普通立法程序（COD）案件、4个预算程序（BUD）案件、4个非立法文件（NLE），以及大量本院主动报告（INI）、豁免案件（IMM）、决议案（RSP）和委托法案审查文件（DEA）。与此同时，来自2025年的13项COD提案仍停留在委员会阶段，形成了相当可观的积压。议会在2026年年初已经通过了50多份文本，涵盖的关键议题从医药供应安全和气候中和，到无人机战争学说、欧盟–南方共同市场（Mercosur）贸易保障、对乌克兰的支持贷款以及欧洲技术主权。这一立法产出…</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-27-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>欧洲议会委员会活动：五个关键委员会塑造欧洲政策议程</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-zh.html</link>
+      <description>欧洲议会常设委员会在本届任期内推动了广泛的立法议程，涵盖化学品监管、数字税收改革、针对伊朗、阿塞拜疆和西巴尔干的外交政策决议、司法合作协议以及农业贸易调整。本报告依据欧洲议会开放数据门户的通过文本、效能指标和立法流程数据，分析了五个最活跃委员会——ENVI、ECON、AFET、LIBE和AGRI——的成果与战略方向。</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法管道激增：2026年新增20项程序</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-zh.html</link>
+      <description>根据议会开放数据门户的数据，欧洲议会已为2026年登记了至少20项新的立法程序。该模式表明节奏加快：七项普通立法程序（COD）、四项预算程序（BUD）、四项非立法程序（NLE），以及自发报告（INI）、豁免权问题（IMM）和决议（RSP）。同时，2025年的12项COD提案仍在委员会阶段。议会在2026年初已通过20多项文本，涵盖金融稳定、EU–Mercosur贸易条款、无人机战争和欧洲技术主权。</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-zh.html</link>
+      <description>随着欧洲议会进入第十届任期的第二年，该机构的立法管线揭示了一个处于战略转型期的议会。对欧洲议会开放数据门户的委员会活动数据分析显示，该机构对新立法提案采取了审慎但坚定的方针。环境、工业、公民自由、数字监管和内部市场改革五个主要政策领域正在塑造2026年的立法优先事项。</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>立法程序: EU议会监测</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-zh.html</link>
+      <description>随着欧洲议会第十届议会进入第二年，该机构的立法机器正处于战略性重新校准时期。对欧洲议会开放数据中当前立法管道的分析揭示了一个有条不紊地建设其委员会结构并在启动重大立法倡议之前确立政策优先事项的议会机构。本报告审查了立法提案的状态、委员会准备情况以及塑造议会2026年立法议程的政治动态。</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+    <item>
+      <title>下周预告: 2026-02-25 至 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-zh.html</link>
+      <description>欧洲议会进入关键一周，议员们返回布鲁塞尔进行委员会工作和全体会议准备。随着多个委员会——包括ENVI、ITRE和LIBE——召开会议推进关键立法文件，2026-02-25至2026-03-04这一周将塑造多个关键政策走向。环境和数字政策仍是重中之重，立法管道显示有5个活跃文件正在推进，40项修正案正在审议中。</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-zh.html</guid>
+      <dc:language>zh</dc:language>
+    </item>
+  </channel>
+</rss>

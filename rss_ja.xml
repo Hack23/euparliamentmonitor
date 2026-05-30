@@ -1,0 +1,2997 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>EU議会モニター - ニュース</title>
+    <link>https://euparliamentmonitor.com</link>
+    <description>欧州議会に関するオープンな政治インテリジェンス — 採決、動議、委員会作業、立法パイプラインを欧州議会のオープンデータから日次で抽出し、14言語で公開。</description>
+    <language>ja</language>
+    <lastBuildDate>Sat, 30 May 2026 06:33:15 GMT</lastBuildDate>
+    <atom:link href="https://euparliamentmonitor.com/rss_ja.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>速報: EP Breaking News: AI Trade</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-29-breaking-ja.html</link>
+      <description>2026-05-29 — 日本語 — 速報 — Breaking — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-29-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会委員会報告書、202</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-29-committee-reports-ja.html</link>
+      <description>2026-05-29 — 日本語 — 委員会活動 — Committee Reports — 報告週間（2026-05-22 → 2026-05-29）は、2026年5月20日に終了した2026年5月ストラスブール本会議後の会期間隔に位置する。</description>
+      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-29-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会提案 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-29-propositions-ja.html</link>
+      <description>2026-05-29 — 日本語 — 立法手続 — Propositions — 2026年5月20日、欧州議会はEU貿易向けの包括的AI戦略を同時採択し——EUのAIガバナンス枠組みをグローバルに輸出するという欧州の野望を確認。</description>
+      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-29-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>📋 エグゼクティブ・ブリーフ — 欧州議会：来週の展望</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-29-week-ahead-ja.html</link>
+      <description>2026-05-29 — 日本語 — 今週の予定 — Week Ahead — 今は劇的なことは少ないが、高い賭けが形成中。6月15〜18日本会議に向けて予算トラックを追う。</description>
+      <pubDate>Fri, 29 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-29-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>インテリジェンス・ブリーフィング — 欧州議会：速報ニュース</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-breaking-ja.html</link>
+      <description>2026-05-28 — 日本語 — 速報 — Breaking — 速報：欧州議会、ストラスブール本会議（2026年5月19〜21日）にてAI貿易戦略とアフガニスタン女性の権利決議を採択</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 欧州議会委員会報告、2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-committee-reports-ja.html</link>
+      <description>2026-05-28 — 日本語 — 委員会活動 — Committee Reports — 欧州議会は2026年5月の本会議を非常に生産的な委員会成果とともに締めくくりました。2026年5月20日までに記録された採択テキストは50件に上り、対外関。</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会選挙サイクル — エグゼクティブ・ブリーフ</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-election-cycle-ja.html</link>
+      <description>2026-05-28 — 日本語 — 選挙サイクル — Election Cycle — 2026-05-28 · T-1105 — 2029年6月6〜9日欧州議会選挙まで · 対象期間: 2026-05-28 → 2031-05-27。</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-election-cycle-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会 月次レビュー：</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-month-in-review-ja.html</link>
+      <description>2026-05-28 — 日本語 — 月間レビュー — Month In Review — 欧州議会 2026年5月：防衛主権、デジタルガバナンス、予算的野心が決定的な月を規定する</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-month-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: session&apos;s output can</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-motions-ja.html</link>
+      <description>2026-05-28 — 日本語 — 本会議投票・決議 — Motions — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-propositions-ja.html</link>
+      <description>2026-05-28 — 日本語 — 立法手続 — Propositions — European Parliament Advances AI-Trade Doctrine and Ratifies。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>会期展望: Likely 55-75%, central</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-28-term-outlook-ja.html</link>
+      <description>2026-05-28 — 日本語 — 会期展望 — Term Outlook — 欧州議会の複数年選挙アウトルック — 連立軌道、公約実現進捗、Spitzenkandidaten シグナル、議席投影帯</description>
+      <pubDate>Thu, 28 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-28-term-outlook-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 欧州議会最新ニュース、2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-27-breaking-ja.html</link>
+      <description>2026-05-27 — 日本語 — 速報 — Breaking — 2026年5月19日から21日の週は、欧州議会が戦略的に相互連関した三つの分野で行動した週となりました：</description>
+      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-27-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 委員会報告（2026-05</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-27-committee-reports-ja.html</link>
+      <description>2026-05-27 — 日本語 — 委員会活動 — Committee Reports — 評価：画期的である可能性が高い（55〜65%）が、実施は保証されない。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-27-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>🗳️ エグゼクティブ・ブリーフィング ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-27-motions-ja.html</link>
+      <description>2026-05-27 — 日本語 — 本会議投票・決議 — Motions — 欧州議会（ストラスブール）は2026年5月19〜20日の本会議において、10件の決議を採択しました EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-27-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>情報ブリーフィング — 欧州議会提案 ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-27-propositions-ja.html</link>
+      <description>2026-05-27 — 日本語 — 立法手続 — Propositions — 🟢 高信頼度（WEP：90〜95%）— 欧州議会2026年5月本会議は、完結した立法と戦略的決議の歴史的な組み合わせをもたらした。</description>
+      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-27-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ：欧州議会本会議 — 最新ニュース</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-26-breaking-ja.html</link>
+      <description>2026-05-26 — 日本語 — 速報 — Breaking — 重要度：重大 | アドミラルティ等級：A1 議会は、EU域内における外国投資スクリーニング規則を採択し、2019年の任意協力枠組みを、半導体、AI、量子コ。</description>
+      <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-26-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 欧州議会委員会報告 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-26-committee-reports-ja.html</link>
+      <description>2026-05-26 — 日本語 — 委員会活動 — Committee Reports — 欧州議会の委員会システムは、可視性が限られた監視のもと、立法需要の高い状況で2026年5月26日の週を迎えている。</description>
+      <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-26-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会決議 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-26-motions-ja.html</link>
+      <description>2026-05-26 — 日本語 — 本会議投票・決議 — Motions — 欧州議会の本会議（2026 年 5 月 19〜23 日）は、EP10 議会期において単一会期での最も重要な貿易・安全保障立法パッケージを締め括りました。</description>
+      <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-26-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-26-propositions-ja.html</link>
+      <description>2026-05-26 — 日本語 — 立法手続 — Propositions — 欧州議会は、2021年のコロナ禍後以来最も複雑な立法ドシエバランスで2026年5月26日の週に入ります EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 26 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-26-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>要旨 — 欧州議会速報ニュース（第2稿・拡張版） ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-25-breaking-ja.html</link>
+      <description>2026-05-25 — 日本語 — 速報 — Breaking — 本要旨は、2026年5月19日から25日にかけての欧州議会における最重要速報事項を扱う EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-25-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>インテリジェンス・ブリーフィング — 欧州議会委員会報告：</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-25-committee-reports-ja.html</link>
+      <description>2026-05-25 — 日本語 — 委員会活動 — Committee Reports — 政策立案者、ジャーナリスト、EU観察者へ: 今週の欧州議会委員会インテリジェンスからの3つのポイント：</description>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-25-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会エグゼクティブブリーフ：決議 ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-25-motions-ja.html</link>
+      <description>2026-05-25 — 日本語 — 本会議投票・決議 — Motions — 信頼度：🟡 MEDIUM（記名投票データ未公開；採択テキスト更新により本会議結果を確認）</description>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-25-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会提案 — エグゼクティブ・インテリジェンス・ブリーフ</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-25-propositions-ja.html</link>
+      <description>2026-05-25 — 日本語 — 立法手続 — Propositions — ストラスブール本会議（5月19–21日）はEP10最重要外交立法パッケージの一つを生み出し、EU–ウズベキスタンEPCA採択は2019年接続性戦略以降、最。</description>
+      <pubDate>Mon, 25 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-25-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ：欧州議会週間レビュー ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-23-week-in-review-ja.html</link>
+      <description>2026-05-23 — 日本語 — 週間レビュー — Week In Review — 2026年4月28日から30日にかけてのストラスブール欧州議会本会議は、2024年から2029年の会期における議会最大のデジタル規制執行の取り組みを示す1。</description>
+      <pubDate>Sat, 23 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-23-week-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング — 欧州議会 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-22-breaking-ja.html</link>
+      <description>2026-05-22 — 日本語 — 速報 — Breaking — 確信度： 🟢 HIGH | 情報源グレード：A1（EP採択テキスト）| WEP：ほぼ確実</description>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-22-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会委員会活動報告書 — 2026年5月18日〜22日</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-22-committee-reports-ja.html</link>
+      <description>2026-05-22 — 日本語 — 委員会活動 — Committee Reports — 欧州議会の委員会システムは、複数の高優先案件が本会議への準備段階に近づく中、2025〜2026年の立法の秋の最終段階に入っています。</description>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-22-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会動議・決議：エグゼクティブブリーフ ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-22-motions-ja.html</link>
+      <description>2026-05-22 — 日本語 — 本会議投票・決議 — Motions — WEPバンド：可能性あり（65–85%） | 時間軸：3〜6か月 | 海軍格付け：B2</description>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-22-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 欧州議会立法提案 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-22-propositions-ja.html</link>
+      <description>2026-05-22 — 日本語 — 立法手続 — Propositions — データ品質注記: 欧州議会APIエンリッチメント層はセッション中利用不可（HTTP 404） EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-22-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>📋 エグゼクティブ・ブリーフ — 欧州議会の週間展望</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-22-week-ahead-ja.html</link>
+      <description>2026-05-22 — 日本語 — 今週の予定 — Week Ahead — トップライン: WEP 可能性高（60〜68%）— ReArm Europeおよび貿易政策案件が進展する活発な委員会週となる見込み Admiralty。</description>
+      <pubDate>Fri, 22 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-22-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会最新ニュース</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-21-breaking-ja.html</link>
+      <description>2026-05-21 — 日本語 — 速報 — Breaking — B2（おそらく事実 — 信頼できる情報源、部分的確認済み） ｜ 海軍評価: B2</description>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-21-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — EP 委員会報告 · 週次</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-21-committee-reports-ja.html</link>
+      <description>2026-05-21 — 日本語 — 委員会活動 — Committee Reports — 最近の立法成果、有効性指標、主要な委員会活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-21-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>📰 エグゼクティブ・ブリーフ — 欧州議会動議 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-21-motions-ja.html</link>
+      <description>2026-05-21 — 日本語 — 本会議投票・決議 — Motions — 欧州議会は5月19日〜20日のストラスブール本会議で8件の文書を採択しました。その中でEUのAI貿易戦略（TA-10-2026-0183）が最も戦略的に重。</description>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-21-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・インテリジェンス・ブリーフィング ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-21-propositions-ja.html</link>
+      <description>2026-05-21 — 日本語 — 立法手続 — Propositions — 欧州議会の2026年5月ミニ本会議（5月19〜20日）は、AI・貿易戦略、森林ガバナンス、二国間パートナーシップ、漁業、および国連総会への立場設定を対象と。</description>
+      <pubDate>Thu, 21 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-21-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>分析エグゼクティブ・ブリーフ — 欧州議会委員会報告</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-20-committee-reports-ja.html</link>
+      <description>2026-05-20 — 日本語 — 委員会活動 — Committee Reports — 欧州議会の24の常任委員会は、第10立法会期（EP10、2024年～2029年）の第2年目に当たる2026年5月13日～20日の週、立法業務を継続しました。</description>
+      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-20-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — EU立法提案 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-20-propositions-ja.html</link>
+      <description>2026-05-20 — 日本語 — 立法手続 — Propositions — 2026年4月28〜30日のストラスブール欧州議会本会議は、8つの採択テキストを産出した EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-20-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会速報ニュース</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-18-breaking-ja.html</link>
+      <description>2026-05-18 — 日本語 — 速報 — Breaking — 欧州議会は2026年4月のストラスブール本会議を、技術規制、外交政策、予算管理、社会的権利の各分野にわたる9件の実質的な法令採択という濃密な立法・。</description>
+      <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-18-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>幹部向け概要 — 欧州議会委員会報告 ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-18-committee-reports-ja.html</link>
+      <description>2026-05-18 — 日本語 — 委員会活動 — Committee Reports — 欧州議会の委員会は2026年5月、重要な分岐点にある — EP10の立法任期の中間地点で、現任期で最も重要な案件スプリントに取り組んでいる。</description>
+      <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-18-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会 提案動向 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-18-propositions-ja.html</link>
+      <description>2026-05-18 — 日本語 — 立法手続 — Propositions — 欧州議会は第10会期において、構造的に脆弱な連立条件下（右派ブロックの票差は16票；断片化ハーフィンダール・ハーシュマン指数0.1514。</description>
+      <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-18-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会最新情報 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-17-breaking-ja.html</link>
+      <description>2026-05-17 — 日本語 — 速報 — Breaking — 2026年4月（4月28〜30日）にストラスブールで開催された欧州議会本会議は、デジタルガバナンス、外交政策の方向性、予算計画において重要な転換点となる。</description>
+      <pubDate>Sun, 17 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-17-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会 最新情報 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-16-breaking-ja.html</link>
+      <description>2026-05-16 — 日本語 — 速報 — Breaking — 2026年4月の欧州議会本会議（ストラスブール、4月28日〜30日）は、デジタル規制の執行、ウクライナ戦争の責任追及、農業の持続可能性、EU近隣地域の民主。</description>
+      <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-16-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング — 欧州議会週刊レビュー</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-16-week-in-review-ja.html</link>
+      <description>2026-05-16 — 日本語 — 週間レビュー — Week In Review — 2026-05-16 ｜ 分類： 公開 ｜ 情報源レベル： レベル1（EP公開データ）</description>
+      <pubDate>Sat, 16 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-16-week-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 速報： ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-15-breaking-ja.html</link>
+      <description>2026-05-15 — 日本語 — 速報 — Breaking — 五つの重要事実： EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-15-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 欧州議会委員会報告 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-15-committee-reports-ja.html</link>
+      <description>2026-05-15 — 日本語 — 委員会活動 — Committee Reports — 欧州議会の委員会システムは、2026年5月中旬時点で第10立法期（2024〜2029年）の集中的な立法フェーズにある。</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-15-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>管理要旨 — 欧州議会決議 · 2026-05-15</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-15-motions-ja.html</link>
+      <description>2026-05-15 — 日本語 — 本会議投票・決議 — Motions — 🟢 高信頼（WEP：ほぼ確実、90%+） EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-15-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ：欧州議会の立法提案 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-15-propositions-ja.html</link>
+      <description>2026-05-15 — 日本語 — 立法手続 — Propositions — 欧州議会は2026年第1四半期から第2四半期にかけて例外的な立法ペースを示し、2026年1月から5月の間に51件の正式テキストを採択した。</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-15-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>幹部向け概要 — 欧州議会 週間スケジュール： ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-15-week-ahead-ja.html</link>
+      <description>2026-05-15 — 日本語 — 今週の予定 — Week Ahead — 欧州議会は2026年5月19日〜22日にストラスブールで本会議を開催します。3つの主要議会日にわたる約57の議題を持ち、この週はEP10にとって中程度に活。</description>
+      <pubDate>Fri, 15 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-15-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・インテリジェンス・ブリーフ ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-14-breaking-ja.html</link>
+      <description>2026-05-14 — 日本語 — 速報 — Breaking — 2026年4月28〜30日にブリュッセルで開催された欧州議会本会議は、2028〜2034年多年度財政枠組み（MFF）の中間報告、2024年度の予算執行承認。</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-14-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — EP委員会報告書 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-14-committee-reports-ja.html</link>
+      <description>2026-05-14 — 日本語 — 委員会活動 — Committee Reports — 欧州議会の委員会制度は、2026年5月12〜16日の週、少なくとも7つの常任委員会にわたる充実した立法議題とともに始まりました。</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-14-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 欧州議会の選挙サイクル（202</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-14-election-cycle-ja.html</link>
+      <description>2026-05-14 — 日本語 — 選挙サイクル — Election Cycle — 蓋然的（60〜80%）· 時間的地平： 2029年6月6日（PE10任期終了）。情報信頼性評価： B2（おそらく真実、概ね信頼できる）。</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-14-election-cycle-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会の動議および採択テキ</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-14-motions-ja.html</link>
+      <description>2026-05-14 — 日本語 — 本会議投票・決議 — Motions — 欧州議会のストラスブール本会議（4月28日〜30日）は、5つのテーマ的クラスターにわたる13の重要なテキストを採択しました。</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-14-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会提案 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-14-propositions-ja.html</link>
+      <description>2026-05-14 — 日本語 — 立法手続 — Propositions — 2026年4月28日〜30日にストラスブールで開かれた欧州議会本会議は、デジタル執行・農業レジリエンス・刑事司法・地政学的関与・。</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-14-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会 – 翌年の展望 — エグゼクティブブリーフ</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-14-year-ahead-ja.html</link>
+      <description>2026-05-14 — 日本語 — 年間展望 — Year Ahead — 欧州議会の2026–2027年立法年度は、三つの構造的現実のもとで展開される。第一に、EPP主導のブロック（全議席の25.5%、183名のMEP）が複数連。</description>
+      <pubDate>Thu, 14 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-14-year-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会委員会活動、2026</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-13-committee-reports-ja.html</link>
+      <description>2026-05-13 — 日本語 — 委員会活動 — Committee Reports — 2026年5月6日〜13日の週は、EP10がEU規制の拡張局面（EP9のグリーンディール／AI規則／CSDDD波）から統合・。</description>
+      <pubDate>Wed, 13 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-13-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EP10 選挙サイクル — エグゼクティブ・ブリーフ</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-13-election-cycle-ja.html</link>
+      <description>2026-05-13 — 日本語 — 選挙サイクル — Election Cycle — 欧州議会のEP10会期（2024–2029年）は、構造的に右寄りにシフトした議会が歴史的な危機の収束に対処する中、その決定的な第2年に入りました。</description>
+      <pubDate>Wed, 13 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-13-election-cycle-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-13-motions-ja.html</link>
+      <description>2026-05-13 — 日本語 — 本会議投票・決議 — Motions — 2026年4月の欧州議会本会議週（4月28〜30日）は、デジタル市場規制の執行、ロシアのウクライナに対する責任、アルメニアの民主的強靭性、オンラインいじめ。</description>
+      <pubDate>Wed, 13 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-13-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフィング — 欧州議会立法提案</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-13-propositions-ja.html</link>
+      <description>2026-05-13 — 日本語 — 立法手続 — Propositions — 本セッションで分析した5つの採択テキストは、まとめて見ると顕著な戦略的一貫性を示しています EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 13 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-13-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 欧州議会 速報 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-12-breaking-ja.html</link>
+      <description>2026-05-12 — 日本語 — 速報 — Breaking — BLUF（60秒要約）: 2026年4月28日〜5月1日の欧州議会本会議は、5つの戦略的クラスターにわたって30件超の重要な立法・政策成果をもたらした。</description>
+      <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-12-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 欧州議会動議、2026年4月1</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-12-motions-ja.html</link>
+      <description>2026-05-12 — 日本語 — 本会議投票・決議 — Motions — 2026年5月12日に終了した30日間のサイクルは、採択文書101件（EP9のペースを上回る）をもたらし、EP10の作業アイデンティティを結晶化させました。</description>
+      <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-12-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会提案 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-12-propositions-ja.html</link>
+      <description>2026-05-12 — 日本語 — 立法手続 — Propositions — 2026年5月5日から12日の週に、EP10の最初の完全な立法年における重要な節目として、三つの画期的な立法措置が最終的な公布または採択に達した。</description>
+      <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-12-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>幹部向けブリーフィング — 欧州議会： ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-breaking-ja.html</link>
+      <description>2026-05-11 — 日本語 — 速報 — Breaking — 2026年4月28日〜30日のストラスブール本会議は、三つの重要成果をもたらした：</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 欧州議会委員会報告 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-committee-reports-ja.html</link>
+      <description>2026-05-11 — 日本語 — 委員会活動 — Committee Reports — 2026年5月4日から11日の週における欧州議会の委員会状況は、4月後の統合と6月本会議準備を特徴としており、構造的に分断された議会（9つの政治グループ。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — EP10 ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-election-cycle-ja.html</link>
+      <description>2026-05-11 — 日本語 — 選挙サイクル — Election Cycle — 2024 年選挙は、9 会派 717 議員からなる EP10 を生み出した。分断指数 6.58 は EP6（2004–2009）以来の最高値である。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-election-cycle-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会、今後1か月：</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-month-ahead-ja.html</link>
+      <description>2026-05-11 — 日本語 — 今月の予定 — Month Ahead — 欧州議会は、5月の第1回フル・ストラスブール本会議（2026年5月18～21日）と6月会期を目指す立法日程によって特徴づけられる重大な4週間に入ろうとして。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-month-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会エグゼクティブブリーフ：動議 ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-motions-ja.html</link>
+      <description>2026-05-11 — 日本語 — 本会議投票・決議 — Motions — 2026年4月28〜30日にストラスブールで開催された欧州議会本会議は、デジタル権利の執行、ウクライナ・</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング — 欧州議会における立法提案</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-propositions-ja.html</link>
+      <description>2026-05-11 — 日本語 — 立法手続 — Propositions — 欧州議会は2026年春、立法上の集中強化局面を迎えている。2026年4月末から5月初旬にかけて、画期的な立法成果が相次いだ。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・インテリジェンス・ブリーフィング ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-term-outlook-ja.html</link>
+      <description>2026-05-11 — 日本語 — 会期展望 — Term Outlook — EP10は2029年選挙前に部分的な多数連立立法議題を成立させる見込みです — 任期の戦略的枠組みは構造的財政圧力であり、急性の政治危機ではありません。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-term-outlook-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング：欧州議会 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-11-year-ahead-ja.html</link>
+      <description>2026-05-11 — 日本語 — 年間展望 — Year Ahead — 欧州議会は2024年選挙以来、最も重大な12カ月を迎えようとしています。EPPの優勢（717議席中183議席、25.5%）を持つ高度に断片化された9会派議。</description>
+      <pubDate>Mon, 11 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-11-year-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会 速報ニュース</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-10-breaking-ja.html</link>
+      <description>2026-05-10 — 日本語 — 速報 — Breaking — EP Open Data Portal | EP採択テキスト | EP政治グループ 2026年4月28〜30日（最新ストラスブール本会議完了） 公開日。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-10-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会任期展望 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-10-term-outlook-ja.html</link>
+      <description>2026-05-10 — 日本語 — 会期展望 — Term Outlook — EP10は任期後半に突入しており、構造的に制約されつつも機能的な大連合（EPP+S&amp;D+Renew、396議席、過半数閾値を+37上回る）を維持しながら。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-10-term-outlook-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング — 欧州議会週次展望：</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-10-week-ahead-ja.html</link>
+      <description>2026-05-10 — 日本語 — 今週の予定 — Week Ahead — 2026年5月18〜21日にストラスブールで開催される欧州議会（EP）本会議は、欧州統合の決定的な局面に差し掛かっています。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-10-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ：欧州議会 ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-10-year-ahead-ja.html</link>
+      <description>2026-05-10 — 日本語 — 年間展望 — Year Ahead — 公開 · 作成日： 2026-05-10 · 記事種別： year-ahead · 信頼度： 🟡 中程度</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-10-year-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会年次報告：2025年5月～2026年5月 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-10-year-in-review-ja.html</link>
+      <description>2026-05-10 — 日本語 — 年間レビュー — Year In Review — KIJ-1：EPP主導の中道連立は2026年まで維持 EPP–S&amp;D–Renew構造連立（396/717議席、55.2%）は、ウクライナ支援、AI法施行。</description>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-10-year-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会ニュース ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-09-breaking-ja.html</link>
+      <description>2026-05-09 — 日本語 — 速報 — Breaking — 欧州議会は2026年5月、法的説明責任危機・デジタル規制執行をめぐる争い・制度的断片化圧力という前例のない収束を迎えている。</description>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-09-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>選挙サイクル: EPP remains dominant</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-09-election-cycle-ja.html</link>
+      <description>2026-05-09 — 日本語 — 選挙サイクル — Election Cycle — 欧州議会選挙の二部構成ブリーフ — 会期の振り返りに議席投影・連立可行性・Spitzenkandidaten 算術を併記</description>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-09-election-cycle-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>会期展望: EPP remains dominant</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-09-term-outlook-ja.html</link>
+      <description>2026-05-09 — 日本語 — 会期展望 — Term Outlook — 欧州議会の複数年選挙アウトルック — 連立軌道、公約実現進捗、Spitzenkandidaten シグナル、議席投影帯</description>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-09-term-outlook-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の振り返り: Five developments</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-09-week-in-review-ja.html</link>
+      <description>2026-05-09 — 日本語 — 週間レビュー — Week In Review — 欧州議会における直近の完全な報告週の分析 — 投票、委員会の決定、立法の進展 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-09-week-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>年間レビュー: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-09-year-in-review-ja.html</link>
+      <description>2026-05-09 — 日本語 — 年間レビュー — Year In Review — The European Parliament&apos;s tenth term entered its second year。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sat, 09 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-09-year-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: Key Legislative ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-08-breaking-ja.html</link>
+      <description>2026-05-08 — 日本語 — 速報 — Breaking — The Digital Markets Act (DMA, Regulation 2022/1925) entered。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-08-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: 2.1 Digital ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-08-committee-reports-ja.html</link>
+      <description>2026-05-08 — 日本語 — 委員会活動 — Committee Reports — 最近の立法成果、有効性指標、主要な委員会活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-08-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: April 28–30 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-08-motions-ja.html</link>
+      <description>2026-05-08 — 日本語 — 本会議投票・決議 — Motions — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-08-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-08-propositions-ja.html</link>
+      <description>2026-05-08 — 日本語 — 立法手続 — Propositions — 欧州議会における最近の立法提案、手続き追跡、パイプライン状況 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-08-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>会期展望: EPP remains dominant</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-08-term-outlook-ja.html</link>
+      <description>2026-05-08 — 日本語 — 会期展望 — Term Outlook — Term outlook (2026-05-08): with 185 seats, EPP controls。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-08-term-outlook-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の予定: Strasbourg plenary of</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-08-week-ahead-ja.html</link>
+      <description>2026-05-08 — 日本語 — 今週の予定 — Week Ahead — 欧州議会のカレンダー、委員会会合、本会議の討論 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 08 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-08-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-07-breaking-ja.html</link>
+      <description>2026-05-07 — 日本語 — 速報 — Breaking — The European Parliament&apos;s final April 2026 plenary delivered。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-07-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: DMA Enforcement Gap</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-07-motions-ja.html</link>
+      <description>2026-05-07 — 日本語 — 本会議投票・決議 — Motions — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-07-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>会期展望: EP10 Term Synthesis</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-07-term-outlook-ja.html</link>
+      <description>2026-05-07 — 日本語 — 会期展望 — Term Outlook — The European Parliament&apos;s tenth term (EP10) is proceeding。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-07-term-outlook-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>来年の展望: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-07-year-ahead-ja.html</link>
+      <description>2026-05-07 — 日本語 — 年間展望 — Year Ahead — 欧州議会の年次戦略アウトルック — 委員会作業計画、トリオ議長国、立法優先事項、12 か月の戦略リスク面</description>
+      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-07-year-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>年間レビュー: EP10 Year 2 is the</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-07-year-in-review-ja.html</link>
+      <description>2026-05-07 — 日本語 — 年間レビュー — Year In Review — 欧州議会の年間振り返り — 連立マップ、法案スループット、公約実現スコアカード、累積政治リスク軌道</description>
+      <pubDate>Thu, 07 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-07-year-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>来月の展望: Overall confidence: 🟡</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-06-month-ahead-ja.html</link>
+      <description>2026-05-06 — 日本語 — 今月の予定 — Month Ahead — 欧州議会の戦略的展望 — 立法上のマイルストーン、委員会カレンダー、政策アジェンダ</description>
+      <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-06-month-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-06-motions-ja.html</link>
+      <description>2026-05-06 — 日本語 — 本会議投票・決議 — Motions — The European Parliament in EP10 Year 2 (2026) is operating。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-06-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: week of 29 April – 6 May</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-06-propositions-ja.html</link>
+      <description>2026-05-06 — 日本語 — 立法手続 — Propositions — 欧州議会における最近の立法提案、手続き追跡、パイプライン状況 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 06 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-06-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: Extended Executive Brief</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-05-breaking-ja.html</link>
+      <description>2026-05-05 — 日本語 — 速報 — Breaking — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-05-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: 28 April – 1 May</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-05-committee-reports-ja.html</link>
+      <description>2026-05-05 — 日本語 — 委員会活動 — Committee Reports — 最近の立法成果、有効性指標、主要な委員会活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-05-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: EU Parliament ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-05-motions-ja.html</link>
+      <description>2026-05-05 — 日本語 — 本会議投票・決議 — Motions — The European Parliament&apos;s April plenary session was EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-05-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: Digital sovereignty</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-05-propositions-ja.html</link>
+      <description>2026-05-05 — 日本語 — 立法手続 — Propositions — The EP&apos;s DMA enforcement resolution (TA-10-2026-0160) places。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-05-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>四半期レビュー: EU Parliament Quarter</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-05-quarter-in-review-ja.html</link>
+      <description>2026-05-05 — 日本語 — 四半期レビュー — Quarter In Review — 欧州議会の四半期振り返り — 連立軌道、法案スループット差分、異常投票、ローリング政治リスク傾向</description>
+      <pubDate>Tue, 05 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-05-quarter-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: Three Tier-1 Breaking</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-04-breaking-ja.html</link>
+      <description>2026-05-04 — 日本語 — 速報 — Breaking — Russia-Ukraine Accountability Resolution (TA-10-2026-0161)。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-04-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: only binding</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-04-committee-reports-ja.html</link>
+      <description>2026-05-04 — 日本語 — 委員会活動 — Committee Reports — 最近の立法成果、有効性指標、主要な委員会活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-04-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: European ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-04-motions-ja.html</link>
+      <description>2026-05-04 — 日本語 — 本会議投票・決議 — Motions — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-04-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU Parliament ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-04-propositions-ja.html</link>
+      <description>2026-05-04 — 日本語 — 立法手続 — Propositions — 欧州議会における最近の立法提案、手続き追跡、パイプライン状況 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-04-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>会期展望: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-04-term-outlook-ja.html</link>
+      <description>2026-05-04 — 日本語 — 会期展望 — Term Outlook — 欧州議会の複数年選挙アウトルック — 連立軌道、公約実現進捗、Spitzenkandidaten シグナル、議席投影帯</description>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-04-term-outlook-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>来年の展望: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-04-year-ahead-ja.html</link>
+      <description>2026-05-04 — 日本語 — 年間展望 — Year Ahead — 欧州議会の年次戦略アウトルック — 委員会作業計画、トリオ議長国、立法優先事項、12 か月の戦略リスク面</description>
+      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-04-year-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>月間レビュー: April 2026 marked the</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-03-month-in-review-ja.html</link>
+      <description>2026-05-03 — 日本語 — 月間レビュー — Month In Review — 欧州議会の包括的分析 — 立法成果、連立動態、政策トレンド 文脈: April 2026 marked the。</description>
+      <pubDate>Sun, 03 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-03-month-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-01-breaking-ja.html</link>
+      <description>2026-05-01 — 日本語 — 速報 — Breaking — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-01-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: EP10 Year 2 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-01-committee-reports-ja.html</link>
+      <description>2026-05-01 — 日本語 — 委員会活動 — Committee Reports — The April 2026 plenary close provides definitive。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-01-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>来月の展望: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-01-month-ahead-ja.html</link>
+      <description>2026-05-01 — 日本語 — 今月の予定 — Month Ahead — 欧州議会の戦略的展望 — 立法上のマイルストーン、委員会カレンダー、政策アジェンダ</description>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-01-month-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: European ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-01-motions-ja.html</link>
+      <description>2026-05-01 — 日本語 — 本会議投票・決議 — Motions — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-01-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: Governance Milestone</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-01-propositions-ja.html</link>
+      <description>2026-05-01 — 日本語 — 立法手続 — Propositions — The signing of the Anti-Corruption Regulation (Regulation。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-01-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の予定: Decision Window: May</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-01-week-ahead-ja.html</link>
+      <description>2026-05-01 — 日本語 — 今週の予定 — Week Ahead — 欧州議会のカレンダー、委員会会合、本会議の討論 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-01-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: EU Parliament Breaking</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-30-breaking-ja.html</link>
+      <description>2026-04-30 — 日本語 — 速報 — Breaking — TA-10-2026-0112 | Procedure: 2025/2246(BUI) | dateAdopted。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-30-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>来月の展望: EU Parliament&apos;s next 30</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-30-month-ahead-ja.html</link>
+      <description>2026-04-30 — 日本語 — 今月の予定 — Month Ahead — 欧州議会の戦略的展望 — 立法上のマイルストーン、委員会カレンダー、政策アジェンダ</description>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-30-month-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: April 28–29 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-30-motions-ja.html</link>
+      <description>2026-04-30 — 日本語 — 本会議投票・決議 — Motions — The April 28–29 Strasbourg plenary (attendance 663 / 92.2 % EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-30-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: EU Parliament Plenary</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-29-breaking-ja.html</link>
+      <description>2026-04-29 — 日本語 — 速報 — Breaking — The European Parliament convened for a major plenary vote on。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-29-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: Parliament ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-29-committee-reports-ja.html</link>
+      <description>2026-04-29 — 日本語 — 委員会活動 — Committee Reports — 最近の立法成果、有効性指標、主要な委員会活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-29-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>来月の展望: Most Consequential</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-29-month-ahead-ja.html</link>
+      <description>2026-04-29 — 日本語 — 今月の予定 — Month Ahead — 欧州議会の戦略的展望 — 立法上のマイルストーン、委員会カレンダー、政策アジェンダ</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-29-month-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>月間レビュー: EU Parliament in April</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-29-month-in-review-ja.html</link>
+      <description>2026-04-29 — 日本語 — 月間レビュー — Month In Review — 欧州議会の包括的分析 — 立法成果、連立動態、政策トレンド 文脈: The EU Parliament in April。</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-29-month-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: four most ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-29-motions-ja.html</link>
+      <description>2026-04-29 — 日本語 — 本会議投票・決議 — Motions — The 28 April plenary day delivered 17 adopted texts spanning。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-29-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: April 28, 2026 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-29-propositions-ja.html</link>
+      <description>2026-04-29 — 日本語 — 立法手続 — Propositions — 欧州議会における最近の立法提案、手続き追跡、パイプライン状況 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-29-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: EP Breaking: Strasbourg</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-28-breaking-ja.html</link>
+      <description>2026-04-28 — 日本語 — 速報 — Breaking — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-28-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: European ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-28-committee-reports-ja.html</link>
+      <description>2026-04-28 — 日本語 — 委員会活動 — Committee Reports — The European Parliament&apos;s spring 2026 legislative session is。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-28-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>月間レビュー: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-28-month-in-review-ja.html</link>
+      <description>2026-04-28 — 日本語 — 月間レビュー — Month In Review — 欧州議会の包括的分析 — 立法成果、連立動態、政策トレンド EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-28-month-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: landmark cluster of</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-28-motions-ja.html</link>
+      <description>2026-04-28 — 日本語 — 本会議投票・決議 — Motions — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-28-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-28-propositions-ja.html</link>
+      <description>2026-04-28 — 日本語 — 立法手続 — Propositions — The European Parliament&apos;s 10th term entered its most。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-28-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: Trade War Dynamics: The</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-27-breaking-ja.html</link>
+      <description>2026-04-27 — 日本語 — 速報 — Breaking — Trade War Dynamics: The EP&apos;s adoption of EU customs duty。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-27-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: European ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-27-committee-reports-ja.html</link>
+      <description>2026-04-27 — 日本語 — 委員会活動 — Committee Reports — The European Parliament&apos;s legislative committees delivered。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-27-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>来月の展望: European Parliament is</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-27-month-ahead-ja.html</link>
+      <description>2026-04-27 — 日本語 — 今月の予定 — Month Ahead — 欧州議会の戦略的展望 — 立法上のマイルストーン、委員会カレンダー、政策アジェンダ</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-27-month-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>月間レビュー: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-27-month-in-review-ja.html</link>
+      <description>2026-04-27 — 日本語 — 月間レビュー — Month In Review — The European Parliament completed its most consequential。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-27-month-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-27-motions-ja.html</link>
+      <description>2026-04-27 — 日本語 — 本会議投票・決議 — Motions — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-27-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: week of April 20–27</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-27-propositions-ja.html</link>
+      <description>2026-04-27 — 日本語 — 立法手続 — Propositions — 欧州議会における最近の立法提案、手続き追跡、パイプライン状況 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-27-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>来月の展望: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-26-month-ahead-ja.html</link>
+      <description>2026-04-26 — 日本語 — 今月の予定 — Month Ahead — 欧州議会の戦略的展望 — 立法上のマイルストーン、委員会カレンダー、政策アジェンダ</description>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-26-month-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>月間レビュー: European Parliament</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-26-month-in-review-ja.html</link>
+      <description>2026-04-26 — 日本語 — 月間レビュー — Month In Review — The European Parliament completed a landmark legislative。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-26-month-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の予定: EU Parliament Week</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-26-week-ahead-ja.html</link>
+      <description>2026-04-26 — 日本語 — 今週の予定 — Week Ahead — 欧州議会のカレンダー、委員会会合、本会議の討論 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-26-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の振り返り: European Parliament&apos;s</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-26-week-in-review-ja.html</link>
+      <description>2026-04-26 — 日本語 — 週間レビュー — Week In Review — 欧州議会における直近の完全な報告週の分析 — 投票、委員会の決定、立法の進展 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sun, 26 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-26-week-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 24 April breaking-news</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-24-breaking-ja.html</link>
+      <description>2026-04-24 — 日本語 — 速報 — Breaking — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-24-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: March 2026 plenary</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-24-motions-ja.html</link>
+      <description>2026-04-24 — 日本語 — 本会議投票・決議 — Motions — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-24-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EP Motions, 25 March – 24 Apr…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-24-motions-runmotions-run-1777010709-ja.html</link>
+      <description>2026-04-24 — 日本語 — 本会議投票・決議 — Motions Runmotions Run 1777010709 — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-24-motions-runmotions-run-1777010709-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: 30-day propositions</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-24-propositions-ja.html</link>
+      <description>2026-04-24 — 日本語 — 立法手続 — Propositions — 欧州議会における最近の立法提案、手続き追跡、パイプライン状況 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-24-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: *Eight days after T-0, the</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-23-breaking-ja.html</link>
+      <description>2026-04-23 — 日本語 — 速報 — Breaking — *Eight days after T-0, the run undertakes a retrospective。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-23-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: morning ANALYSIS_ONLY</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-21-breaking-192-ja.html</link>
+      <description>2026-04-21 — 日本語 — 速報 — Breaking 192 — No breaking event surfaced. EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-21-breaking-192-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: Combined with completion</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-21-breaking-3ff728a7-15fa-4d2d-af0e-73c3e1ff-ja.html</link>
+      <description>2026-04-21 — 日本語 — 速報 — Breaking 3ff728a7 15fa 4d2d Af0e 73c3e1ff — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-21-breaking-3ff728a7-15fa-4d2d-af0e-73c3e1ff-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Run 192, 21 April 2026 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-21-breaking-ja.html</link>
+      <description>2026-04-21 — 日本語 — 速報 — Breaking — Run 192 is the morning ANALYSIS_ONLY probe on Day 1 of the post-Easter work w… 公開日 2026-04-21. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-21-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Run 193, 21 April 2026 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-21-breaking-run193-ja.html</link>
+      <description>2026-04-21 — 日本語 — 速報 — Breaking Run193 — Run 193 (afternoon probe) crossed the 20/50 significance threshold at 22/50 a… 公開日 2026-04-21. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-21-breaking-run193-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 11th consecutive ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-20-breaking-190-ja.html</link>
+      <description>2026-04-20 — 日本語 — 速報 — Breaking 190 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-20-breaking-190-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: records Recess Day 8 / API</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-20-breaking-191-ja.html</link>
+      <description>2026-04-20 — 日本語 — 速報 — Breaking 191 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-20-breaking-191-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-20 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-20-breaking-breaking-run191-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-20 · 分析実行 breaking-breaking-run191, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-20 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-20-breaking-breaking-run191-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: Defence Integration</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-20-motions-ja.html</link>
+      <description>2026-04-20 — 日本語 — 本会議投票・決議 — Motions — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-20-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EP10の記録的四半期：住宅権から貿易戦争まで — 欧州議会が政治的アイデンティティを定義する</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-20-motions-run46-ja.html</link>
+      <description>欧州議会（EP）の2026年第1四半期は、前例のない567回の記名投票と180の決議を生み出しました。いずれも史上最高記録であり、2025年の記名投票420回・決議135本と比較すると、議会が以前の年間ペースの約3倍の速度で活動していることが明らかになります。3月26日の本会議はこのモメンタムを結晶化しました。ブリュッセルでの一度の会議において、議会は5つの政策次元にわたる14本のテキストを同時に採択しました。米国関税への対抗措置、EU・中国協定、銀行同盟の完成、汚職対策指令、デジタル空間での児童保護が含まれます。住宅権から貿易戦争まで、EP10の決議ラッシュは制度的生産性だけでなく、複合危…</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-20-motions-run46-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: establishes the T-8 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-19-breaking-186-ja.html</link>
+      <description>2026-04-19 — 日本語 — 速報 — Breaking 186 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-19-breaking-186-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: records significance 14/50</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-19-breaking-187-ja.html</link>
+      <description>2026-04-19 — 日本語 — 速報 — Breaking 187 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-19-breaking-187-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: records significance 18/50</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-19-breaking-188-ja.html</link>
+      <description>2026-04-19 — 日本語 — 速報 — Breaking 188 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-19-breaking-188-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>来月の展望: Parliament returns from</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-19-month-ahead-ja.html</link>
+      <description>2026-04-19 — 日本語 — 今月の予定 — Month Ahead — Parliament returns from Easter recess on April 27, 2026 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-19-month-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>月間レビュー: single most ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-19-month-in-review-ja.html</link>
+      <description>2026-04-19 — 日本語 — 月間レビュー — Month In Review — 欧州議会の包括的分析 — 立法成果、連立動態、政策トレンド EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-19-month-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>1日で18の法律：EP10の3月スプリントが欧州議会の立法的成熟を証明</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-19-month-in-review-run5-ja.html</link>
+      <description>3月26日のブリュッセル小本会議は 18件の個別立法文書 を採択した — 2024年7月の発足以来のEP10における単一会期最高の成果である。文書は銀行法、刑事司法、通商政策、人工知能、デジタル児童保護、国際協定、議会手続きに及んだ。23日間のイースター休会（4月14日〜26日）直前に行われたこの集中的な立法スプリントは、意図的な制度的国家行為であった。EPP主導の連合 — S&amp;D、ルネ・ヨーロッパ、グリーンズ/EFAと協力して — 政治的に異質な案件を無視できない単一パッケージにまとめ、野党が手続き的消耗戦によって個別文書を遅延させる能力を封じた。銀行同盟 — 十年来の約束 …</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-19-month-in-review-run5-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: records the highest ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-breaking-183-ja.html</link>
+      <description>2026-04-18 — 日本語 — 速報 — Breaking 183 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-breaking-183-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: records the first positive</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-breaking-184-ja.html</link>
+      <description>2026-04-18 — 日本語 — 速報 — Breaking 184 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-breaking-184-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: confirms API plateau ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-breaking-185-ja.html</link>
+      <description>2026-04-18 — 日本語 — 速報 — Breaking 185 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-breaking-185-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-18 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-breaking-breaking-run183-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-18 · 分析実行 breaking-breaking-run183, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-18 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-breaking-breaking-run183-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-18 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-breaking-breaking-run184-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-18 · 分析実行 breaking-breaking-run184, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-18 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-breaking-breaking-run184-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-18 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-breaking-breaking-run185-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-18 · 分析実行 breaking-breaking-run185, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-18 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-breaking-breaking-run185-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の振り返り: week of April 11–18</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-week-in-review-ja.html</link>
+      <description>2026-04-18 — 日本語 — 週間レビュー — Week In Review — 欧州議会における直近の完全な報告週の分析 — 投票、委員会の決定、立法の進展 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-week-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>議会の復活祭休暇が記録的な第1四半期を締めくくる ― 6つの新テキストが未完の業務を示す</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-18-week-in-review-run12-ja.html</link>
+      <description>欧州議会は2026年4月14日、EP10の最初の2年間における最も野心的な立法スプリントと議会史家が呼ぶことになる活動を終え、復活祭休暇に入りました。2026年第1四半期に採択された104件のテキストと567回の記名投票――欧州議会オープンデータポータルが確認した数字――により、議会はあらゆる比較可能な期間の歴史的基準を超える第1四半期の実績を達成しました。3月26日のメガ本会議だけで9件の主要採択テキストを生み出し、DGSD2、BRRD3、SRMR3の同時採択によって14年越しの銀行同盟プロジェクトを完了させました。続く4月7日〜10日頃のセッションでは少なくとも6件の追加テキスト（TA…</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-18-week-in-review-run12-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: DEGRADED-mode run — the EP</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-breaking-180-ja.html</link>
+      <description>2026-04-17 — 日本語 — 速報 — Breaking 180 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-breaking-180-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: extends prior recess-probe</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-breaking-181-ja.html</link>
+      <description>2026-04-17 — 日本語 — 速報 — Breaking 181 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-breaking-181-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: fourth breaking probe of</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-breaking-182-ja.html</link>
+      <description>2026-04-17 — 日本語 — 速報 — Breaking 182 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-breaking-182-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-17 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-breaking-breaking-run182-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-17 · 分析実行 breaking-breaking-run182, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-17 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-breaking-breaking-run182-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: recess-window</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-committee-reports-ja.html</link>
+      <description>2026-04-17 — 日本語 — 委員会活動 — Committee Reports — 最近の立法成果、有効性指標、主要な委員会活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports Run 53, 17…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-committee-reports-run53-ja.html</link>
+      <description>2026-04-17 — 日本語 — 委員会活動 — Committee Reports Run53 — Run 53 is a recess-window analytical run that re-scores the March 2026 Strasb… 公開日 2026-04-17. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-committee-reports-run53-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: recess-window ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-propositions-ja.html</link>
+      <description>2026-04-17 — 日本語 — 立法手続 — Propositions — 欧州議会における最近の立法提案、手続き追跡、パイプライン状況 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Propositions Run 45, 17 April…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-propositions-run45-ja.html</link>
+      <description>2026-04-17 — 日本語 — 立法手続 — Propositions Run45 — Run 45 is a recess-window propositions analytical run anchored on the EP10 Ye… 公開日 2026-04-17. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-propositions-run45-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の予定: run&apos;s three-debate</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-week-ahead-ja.html</link>
+      <description>2026-04-17 — 日本語 — 今週の予定 — Week Ahead — 欧州議会のカレンダー、委員会会合、本会議の討論 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Week Ahead: April 27–30 Stras…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-17-week-ahead-run14-ja.html</link>
+      <description>2026-04-17 — 日本語 — 今週の予定 — Week Ahead Run14 — **The April 27–30 Strasbourg plenary is read by the run as &quot;among the most co… 公開日 2026-04-17. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-17-week-ahead-run14-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: per-document-intelligence</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-breaking-176-ja.html</link>
+      <description>2026-04-16 — 日本語 — 速報 — Breaking 176 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-breaking-176-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: T+2 post-tariff ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-breaking-177-ja.html</link>
+      <description>2026-04-16 — 日本語 — 速報 — Breaking 177 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-breaking-177-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-16 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-breaking-breaking-run176-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-16 · 分析実行 breaking-breaking-run176, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-16 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-breaking-breaking-run176-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-16 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-breaking-breaking-run177-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-16 · 分析実行 breaking-breaking-run177, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-16 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-breaking-breaking-run177-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: documents the</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-committee-reports-1677eddd-9ddd-4b92-a3b7-876a5a4c-ja.html</link>
+      <description>2026-04-16 — 日本語 — 委員会活動 — Committee Reports 1677eddd 9ddd 4b92 A3b7 876a5a4c — 最近の立法成果、有効性指標、主要な委員会活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-committee-reports-1677eddd-9ddd-4b92-a3b7-876a5a4c-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: independent ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-committee-reports-485c93f9-8c68-4b20-a7bb-fb4f6e5a-ja.html</link>
+      <description>2026-04-16 — 日本語 — 委員会活動 — Committee Reports 485c93f9 8c68 4b20 A7bb Fb4f6e5a — 最近の立法成果、有効性指標、主要な委員会活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-committee-reports-485c93f9-8c68-4b20-a7bb-fb4f6e5a-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: Main Committees</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-committee-reports-ja.html</link>
+      <description>最近の立法成果、有効性指標、主要な委員会活動の分析 公開日 2026-04-16 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: EU議会委員会活動報告: Main Committees EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports Run 50, 16…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-committee-reports-run50-ja.html</link>
+      <description>2026-04-16 — 日本語 — 委員会活動 — Committee Reports Run50 — Run 50 documents the record Q1 2026 committee output: 114 legislative acts ad… 公開日 2026-04-16. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-committee-reports-run50-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports Run 52, 16…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-committee-reports-run52-ja.html</link>
+      <description>2026-04-16 — 日本語 — 委員会活動 — Committee Reports Run52 — Run 52 is the independent re-confirmation of the Q1 2026 record (104 adopted… 公開日 2026-04-16. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-committee-reports-run52-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: documents that the ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-propositions-ja.html</link>
+      <description>2026-04-16 — 日本語 — 立法手続 — Propositions — 欧州議会における最近の立法提案、手続き追跡、パイプライン状況 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Propositions Run 44, 16 April…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-16-propositions-run44-ja.html</link>
+      <description>2026-04-16 — 日本語 — 立法手続 — Propositions Run44 — Run 44 documents that the European Parliament has entered the 27 March – 26 A… 公開日 2026-04-16. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-16-propositions-run44-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: marks Tariff T-0 — the</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-breaking-173-ja.html</link>
+      <description>2026-04-15 — 日本語 — 速報 — Breaking 173 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-breaking-173-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: extends &apos;s Tariff T-0</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-breaking-174-ja.html</link>
+      <description>2026-04-15 — 日本語 — 速報 — Breaking 174 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-breaking-174-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: article frontmatter ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-breaking-175-ja.html</link>
+      <description>2026-04-15 — 日本語 — 速報 — Breaking 175 — The article frontmatter exhibits the known recursive title。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-breaking-175-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-15 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-breaking-breaking-run173-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-15 · 分析実行 breaking-breaking-run173, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-15 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-breaking-breaking-run173-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-15 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-breaking-breaking-run174-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-15 · 分析実行 breaking-breaking-run174, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-15 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-breaking-breaking-run174-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-15 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-breaking-breaking-run175-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-15 · 分析実行 breaking-breaking-run175, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-15 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-breaking-breaking-run175-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: records the ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-committee-reports-ja.html</link>
+      <description>2026-04-15 — 日本語 — 委員会活動 — Committee Reports — 最近の立法成果、有効性指標、主要な委員会活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports Run 49, 15…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-committee-reports-run49-ja.html</link>
+      <description>2026-04-15 — 日本語 — 委員会活動 — Committee Reports Run49 — Run 49 records the operational activation of BOTH TA-10-2026-0096 and TA-10-2… 公開日 2026-04-15. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-committee-reports-run49-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: structural finding is</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-propositions-ja.html</link>
+      <description>2026-04-15 — 日本語 — 立法手続 — Propositions — *On T-0 day itself, the run reframes the propositions。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Propositions: Tariff T-0 Pipe…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-15-propositions-run43-ja.html</link>
+      <description>2026-04-15 — 日本語 — 立法手続 — Propositions Run43 — *On T-0 day itself, the run reframes the propositions narrative as pipeline t… 公開日 2026-04-15. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-15-propositions-run43-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: T-1 pre-Tariff-T-0 probe</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-169-ja.html</link>
+      <description>2026-04-14 — 日本語 — 速報 — Breaking 169 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-169-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: identifies three ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-170-ja.html</link>
+      <description>2026-04-14 — 日本語 — 速報 — Breaking 170 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-170-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: synthesis run that ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-171-ja.html</link>
+      <description>2026-04-14 — 日本語 — 速報 — Breaking 171 — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-171-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: *This run delivers the</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-172-ja.html</link>
+      <description>2026-04-14 — 日本語 — 速報 — Breaking 172 — *This run delivers the period&apos;s most important structural。 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-172-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-14 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run169-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-14 · 分析実行 breaking-breaking-run169, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-14 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run169-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-14 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run170-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-14 · 分析実行 breaking-breaking-run170, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-14 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run170-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-14 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run171-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-14 · 分析実行 breaking-breaking-run171, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-14 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run171-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-14 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run172-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-14 · 分析実行 breaking-breaking-run172, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-14 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-breaking-breaking-run172-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: Q1 record output</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-committee-reports-ja.html</link>
+      <description>2026-04-14 — 日本語 — 委員会活動 — Committee Reports — 最近の立法成果、有効性指標、主要な委員会活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports: Six-Stakeh…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-committee-reports-run48-ja.html</link>
+      <description>2026-04-14 — 日本語 — 委員会活動 — Committee Reports Run48 — This run&apos;s distinguishing contribution is the six-stakeholder-perspective str… 公開日 2026-04-14. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-committee-reports-run48-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: scenario outlook is the</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-propositions-ja.html</link>
+      <description>2026-04-14 — 日本語 — 立法手続 — Propositions — 欧州議会における最近の立法提案、手続き追跡、パイプライン状況 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Propositions: Day-Before-Tari…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-propositions-run42-ja.html</link>
+      <description>2026-04-14 — 日本語 — 立法手続 — Propositions Run42 — Parliament returns from Easter recess facing what the run characterises as &quot;t… 公開日 2026-04-14. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-propositions-run42-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の予定: run records the most</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-week-ahead-ja.html</link>
+      <description>2026-04-14 — 日本語 — 今週の予定 — Week Ahead — 欧州議会のカレンダー、委員会会合、本会議の討論 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Week Ahead: Post-Easter Retur…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-14-week-ahead-run13-ja.html</link>
+      <description>2026-04-14 — 日本語 — 今週の予定 — Week Ahead Run13 — The week of April 14–21 is dominated by a single binary trigger: TA-10-2026-0… 公開日 2026-04-14. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-14-week-ahead-run13-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: *This is an analysis-only</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-breaking-ja.html</link>
+      <description>2026-04-13 — 日本語 — 速報 — Breaking — *This is an analysis-only run on the final recess day EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: Q1 2026 committee</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-committee-reports-43b9989e-4e2a-4672-aa00-f50e936a-ja.html</link>
+      <description>2026-04-13 — 日本語 — 委員会活動 — Committee Reports 43b9989e 4e2a 4672 Aa00 F50e936a — 最近の立法成果、有効性指標、主要な委員会活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-committee-reports-43b9989e-4e2a-4672-aa00-f50e936a-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: article exhibits</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-committee-reports-44-ja.html</link>
+      <description>2026-04-13 — 日本語 — 委員会活動 — Committee Reports 44 — 最近の立法成果、有効性指標、主要な委員会活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-committee-reports-44-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports Run 44, 13…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-committee-reports-ja.html</link>
+      <description>2026-04-13 — 日本語 — 委員会活動 — Committee Reports — Run 44 is a T-2 pre-Tariff-activation committee-track positioning run (T-0 =… 公開日 2026-04-13. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Committee Reports: Q1 2026 Po…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-committee-reports-run47-ja.html</link>
+      <description>2026-04-13 — 日本語 — 委員会活動 — Committee Reports Run47 — Q1 2026 committee output ranks ECON and INTA as the two most consequential co… 公開日 2026-04-13. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-committee-reports-run47-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>来月の展望: Renew-ECR cohesion at</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-month-ahead-ja.html</link>
+      <description>2026-04-13 — 日本語 — 今月の予定 — Month Ahead — 欧州議会の戦略的展望 — 立法上のマイルストーン、委員会カレンダー、政策アジェンダ</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-month-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EP10 Month Ahead: April 13…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-month-ahead-run4-ja.html</link>
+      <description>2026-04-13 — 日本語 — 今月の予定 — Month Ahead Run4 — Three convergent crises define the 30-day window from end-of-Easter-recess to… 公開日 2026-04-13. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-month-ahead-run4-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-04-13 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-motions-39-ja.html</link>
+      <description>2026-04-13 — 日本語 — 本会議投票・決議 — Motions 39 — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-motions-39-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: extends &apos;s ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-motions-40-ja.html</link>
+      <description>2026-04-13 — 日本語 — 本会議投票・決議 — Motions 40 — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-motions-40-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: March 26 pre-Easter</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-motions-b3749573-d54d-4d01-94be-4b538541-ja.html</link>
+      <description>2026-04-13 — 日本語 — 本会議投票・決議 — Motions B3749573 D54d 4d01 94be 4b538541 — 欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-motions-b3749573-d54d-4d01-94be-4b538541-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-04-13 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-motions-motions-run40-ja.html</link>
+      <description>欧州議会における最近の本会議投票、採択テキスト、政党結束分析、投票異常 公開日 2026-04-13 · 分析実行 motions-motions-run40, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 本会議投票・決議: 2026-04-13 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-motions-motions-run40-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>March 26 plenary ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-motions-run41-ja.html</link>
+      <description>2026-04-13 — 日本語 — 本会議投票・決議 — Motions Run41 — adopted 7 texts including 3 CRITICAL items. 公開日 2026-04-13. EU機関の民主的説明責任への影響を… EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-motions-run41-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: Q2 2026 opens with a</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-propositions-ja.html</link>
+      <description>2026-04-13 — 日本語 — 立法手続 — Propositions — 欧州議会における最近の立法提案、手続き追跡、パイプライン状況 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>Legislative Procedures: Tarif…</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-13-propositions-run41-ja.html</link>
+      <description>2026-04-13 — 日本語 — 立法手続 — Propositions Run41 — Q2 2026 opens with a single dominant file: TA-10-2026-0096 US Tariff Counterm… 公開日 2026-04-13. EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-13-propositions-run41-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 報告163号、2026年4月</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-12-breaking-ja.html</link>
+      <description>2026-04-12 — 日本語 — 速報 — Breaking — 報告163号はT-3活性化前集約プローブである。TA-0096 / TA-0097の法定運用状態まで3日前の時点の分析。</description>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-12-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-breaking-157-ja.html</link>
+      <description>2026-04-11 — 日本語 — 速報 — Breaking 157 — ラン157は、関税発動（T-0 = 4月15日）前の復活祭休会16日目、T-4探索的実行です EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-breaking-157-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>情報ブリーフィング — 実行158、2026年4月11日（</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-breaking-158-ja.html</link>
+      <description>2026-04-11 — 日本語 — 速報 — Breaking 158 — 実行158（復活祭休会最終週末）は、26万4,000文字の事前計算統計ベースラインに1万1,600文字の連立ダイナミクス分析を追加で重ねることにより、実行。</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-breaking-158-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-11 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-breaking-breaking-run157-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-11 · 分析実行 breaking-breaking-run157, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-11 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-breaking-breaking-run157-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-11 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-breaking-breaking-run158-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-11 · 分析実行 breaking-breaking-run158, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-11 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-breaking-breaking-run158-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-04-11</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-03-12から2026-04-11までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-propositions-ja.html</link>
+      <description>&quot;legislative pipeline as of 2026-04-11&quot;に関するこの議会活動は、政治グループの力学に重大な影響を及ぼし、連立構築戦略やグループ間交渉の立場に影響を与えています。 公開日 2026-04-11 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス…</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の予定: 2026-04-12 ～ 2026-04-19</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-week-ahead-ja.html</link>
+      <description>欧州議会の今後の予定（2026-04-12 to 2026-04-19）：本会議 1 件、委員会 0 件、立法文書 0 件、パイプライン手続き 0 件、議会質問 0 件が予定されています。 公開日 2026-04-11 · 分析実行 week-ahead, 投票、委員会、立法に関する出典付きインテリジェンス EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 欧州議会週次レビュー：</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-11-week-in-review-ja.html</link>
+      <description>2026-04-11 — 日本語 — 週間レビュー — Week In Review — 🟡 中（ライブフィードデータなし；リスク軌跡は事前計算済み統計＋過去14回の実行から推定； EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-11-week-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — セッション156、2026年</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-breaking-156-ja.html</link>
+      <description>2026-04-10 — 日本語 — 速報 — Breaking 156 — セッション156は、イースター休暇15日目・T-5のブレーキング・プローブです。28分の分析ウィンドウ（18:17–18:45 UTC）で実施されました。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-breaking-156-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — Breaking ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-breaking-breaking-ja.html</link>
+      <description>2026-04-10 — 日本語 — 速報 — Breaking Breaking — 4月10日付のブリーフィングは dataAvailability: Unavailable 状態でのイースター休暇15日目を記録します。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-breaking-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-10 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-breaking-breaking-run156-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-10 · 分析実行 breaking-breaking-run156, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-10 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-breaking-breaking-run156-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・インテリジェンス・ブリーフ ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-committee-reports-ja.html</link>
+      <description>2026-04-10 — 日本語 — 委員会活動 — Committee Reports — 2026年第1四半期の成果は採択文書104件（2025年比+46.2%増）であり、2004〜2026年の観測系列において四半期別で最高の生産性を記録した。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 動議、2026年4月10日</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-motions-ja.html</link>
+      <description>2026-04-10 — 日本語 — 本会議投票・決議 — Motions — 4月10日の動議分析実行は、イースター休暇15日目において新鮮シグナルからの政治的次元0件を記録した。結果は手続き的継続性であり、新鮮コンテンツではない。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-propositions-PROP-2026-04-10-001-ja.html</link>
+      <description>2026-04-10 — 日本語 — 立法手続 — Propositions PROP 2026 04 10 001 — 4月10日の提案合成は、ECON委員会の構造的な作業負荷集中を2026年第2四半期の提案トラックの支配的なシグナルとして特定します：。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-propositions-PROP-2026-04-10-001-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-propositions-b09ab207-720b-4834-9df1-c8e93e95-ja.html</link>
+      <description>2026-04-10 — 日本語 — 立法手続 — Propositions B09ab207 720b 4834 9df1 C8e93e95 — 4月10日の第2回提案ランは、確認された政治的次元1件を記録した（先の動議ランでの0件に対して） EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-propositions-b09ab207-720b-4834-9df1-c8e93e95-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-04-10 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 週間展望： ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-10-week-ahead-ja.html</link>
+      <description>2026-04-10 — 日本語 — 今週の予定 — Week Ahead — 4月10〜17日は、欧州議会の復活祭休暇終了から4月14〜17日の委員会再起動週への移行期を扱う EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-10-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — Breaking、2026年</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-09-breaking-ja.html</link>
+      <description>2026-04-09 — 日本語 — 速報 — Breaking — 4月9日付ブリーフは新たな立法バックログリスク（12/25 高）を特定する：採択文書30件以上と13件のCOD手続きを、4日間の委員会ウィンドウ（4月14。</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-09-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-09-committee-reports-ja.html</link>
+      <description>2026-04-09 — 日本語 — 委員会活動 — Committee Reports — 4月9日の委員会報告分析実行では、イースター休暇中に新規シグナルから特定された政治的次元が0件と記録されました。出力は手続き的継続性モードにあります。</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-09-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング — 提案、2026年4月9日</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-09-propositions-ja.html</link>
+      <description>2026-04-09 — 日本語 — 立法手続 — Propositions — 4月9日の提案統合は議会休会前の産出ベースライン：2026年1月20日から3月26日の間に6回の本会議で採択された100件のテキストを文書化しています。</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-09-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — Breaking ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-08-breaking-ja.html</link>
+      <description>2026-04-08 — 日本語 — 速報 — Breaking — 4月8日のBreakingブリーフは休会前在庫スナップショットを記録しています：採択文書57件 | イベント0件 | 手続き0件。</description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-08-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 委員会報告書、2026年4月</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-08-committee-reports-ja.html</link>
+      <description>2026-04-08 — 日本語 — 委員会活動 — Committee Reports — 4月8日の委員会報告書分析ランは、休会前期間中に新鮮なシグナルからの政治的次元0件を記録した。出力は手続き的継続性である。</description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-08-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 動議、2026年4月8日</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-08-motions-ja.html</link>
+      <description>2026-04-08 — 日本語 — 本会議投票・決議 — Motions — 4月8日の動議分析実行は、休会前の終息局面において0の政治的次元が浮上したことを記録する。手続き継続性の出力。</description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-08-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 提案、2026年4月8日</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-08-propositions-ja.html</link>
+      <description>2026-04-08 — 日本語 — 立法手続 — Propositions — 4月8日の提案分析実行は、休会前の縮小期において政治的側面0件確認を記録する。Q1 2026ベースライン（テキスト100件 / 本会議6回 / 10週間；。</description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-08-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — イースター休会第12日夜間更新</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-07-breaking-24097229534-ja.html</link>
+      <description>2026-04-07 — 日本語 — 速報 — Breaking 24097229534 — *第12日夜のbreaking-2は、朝のベースラインに対する12時間デルタ評価であり、休会期間中のAM/PM連携インテリジェンスリズムの最初の体系的な運。</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-07-breaking-24097229534-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 復活祭休会第12日 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-07-breaking-d9f79a7a-aa2f-4a35-aa13-d6df91d7-ja.html</link>
+      <description>2026-04-07 — 日本語 — 速報 — Breaking D9f79a7a Aa2f 4a35 Aa13 D6df91d7 — 第12日朝の実行は会期の構造的支柱である — 分析成果物44件・3,391行を擁し、18日間の休会全体で最も包括的な単一実行前休会コーパス分析を生み出す。</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-07-breaking-d9f79a7a-aa2f-4a35-aa13-d6df91d7-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-04-07 — EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-07-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-04-07 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-04-07 — EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-07-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 委員会報告： ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-07-committee-reports-ja.html</link>
+      <description>2026-04-07 — 日本語 — 委員会活動 — Committee Reports — 委員会報告のこの12日目実行は、ECON第2四半期支配マップである — 4月6日に浮上した委員会権力集中の発見のより深いバージョンであり、決定的な追加が一。</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-07-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング — 動議： ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-07-motions-ja.html</link>
+      <description>2026-04-07 — 日本語 — 本会議投票・決議 — Motions — 本第12日動議実行は、4月6日の知見に対する二峰性連立システムのストレステストである — 問いは次の通り：</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-07-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会エグゼクティブブリーフ — 提案： ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-07-propositions-ja.html</link>
+      <description>2026-04-07 — 日本語 — 立法手続 — Propositions — この提案に関する第12日実行は、4月6日の提案実行で特定された18ファイルQ2パイプラインのトリローグ帯域幅診断です——問いは：。</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-07-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — イースター月曜日第2分析：</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-2-ja.html</link>
+      <description>2026-04-06 — 日本語 — 速報 — Breaking Breaking 2 — *第2分析（イースター月曜日06:45 UTC）の特徴的貢献は、デュアル・トラック連立パターンの発見である：。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-2-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・インテリジェンス・ブリーフ ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-3-ja.html</link>
+      <description>2026-04-06 — 日本語 — 速報 — Breaking Breaking 3 — *実行3は本日最も重要な運用上の発見をもたらします。11日間の休会期間における欧州議会APIエンドポイントの初回確認済み復旧です。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-3-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — イースターマンデー第4回実行</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-4-ja.html</link>
+      <description>2026-04-06 — 日本語 — 速報 — Breaking Breaking 4 — *第4回実行は、イースターマンデーの日次インテリジェンス・クロージングであり、18日間の休会中で最も集中的に監視された日である。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-4-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>幹部向けブリーフィング — 復活祭休暇中の情報 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-ja.html</link>
+      <description>2026-04-06 — 日本語 — 速報 — Breaking Breaking — 復活祭月曜日は設計上ゼロの議会活動しか生み出さなかったが、それにもかかわらず本実行は休暇二週間で最も重要な構造的知見を記録する：。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-breaking-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング — 委員会報告： ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-committee-reports-ja.html</link>
+      <description>2026-04-06 — 日本語 — 委員会活動 — Committee Reports — *この復活祭月曜日の実行は、休会前コーパスに関する委員会権力の回顧的分析を生成します — 同日の速報クラスターの分析的補完として機能します：。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 動議： ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-motions-ja.html</link>
+      <description>2026-04-06 — 日本語 — 本会議投票・決議 — Motions — この復活祭月曜日の実行は、休会前RCV投票分散の回顧分析を生成する — 同日の委員会報告実行の分析的補完である。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 提案： ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-06-propositions-ja.html</link>
+      <description>2026-04-06 — 日本語 — 立法手続 — Propositions — このイースター月曜日の提案実行は、2026年第1四半期立法パイプライン回顧を生成します EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-06-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 速報（クロスセッション更新）</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-05-breaking-breaking-2-ja.html</link>
+      <description>2026-04-05 — 日本語 — 速報 — Breaking Breaking 2 — 2026-04-05 クロスセッション情報更新；欧州議会休会 18 日間中の 10 日目 — 新規議会活動の報告なし。</description>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-05-breaking-breaking-2-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 速報（休会中期戦略統合）</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-05-breaking-breaking-3-ja.html</link>
+      <description>2026-04-05 — 日本語 — 速報 — Breaking Breaking 3 — 休会中期（18日中10日目）の戦略的統合により、2026年第2四半期に持ち越される3つの持続的な情報テーマが確認されました。</description>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-05-breaking-breaking-3-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 速報 | 2026-04-05</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-05-breaking-breaking-ja.html</link>
+      <description>2026-04-05 — 日本語 — 速報 — Breaking Breaking — 2026-04-05 に速報はなし；EP は復活祭休会中（18 日間のうち 10 日目、2026 年 3 月 27 日 → 4 月 13 日）。</description>
+      <pubDate>Sun, 05 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-05-breaking-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>活動概要 — 第1四半期立法パイプライン（速報ニュース）</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-2-ja.html</link>
+      <description>2026-04-04 — 日本語 — 速報 — Breaking Breaking 2 — EP10の2026年第1四半期は、支配的なPPE連立の計算が示す構造的脆弱性にもかかわらず、実質的に生産性の高い立法パイプラインを実現した。</description>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-2-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — ニュース速報（休会前分析、第</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-3-ja.html</link>
+      <description>2026-04-04 — 日本語 — 速報 — Breaking Breaking 3 — 2026年4月4日付の新規速報なし；欧州議会は復活祭休会中（3月27日→4月13日） EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-3-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — ブレーキング（採択テキスト詳</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-4-ja.html</link>
+      <description>2026-04-04 — 日本語 — 速報 — Breaking Breaking 4 — 採択テキストの週次フィードは、3つの異なる議会活動期にまたがる85件を返した — うち70件は現在のEP10。</description>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-4-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-ja.html</link>
+      <description>2026-04-04 — 日本語 — 速報 — Breaking Breaking — 2026年4月4日の連立計算は前日の構造的状況を確認する：EPP（欧州人民党）38%の非対称優位とRenew–ECR結束シグナル（~0.95）の継続。</description>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-04-breaking-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 週次レビュー ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-04-week-in-review-ja.html</link>
+      <description>2026-04-04 — 日本語 — 週間レビュー — Week In Review — 3月30日→4月4日の週は完全な休会期間であり、主要な分析/作戦上の知見は立法的なものではなく二つに集約される: (1)。</description>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-04-week-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 緊急（API信頼性） ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-breaking-breaking-2-ja.html</link>
+      <description>2026-04-03 — 日本語 — 速報 — Breaking Breaking 2 — 欧州議会データポータルフィードAPIは分断状態にある — 8つの必須フィードのうち5つが3回の独立した実行（06:00、12:15、18:15。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-breaking-breaking-2-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 速報（汚職対策・ ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-breaking-breaking-3-ja.html</link>
+      <description>2026-04-03 — 日本語 — 速報 — Breaking Breaking 3 — 2026年3月の本会議は、2022年12月のカタルゲート危機以来最も重要な一連の制度改革テキストを生み出した。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-breaking-breaking-3-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 速報ニュース（連合の力学）</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-breaking-breaking-ja.html</link>
+      <description>2026-04-03 — 日本語 — 速報 — Breaking Breaking — EP10の連合算術は、サンプリング議席の38%を占めるEPP中心の構造的非対称議会を明らかにし、Renew–ECR間に顕著な結束シグナル0.95を示す。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-breaking-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 委員会報告 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-committee-reports-ja.html</link>
+      <description>2026-04-03 — 日本語 — 委員会活動 — Committee Reports — 2026-04-03 に委員会文書はインデックス登録されず。欧州議会フィード API は確認済みの劣化状態にある（関連評価 breaking-2 参照）。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 決議案 ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-motions-ja.html</link>
+      <description>2026-04-03 — 日本語 — 本会議投票・決議 — Motions — 2026-04-03 に新規決議案の提出なし；休会第 2 週（全 4 週）、姉妹記事 breaking-2 により DEGRADED。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 提案 | 2026-04-03</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-propositions-ja.html</link>
+      <description>2026-04-03 — 日本語 — 立法手続 — Propositions — 2026-04-03には欧州委員会の新たな提案もEP独自の提案手続きも開始されなかった EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフィング — 来週の展望 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-03-week-ahead-ja.html</link>
+      <description>2026-04-03 — 日本語 — 今週の予定 — Week Ahead — 2026年4月6日〜12日の週は静かなイースター休暇週となる見込み — 本会議なし、正式な委員会会議なし、委員会の火曜活動も限定的。</description>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-03-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング — 最新ニュース ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-02-breaking-ja.html</link>
+      <description>2026-04-02 — 日本語 — 速報 — Breaking — 3月の休会後2日目。注目すべき発見はEPの活動ではなく、データパイプラインの劣化である EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-02-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>幹部向け概要 — 欧州議会委員会報告 ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-02-committee-reports-ja.html</link>
+      <description>2026-04-02 — 日本語 — 委員会活動 — Committee Reports — 2026年4月2日、新しい委員会報告はなし。休会第2週（全4週中）が継続中。 実行 b64d7ca7-e49c-4fb7-9203-9946d31bfca。</description>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-02-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 決議採択提案 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-02-motions-ja.html</link>
+      <description>2026-04-02 — 日本語 — 本会議投票・決議 — Motions — 2026-04-02に新規提案は提出されず。議会休会第2週（全4週）が継続中です。 実行c93513b6-9f22-4b36-a984-d05123287。</description>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-02-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会提案インテリジェンス・ブリーフ ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-02-propositions-ja.html</link>
+      <description>2026-04-02 — 日本語 — 立法手続 — Propositions — 2026年4月2日に新規の委員会提案または欧州議会独自の提案手続きは開始されませんでした EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-02-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブブリーフ — 速報ニュース ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-01-breaking-ja.html</link>
+      <description>2026-04-01 — 日本語 — 速報 — Breaking — 2026-04-01において速報ニュースは検出されなかった EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-01-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 委員会報告書 ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-01-committee-reports-ja.html</link>
+      <description>2026-04-01 — 日本語 — 委員会活動 — Committee Reports — 2026-04-01時点では新規委員会報告書はなし；3月以降の委員会休会初日。 実行64ada77d-c1f3-48f7-804d-be58857d0f1。</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-01-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>来月展望 | 2026-04-01 ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-01-month-ahead-ja.html</link>
+      <description>2026-04-01 — 日本語 — 今月の予定 — Month Ahead — 2026年4月の見通しは、4月27〜30日のストラスブール本会議および4月13〜17日の準備委員会週を中心に据えられている。</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-01-month-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>動議・決議案 | 2026-04-01 ・ EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-01-motions-ja.html</link>
+      <description>2026-04-01 — 日本語 — 本会議投票・決議 — Motions — 2026年4月1日、新規決議案の登録なし。 分析実行 6ab9ff5b-5062-4c7c-8625-af376a01eb16。</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-01-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフ — 提案 | 2026-04-01</title>
+      <link>https://euparliamentmonitor.com/news/2026-04-01-propositions-ja.html</link>
+      <description>2026-04-01 — 日本語 — 立法手続 — Propositions — 2026-04-01 付けで欧州委員会の新規提案および欧州議会独自イニシアティブ案件はインデックスされませんでした。</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-04-01-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>エグゼクティブ・ブリーフィング — 速報ニュース ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-31-breaking-ja.html</link>
+      <description>2026-03-31 — 日本語 — 速報 — Breaking — 2026年3月31日に速報シグナルなし。3月後の欧州議会における初の休会週の最終日 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-31-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-31-committee-reports-ja.html</link>
+      <description>委員会の委員長および構成員データは、この報告期間において EP Open Data API から現在入手できません。委員会活動の監視は利用可能なデータソースで継続します。 公開日 2026-03-31 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-31-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-31</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-31-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-03-01から2026-03-31までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-31-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-31-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-31 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-31-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-30-committee-reports-ja.html</link>
+      <description>委員会の委員長および構成員データは、この報告期間において EP Open Data API から現在入手できません。委員会活動の監視は利用可能なデータソースで継続します。 公開日 2026-03-30 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-30-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-30</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-30-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-02-28から2026-03-30までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-30-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-30-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-30 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-30-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>月間レビュー: EP10 ecosystem ・ EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-28-month-in-review-ja.html</link>
+      <description>2026-03-28 — 日本語 — 月間レビュー — Month In Review — 欧州議会の包括的分析 — 立法成果、連立動態、政策トレンド EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-28-month-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の振り返り: 2026-03-21 ～ 2026-03-28</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-28-week-in-review-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-03-21から2026-03-28までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-28-week-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: Routine inter-sessional</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-27-breaking-ja.html</link>
+      <description>2026-03-27 — 日本語 — 速報 — Breaking — 投票異常、連立変動、主要MEP活動の分析 EU機関の民主的説明責任への影響を追跡する読者向け。</description>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-27-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会委員会活動報告書：ENVI、ECON、AFET、LIBE、AGRI — 28件の採択テキスト</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-27-committee-reports-ja.html</link>
+      <description>最近の立法成果、有効性指標、主要な委員会活動の分析 公開日 2026-03-27 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 欧州議会委員会活動報告書：ENVI、ECON、AFET、LIBE、AGRI — 28件の採択テキスト EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-27-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-27</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-27-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-02-25から2026-03-27までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-27-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-27-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-27 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-27-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報：重要な議会の動向 — 2026年3月26日 — 18件のテキスト</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-26-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-26 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報：重要な議会の動向 — 2026年3月26日 — 18件のテキスト EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-26-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会委員会活動報告書：ENVI、ECON、AFET、LIBE、AGRI — 26件の採択テキスト</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-26-committee-reports-ja.html</link>
+      <description>最近の立法成果、有効性指標、主要な委員会活動の分析 公開日 2026-03-26 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 欧州議会委員会活動報告書：ENVI、ECON、AFET、LIBE、AGRI — 26件の採択テキスト EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-26-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-25</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-25-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-25 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-03-25 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-25-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-25</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-25-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-02-23から2026-03-25までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-25-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-25-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-25 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-25-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-24</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-24-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-24 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-03-24 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-24-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-24-committee-reports-ja.html</link>
+      <description>委員会の委員長および構成員データは、この報告期間において EP Open Data API から現在入手できません。委員会活動の監視は利用可能なデータソースで継続します。 公開日 2026-03-24 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-24-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-24</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-24-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-02-22から2026-03-24までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-24-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-24-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-24 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-24-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-23</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-23-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-23 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-03-23 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-23-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-23-committee-reports-ja.html</link>
+      <description>委員会の委員長および構成員データは、この報告期間において EP Open Data API から現在入手できません。委員会活動の監視は利用可能なデータソースで継続します。 公開日 2026-03-23 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-23-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-23</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-23-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-02-21から2026-03-23までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-23-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-23-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-23 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-23-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の振り返り: 2026-03-14 ～ 2026-03-21</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-21-week-in-review-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-03-14から2026-03-21までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-21-week-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-20-committee-reports-ja.html</link>
+      <description>委員会の委員長および構成員データは、この報告期間において EP Open Data API から現在入手できません。委員会活動の監視は利用可能なデータソースで継続します。 公開日 2026-03-20 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-20-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-20</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-20-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-02-18から2026-03-20までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-20-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-20-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-20 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-20-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の予定: 2026-03-21 ～ 2026-03-28</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-20-week-ahead-ja.html</link>
+      <description>議会の背景: 欧州議会データによると — parliamentary schedules determine the legislative agenda affecting EU citizens directly. 公開日 2026-03-20 · 分析実行 week-ahead, 投票、委員会、立法に関する出典付きインテリジェンス…</description>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-20-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-19-committee-reports-ja.html</link>
+      <description>委員会の委員長および構成員データは、この報告期間において EP Open Data API から現在入手できません。委員会活動の監視は利用可能なデータソースで継続します。 公開日 2026-03-19 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-19-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-19</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-19-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-02-17から2026-03-19までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-19-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-19-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-19 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-19-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-18</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-18-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-18 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-03-18 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-18-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-18-committee-reports-ja.html</link>
+      <description>最近の立法成果、有効性指標、主要な委員会活動の分析 公開日 2026-03-18 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-18-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-18-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-18 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-18-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-17</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-17-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-17 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-03-17 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-17-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-17</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-17-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-02-15から2026-03-17までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-17-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-17-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-17 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-17-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-16</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-16-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-16 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-03-16 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-16-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-16</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-16-motions-ja.html</link>
+      <description>2026年3月10日から12日にかけての欧州議会本会議は、人工知能の著作権からEU・カナダの地政学的協力、欧州中央銀行の人事、重量車両の排出クレジットまで、幅広いテーマにわたる8つの採択文書を生み出しました。この会議は、欧州議会の広範な立法課題と内部ガバナンスおよび国際問題への取り組みを反映しています。</description>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-16-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-16-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-16 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-16-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-13</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-13-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-13 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-03-13 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-13-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-13-committee-reports-ja.html</link>
+      <description>委員会の委員長および構成員データは、この報告期間において EP Open Data API から現在入手できません。委員会活動の監視は利用可能なデータソースで継続します。 公開日 2026-03-13 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-13-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-13</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-13-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における注目すべき政治的ダイナミクスを明らかにしています。2026-02-11から2026-03-13までの採択テキストと記録された活動に基づき、本分析は立法上の優先事項と意思決定パターンに関する洞察を提供します。</description>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-13-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-13-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-13 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-13-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の予定: 2026-03-14 ～ 2026-03-21</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-13-week-ahead-ja.html</link>
+      <description>議会の背景: 欧州議会データによると — parliamentary schedules determine the legislative agenda affecting EU citizens directly. 公開日 2026-03-13 · 分析実行 week-ahead, 投票、委員会、立法に関する出典付きインテリジェンス…</description>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-13-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-12</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-12-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-12 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-03-12 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-12-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-12-committee-reports-ja.html</link>
+      <description>委員会の委員長および構成員データは、この報告期間において EP Open Data API から現在入手できません。委員会活動の監視は利用可能なデータソースで継続します。 公開日 2026-03-12 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-12-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-12</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-12-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-02-10から2026-03-12までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-12-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-11</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-11-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-11 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-03-11 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-11-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-11-committee-reports-ja.html</link>
+      <description>最近の立法成果、有効性指標、主要な委員会活動の分析 公開日 2026-03-11 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-11-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-11</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-11-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-02-09から2026-03-11までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-11-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-11-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-11 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-11-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-10</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-10-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-10 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-03-10 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-10-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-10-committee-reports-ja.html</link>
+      <description>委員会の委員長および構成員データは、この報告期間において EP Open Data API から現在入手できません。委員会活動の監視は利用可能なデータソースで継続します。 公開日 2026-03-10 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-10-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-10</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-10-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-02-08から2026-03-10までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-10-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-10-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-10 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-10-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-09</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-09-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, 2026-02-07から2026-03-09までの投票記録の分析は、立法上の意思決定と政党規律に関する洞察を提供します。</description>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-09-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-09-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-09 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-09-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の予定: 2026-03-10 ～ 2026-03-17</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-09-week-ahead-ja.html</link>
+      <description>欧州議会の今週の展望（2026年3月10日～2026年3月17日）：本会議イベント1件、委員会会合0件、立法文書0件、パイプライン手続き0件、議会質問0件が予定されています。 公開日 2026-03-09 · 分析実行 week-ahead, 投票、委員会、立法に関する出典付きインテリジェンス EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-09-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の振り返り: 2026-02-28 ～ 2026-03-07</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-07-week-in-review-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, analysis of voting records from 2026-02-28 to 2026-03-07 provides insights into legislative decision-making and party discipline.</description>
+      <pubDate>Sat, 07 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-07-week-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-06</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-06-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-06 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-03-06 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-06-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-06-committee-reports-ja.html</link>
+      <description>環境・公衆衛生・食品安全委員会（ENVI）は、気候中立性枠組みに関する主力テキスト（TA-10-2026-0031、2026年2月10日採択）を本会議で可決させました。重要医薬品に関する作業（TA-10-2026-0001、2026年1月20日採択）は、パンデミック後のサプライチェーンの脆弱性に対処しています。一連のGMO投票（大豆DBN-09004-6、トウモロコシT25、綿花GHB614 × LLCotton25 — すべて2月11日採択）は、農業イノベーションと予防原則の間の継続的な緊張を反映しています。世界がんデー決議（TA-10-2026-0052、2月12日）は議会の健康重視を示…</description>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-06-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-06</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-06-motions-ja.html</link>
+      <description>最近の議会活動は、欧州議会における主要な投票パターン、政党結束の傾向、注目すべき政治的ダイナミクスを明らかにしています。 欧州議会データによると, analysis of voting records from 2026-02-04 to 2026-03-06 provides insights into legislative decision-making and party discipline.</description>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-06-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-06-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-03-06 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法手続: EU議会モニター EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-06-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-05</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-05-breaking-ja.html</link>
+      <description>投票異常、連立変動、主要MEP活動の分析 公開日 2026-03-05 · 分析実行 breaking, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 速報: 重要な議会の動き — 2026-03-05 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-05-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-05-committee-reports-ja.html</link>
+      <description>最近の立法成果、有効性指標、主要な委員会活動の分析 公開日 2026-03-05 · 分析実行 committee-reports, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-05-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-05</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-05-motions-ja.html</link>
+      <description>欧州議会は2026年に56のテキストを採択し、ウクライナ支援や防衛パートナーシップから労働者の権利、貧困対策戦略、人権まで重要な分野を扱っています。2026年2月24日の最新の本会議では、ロシアのウクライナ侵略戦争に関する画期的な決議が採択され(TA-10-2026-0056)、紛争から4年を迎えました。2月の以前の会議では、EU-メルコスール協定の農業セーフガード条項(TA-10-2026-0030)、安全国枠組みによる移民政策(TA-10-2026-0025)、戦略的防衛パートナーシップ(TA-10-2026-0040)に焦点が当てられました。</description>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-05-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会の立法パイプライン：2026年初頭に8件の新たな通常立法手続きが登録</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-05-propositions-ja.html</link>
+      <description>欧州議会は2026年第1四半期に60件以上の新たな立法手続きを登録しました。これはEP10期の立法アジェンダの加速を示しています。8件の新たな通常立法手続き（COD）— 2026/0008(COD)から2026/0059(COD) — が委員会段階に入り、5件の予算手続き、4件の非立法行為、9件の自主報告が並行して進行しています。2026-03-05時点でEPオープンデータポータルに記録されたこの活動の急増は、EP10の2年目における防衛支出、クリーン産業協定、AI法の実施という重要な優先事項を推進する欧州委員会の意欲を反映しています。</description>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-05-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報：EU議会がウクライナ支援、移民改革、貿易保護措置を推進</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-04-breaking-ja.html</link>
+      <description>欧州議会は2026年2月の3回の本会議で19のテキストを採択し、ウクライナへの財政支援、移民・庇護制度改革、EU-Mercosur貿易保護措置、人権に関する重要な法律を推進した。16の新しい立法手続きも開始され、EP10の立法活動の活発化を示している。</description>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-04-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-03-committee-reports-ja.html</link>
+      <description>EP10期は、2024年選挙がより分断された議会を生み出したことで幕を開けました。EPPが188議席（26.1%）、S&amp;Dが136（18.9%）、PfEが86（11.9%）、ECRが78（10.8%）、Renewが77（10.7%）、Greens/EFAが53（7.4%）、The Leftが46（6.4%）、ESNが25（3.5%）を占めています。この多極的な状況は、委員会報告者が立法上の過半数を確保するために少なくとも3つの政治グループと交渉しなければならないことを意味します。</description>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-03-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-03</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-03-motions-ja.html</link>
+      <description>欧州議会は2026年初頭に立法活動の強化期に入り、年初から56本のテキストが採択されました（T10-0001/2026からT10-0056/2026）。この成果は、2024年選挙後の右傾化が引き続き連立形成と立法優先事項を再構築しているEP10の政治力学の定着を反映しています。</description>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-03-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-03-propositions-ja.html</link>
+      <description>欧州議会の第10期は立法作業量を加速させており、2025年初頭だけで20の新たな手続きが登録されました。内訳は通常立法手続き（COD）13件、非立法案件（NLE）5件、予算手続き1件、旧協力手続き1件です。この増加は、720名の議員からなる議会が史上最高の断片化指数6.50に直面する中で起きており、すべての立法過半数でより広範な連立を余儀なくしています。EPPが188議席（26.1%）を保持し、2019年以降二党連合で過半数を達成できる状況にない中、提案パイプラインは現任期の野心と政治的複雑さの双方を反映しています。</description>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-03-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>速報: 重要な議会の動き — 2026-03-02</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-02-breaking-ja.html</link>
+      <description>欧州議会は2026年初頭に55以上のテキストを採択し、EP10で最も生産的な立法期間の一つとなっています。二党多数派が不可能な分裂した第10期議会は、防衛、貿易、移民、デジタル主権、ウクライナ支援を含む重要な政策分野において、グループ横断の連立構築能力を示し続けています。</description>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-02-breaking-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動報告: ENVI, ECON, AFET, LIBE, AGRI</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-02-committee-reports-ja.html</link>
+      <description>ENVIは、現在の報告期間中に100以上の文書を作成し、議会で最も活発な委員会の一つであり続けています。委員会は欧州グリーンディールの実施の中心に位置しています。2025年に議会全体で2,988回の委員会会議が開催され — EP6時代から30%の増加を反映 — ENVIの環境政策における立法の複雑性の増大を浮き彫りにしています。EP10の構成における右傾化により、ECR（78議席）とPfE（86議席）の合計が従来の中道左派の環境コンセンサスに挑戦しています。</description>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-02-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-03-02</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-02-motions-ja.html</link>
+      <description>欧州議会第10期は、2004年以来最も断片化された議場で2年目を迎えている。議会断片化指数6.14は過去最高を記録しており、動議や決議は従来の左右の分断を超えた連合をますます必要としている。2024年選挙で顕在化した右傾化が、どの動議が勢いを得るかを引き続き形成している。</description>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-02-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-02-propositions-ja.html</link>
+      <description>欧州議会第10期は立法作業を加速させています。2025年に295件の手続きが開始され、2026年には405件が見込まれており、EP10の立法パイプラインはフル稼働しています。現在の会期では既に78件の立法行為が採択されました。これは2024年のEP9/EP10移行期の72件から大幅に増加しています。デジタル税制改革から化学物質規制、防衛政策に至るまで、議会の立法議題はEUの最も緊急な戦略的優先事項を反映しています。</description>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-02-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>月間展望：2026年3月 — EP10の春季立法攻勢</title>
+      <link>https://euparliamentmonitor.com/news/2026-03-01-month-ahead-ja.html</link>
+      <description>2026年3月は、欧州議会が第10期議会の2度目の春を迎えるにあたり、要求の厳しい立法の章を開きます。720名の議員が委員会の任務に完全に定着した今、立法生産のペースは大幅に加速すると予想されます。事前計算された議会統計は、年間53回の本会議と114の立法行為を予測しています。これは2024年のEP9/EP10移行期（38回の会議と72の法律行為）と比較して大幅な増加です。</description>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-03-01-month-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今月の展望：2026年3月戦略的見通し</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-28-month-ahead-ja.html</link>
+      <description>2026年3月は、欧州議会の立法カレンダーにおいて極めて重要な月であり、第10期議会の第2四半期に入ります。春の会期が本格化する中、欧州議会議員はストラスブールでの本会議とブリュッセルでの委員会活動という集中的なスケジュールに直面しています。立法パイプラインは堅調を維持しており、強力なモメンタムとボトルネックの不在は、効率的な機関間調整を示しています。デジタル移行、環境規制、防衛協力を含む主要な政策分野が議題を支配することになります。</description>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-28-month-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>月間レビュー：2026年2月</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-28-month-in-review-ja.html</link>
+      <description>2026年2月、欧州議会は第10期議会が2年目に入る中、力強い立法ペースを維持しました。立法パイプラインの健全性指数が満点の100点を記録し、遅延している手続きはゼロでした。これは効率的な機関間調整を実証するものです。議会は地政学的圧力の高まりと、気候、デジタルガバナンス、防衛に関する政策アジェンダの激化を背景に、重い作業量を処理しました。</description>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-28-month-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>週間レビュー：2026年2月21日〜28日</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-28-week-in-review-ja.html</link>
+      <description>2月21日〜28日の欧州議会の週は、本会議投票が予定されていない選挙区・委員会作業期間でした。それにもかかわらず、議員たちは舞台裏で活発に活動しました。20件以上の書面による議会質問が正式に提出され、複数の政策分野にわたる継続的な立法監視を示しています。政治グループの安定性は高く維持され、投票異常や離党シグナルは検出されませんでした。これは第10議会期における統合段階の反映です。</description>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-28-week-in-review-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>欧州議会委員会活動：廃棄物、結束、防衛が立法議題を形成</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-27-committee-reports-ja.html</link>
+      <description>欧州議会の常任委員会は、野心的な立法プログラムを決定的な段階へと導いています。廃棄物枠組み指令の繊維・食品廃棄物に関する新規定、ERDF・結束基金の戦略的修正、CSDP防衛年次レビュー、ユーロジャストの事件管理システム近代化、および調整された農業関税割当がすべて立法パイプラインを前進しています。この分析は、EP公開データポータルの採択テキスト、委員会有効性データ、パイプライン情報に基づき、第10期議会における5つの主要委員会—ENVI、ECON、AFET、LIBE、AGRI—の活動と方向性を評価します。</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-27-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>本会議投票・決議: 2026-02-27</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-27-motions-ja.html</link>
+      <description>欧州議会第10期は立法活動が加速する段階に入り、2025年には人権緊急事態、経済ガバナンス改革、安全保障政策の転換を含む30のテキストが採択されました。欧州議会のデータ分析は、イランの組織的弾圧からロシアの貿易妨害に至る外部脅威に同時に対処しながら、デジタル課税、廃棄物管理、結束政策における野心的な内部改革を推進する議会の姿を明らかにしています。</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-27-motions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法加速：欧州議会が2026年初頭に50以上の採択テキストと7つの新規COD提案を処理</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-27-propositions-ja.html</link>
+      <description>欧州議会における最近の立法提案、手続き追跡、パイプライン状況 公開日 2026-02-27 · 分析実行 propositions, 投票、委員会、立法に関する出典付きインテリジェンス 文脈: 立法加速：欧州議会が2026年初頭に50以上の採択テキストと7つの新規COD提案を処理 EU機関の民主的説明責任への影響を追跡する読者向け</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-27-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>EU議会委員会活動：5つの主要委員会が欧州の政策議題を形成</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ja.html</link>
+      <description>欧州議会の常任委員会は、現在の議会期において幅広い立法プログラムを推進してきた。その内容は、化学物質規制、デジタル課税改革、イラン・アゼルバイジャン・西バルカン諸国に関する外交政策決議、司法協力協定、農業貿易の調整など多岐にわたる。本報告書は、最も活動的な5つの委員会——ENVI、ECON、AFET、LIBE、AGRI——の成果と戦略的方向性を、欧州議会オープンデータポータルの採択文書、有効性指標、立法パイプラインデータに基づき分析する。</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-committee-reports-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法パイプライン急増：2026年に20の新手続き</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-26-propositions-ja.html</link>
+      <description>欧州議会は2026年に少なくとも20の新しい立法手続きを登録しました（議会オープンデータポータルのデータによる）。パターンはテンポの加速を示しています：通常立法手続（COD）7件、予算手続（BUD）4件、非立法手続（NLE）4件、および自発的報告書（INI）、免責問題（IMM）、決議（RSP）。同時に、2025年からのCOD提案12件がまだ委員会段階にあります。議会は2026年初頭にすでに20件以上のテキストを採択し、金融安定、EU–Mercosurの貿易条項、ドローン戦争、欧州技術主権を網羅しています。</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-26-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-25-propositions-ja.html</link>
+      <description>欧州議会が第10期立法期の2年目に入る中、同機関の立法パイプラインは戦略的転換期にある議会を明らかにしています。欧州議会のオープンデータポータルからの委員会活動データの分析は、新たな立法提案に対する慎重だが断固たるアプローチを示しています。環境、産業、市民的自由、デジタル規制、域内市場改革という5つの主要な政策分野が、2026年の立法優先事項を形作っています。</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-25-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>立法手続: EU議会モニター</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-propositions-ja.html</link>
+      <description>欧州議会の第10期議会が2年目に入る中、機関の立法機構は戦略的再調整の期間にあります。欧州議会のオープンデータからの現在の立法パイプラインの分析は、主要な立法イニシアチブを開始する前に、委員会構造を体系的に構築し、政策優先事項を確立している議会機関を明らかにしています。本報告書は、法案提案の状況、委員会の準備状況、そして2026年の議会の立法議題を形作る政治力学を検証します。</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-propositions-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+    <item>
+      <title>今週の予定: 2026-02-25 ～ 2026-03-04</title>
+      <link>https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ja.html</link>
+      <description>欧州議会は、議員がブリュッセルでの委員会作業と本会議の準備に戻る中、重要な一週間を迎えます。ENVI、ITRE、LIBEを含む複数の委員会が主要な立法案件を推進するために招集される中、2026-02-25から2026-03-04の週は、いくつかの重要な政策軌道を形成することになります。環境・デジタル政策が引き続き最前線にあり、立法パイプラインは40の修正案が審議中の5つの活動中の案件を示しています。</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-02-24-week-ahead-ja.html</guid>
+      <dc:language>ja</dc:language>
+    </item>
+  </channel>
+</rss>

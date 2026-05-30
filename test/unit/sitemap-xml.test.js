@@ -80,10 +80,10 @@ describe('generateSitemap', () => {
     expect(xml.trimEnd().endsWith('</urlset>')).toBe(true);
   });
 
-  it('emits 14 index URLs + 14 sitemap HTML URLs + 14 PI URLs + 1 RSS URL when no articles supplied', () => {
+  it('emits 14 index URLs + 14 sitemap HTML URLs + 14 PI URLs + 14 RSS feed URLs when no articles supplied', () => {
     const xml = generateSitemap([], []);
     const locCount = (xml.match(/<loc>/g) ?? []).length;
-    expect(locCount).toBe(14 * 3 + 1);
+    expect(locCount).toBe(14 * 4);
   });
 
   it('emits hreflang alternates for every multilingual surface', () => {
@@ -101,6 +101,21 @@ describe('generateSitemap', () => {
     expect(rssBlock).toBeTruthy();
     expect(rssBlock).toContain('<changefreq>daily</changefreq>');
     expect(rssBlock).toContain('<priority>0.5</priority>');
+  });
+
+  it('lists one RSS feed URL per language (rss.xml + rss_<lang>.xml) without hreflang alternates', () => {
+    const xml = generateSitemap([], []);
+    const feedBlocks = xml
+      .split('<url>')
+      .filter((b) => /\/rss(_[a-z]{2})?\.xml</.test(b));
+    // 14 languages → 14 feed URLs (English rss.xml + 13 rss_<lang>.xml)
+    expect(feedBlocks).toHaveLength(14);
+    expect(xml).toContain('<loc>https://euparliamentmonitor.com/rss.xml</loc>');
+    expect(xml).toContain('<loc>https://euparliamentmonitor.com/rss_sv.xml</loc>');
+    expect(xml).toContain('<loc>https://euparliamentmonitor.com/rss_zh.xml</loc>');
+    for (const block of feedBlocks) {
+      expect(block).not.toContain('xhtml:link');
+    }
   });
 
   it('appends docs URLs without hreflang alternates', () => {

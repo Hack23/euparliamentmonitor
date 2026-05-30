@@ -125,6 +125,7 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
   const companyTagline = escapeHTML(getLocalizedString(FOOTER_COMPANY_TAGLINE_LABELS, lang));
   const homeHref = `${pathPrefix}${lang === 'en' ? 'index.html' : `index-${lang}.html`}`;
   const sitemapHref = `${pathPrefix}${lang === 'en' ? 'sitemap.html' : `sitemap_${lang}.html`}`;
+  const rssHref = `${pathPrefix}${lang === 'en' ? 'rss.xml' : `rss_${lang}.xml`}`;
   const politicalIntelligenceHref = `${pathPrefix}${lang === 'en' ? 'political-intelligence.html' : `political-intelligence_${lang}.html`}`;
   const apiDocsHref = `${pathPrefix}docs/api/`;
   const analysisDocsHref = `${pathPrefix}docs/`;
@@ -166,7 +167,7 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
           <li><a href="${politicalIntelligenceHref}">${icon('pi')}<span>${politicalIntelligenceLabel}</span></a></li>
           <li><a href="${sitemapHref}">${icon('sitemap')}<span>${sitemapLabel}</span></a></li>
           <li><a href="${apiDocsHref}">${icon('book')}<span>${apiDocsLabel}</span></a></li>
-          <li><a href="${pathPrefix}rss.xml">${icon('rss')}<span>${rssLabel}</span></a></li>
+          <li><a href="${rssHref}">${icon('rss')}<span>${rssLabel}</span></a></li>
           <li><a href="https://hack23.com/euparliamentmonitor.html" target="_blank" rel="noopener noreferrer">${icon('external')}<span>EU Parliament Monitor by Hack23</span></a></li>
           <li><a href="https://hack23.com/euparliamentmonitor-features.html" target="_blank" rel="noopener noreferrer">${icon('external')}<span>EU Parliament Monitor Features</span></a></li>
           <li><a href="https://hack23.com/cia-features.html" target="_blank" rel="noopener noreferrer">${icon('external')}<span>CIA Platform</span></a></li>

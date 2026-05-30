@@ -19,6 +19,7 @@ import { escapeHTML } from '../../utils/file-utils.js';
 import { buildResponsiveIconLinks, buildResponsiveSocialImageMeta, buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../../templates/section-builders.js';
 import { getPoliticalIntelligenceFilename } from '../../generators/political-intelligence.js';
 import { getSitemapFilename } from '../../generators/sitemap/index.js';
+import { buildRssAlternateLink } from '../../generators/sitemap/rss.js';
 import { truncateHeadline, getTitleSeparator, buildPageTitle, getLocalizedArticleType, getLocalizedArticleTypePlain, } from './headline.js';
 import { clampForBudget } from '../metadata/seo-budgets.js';
 import { getArticleFilename, buildArticleHreflangLinks, buildLanguageSwitcher, } from './hreflang.js';
@@ -352,7 +353,7 @@ ${keywordsMeta}  <meta name="robots" content="index, follow, max-snippet:-1, max
   <meta property="article:publisher" content="https://hack23.com">
   <link rel="canonical" href="${canonicalUrl}">
 ${hreflangLinks}
-  <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="${BASE_URL}/rss.xml">
+  ${buildRssAlternateLink(safeLang, `${BASE_URL}/`)}
   <link rel="preconnect" href="https://hack23.com" crossorigin>
   <meta property="og:type" content="article">
   <meta property="og:title" content="${escapeHTML(ogTitleClamped)}">
