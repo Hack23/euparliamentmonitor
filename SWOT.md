@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.5-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:**
+**📋 Document Owner:** CEO | **📄 Version:** 1.5 | **📅 Last Updated:**
 2026-05-30 (UTC)  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-30  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
@@ -90,7 +90,7 @@ planning and resource allocation.
 - **Market**: European civic technology, political transparency platforms
 - **Competitive Position**: Open source, automated news generation,
   multi-language support
-- **Timeline**: Current state as of v0.9.26 (2026-05-30)
+- **Timeline**: Current state as of v0.9.29 (2026-05-30)
 - **Scope**: Technical, operational, strategic, and compliance dimensions
 
 ### Current State Snapshot (May 2026)
@@ -676,7 +676,7 @@ builds | 50-70% |
 - **W7: Sole LLM-Provider Dependency** — full pipeline relies on Copilot/Claude/Codex availability; the engine-switch feature mitigates single-vendor outage but still requires at least one functioning LLM provider. *Risk: 🟡 Medium.*
 - **W8: EP MCP Single Technical Source** — the EP MCP server is the sole upstream for European Parliament data; it is Hack23-owned (reducing third-party risk) but remains a single technical source with no redundant parliamentary data surface. *Risk: 🟡 Medium.*
 - **W9: IMF+WB Indicator Curation Burden** — indicator mapping between committee topics and WB/IMF indicators requires ongoing curation in `analysis/methodologies/imf-indicator-mapping.md` and `src/constants/committee-indicator-map.ts`. *Risk: 🟢 Low.*
-- **W10: gh-aw v0.69.0 Pin Fragility** — upstream breaking changes to gh-aw require a manual bump plus recompilation of 10 `.lock.yml` files; centralized compile job helps but the pin itself is a fragility point. *Risk: 🟡 Medium.*
+- **W10: gh-aw v0.77.3 Pin Fragility** — upstream breaking changes to gh-aw require a manual bump plus recompilation of the `.lock.yml` files; centralized compile job helps but the pin itself is a fragility point. *Risk: 🟡 Medium.*
 - **W11: Deliberately Minimal Engagement Surface** — the static site intentionally omits search, personalization, and comments; this reduces attack surface and GDPR exposure but also limits user engagement metrics and retention. *Risk: 🟢 Low (by design).*
 - **W12: Bus Factor 1–2 at Hack23** — no external community contributors yet; knowledge concentration remains in a small Hack23 team. *Risk: 🔴 High (long-term).*
 - **W13: Monolingual Source-of-Truth** — English is the sole authoritative source; 13 translation targets pass the pre-translation validator gate but are not line-by-line human reviewed, creating potential for drift across locales. *Risk: 🟡 Medium.*
@@ -1353,7 +1353,7 @@ Funding** | €0 | €10-20k | 🔴 Critical |
 - **W16: EP MCP 1.3.12 Skeleton Coverage** — pinned `european-parliament-mcp-server@1.3.12` exposes 60+ tools but several endpoints (committee-documents, plenary-session-document-items, controlled-vocabularies feed) remain fixed-window with no timeframe filtering, limiting historical-query precision. *Risk: 🟢 Low.*
 - **W17: IMF Probe Degradation Modes** — when `cache/imf/imf-probe-summary.json` reports failure, manifest `dataMode` falls back to `degraded-imf` (-15% line floor) or `minimal` (-35%); WB satisfies the OR-gate but tradecraft on monetary/fiscal claims still relies on IMF as primary. *Risk: 🟡 Medium.*
 - **W18: Single-Session 60-Min Workflow Timeout** — every unified `news-<type>.md` workflow runs Stages A→E in one 60-min session and creates exactly one PR. The hard PR deadline minute ≤ 45 (target ≤ 42 standard slugs, ≤ 47 electoral) leaves no margin if upstream MCP latency spikes mid-run. *Risk: 🟡 Medium.*
-- **W19: MCP Gateway Keepalive Issues** — gh-aw v0.71.3 advertises `engine.mcp.session-timeout` but the bundled gateway image v0.3.1 rejects the field (run #25275823699 fingerprint). Pipeline relies on the upstream-default keepalive. *Risk: 🟡 Medium.*
+- **W19: MCP Gateway Keepalive Issues** — the current `v0.77.3` pin still relies on the upstream-default gateway keepalive; the `engine.mcp.session-timeout` field first advertised in gh-aw v0.71.3 was rejected by the bundled gateway image v0.3.1 (run #25275823699 fingerprint) and remains unverified on the current pin. *Risk: 🟡 Medium.*
 
 **Opportunities (O15–O17):**
 
@@ -1367,6 +1367,15 @@ Funding** | €0 | €10-20k | 🔴 Critical |
 - **T17: AI Quality Consistency Across 14 Languages** — `news-translate.md` fan-outs from authoritative EN to 13 target languages with a pre-translation completeness gate, but per-language line-by-line human review is not feasible at current throughput. Drift in idiomatic-political-vocabulary across languages (especially RTL: ar, he and East Asian: ja, ko, zh) is a recurring risk. *Risk: 🟠 Medium–High.*
 - **T18: Shell-Safety Filter False Positives** — the sandbox shell-safety filter occasionally blocks legitimate constructs (whitespace-trim idioms, default-with-command-substitution patterns) and the agent burns the remaining 60-min budget on workarounds. Authoritative safe replacements documented in `.github/prompts/08-infrastructure.md` §177-181 mitigate but do not eliminate the risk. See failed run #24773038606. *Risk: 🟡 Medium.*
 
+### 🆕 2026-05-30 Refresh — Maintenance & Version Alignment
+
+This refresh is a deep-review consistency pass (no new S/W/O/T items); it realigns the analysis with the current platform state and removes version drift from earlier refresh blocks.
+
+- **Current-state anchor** advanced to **v0.9.29 (2026-05-30)**; the Executive Summary timeline and Current State Snapshot reflect the live `src/aggregator/**` deterministic pipeline, 14 unified `news-<type>.md` workflows + `news-translate.md`, and AWS S3 + CloudFront primary delivery with a GitHub Pages fallback runbook.
+- **gh-aw pin drift corrected** to the live **`v0.77.3`** pin (`.github/workflows/compile-agentic-workflows.yml`): **W10** (pin fragility), **W19** (MCP gateway keepalive), and **TOWS WT1** previously referenced superseded pins (v0.69.0 / v0.71.3). S14 already tracked `v0.77.3` and is unchanged.
+- **Companion documents** kept in lock-step: see [`THREAT_MODEL.md`](THREAT_MODEL.md) v2.4 (T-028 risk treatment realigned to the `v0.77.3` pin; approval/review cycle refreshed to 2026-05-30) for the security-control view of the same agentic-pipeline weaknesses.
+
+
 ---
 
 ## 🔀 TOWS Strategic Matrix (Current State)
@@ -1376,7 +1385,7 @@ The TOWS matrix maps internal Strengths/Weaknesses against external Opportunitie
 |                                     | **Opportunities (O)**                                                                                                                                                      | **Threats (T)**                                                                                                                                                       |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Strengths (S)** — *SO Maxi-Maxi*  | **SO1**: Pair S22 (tradecraft) with O15 (long-horizon analysis) → publish term-outlook and election-cycle articles with full ICD-203 + ACH + WEP discipline as a market differentiator. **SO2**: Pair S19 (60-artifact baseline) + S18 (deterministic aggregator) with O17 (real-time DOCEO votes) → make `news-breaking.md` the fastest credible breaking-vote intelligence in EU civic tech. | **ST1**: Use S21 (shell-safety enforcement) to neutralize T18 (filter false positives) by expanding `test/unit/shell-safety.test.js` patterns. **ST2**: Use S11 (SLSA L3) + S14 (5-layer security) to pre-empt T11 (supply-chain attack vectors). |
-| **Weaknesses (W)** — *WO Mini-Maxi* | **WO1**: Use O17 (DOCEO votes) to compensate for W16 (EP MCP fixed-window feeds). **WO2**: Use O16 (IMF + Eurostat triangulation) to mitigate W17 (IMF probe degradation modes). | **WT1**: W18 (60-min session) × T16 (MCP gateway reliability) is the highest-priority risk pair — mitigation: extend gh-aw keepalive (when v0.71.3+ ships a working `session-timeout`) or split heavy slugs into Stage A+B / Stage D+E pairs. **WT2**: W13 (monolingual source-of-truth) × T17 (AI quality across 14 languages) — mitigation: targeted human spot-checks on RTL and East Asian languages every quarter. |
+| **Weaknesses (W)** — *WO Mini-Maxi* | **WO1**: Use O17 (DOCEO votes) to compensate for W16 (EP MCP fixed-window feeds). **WO2**: Use O16 (IMF + Eurostat triangulation) to mitigate W17 (IMF probe degradation modes). | **WT1**: W18 (60-min session) × T16 (MCP gateway reliability) is the highest-priority risk pair — mitigation: extend gh-aw keepalive (when v0.77.3+ ships a working `session-timeout`) or split heavy slugs into Stage A+B / Stage D+E pairs. **WT2**: W13 (monolingual source-of-truth) × T17 (AI quality across 14 languages) — mitigation: targeted human spot-checks on RTL and East Asian languages every quarter. |
 
 ### TOWS Action Priority
 

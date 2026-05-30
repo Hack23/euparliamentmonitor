@@ -1650,7 +1650,7 @@ already secured)
 
 **Residual Risk:** Low-Medium — Pin + rollback procedure limits outage window to <24h RTO
 
-**Risk Treatment:** Monitor — Watch gh-aw release notes for v0.69.x and test-bump in fork before production
+**Risk Treatment:** Monitor — Watch gh-aw release notes beyond the current v0.77.3 pin and test-bump in fork before production
 
 ---
 
@@ -2546,15 +2546,22 @@ V.Low │            │               │                │ T-015             
 
 | Role                   | Name          | Date       | Signature |
 | ---------------------- | ------------- | ---------- | --------- |
-| **Security Architect** | Security Team | 2026-02-26 | Approved  |
-| **Product Owner**      | Product Team  | 2026-02-26 | Approved  |
-| **CEO / CISO**         | CEO           | 2026-02-26 | Approved  |
+| **Security Architect** | Security Team | 2026-05-30 | Approved  |
+| **Product Owner**      | Product Team  | 2026-05-30 | Approved  |
+| **CEO / CISO**         | CEO           | 2026-05-30 | Approved  |
 
 ### **🔄 Review Schedule**
 
-- **Current Review:** 2026-02-26
-- **Next Quarterly Review:** 2026-05-26
-- **Annual Comprehensive Review:** 2027-02-26
+- **Current Review:** 2026-05-30
+- **Next Quarterly Review:** 2026-08-30
+- **Annual Comprehensive Review:** 2027-05-30
+
+### **📝 Version History**
+
+| Version | Date       | Author        | Changes                                                                                                                                                                                                                                                       |
+| ------- | ---------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **2.4** | 2026-05-30 | Security Team | Deep-review refresh: corrected templating reference (Handlebars → `SafeHtmlString` branded types), aligned delivery model (GitHub Pages → CloudFront/S3 with GitHub Pages fallback), catalogued threat **T-030**, realigned T-028 risk treatment to the current `v0.77.3` gh-aw pin, and refreshed the approval/review cycle to the 2026-05-30 quarterly cadence. |
+| **2.3** | 2026-02-26 | Security Team | Quarterly review: STRIDE-per-element coverage, MITRE ATT&CK mapping, ENISA TL 2024 integration, and quantitative risk treatment plan.                                                                                                                          |
 
 ### **📊 Review Criteria**
 
