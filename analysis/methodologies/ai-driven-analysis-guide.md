@@ -336,6 +336,55 @@ and descriptions only**, not full article translations.
    may derive keywords from the title/description, but this record tells future
    agents what audience query the headline was written to satisfy.
 
+#### The executive brief is the headline factory
+
+The executive brief is not just the lead section a reader sees first — it is
+the **single source of truth for every reader-facing surface** (the public
+`<title>`, the search-result `<meta name="description">`, the social-share
+card, the homepage news card, and the localized HTML body, which the renderer
+now always opens with the localized brief when an
+`executive-brief_<lang>.md` sibling exists, falling back to the English brief
+otherwise). Treat the brief's headline and BLUF as the product that has to win
+a click in a crowded feed — not as an archival label.
+
+Mine the title and description **from named brief highlights**, never from a
+generic artifact-category heading or date/type boilerplate. The resolver and
+the `validate-manifest-seo` gate actively reject pipeline jargon, so a strong
+brief is the only reliable path to attractive metadata:
+
+| Surface | Pull it from the brief's… | Make it… |
+|---|---|---|
+| `title` (≤70 chars) | `# Headline` + the single most significant `## Key Developments` / `## Priority Dossiers` item | A specific claim with a named actor and a verb — what *changed* and *who* it pressures. |
+| `description` (150–160) | `## 🎯 BLUF` + the strongest stakeholder consequence | A consequence the reader did not already know, distinct from the title, naming one impact. |
+| `searchIntentTerms` | committee acronyms, procedure titles, policy areas, stakeholders named in the brief | The real queries a citizen, journalist, or lobbyist would type. |
+
+**Insightful-title checklist — apply to every locale, not just `en`:**
+
+- ✅ **Specific over generic** — "EPP–S&D Discipline Cracks on Banking Union"
+  beats "EU Parliament Banking Update". Name the tension, the actor, or the
+  number.
+- ✅ **Lead with the stake, not the procedure** — open on what is *contested*
+  or *at risk*; the procedure code belongs in `searchIntentTerms`, not at the
+  front of the headline.
+- ✅ **One idea, active voice, present tense** — a title is a claim, not a
+  table of contents. Avoid stacking two clauses with "and".
+- ✅ **Title ≠ description** — the description must *advance* the story (a
+  second fact, a consequence, a deadline), never restate the title.
+- ✅ **Curiosity with payoff** — imply the reader will learn *why it matters*;
+  never clickbait without substance, never a question the body fails to answer.
+- ❌ **Reject** date/type boilerplate ("EU Parliament Breaking — 2026-05-16"),
+  raw WEP judgments as titles ("Highly Probable (80%) …"), artifact-category
+  labels ("Executive Brief — …", "Synthesis Summary — …"), and any Stage-A→E
+  preamble (`Run:`, `BLUF:`, `Window:`, `scripts/…`).
+
+If the brief's own `# Headline` is a generic artifact-category label, **fix the
+brief** (Pass 2) rather than letting the resolver fall through to a long
+priority-finding scan — the brief headline is what readers and the SEO surfaces
+both inherit. Every locale's title/description must trace to a brief highlight
+(BLUF, 60-Second Read, Top Documents/Procedures, Risk & Threat Snapshot, or Top
+Forward Trigger), and CJK locales should pack the same payload into their
+naturally shorter character budget rather than padding to hit a length target.
+
 ```jsonc
 {
   "articleType": "breaking",

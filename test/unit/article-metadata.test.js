@@ -1384,6 +1384,20 @@ describe('isArtifactCategoryHeading', () => {
     expect(isArtifactCategoryHeading('🔖 Executive Brief — EU Parliament Year Ahead')).toBe(true);
     expect(isArtifactCategoryHeading('📊 Synthesis Summary — Q1 2026')).toBe(true);
   });
+
+  it('matches CJK artifact-category prefixes (Japanese)', () => {
+    expect(isArtifactCategoryHeading('エグゼクティブ・ブリーフ — EU議会分析')).toBe(true);
+    expect(isArtifactCategoryHeading('エグゼクティブ・ブリーフィング — 年次報告')).toBe(true);
+  });
+
+  it('matches CJK artifact-category prefixes (Korean)', () => {
+    expect(isArtifactCategoryHeading('행정 브리핑 — EU의회 분석')).toBe(true);
+  });
+
+  it('matches CJK artifact-category prefixes (Chinese)', () => {
+    expect(isArtifactCategoryHeading('执行简报 — 欧洲议会监测')).toBe(true);
+    expect(isArtifactCategoryHeading('執行簡報 — 歐洲議會監測')).toBe(true);
+  });
 });
 
 describe('stripLeadingProseLabel', () => {
