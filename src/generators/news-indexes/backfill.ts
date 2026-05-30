@@ -13,12 +13,8 @@
 
 import path from 'path';
 import fs from 'fs';
-import { NEWS_DIR, BASE_URL } from '../../constants/config.js';
-import {
-  ALL_LANGUAGES,
-  ARTICLE_TYPE_LABELS,
-  getLocalizedString,
-} from '../../constants/languages.js';
+import { NEWS_DIR } from '../../constants/config.js';
+import { ARTICLE_TYPE_LABELS, getLocalizedString } from '../../constants/languages.js';
 import {
   formatSlug,
   parseArticleFilename,
@@ -29,6 +25,10 @@ import {
 import { detectCategory } from '../../utils/article-category.js';
 import { buildSeoKeywords, resolveArticleMetadata } from '../../aggregator/article-metadata.js';
 import { SEO_CONTEXT_LABELS } from '../../aggregator/metadata/template-fallback.js';
+import {
+  stripTruncatedReaderLabel,
+  hasTruncatedReaderLabelInBody,
+} from './backfill-reader-label.js';
 import type { ArticleCategoryLabels, LanguageCode } from '../../types/index.js';
 
 const MIN_ARTICLE_DESCRIPTION_LENGTH = 120;
@@ -136,7 +136,7 @@ function backfillOneLegacyArticleSeo(
   const hasKeywords = /<meta name="keywords" content="[^"]+"/u.test(html);
   const needsDescription =
     shouldBackfillDescription(meta.description, descriptions) ||
-    hasTruncatedReaderLabel(parsed.date, parsed.slug, parsed.lang, meta.description);
+    hasLegacyTruncatedReaderLabel(parsed.date, parsed.slug, parsed.lang, meta.description);
   if (hasKeywords && !needsDescription) return false;
 
   // Suppress leaky tokens (run-ids, "analysis run" jargon) from both
@@ -318,80 +318,15 @@ export function stripLegacyBackfillContext(
 }
 
 /**
- * Remove a trailing **truncated** copy of the localized reader label
- * (`SEO_CONTEXT_LABELS[lang].reader`) from a candidate description.
- *
- * Earlier backfill passes appended the reader label and then clamped the
- * whole buffer to the per-script `metaDescription` budget, hard-cutting
- * the label mid-word (e.g. zh `…政策后果的读` instead of `…政策后果的读者`,
- * ja `…追跡する読`, ko dangling `…추적하는.`). Those mangled fragments were
- * persisted to `<meta description>` and survive a plain prefix/date-label
- * strip, so re-feeding them to the resolver re-emits the broken tail.
- *
- * A trailing copy that matches the label **in full** is left intact — it
- * is a complete, reader-facing clause we want to preserve. Only a partial
- * (truncated) prefix of the label is dropped, leaving the clean body for
- * the resolver to re-enrich with a budget-aware (whole-label-or-nothing)
- * reader clause.
- *
- * @param description - Candidate description (prefix/date-label removed)
- * @param langCode - Article language code
- * @returns Description with any truncated trailing reader label removed
+ * Detect whether a legacy `<meta description>` ends with a truncated reader
+ * label once its dateline prefix and redundant date-label are removed.
+ * @param date - Article date string (YYYY-MM-DD)
+ * @param slug - Article slug identifier
+ * @param lang - Language code (e.g. 'en', 'sv')
+ * @param description - Meta description to check
+ * @returns True if the description ends with a truncated reader label
  */
-function stripTruncatedReaderLabel(description: string, langCode: LanguageCode): string {
-  const text = description.trim();
-  const cut = findTruncatedReaderLabelCut(text, langCode);
-  if (cut < 0) return text;
-  return text
-    .replace(/[.。！？!?…]+$/u, '')
-    .slice(0, cut)
-    .replace(/[\s,;:—\-–·。、]+$/u, '')
-    .trim();
-}
-
-/**
- * Locate a trailing **truncated** copy of the localized reader label and
- * return the index at which the description body ends (i.e. where the
- * partial label begins). Returns -1 when no partial label is present or
- * when the label is present in full (a complete clause we keep).
- *
- * @param text - Trimmed candidate description
- * @param langCode - Article language code
- * @returns Cut index for the partial label, or -1 when none applies
- */
-function findTruncatedReaderLabelCut(text: string, langCode: LanguageCode): number {
-  const labels = getLocalizedString(SEO_CONTEXT_LABELS, langCode);
-  const reader = (labels.reader ?? '').trim();
-  // Require a reasonably long label so we never strip on a coincidental
-  // short suffix match; real labels are 40+ chars (Latin) / 11+ (CJK).
-  if (reader.length < 8 || text.length < 8) return -1;
-  // Tolerate a terminator the resolver/healer appended after the cut.
-  const core = text.replace(/[.。！？!?…]+$/u, '');
-  const maxK = Math.min(core.length, reader.length);
-  for (let k = maxK; k >= 8; k -= 1) {
-    if (core.slice(core.length - k) === reader.slice(0, k)) {
-      // Full label present at the tail — keep it (not a truncation).
-      if (k === reader.length) return -1;
-      return core.length - k;
-    }
-  }
-  return -1;
-}
-
-/**
- * Detect whether a legacy `<meta description>` ends with a **truncated**
- * reader label once its dateline prefix and redundant date-label clause
- * are removed. Long, unique legacy descriptions otherwise bypass
- * {@link shouldBackfillDescription}, leaving a persisted mid-word cut
- * (e.g. zh `…政策后果的读`, ja `…追跡する読`, ko `…추적하는.`) in place.
- *
- * @param date - Article date (ISO YYYY-MM-DD)
- * @param slug - Article slug
- * @param lang - Article language code
- * @param description - Current `<meta description>` value
- * @returns True when a truncated reader label remains in the body
- */
-function hasTruncatedReaderLabel(
+function hasLegacyTruncatedReaderLabel(
   date: string,
   slug: string,
   lang: string,
@@ -405,7 +340,7 @@ function hasTruncatedReaderLabel(
     langCode,
     date
   );
-  return findTruncatedReaderLabelCut(body, langCode) >= 0;
+  return hasTruncatedReaderLabelInBody(body, langCode);
 }
 
 /**
@@ -598,13 +533,8 @@ function requireFsRead(filepath: string): string {
 
 /**
  * Apply SEO meta tag replacements to a complete article HTML document.
- *
  * Exported for the regression test in
- * `test/unit/news-indexes-jsonld-description-regex.test.js`, which
- * locks in the JSON-LD description regex against the duplicate-tail
- * bug (the legacy `"description":"[^"]*"` pattern terminated at the
- * first JSON-escaped quote `\"` and left the previous description's
- * tail in place, accumulating duplicates on every prebuild run).
+ * `test/unit/news-indexes-jsonld-description-regex.test.js`.
  *
  * @param html - Existing article HTML
  * @param description - Backfilled meta description
@@ -661,99 +591,4 @@ export function applyArticleSeoBackfill(
   return next;
 }
 
-/**
- * Build hreflang `<link rel="alternate">` tags for an article slug.
- * Produces one tag per supported language plus an `x-default` pointing at
- * the English variant, all using absolute URLs.
- *
- * @param articleSlug - Slug without language suffix (e.g. `2026-02-24-propositions`)
- * @returns Newline-joined `<link>` tags
- */
-function buildArticleHreflang(articleSlug: string): string {
-  const entries = ALL_LANGUAGES.map(
-    (code) =>
-      `  <link rel="alternate" hreflang="${code}" href="${BASE_URL}/news/${articleSlug}-${code}.html">`
-  );
-  entries.push(
-    `  <link rel="alternate" hreflang="x-default" href="${BASE_URL}/news/${articleSlug}-en.html">`
-  );
-  return entries.join('\n');
-}
-
-/**
- * Inject hreflang links into an article that has none.
- *
- * @param html - Article HTML content
- * @param hreflangBlock - Pre-built hreflang link block
- * @returns Updated HTML, or original if no change needed
- */
-function injectHreflangLinks(html: string, hreflangBlock: string): string {
-  return html.replace(/(<\/head>)/u, `${hreflangBlock}\n$1`);
-}
-
-/**
- * Replace existing relative hreflang links with absolute URLs.
- *
- * @param html - Article HTML content
- * @param hreflangBlock - Pre-built hreflang link block with absolute URLs
- * @returns Updated HTML, or original if no change needed
- */
-function fixRelativeHreflangLinks(html: string, hreflangBlock: string): string {
-  const stripped = html.replace(
-    /\s*<link\s+rel="alternate"\s+hreflang="[^"]*"\s+href="[^"]*">\n?/gu,
-    ''
-  );
-  return stripped.replace(/(<\/head>)/u, `${hreflangBlock}\n$1`);
-}
-
-/**
- * Backfill hreflang alternate links for all article HTML files.
- *
- * Handles three cases:
- * 1. Articles with no hreflang links at all → inject the full block before `</head>`
- * 2. Articles with relative hreflang URLs → replace with absolute URLs
- * 3. Articles already correct → skip
- *
- * @param filenames - News article filenames
- * @returns Number of HTML files updated
- */
-export function backfillArticleHreflang(filenames: readonly string[]): number {
-  let updated = 0;
-  for (const filename of filenames) {
-    if (backfillOneArticleHreflang(filename)) updated++;
-  }
-  return updated;
-}
-
-/**
- * Backfill hreflang for a single article file.
- *
- * @param filename - News article filename
- * @returns True when the file was updated
- */
-function backfillOneArticleHreflang(filename: string): boolean {
-  const parsed = parseArticleFilename(filename);
-  if (!parsed) return false;
-  const filepath = path.join(NEWS_DIR, filename);
-  const html = readArticleHtml(filepath);
-  if (!html) return false;
-
-  const articleSlug = `${parsed.date}-${parsed.slug}`;
-  const hreflangBlock = buildArticleHreflang(articleSlug);
-  const hasHreflang = /<link\s+rel="alternate"\s+hreflang="/u.test(html);
-
-  let next: string;
-  if (!hasHreflang) {
-    next = injectHreflangLinks(html, hreflangBlock);
-  } else {
-    const hasRelative = /<link\s+rel="alternate"\s+hreflang="[^"]*"\s+href="(?!https?:\/\/)/u.test(
-      html
-    );
-    if (!hasRelative) return false;
-    next = fixRelativeHreflangLinks(html, hreflangBlock);
-  }
-
-  if (next === html) return false;
-  atomicWrite(filepath, next);
-  return true;
-}
+export { backfillArticleHreflang } from './backfill-hreflang.js';

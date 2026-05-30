@@ -54,8 +54,87 @@ describe('replaceExecutiveBriefSection', () => {
     expect(replaceExecutiveBriefSection(html, 'Sammanfattning', '<p>x</p>')).toBe(html);
   });
 
-  it('returns input unchanged when there is no following section heading', () => {
+  it('replaces through end-of-body when the brief is the last block', () => {
     const html = '<h2 id="section-executive-brief">Executive Brief</h2>\n<p>only section</p>';
-    expect(replaceExecutiveBriefSection(html, 'Sammanfattning', '<p>x</p>')).toBe(html);
+    const out = replaceExecutiveBriefSection(html, 'Sammanfattning', '<p>Svensk text.</p>');
+    expect(out).toContain('<h2 id="section-executive-brief">Sammanfattning</h2>');
+    expect(out).toContain('<p>Svensk text.</p>');
+    expect(out).not.toContain('only section');
+  });
+
+  it('splices the localized brief even when only appendix sections follow (sparse run)', () => {
+    // Reproduces a sparse run: the Executive Brief is the last *canonical*
+    // `section-` heading and is followed only by the Reader Guide and the
+    // Tradecraft / Analysis-Index appendices (whose ids do NOT use the
+    // `section-` prefix). The previous implementation bailed here and
+    // stranded non-English readers on the English brief.
+    const sparse = [
+      '<h2 id="section-executive-brief">Executive Brief</h2>',
+      '<p>English BLUF.</p>',
+      '<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>',
+      '<p>guide</p>',
+      '<h2 id="aggregator-tradecraft-references">Tradecraft References</h2>',
+      '<p>tradecraft</p>',
+    ].join('\n');
+    const out = replaceExecutiveBriefSection(sparse, 'Sammanfattning', '<p>Svensk BLUF.</p>');
+    expect(out).toContain('<h2 id="section-executive-brief">Sammanfattning</h2>');
+    expect(out).toContain('<p>Svensk BLUF.</p>');
+    expect(out).not.toContain('English BLUF');
+    // Appendices must survive the splice untouched.
+    expect(out).toContain('<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>');
+    expect(out).toContain('<p>guide</p>');
+    expect(out).toContain('<h2 id="aggregator-tradecraft-references">Tradecraft References</h2>');
+    expect(out).toContain('<p>tradecraft</p>');
+  });
+
+  it('handles brief followed by analysis-index appendix', () => {
+    const html = [
+      '<h2 id="section-executive-brief">Executive Brief</h2>',
+      '<p>English summary.</p>',
+      '<h2 id="aggregator-analysis-index">Analysis Index</h2>',
+      '<p>index content</p>',
+    ].join('\n');
+    const out = replaceExecutiveBriefSection(html, 'Résumé', '<p>French text.</p>');
+    expect(out).toContain('<h2 id="section-executive-brief">Résumé</h2>');
+    expect(out).toContain('<p>French text.</p>');
+    expect(out).not.toContain('English summary');
+    expect(out).toContain('<h2 id="aggregator-analysis-index">Analysis Index</h2>');
+  });
+
+  it('handles brief followed by supplementary-intelligence appendix', () => {
+    const html = [
+      '<h2 id="section-executive-brief">Executive Brief</h2>',
+      '<p>English summary.</p>',
+      '<h2 id="supplementary-intelligence">Supplementary Intelligence</h2>',
+      '<p>supplementary content</p>',
+    ].join('\n');
+    const out = replaceExecutiveBriefSection(html, 'Yhteenveto', '<p>Finnish text.</p>');
+    expect(out).toContain('<h2 id="section-executive-brief">Yhteenveto</h2>');
+    expect(out).toContain('<p>Finnish text.</p>');
+    expect(out).not.toContain('English summary');
+    expect(out).toContain('supplementary content');
+  });
+
+  it('does not treat the brief’s own internal H2 sub-headings as a boundary', () => {
+    // The translated brief renders `## BLUF` etc. as `<h2 id="bluf">`
+    // (slugified, no `section-` prefix). Those internal sub-headings of the
+    // English brief must NOT be mistaken for the next section boundary.
+    const withSubheads = [
+      '<h2 id="section-executive-brief">Executive Brief</h2>',
+      '<h2 id="bluf">BLUF</h2>',
+      '<p>English bottom line.</p>',
+      '<h2 id="60-second-read">60-Second Read</h2>',
+      '<p>English quick read.</p>',
+      '<h2 id="section-risk">Risk Assessment</h2>',
+      '<p>Risk body.</p>',
+    ].join('\n');
+    const out = replaceExecutiveBriefSection(withSubheads, 'Sammanfattning', '<p>Svensk text.</p>');
+    expect(out).toContain('<p>Svensk text.</p>');
+    expect(out).not.toContain('English bottom line');
+    expect(out).not.toContain('English quick read');
+    expect(out).not.toContain('id="bluf"');
+    // The next canonical section is preserved.
+    expect(out).toContain('<h2 id="section-risk">Risk Assessment</h2>');
+    expect(out).toContain('<p>Risk body.</p>');
   });
 });
