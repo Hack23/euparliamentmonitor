@@ -140,7 +140,7 @@ analysis pipeline. See:
 - `get_adopted_texts_feed` — newly adopted legislative texts
 - `get_events_feed` — recently added EP events
 - `get_procedures_feed` — recently updated legislative procedures
-- `get_meps_feed` — recently updated MEP records
+- `get_meps_feed` — recently updated MEP records (⚠️ may return the full ~720-MEP census dump instead of a delta; the client flags this as `oversizedPayload`/`OVERSIZED_PAYLOAD` — fall back to `get_meps({ active:true, limit:100 })`)
 - `get_committee_documents_feed` — recently updated committee documents
 - `get_plenary_documents_feed` — recently updated plenary documents
 - `get_parliamentary_questions_feed` — recently filed/answered questions
