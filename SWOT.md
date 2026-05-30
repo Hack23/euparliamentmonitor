@@ -1576,17 +1576,6 @@ Comprehensive view of strategic position.
 
 ---
 
-## 📅 Document Revision History
-
-| Version | Date       | Author | Changes                                                       |
-| ------- | ---------- | ------ | ------------------------------------------------------------- |
-| 1.3     | 2026-05-06 | CEO    | Full review: added 2026-05-06 refresh extending Strengths (S18–S22: deterministic aggregator, 60-artifact baseline, branded type safety, shell-safety enforcement, professional intelligence tradecraft), Weaknesses (W16–W19: EP MCP 1.3.0 fixed-window feeds, IMF probe degradation, 60-min single-session timeout, gateway keepalive), Opportunities (O15–O17: long-horizon political intelligence, IMF+Eurostat triangulation, real-time DOCEO votes), Threats (T16–T18: gateway reliability, 14-language quality consistency, shell-safety filter false positives); added TOWS Strategic Matrix and Political Intelligence Competitive Positioning sections; refreshed SWOT Summary Matrix counts (22S/19W/17O/18T) |
-| 1.2     | 2026-05-03 | CEO    | v0.8.54 Look-Ahead epic refresh: expanded to 14 article types (added quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle), 15 unified gh-aw workflows (14 article + translate), gh-aw pin v0.71.3, EP MCP 1.3.0, ISMS-PUBLIC policy footer added |
-| 1.1     | 2026-04-20 | CEO    | v0.8.40 state refresh: 1894 articles / 14 languages / 8 article types / 3061+ tests / 52 test files / dual economic context (WB+IMF) / AWS S3+CloudFront primary delivery / SLSA L3 + npm provenance / gh-aw 5-layer security model |
-| 1.0     | 2025-02-17 | CEO    | Initial SWOT analysis with comprehensive strategic assessment |
-
----
-
 ## 📝 Footer
 
 **Document Classification**: Public  

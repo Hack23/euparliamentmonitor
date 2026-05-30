@@ -229,7 +229,7 @@ flowchart TB
 **🌐 Languages:** 14 (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 **📜 Horizon registry:** Every horizon's data window, cadence, mandatory artifacts, stage budgets, scenario depth and electoral overlay is defined in [`src/config/article-horizons.ts`](src/config/article-horizons.ts) — the single source of truth consumed by the aggregator, the forward-statements registry, and the drift-guard tests.
 
-#### Agentic Workflow Schedule Matrix (2026-Q2 long-horizon expansion)
+#### Agentic Workflow Schedule Matrix
 
 | 🤖 Workflow | 📄 File | 📅 Schedule | ⏱️ Timeout |
 |---|---|---|---|

@@ -318,8 +318,6 @@ classification ([CLASSIFICATION.md](CLASSIFICATION.md): Public/Medium/Medium).
   - Medium: 4 (T-003, T-007, T-013 P1; T-030 P2)
   - Low-Medium: 10 (Monitored with existing controls)
   - Low: 7 (Managed with existing controls)
-  - 2026-04-20 refresh: 8 threats (T-021…T-028) covering LLM/agentic, OIDC, and toolchain risks
-  - 2026-05-06 refresh: 2 threats (T-029, T-030) covering shell-safety bypass and MCP gateway impersonation
 - **Primary Security Focus:** Data integrity, supply chain security, information manipulation, agentic workflow sandboxing
 - **Defense Posture:** Multi-layer defense-in-depth with 30+ security controls
 - **ENISA Alignment:** 7/7 ENISA TL 2024 threat categories mapped
@@ -337,7 +335,7 @@ classification ([CLASSIFICATION.md](CLASSIFICATION.md): Public/Medium/Medium).
 
 ---
 
-## 🔒 Trust Boundaries (2026-04-20 refresh)
+## 🔒 Trust Boundaries
 
 The platform's attack surface is decomposed into **8 trust boundaries** (TB-1 through TB-8) reflecting the full supply chain from citizen reader to release distribution. Each boundary enforces a distinct protocol/control stack, and threats are mapped to the boundary they cross.
 
@@ -2575,46 +2573,6 @@ V.Low │            │               │                │ T-015             
 - ✅ Maturity level progression evaluation
 - ✅ Strategic alignment with Hack23 ISMS policies
 - ✅ European Parliament transparency requirements review
-
-### **📝 Change Log**
-
-| Version | Date       | Author        | Changes                                                                       |
-| ------- | ---------- | ------------- | ----------------------------------------------------------------------------- |
-| 2.0     | 2026-02-26 | Security Team | Comprehensive ISMS conformance upgrade — expanded from 58% to full compliance |
-|         |            |               | - **Expanded threats from 6 → 20** (T-001 to T-020) with quantitative scoring |
-|         |            |               | - Added 🌐 ENISA Threat Landscape 2024 Integration (7 priority categories)     |
-|         |            |               | - Added 🎯 Multi-Strategy Integration Mindmap (5-strategy visualization)       |
-|         |            |               | - Added 🔗 Kill Chain Disruption Analysis (7-phase defensive mapping)          |
-|         |            |               | - Added 🎯 Scenario-Centric Threat Analysis (6 misuse cases, 6 what-if, 3 personas) |
-|         |            |               | - Added ⚖️ Quantitative Risk Assessment with formal Likelihood×Impact matrix  |
-|         |            |               | - Expanded 👥 Threat Agent Classification with 5 detailed agent profiles       |
-|         |            |               | - Enhanced 🎭 STRIDE → Control Mapping with Primary/Secondary/Monitoring columns |
-|         |            |               | - Added 📋 Compliance Framework Mapping (ISO 27001, NIST CSF 2.0, CIS v8.1)  |
-|         |            |               | - Enhanced 🔄 Continuous Validation with PRE→ENUM→THREATS→MAP→PLAN→VALIDATE→MONITOR |
-|         |            |               | - Updated Risk Treatment Plan with 20-threat prioritization                    |
-|         |            |               | - Created FUTURE_THREAT_MODEL.md for planned security evolution               |
-| 1.1     | 2026-02-25 | Security Team | EP MCP Server attack surface expansion and ATT&CK coverage enhancement        |
-|         |            |               | - Expanded 🎖️ MITRE ATT&CK coverage to 18 techniques (2.3% coverage)         |
-|         |            |               | - Added T1133, T1525, T1046, T1530, T1602, T1574.010, T1071, T1071.001, T1553.002 |
-|         |            |               | - Added 🔌 EP MCP Server Attack Surface Analysis section with 7 attack vectors |
-|         |            |               | - Added MCP server security posture summary and data flow diagram              |
-|         |            |               | - Updated ATT&CK Coverage Heat Map (Initial Access: 18.2%, Collection: 4.9%)  |
-|         |            |               | - Added npm Package Lock and SLSA controls to ATT&CK mitigation mapping        |
-|         |            |               | - Added NIST CSF 2.0 GV.OC alignment note in Framework Integration section    |
-| 1.0     | 2026-02-18 | Security Team | Initial comprehensive threat model per Hack23 ISMS standards                  |
-|         |            |               | - Added 🎯 Purpose & Scope with framework integration                         |
-|         |            |               | - Added 📊 System Classification & Operating Profile                          |
-|         |            |               | - Added 💎 Critical Assets & Protection Goals with Crown Jewel Analysis       |
-|         |            |               | - Added 🌐 Data Flow & Architecture Analysis with STRIDE per element          |
-|         |            |               | - Added 🎖️ MITRE ATT&CK Framework Integration (9 techniques, 1.3% coverage)   |
-|         |            |               | - Added 🏛️ European Parliament-Specific Threats (democratic transparency)     |
-|         |            |               | - Added 🌍 Multi-Language Content Manipulation (14 languages)                 |
-|         |            |               | - Added 📊 Comprehensive Threat Agent Analysis                                |
-|         |            |               | - Added 🛡️ Comprehensive Security Control Framework (25+ controls)            |
-|         |            |               | - Added 🔄 Continuous Validation & Assessment with workshop framework         |
-|         |            |               | - Added 🎯 Threat Modeling Maturity Framework (5 levels)                      |
-|         |            |               | - Added 🌟 Security Best Practices for parliamentary platforms                |
-|         |            |               | - Integrated existing 6 threats (T-001 to T-006) into comprehensive structure |
 
 ---
 

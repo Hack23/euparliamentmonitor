@@ -1765,18 +1765,6 @@ Per
 
 ---
 
-## 📅 Document Revision History
-
-| Version | Date       | Author | Changes                                                               |
-| ------- | ---------- | ------ | --------------------------------------------------------------------- |
-| 1.4     | 2026-05-06 | CEO    | Full review: added unified `news-<type>.md` Stage A→E run state machine, manifest `dataMode` state machine (`full` / `degraded-imf` / `degraded-voting` / `title-only` / `minimal` per `src/workflows/types.ts`), six-state analysis-artifact lifecycle (Empty → Draft → Pass-1 → Pass-2 → Validated → Committed), and political-intelligence artifact state machine (Admiralty grading → ACH → WEP banding → SAT attestation → publication) per `osint-tradecraft-standards.md` |
-| 1.3     | 2026-05-03 | CEO    | v0.8.54 refresh: long-horizon expansion (term-outlook, election-cycle), 14 unified news workflows, gh-aw pin v0.71.3 |
-| 1.2     | 2026-04-20 | CEO    | Added Pipeline-Stage, Validator-Gate, and Translation state machines for v0.8.40 (5-stage pipeline, validator gate with fallback-leak scan, news-translate fan-out across 13 languages with 10240 KB max-patch-size); refreshed article-types note to 7 types; updated review cadence |
-| 1.1     | 2026-02-24 | CEO    | Updated review date and verified current state accuracy                |
-| 1.0     | 2025-02-17 | CEO    | Initial state diagram documentation with comprehensive state machines |
-
----
-
 ## 📝 Footer
 
 **Document Classification**: Public  
