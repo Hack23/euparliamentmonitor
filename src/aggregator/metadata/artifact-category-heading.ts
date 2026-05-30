@@ -157,6 +157,13 @@ export const ARTIFACT_CATEGORY_PREFIXES: readonly string[] = [
   'voting patterns',
   'weekly outlook',
   'wildcards blackswans',
+  // CJK localized category prefixes (translations of "executive briefing")
+  'エグゼクティブ・ブリーフィング',
+  'エグゼクティブブリーフィング',
+  'エグゼクティブ・ブリーフ',
+  '행정 브리핑',
+  '执行简报',
+  '執行簡報',
 ];
 /**
  * Match a single calendar month name (English) with optional `-uary` /
@@ -221,7 +228,7 @@ function normaliseCategoryHeading(raw: string): string {
   return stripInlineMarkdown(raw)
     .trim()
     .toLowerCase()
-    .replace(/^[^a-z0-9]+/, '')
+    .replace(/^[^a-z0-9\p{L}]+/u, '')
     .replace(/\s+/g, ' ');
 }
 /**

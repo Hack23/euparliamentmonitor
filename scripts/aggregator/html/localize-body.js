@@ -12,6 +12,23 @@ import { TRADECRAFT_HEADING_LABELS, TRADECRAFT_INTRO_LABELS, TRADECRAFT_METHODOL
 import { escapeHTML } from '../../utils/file-utils.js';
 import { TRADECRAFT_SECTION_ID, MANIFEST_SECTION_ID, SUPPLEMENTARY_SECTION_ID, } from '../artifact-order.js';
 import { KEY_TAKEAWAYS_SECTION_ID } from '../key-takeaways.js';
+import { READER_GUIDE_SECTION_ID } from '../reader-guide-constants.js';
+/**
+ * Top-level section anchors that mark the **end** of the Executive Brief
+ * body. Canonical analysis sections are matched by the shared
+ * `id="section-…"` prefix (see {@link findExecutiveBriefSectionCut});
+ * the appendix and reader-guide sections below carry bespoke ids that do
+ * **not** share that prefix, so they are matched explicitly. Including
+ * them ensures the localized brief splice also fires on sparse runs where
+ * the Executive Brief is the last canonical section and only appendix
+ * blocks follow it.
+ */
+const EXECUTIVE_BRIEF_BOUNDARY_ID_MARKERS = [
+    `id="${READER_GUIDE_SECTION_ID}"`,
+    `id="${TRADECRAFT_SECTION_ID}"`,
+    `id="${MANIFEST_SECTION_ID}"`,
+    `id="${SUPPLEMENTARY_SECTION_ID}"`,
+];
 /**
  * Localize the Tradecraft References and Analysis Index sections in the
  * rendered article body HTML. Replaces English headings, introductions,
@@ -103,10 +120,47 @@ export function replaceFirstStringIn(haystack, needle, replacement) {
     return haystack.slice(0, idx) + replacement + haystack.slice(idx + needle.length);
 }
 /**
+ * Locate the cut point that ends the Executive Brief body — the start of
+ * the next top-level boundary heading after `afterHeading`. A boundary is
+ * any `<h2>` whose `id` either starts with the canonical `section-` prefix
+ * or exactly matches one of {@link EXECUTIVE_BRIEF_BOUNDARY_ID_MARKERS}
+ * (Reader Guide / Tradecraft / Analysis Index / Supplementary appendices).
+ *
+ * Critically, this only matches **top-level** section anchors — never the
+ * brief's own internal `<h2>` sub-headings (`## BLUF`, `## 60-Second Read`,
+ * …), which carry slugified ids without the `section-` prefix. That is why
+ * we cannot simply look for the next `<h2`.
+ *
+ * Uses `indexOf`/`lastIndexOf` exclusively (no regex) to stay within
+ * CodeQL's safe-regex envelope.
+ *
+ * @param html - Full article body HTML
+ * @param afterHeading - Index immediately after the Executive Brief `</h2>`
+ * @returns Index of the next boundary `<h2`, or `-1` when the Executive
+ *          Brief is the last block in the body.
+ */
+export function findExecutiveBriefSectionCut(html, afterHeading) {
+    let best = -1;
+    const consider = (markerIdx) => {
+        if (markerIdx === -1)
+            return;
+        const h2 = html.lastIndexOf('<h2', markerIdx);
+        if (h2 === -1 || h2 < afterHeading)
+            return;
+        if (best === -1 || h2 < best)
+            best = h2;
+    };
+    consider(html.indexOf('id="section-', afterHeading));
+    for (const marker of EXECUTIVE_BRIEF_BOUNDARY_ID_MARKERS) {
+        consider(html.indexOf(marker, afterHeading));
+    }
+    return best;
+}
+/**
  * Replace the **inner body** of the Executive Brief section (the
  * `<h2 id="section-executive-brief">…</h2>` heading and everything that
- * follows it up to — but not including — the next `<h2 id="section-…">`
- * sibling) with the supplied replacement HTML. The Executive Brief
+ * follows it up to — but not including — the next top-level boundary
+ * heading) with the supplied replacement HTML. The Executive Brief
  * heading itself is preserved by emitting it inline ahead of the
  * replacement, so the in-page anchor (`#section-executive-brief`) and
  * the table-of-contents link continue to work.
@@ -119,8 +173,11 @@ export function replaceFirstStringIn(haystack, needle, replacement) {
  * `render-one.writeLanguageVariant`.
  *
  * Implementation uses `indexOf`/slice exclusively to stay within
- * CodeQL's safe-regex envelope. Returns `html` unchanged when the
- * Executive Brief heading is absent or malformed.
+ * CodeQL's safe-regex envelope. The replacement spans from the heading to
+ * the next top-level boundary (see {@link findExecutiveBriefSectionCut});
+ * when the Executive Brief is the last block in the body the replacement
+ * extends to end-of-body. Returns `html` unchanged only when the Executive
+ * Brief heading is absent or malformed.
  *
  * @param html - Full article body HTML
  * @param localizedHeading - Localized text for the Executive Brief H2
@@ -147,23 +204,24 @@ export function replaceExecutiveBriefSection(html, localizedHeading, replacement
     if (h2CloseTagIdx === -1)
         return html;
     const afterHeading = h2CloseTagIdx + '</h2>'.length;
-    // Find the next `<h2 id="section-...">` boundary — the start of the
-    // following article section. If there is no further section heading
-    // we conservatively bail out (replacing through end-of-body would
-    // also drop appendix content like Reader Guide / Key Takeaways).
-    const nextSectionId = html.indexOf('id="section-', afterHeading);
-    if (nextSectionId === -1)
-        return html;
-    const nextH2 = html.lastIndexOf('<h2', nextSectionId);
-    if (nextH2 === -1 || nextH2 <= afterHeading)
-        return html;
-    // Find the start of the line containing the next `<h2` so we don't
-    // strip leading whitespace from the next section. We look at most
-    // one newline back.
-    let cutEnd = nextH2;
-    const prevNewline = html.lastIndexOf('\n', nextH2 - 1);
-    if (prevNewline !== -1 && prevNewline >= afterHeading) {
-        cutEnd = prevNewline + 1;
+    // Find the next top-level boundary heading — the start of the following
+    // article section or appendix. When none exists the Executive Brief is
+    // the last block, so we replace through end-of-body. This guarantees the
+    // localized brief is spliced even on sparse runs (previously the splice
+    // bailed and non-English readers were stranded on the English brief).
+    const nextH2 = findExecutiveBriefSectionCut(html, afterHeading);
+    let cutEnd;
+    if (nextH2 === -1) {
+        cutEnd = html.length;
+    }
+    else {
+        // Start of the line containing the next `<h2` so we don't strip
+        // leading whitespace from the next section.
+        cutEnd = nextH2;
+        const prevNewline = html.lastIndexOf('\n', nextH2 - 1);
+        if (prevNewline !== -1 && prevNewline >= afterHeading) {
+            cutEnd = prevNewline + 1;
+        }
     }
     const newHeading = `<h2 id="section-executive-brief">${escapeHTML(localizedHeading)}</h2>\n`;
     const trimmedReplacement = replacementBodyHtml.endsWith('\n')
