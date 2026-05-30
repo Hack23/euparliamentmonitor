@@ -323,6 +323,11 @@ export function stripLegacyBackfillContext(
 /**
  * Detect whether a legacy `<meta description>` ends with a truncated
  * reader label once its dateline prefix and redundant date-label are removed.
+ * @param date - Article date string (YYYY-MM-DD)
+ * @param slug - Article slug identifier
+ * @param lang - Language code (e.g. 'en', 'sv')
+ * @param description - Meta description to check
+ * @returns True if the description ends with a truncated reader label
  */
 function hasLegacyTruncatedReaderLabel(
   date: string,
