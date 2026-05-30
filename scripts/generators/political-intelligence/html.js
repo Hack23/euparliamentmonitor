@@ -23,6 +23,7 @@ import { blobUrl, treeUrl } from '../../aggregator/infra/github-urls.js';
 import { getCuratedDescription, getCuratedTitle, getRunTypeInfo, getArtifactInfo, } from '../political-intelligence-descriptions.js';
 import { pickDocumentIcon } from './icons.js';
 import { getPICopy } from './copy.js';
+import { buildRssAlternateLink } from '../sitemap/rss.js';
 import { getPoliticalIntelligenceSeo } from '../seo-copy.js';
 /**
  * Build a GitHub blob URL (single file) on the main branch.
@@ -407,7 +408,7 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
   <meta name="publisher" content="Hack23 AB">
   <link rel="canonical" href="${canonicalUrl}">
 ${hreflangLinks}
-  <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="rss.xml">
+  ${buildRssAlternateLink(safeLang)}
   <link rel="preconnect" href="https://hack23.com" crossorigin>
   <meta property="og:type" content="website">
   <meta property="og:title" content="${escapeHTML(copy.title)}">

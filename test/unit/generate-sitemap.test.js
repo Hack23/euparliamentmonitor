@@ -722,12 +722,12 @@ describe('generate-sitemap', () => {
       expect(xml).toContain('<loc>https://euparliamentmonitor.com/docs/coverage/index.html</loc>');
     });
 
-    it('should have exactly 14 index pages, 14 sitemap pages, 14 political-intelligence pages, 1 rss.xml with no articles', () => {
+    it('should have exactly 14 index pages, 14 sitemap pages, 14 political-intelligence pages, 14 rss feeds with no articles', () => {
       const xml = generateSitemap([]);
       const urlCount = (xml.match(/<url>/g) || []).length;
 
-      // 14 index + 14 sitemap HTML + 14 political-intelligence HTML + 1 rss.xml = 43
-      expect(urlCount).toBe(43);
+      // 14 index + 14 sitemap HTML + 14 political-intelligence HTML + 14 rss feeds = 56
+      expect(urlCount).toBe(56);
     });
 
     it('should have correct total URL count with articles and docs', () => {
@@ -736,8 +736,8 @@ describe('generate-sitemap', () => {
       const xml = generateSitemap(articles, docsFiles);
       const urlCount = (xml.match(/<url>/g) || []).length;
 
-      // 14 index + 14 sitemap + 14 political-intelligence + 1 rss + 2 articles + 1 docs = 46
-      expect(urlCount).toBe(46);
+      // 14 index + 14 sitemap + 14 political-intelligence + 14 rss feeds + 2 articles + 1 docs = 59
+      expect(urlCount).toBe(59);
     });
 
     it('should set correct priorities for all page types', () => {
@@ -857,8 +857,8 @@ describe('generate-sitemap', () => {
       ];
       const xml = generateSitemap(articles);
       const urlCount = (xml.match(/<url>/g) || []).length;
-      // 14 index + 14 sitemap + 14 political-intelligence + 1 rss + 2 articles = 45
-      expect(urlCount).toBe(45);
+      // 14 index + 14 sitemap + 14 political-intelligence + 14 rss feeds + 2 articles = 58
+      expect(urlCount).toBe(58);
     });
   });
 

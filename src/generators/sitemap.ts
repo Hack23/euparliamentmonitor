@@ -36,9 +36,11 @@ import {
 } from '../utils/file-utils.js';
 import {
   collectDocsHtmlFiles,
+  buildRssChannel,
   generateRssFeed,
   generateSitemap,
   generateSitemapHTML,
+  getRssFilename,
   getSitemapFilename,
   SITEMAP_DOCS_DIR,
   type RssItem,
@@ -179,6 +181,44 @@ function writeSitemapHtmlPages(
 }
 
 /**
+ * Write one RSS feed per supported language idempotently. English
+ * articles publish to `rss.xml`; every other language gets its own
+ * `rss_<lang>.xml` carrying only that locale's items with a localized
+ * channel envelope. A feed is written for every language (even with zero
+ * items) so the `rss_<lang>.xml` URLs advertised in `sitemap.xml` and the
+ * per-page discovery `<link>` tags always resolve to an existing file.
+ *
+ * @param rssItems - Flat RSS-item list returned by {@link partitionArticles}.
+ * @param buildDateRfc822 - Pinned RFC-822 `<lastBuildDate>` shared across
+ *                          every feed for deterministic, diff-free output.
+ */
+function writeRssFeeds(rssItems: RssItem[], buildDateRfc822: string): void {
+  const itemsByLang = new Map<string, RssItem[]>();
+  for (const lang of ALL_LANGUAGES) {
+    itemsByLang.set(lang, []);
+  }
+  for (const item of rssItems) {
+    itemsByLang.get(item.lang)?.push(item);
+  }
+
+  let written = 0;
+  let unchanged = 0;
+  for (const lang of ALL_LANGUAGES) {
+    const langItems = itemsByLang.get(lang) ?? [];
+    langItems.sort((a, b) => Date.parse(b.pubDate) - Date.parse(a.pubDate));
+
+    const rss = generateRssFeed(langItems, buildDateRfc822, buildRssChannel(lang));
+    const rssFilename = getRssFilename(lang);
+    const rssPath = path.join(PROJECT_ROOT, rssFilename);
+    const wrote = writeFileIfChanged(rssPath, rss);
+    console.log(`  ${writeLabel(wrote)} ${rssFilename} (${langItems.length} items)`);
+    if (wrote) written++;
+    else unchanged++;
+  }
+  console.log(`✅ RSS feeds: ${written} written, ${unchanged} unchanged`);
+}
+
+/**
  * Main execution — generates `sitemap.xml`, the 14 `political-intelligence_<lang>.html`
  * pages, the 14 `sitemap_<lang>.html` pages, and `rss.xml`.
  */
@@ -194,7 +234,8 @@ function main(): void {
   const sitemap = generateSitemap(articles, docsFiles);
   const filepath = path.join(PROJECT_ROOT, 'sitemap.xml');
   const sitemapWrote = writeFileIfChanged(filepath, sitemap);
-  const totalUrls = articles.length + ALL_LANGUAGES.length * 3 + docsFiles.length + 1;
+  const totalUrls =
+    articles.length + ALL_LANGUAGES.length * 3 + docsFiles.length + ALL_LANGUAGES.length;
   console.log(`${writeLabel(sitemapWrote)} sitemap.xml with ${totalUrls} URLs`);
 
   const piData = collectPoliticalIntelligenceData(PROJECT_ROOT);
@@ -207,16 +248,11 @@ function main(): void {
   const hasDocsDir = fs.existsSync(SITEMAP_DOCS_DIR);
   writeSitemapHtmlPages(articlesByLang, hasDocsDir);
 
-  rssItems.sort((a, b) => Date.parse(b.pubDate) - Date.parse(a.pubDate));
-
   // Pin <lastBuildDate> to BUILD_TIME so re-running on the same source
-  // produces a byte-identical rss.xml — keeps `aws s3 sync` from
-  // re-uploading the feed on every deploy when no articles changed.
+  // produces byte-identical feeds — keeps `aws s3 sync` from
+  // re-uploading them on every deploy when no articles changed.
   const buildDateRfc822 = new Date(BUILD_TIME).toUTCString();
-  const rss = generateRssFeed(rssItems, buildDateRfc822);
-  const rssPath = path.join(PROJECT_ROOT, 'rss.xml');
-  const rssWrote = writeFileIfChanged(rssPath, rss);
-  console.log(`${writeLabel(rssWrote)} rss.xml with ${rssItems.length} items`);
+  writeRssFeeds(rssItems, buildDateRfc822);
 }
 
 // Only run main when executed directly (not when imported)

@@ -20,7 +20,15 @@
  */
 
 export { escapeXML } from './xml-utils.js';
-export { generateRssFeed, type RssItem } from './rss.js';
+export {
+  generateRssFeed,
+  getRssFilename,
+  buildRssChannel,
+  buildRssAlternateLink,
+  DEFAULT_RSS_CHANNEL,
+  type RssItem,
+  type RssChannel,
+} from './rss.js';
 export {
   generateSitemap,
   collectDocsHtmlFiles,

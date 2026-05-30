@@ -15,6 +15,7 @@ import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRI
 import { buildOgLocaleTags, ORG_SAME_AS, buildTwitterAttributionTags, } from '../../constants/seo/index.js';
 import { buildResponsiveBannerPicture, buildResponsiveIconLinks, buildResponsiveSocialImageMeta, buildSiteFooter, buildSiteHeader, } from '../../templates/section-builders.js';
 import { formatSlug, escapeHTML } from '../../utils/file-utils.js';
+import { buildRssAlternateLink } from '../sitemap/rss.js';
 import { detectCategory } from '../../utils/article-category.js';
 const SCHEMA_ORG = 'https://schema.org';
 const SITE_NAME = 'EU Parliament Monitor';
@@ -294,7 +295,7 @@ ${buildResponsiveIconLinks('')}
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#003399" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0a1a38" media="(prefers-color-scheme: dark)">
-  <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="rss.xml">
+  ${buildRssAlternateLink(lang)}
   <link rel="stylesheet" href="styles.css?v=${BUILD_SHORT}">
 ${buildHeadFreshnessTags('')}
   <script type="application/ld+json">${websiteJsonLd}</script>

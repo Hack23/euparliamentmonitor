@@ -8,6 +8,7 @@
  * footer-bottom build-info line can be unit-tested in isolation.
  */
 import { escapeHTML } from '../../utils/file-utils.js';
+import { getRssFilename } from './rss-discovery.js';
 import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, getLocalizedString, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, FOOTER_HOME_LABELS, FOOTER_SITEMAP_LABELS, FOOTER_RSS_LABELS, FOOTER_GITHUB_REPO_LABELS, FOOTER_LICENSE_LABELS, FOOTER_EUROPARL_LABELS, FOOTER_LINKEDIN_LABELS, FOOTER_SECURITY_POLICY_LABELS, FOOTER_CONTACT_LABELS, FOOTER_DISCLAIMER_LABELS, FOOTER_REPORT_ISSUES_LABELS, FOOTER_ARTICLES_AVAILABLE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, BUILD_INFO_COMMIT_LABELS, BUILD_INFO_DEPLOYED_LABELS, FOOTER_NEWS_LABELS, FOOTER_DASHBOARD_LABELS, FOOTER_ANALYSIS_REPORTS_LABELS, FOOTER_API_DOCS_LABELS, FOOTER_COMPANY_TAGLINE_LABELS, FOOTER_TRUST_BADGES_ARIA_LABELS, } from '../../constants/languages.js';
 import { APP_VERSION, BUILD_ID, BUILD_SHORT, BUILD_TIME } from '../../constants/config.js';
 import { icon } from '../icons.js';
@@ -66,6 +67,7 @@ export function buildSiteFooter(options) {
     const companyTagline = escapeHTML(getLocalizedString(FOOTER_COMPANY_TAGLINE_LABELS, lang));
     const homeHref = `${pathPrefix}${lang === 'en' ? 'index.html' : `index-${lang}.html`}`;
     const sitemapHref = `${pathPrefix}${lang === 'en' ? 'sitemap.html' : `sitemap_${lang}.html`}`;
+    const rssHref = `${pathPrefix}${getRssFilename(lang)}`;
     const politicalIntelligenceHref = `${pathPrefix}${lang === 'en' ? 'political-intelligence.html' : `political-intelligence_${lang}.html`}`;
     const apiDocsHref = `${pathPrefix}docs/api/`;
     const analysisDocsHref = `${pathPrefix}docs/`;
@@ -101,7 +103,7 @@ export function buildSiteFooter(options) {
           <li><a href="${politicalIntelligenceHref}">${icon('pi')}<span>${politicalIntelligenceLabel}</span></a></li>
           <li><a href="${sitemapHref}">${icon('sitemap')}<span>${sitemapLabel}</span></a></li>
           <li><a href="${apiDocsHref}">${icon('book')}<span>${apiDocsLabel}</span></a></li>
-          <li><a href="${pathPrefix}rss.xml">${icon('rss')}<span>${rssLabel}</span></a></li>
+          <li><a href="${rssHref}">${icon('rss')}<span>${rssLabel}</span></a></li>
           <li><a href="https://hack23.com/euparliamentmonitor.html" target="_blank" rel="noopener noreferrer">${icon('external')}<span>EU Parliament Monitor by Hack23</span></a></li>
           <li><a href="https://hack23.com/euparliamentmonitor-features.html" target="_blank" rel="noopener noreferrer">${icon('external')}<span>EU Parliament Monitor Features</span></a></li>
           <li><a href="https://hack23.com/cia-features.html" target="_blank" rel="noopener noreferrer">${icon('external')}<span>CIA Platform</span></a></li>

@@ -20,6 +20,10 @@ import { describe, it, expect } from 'vitest';
 import {
   escapeXML,
   generateRssFeed,
+  getRssFilename,
+  buildRssChannel,
+  buildRssAlternateLink,
+  DEFAULT_RSS_CHANNEL,
 } from '../../scripts/generators/sitemap/index.js';
 
 describe('escapeXML', () => {
@@ -221,5 +225,59 @@ describe('generateRssFeed', () => {
     const xml = generateRssFeed([], FIXED_BUILD_DATE);
     expect(xml).toMatch(/<link>https?:\/\/[^<]+<\/link>/);
     expect(xml).toMatch(/atom:link href="https?:\/\/[^"]+\/rss\.xml"/);
+  });
+
+  it('uses a localized channel envelope when one is supplied', () => {
+    const channel = buildRssChannel('sv');
+    const xml = generateRssFeed([], FIXED_BUILD_DATE, channel);
+    expect(xml).toContain('<language>sv</language>');
+    expect(xml).toContain(`<title>${channel.title}</title>`);
+    expect(xml).toMatch(/atom:link href="https?:\/\/[^"]+\/rss_sv\.xml"/);
+    // Default English brand title must NOT leak into a localized feed.
+    expect(xml).not.toContain('<title>EU Parliament Monitor</title>');
+  });
+});
+
+describe('getRssFilename', () => {
+  it('maps English to the canonical rss.xml', () => {
+    expect(getRssFilename('en')).toBe('rss.xml');
+  });
+
+  it('maps every other language to rss_<lang>.xml', () => {
+    expect(getRssFilename('sv')).toBe('rss_sv.xml');
+    expect(getRssFilename('zh')).toBe('rss_zh.xml');
+  });
+});
+
+describe('buildRssChannel', () => {
+  it('returns the English brand channel for en (byte-stable default)', () => {
+    expect(buildRssChannel('en')).toStrictEqual(DEFAULT_RSS_CHANNEL);
+    expect(buildRssChannel('en').selfUrl).toMatch(/\/rss\.xml$/);
+  });
+
+  it('returns a localized channel with a per-language self URL for non-English', () => {
+    const sv = buildRssChannel('sv');
+    expect(sv.language).toBe('sv');
+    expect(sv.selfUrl).toMatch(/\/rss_sv\.xml$/);
+    expect(sv.title.length).toBeGreaterThan(0);
+    expect(sv.title).not.toBe(DEFAULT_RSS_CHANNEL.title);
+  });
+});
+
+describe('buildRssAlternateLink', () => {
+  it('points English autodiscovery at rss.xml with a localized title', () => {
+    const link = buildRssAlternateLink('en');
+    expect(link).toContain('type="application/rss+xml"');
+    expect(link).toContain('href="rss.xml"');
+  });
+
+  it('points non-English autodiscovery at the localized feed', () => {
+    expect(buildRssAlternateLink('de')).toContain('href="rss_de.xml"');
+  });
+
+  it('honours an absolute path prefix', () => {
+    expect(buildRssAlternateLink('en', 'https://euparliamentmonitor.com/')).toContain(
+      'href="https://euparliamentmonitor.com/rss.xml"'
+    );
   });
 });
