@@ -29,7 +29,7 @@ import { wrapArticleHtml } from '../../scripts/aggregator/article-html.js';
 const LANGS = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
 
 function extractJsonLdGraph(html) {
-  const blocks = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script[^>]*>/g);
+  const blocks = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script[^>]*>/gi);
   if (!blocks) return [];
   return blocks.flatMap((block) => {
     const m = block.match(/<script[^>]*>([\s\S]*?)<\/script[^>]*>/i);
