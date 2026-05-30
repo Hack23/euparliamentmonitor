@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:**
-2026-05-06 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
+**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:**
+2026-05-30 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-30  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -90,16 +90,16 @@ planning and resource allocation.
 - **Market**: European civic technology, political transparency platforms
 - **Competitive Position**: Open source, automated news generation,
   multi-language support
-- **Timeline**: Current state as of v0.8.54 (2026-05-03)
+- **Timeline**: Current state as of v0.9.26 (2026-05-30)
 - **Scope**: Technical, operational, strategic, and compliance dimensions
 
 ### Current State Snapshot (May 2026)
 
-- **1894+ HTML articles** in **14 languages** (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
+- **5231+ HTML articles** in **14 languages** (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 - **14 article types**: breaking, week-ahead, week-in-review, month-ahead, month-in-review, quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle, committee-reports, motions, propositions
 - **15 unified gh-aw workflows** (`.github/workflows/news-*.md` → `.lock.yml`): 14 unified `news-<type>.md` (Stage A→E in one ~45-min session, single PR; per-slug stage budgets from `src/config/article-horizons.ts`) + `news-translate.md` (manual 14-language helper)
 - **Aggregator pipeline**: deterministic Markdown→HTML rendering via `src/aggregator/**` (5 modules) — no per-type strategies, no AI-authored HTML, no runtime content-validator
-- **3061+ automated tests** across **52 test files** (Vitest 4.1.4 + Playwright 1.59.1 + @axe-core/playwright 4.11.2)
+- **5933+ automated tests** across **153 test files** (Vitest 4.1.7 + Playwright 1.60.0 + @axe-core/playwright 4.11.3)
 - **Stack**: Node 26, TypeScript 6.0.3 strict mode, ESM-only, Apache-2.0 license
 - **Data sources**: `european-parliament-mcp-server@1.3.12+` (60+ tools, primary EP data) + `worldbank-mcp` (non-economic context) + IMF SDMX 3.0 REST (primary economic source)
 - **Delivery**: AWS S3 + CloudFront (OIDC-based, no long-lived secrets) primary; GitHub Pages fallback runbook
@@ -413,13 +413,13 @@ public security evidence.
 
 ### 🆕 2026-04-20 Refresh — Strengths S8–S17
 
-- **S8: Industrial-Scale Multilingual Output** — 1,894 HTML articles generated across 14 languages with zero manual editorial overhead via the gh-aw agentic pipeline; demonstrates throughput far beyond human editorial capacity. *Impact: 9/10.*
+- **S8: Industrial-Scale Multilingual Output** — 5,231 HTML articles generated across 14 languages with zero manual editorial overhead via the gh-aw agentic pipeline; demonstrates throughput far beyond human editorial capacity. *Impact: 9/10.*
 - **S9: AI-First 2-Pass Quality Regime** — enforced gates: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, zero `[AI_ANALYSIS_REQUIRED]` markers at merge. *Impact: 8/10.*
 - **S10: Article-Type-Specific Reference Thresholds** — `mcp-reliability-audit` ≥200 words (breaking ≥385); `reference-analysis-quality` ≥140 (breaking ≥190); enforced per article type in `scripts/utils/validate-analysis-completeness.js` (compiled from `src/utils/validate-analysis-completeness.ts`). *Impact: 8/10.*
 - **S11: Triple Supply-Chain Attestation** — SLSA Level 3 build attestations + npm provenance + OpenSSF Scorecard + [OpenSSF Best Practices #12068](https://www.bestpractices.dev/projects/12068). *Impact: 9/10.*
-- **S12: Test Depth** — 3,061+ tests across 52 files: Vitest 4.1.4 (unit+integration), Playwright 1.59.1 + @axe-core/playwright (WCAG 2.1 AA E2E), HTMLHint, ESLint 10.2.1 + sonarjs + security + jsdoc plugins. *Impact: 8/10.*
+- **S12: Test Depth** — 5,933+ tests across 153 files: Vitest 4.1.7 (unit+integration), Playwright 1.60.0 + @axe-core/playwright (WCAG 2.1 AA E2E), HTMLHint, ESLint 10.4.1 + sonarjs + security + jsdoc plugins. *Impact: 8/10.*
 - **S13: Dual Economic-Context Surfaces** — IMF SDMX 3.0 REST (primary economic source: WEO + Fiscal Monitor + IFS + BOP + ER + PCPS) + World Bank Open Data MCP (non-economic context). Stage-C completeness review enforces IMF citation for policy articles, with WB satisfying as fallback when IMF is unavailable for a topic. *Impact: 7/10.*
-- **S14: Hardened Agentic Pipeline** — 15 gh-aw agentic workflows (14 unified `news-<type>.md` + manual `news-translate.md`) with 5-layer security: AWF Squid firewall egress allowlist, Docker sandbox, safe-outputs caps, JSONL stdio audit, lock-file compile-gate pinned to `v0.71.3`. *Impact: 9/10.*
+- **S14: Hardened Agentic Pipeline** — 15 gh-aw agentic workflows (14 unified `news-<type>.md` + manual `news-translate.md`) with 5-layer security: AWF Squid firewall egress allowlist, Docker sandbox, safe-outputs caps, JSONL stdio audit, lock-file compile-gate pinned to `v0.77.3`. *Impact: 9/10.*
 - **S15: Typed Public npm API** — `scripts/**/*.d.ts` declarations enable downstream reuse by other civic-tech projects; positions the package as reusable infrastructure. *Impact: 6/10.*
 - **S16: AWS Primary + GitHub Pages Fallback** — AWS S3+CloudFront primary distribution with OIDC federation (no long-lived keys) + documented GitHub Pages fallback runbook for BCP. *Impact: 8/10.*
 - **S17: Canonical MCP Tool-List Drift Tests** — `EP_MCP_TOOLS`, `IMF_MCP_TOOLS` and `WORLD_BANK_MCP_TOOLS` asserted in `test/integration/mcp/*` detect upstream API drift at CI time. All three MCP clients export canonical tool lists. *Impact: 8/10.*
@@ -1583,7 +1583,7 @@ Comprehensive view of strategic position.
 **Technology Stack**: Node.js 26, GitHub Actions, GitHub Pages, European
 Parliament MCP Server  
 **Architecture Pattern**: Static Site Generator with Zero Runtime Dependencies  
-**Review Status**: Active, next review 2026-08-03
+**Review Status**: Active, next review 2026-08-30
 
 ### 🔗 Related ISMS-PUBLIC Policies
 

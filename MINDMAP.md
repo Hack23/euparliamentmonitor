@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.6-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.7-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.6 | **📅 Last Updated:**
-2026-05-06 (UTC) | **🏷️ Platform Release:** v0.8.54  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
+**📋 Document Owner:** CEO | **📄 Version:** 1.7 | **📅 Last Updated:**
+2026-05-30 (UTC) | **🏷️ Platform Release:** v0.9.26  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-30  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -112,7 +112,7 @@ capabilities.
 
 ```mermaid
 mindmap
-  root((EU Parliament<br/>Monitor v0.8.54))
+  root((EU Parliament<br/>Monitor v0.9.26))
     Mission
       Democratic Transparency
         Public Information
@@ -128,7 +128,7 @@ mindmap
         Cultural Adaptation
       AI-First Intelligence
         2-Pass Quality Gate
-        Agentic Workflows (gh-aw v0.71.3)
+        Agentic Workflows (gh-aw v0.77.3)
         AI Writes All Analysis
         Validator Gate Pre-Publish
 
@@ -164,7 +164,7 @@ mindmap
         AWS S3 + CloudFront (primary)
         GitHub Pages (fallback)
         Global CDN
-        1,894 HTML articles
+        5,231 HTML articles
 
     Key Stakeholders
       European Citizens
@@ -279,7 +279,7 @@ mindmap
         reference-analysis-quality.md
       Fallback Data
         Last-known envelope cache
-        Historical articles (1894)
+        Historical articles (5231)
 
     Data Transformations
       fetch-stage
@@ -311,7 +311,7 @@ mindmap
 
     Data Storage
       File System
-        news/ (1894 HTML articles)
+        news/ (5231 HTML articles)
         14 language subtrees
         JSON-LD metadata
         Static Assets
@@ -387,7 +387,7 @@ Technology stack, infrastructure, and development practices.
 
 ```mermaid
 mindmap
-  root((Technical<br/>Architecture v0.8.54))
+  root((Technical<br/>Architecture v0.9.26))
     Runtime Environment
       Node.js 26
         ES Modules
@@ -407,13 +407,13 @@ mindmap
     Development Stack
       Build Tools
         npm + package.json
-        ESLint 10.2.1
+        ESLint 10.4.1
         Prettier
         Husky git hooks
         typedoc 0.28.19
-      Testing (3,061+ tests / 52 files)
-        Vitest 4.1.4 (unit + integration)
-        Playwright 1.59.1 (E2E)
+      Testing (5,933+ tests / 153 files)
+        Vitest 4.1.7 (unit + integration)
+        Playwright 1.60.0 (E2E)
         axe-core (WCAG 2.1 AA)
         HTMLHint
       Code Quality
@@ -468,7 +468,7 @@ mindmap
             setup-labels
             test-and-report
           gh aw compile --validate
-          GH_AW_VERSION v0.71.3 (pinned)
+          GH_AW_VERSION v0.77.3 (pinned)
         Hosting (fallback)
           GitHub Pages
           HTTPS/SSL
@@ -1585,7 +1585,7 @@ graph LR
 | **Article Types**        | Number of types supported    | 14+    | 14      |
 | **Aggregator Modules**   | TS modules in `src/aggregator/` | 5+ | 7       |
 | **Languages**            | Number of languages          | 14     | 14      |
-| **Published Articles**   | HTML files in news/          | 1,500+ | 1,894+  |
+| **Published Articles**   | HTML files in news/          | 1,500+ | 5,231+  |
 | **Agentic News Workflows** | gh-aw `.md` → `.lock.yml`  | 15     | 15      |
 | **Data Sources**         | EP MCP + WB MCP + IMF REST   | 3      | 3       |
 | **Generation Time**      | Average time per article set | <5 min | ~3 min  |
@@ -1598,12 +1598,12 @@ graph LR
 | ----------------- | ---------------- | --------------- | ---------------- |
 | **Node.js**       | Version          | Latest LTS      | ✅ 26.x          |
 | **TypeScript**    | Version          | Latest stable   | ✅ 6.0.3         |
-| **Vitest**        | Version          | Latest stable   | ✅ 4.1.4         |
-| **Playwright**    | Version          | Latest stable   | ✅ 1.59.1        |
-| **gh-aw**         | Pinned runtime   | Known-good      | ✅ v0.71.3       |
+| **Vitest**        | Version          | Latest stable   | ✅ 4.1.7         |
+| **Playwright**    | Version          | Latest stable   | ✅ 1.60.0        |
+| **gh-aw**         | Pinned runtime   | Known-good      | ✅ v0.77.3       |
 | **EP MCP Server** | Version          | Latest release  | ✅ 1.3.12        |
 | **Dependencies**  | Vulnerabilities  | 0 critical/high | ✅ 0             |
-| **Test Coverage** | Tests / files    | 3,000+ / 50+    | ✅ 3,061+ / 52   |
+| **Test Coverage** | Tests / files    | 3,000+ / 50+    | ✅ 5,933+ / 153  |
 | **Build Time**    | CI/CD duration   | <10 min         | ✅ 6 min         |
 
 ---
@@ -1684,9 +1684,9 @@ graph TB
 - [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
 - [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
 
-**Technology Stack**: Node.js 26, TypeScript 6.0.3, Vitest 4.1.4, Playwright 1.59.1, gh-aw v0.71.3, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.3.12, WB MCP 1.0.1, IMF REST SDMX 3.0  
+**Technology Stack**: Node.js 26, TypeScript 6.0.3, Vitest 4.1.7, Playwright 1.60.0, gh-aw v0.77.3, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.3.12, WB MCP 1.0.1, IMF REST SDMX 3.0  
 **Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
-**Review Status**: Active, next review 2026-08-03
+**Review Status**: Active, next review 2026-08-30
 
 ---
 

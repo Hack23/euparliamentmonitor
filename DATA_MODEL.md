@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.5-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:**
-2026-05-06 (UTC) | **📦 Release:** v0.8.59  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-06
+**📋 Document Owner:** CEO | **📄 Version:** 1.5 | **📅 Last Updated:**
+2026-05-30 (UTC) | **📦 Release:** v0.9.26  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-30
 
 ---
 
@@ -763,7 +763,7 @@ interface ArticleMetadata {
 }
 ```
 
-As of 2026-04-20: **1,894 HTML articles** live under `news/` (~135 article runs × 14 languages).
+As of 2026-05-30: **5,231 HTML articles** live under `news/` (~377 article runs × 14 languages).
 
 ---
 
@@ -1779,6 +1779,6 @@ const sourceHash = crypto.createHash('sha256')
 ---
 
 **Document Status**: Active  
-**Last Updated**: 2026-05-06 (EU Parliament Monitor v0.8.59)  
-**Next Review**: 2026-08-06  
+**Last Updated**: 2026-05-30 (EU Parliament Monitor v0.9.26)  
+**Next Review**: 2026-08-30  
 **Owner**: Development Team, Hack23 AB

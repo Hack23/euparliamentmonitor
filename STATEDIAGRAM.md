@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.5-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:**
-2026-05-06 (UTC) | **🏷️ Platform Release:** v0.8.54  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
+**📋 Document Owner:** CEO | **📄 Version:** 1.5 | **📅 Last Updated:**
+2026-05-30 (UTC) | **🏷️ Platform Release:** v0.9.26  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-30  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -1769,9 +1769,9 @@ Per
 
 **Document Classification**: Public  
 **ISMS Compliance**: ISO 27001:2022, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA aligned  
-**Technology Stack**: Node.js 26, TypeScript 6.0.3, gh-aw v0.71.3, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.3.12, WB MCP 1.0.1, IMF REST SDMX 3.0  
+**Technology Stack**: Node.js 26, TypeScript 6.0.3, gh-aw v0.77.3, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.3.12, WB MCP 1.0.1, IMF REST SDMX 3.0  
 **Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
-**Review Status**: Active, next review 2026-08-03
+**Review Status**: Active, next review 2026-08-30
 
 ### 🔗 Related ISMS-PUBLIC Policies
 

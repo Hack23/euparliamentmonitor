@@ -11,8 +11,8 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.5-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--08-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.6-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--28-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
@@ -116,7 +116,7 @@ EU Parliament Monitor employs a comprehensive suite of **GitHub Actions workflow
 | # | Workflow | Purpose | Schedule / Trigger | ISMS Alignment |
 |---|---------|---------|-------------------|----------------|
 | 1 | **Agentic News Workflows** (×15) | AI-generated multi-language news articles (14 article-type unified `news-<type>.md` + `news-translate`) | Varied schedules (see §1) | Integrity controls (Medium) |
-| 2 | **Test & Report** | Unit + integration tests, 3026+ tests, coverage, performance | On PR/push to main | Quality assurance (ISO 27001 A.12.1.4) |
+| 2 | **Test & Report** | Unit + integration tests, 5,933+ tests, coverage, performance | On PR/push to main | Quality assurance (ISO 27001 A.12.1.4) |
 | 3 | **CodeQL** | SAST security scanning (JS/TS + GitHub Actions) | On PR/push + weekly Saturday | Vulnerability management (ISO 27001 A.12.6) |
 | 4 | **E2E Tests** | End-to-end Playwright tests (Chromium) + axe-core | On PR/push + daily midnight UTC | Functional validation + WCAG 2.1 AA |
 | 5 | **Release** | Build, attest (SLSA L3), document, publish to npm (provenance) | Manual/tag push | SLSA L3, Documentation-as-code, npm provenance |
@@ -125,7 +125,7 @@ EU Parliament Monitor employs a comprehensive suite of **GitHub Actions workflow
 | 8 | **Deploy S3** | Production deployment to AWS S3 + CloudFront (OIDC, egress: block) | Push to main | Infrastructure as Code |
 | 9 | **REUSE Compliance** | License and copyright verification (REUSE 3.3) | On PR/push + weekly Monday | Open Source Policy |
 | 10 | **SLSA Provenance** | Build provenance attestation (integrated in release.yml) | On release + manual | Supply chain security (SLSA L3) |
-| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.77.0`) | Manual dispatch | Automation governance |
+| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.77.3`) | Manual dispatch | Automation governance |
 | 12 | **Agentics Maintenance** | Housekeeping for agentic workflows (stale lock cleanup, health probes) | Scheduled | Automation governance |
 | 13 | **Labeler** | Automatic PR labeling | On pull_request_target | Workflow governance |
 | 14 | **Setup Labels** | Repository label management | Manual dispatch | Repository governance |
@@ -401,13 +401,13 @@ imports:
   `mcp-servers:` block (EP, World Bank, IMF, MCP Gateway mounts). Editing it
   propagates to every importing workflow on next compile.
 - `.github/agents/news-generation.agent.md` contributes **body-only** content
-  (confirmed against gh-aw v0.77.0, 2026-05-28: imported agent frontmatter is
+  (confirmed against gh-aw v0.77.3, 2026-05-28: imported agent frontmatter is
   not merged into workflow frontmatter). It appends the canonical Required
   Reading order and the 5-stage Stage Contract to every importing prompt.
 - Both files are tracked; any change triggers a recompile of every importing
   `.lock.yml` by [`compile-agentic-workflows.yml`](.github/workflows/compile-agentic-workflows.yml).
 
-#### safeoutputs semantics (gh-aw v0.77.0)
+#### safeoutputs semantics (gh-aw v0.77.3)
 
 Every `news-*.md` declares:
 
@@ -702,12 +702,12 @@ The translation workflow has its own fidelity module:
 
 | Test Type | Framework | Coverage Target | Current Status |
 |-----------|-----------|----------------|----------------|
-| **Unit Tests** | Vitest 4.1.5 (happy-dom) | 76 test files | ✅ 3026+ passing |
+| **Unit Tests** | Vitest 4.1.7 (happy-dom) | 153 test files | ✅ 5,933+ passing |
 | **Integration Tests** | Vitest + MCP contract suites (`test/integration/mcp-integration.test.js`, `test/integration/mcp/imf-mcp.test.js`, `test/integration/mcp/worldbank-mcp.test.js`) | IMF/WB canonical tool lists asserted via drift-guard tests; EP MCP covered by `mcp-integration.test.js` (no canonical `EP_MCP_TOOLS` export yet) | ✅ All passing |
 | **Line Coverage** | Vitest (V8) | ≥80% | ✅ 82%+ |
 | **Branch Coverage** | Vitest (V8) | ≥75% | ✅ 83%+ |
 | **Function Coverage** | Vitest (V8) | ≥80% | ✅ 89%+ |
-| **E2E** | Playwright 1.59.1 + @axe-core/playwright 4.11.3 | WCAG 2.1 AA | ✅ Passing |
+| **E2E** | Playwright 1.60.0 + @axe-core/playwright 4.11.3 | WCAG 2.1 AA | ✅ Passing |
 
 #### Workflow Jobs (6 Jobs)
 
@@ -977,7 +977,7 @@ Every release automatically generates:
 | **Artifact Signing** | GitHub Attestations API (Sigstore, OIDC keyless) | Integrity verification |
 | **npm Registry** | Published to `registry.npmjs.org/euparliamentmonitor` with Sigstore provenance | Supply chain transparency |
 | **Documentation Audit Trail** | Committed to main branch | Evidence trail |
-| **Test Validation** | 3026+ unit/integration tests + E2E Playwright | Quality gates |
+| **Test Validation** | 5,933+ unit/integration tests + E2E Playwright | Quality gates |
 
 #### ISMS Evidence
 
@@ -1166,18 +1166,18 @@ created during the build step and attached to the immutable GitHub Release in a 
 ### 11. Compile Agentic Workflows
 
 **📄 File:** `.github/workflows/compile-agentic-workflows.yml`  
-**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.77.0`)  
+**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.77.3`)  
 **⏰ Trigger:** Manual dispatch only (`workflow_dispatch`)  
 **📊 Status:** [![Compile Agentic Workflows](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml)
 
-> **Version pin contract**: `GH_AW_VERSION: v0.77.0` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 15 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
+> **Version pin contract**: `GH_AW_VERSION: v0.77.3` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 15 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
 
 #### Compilation Pipeline
 
 ```mermaid
 graph LR
     A[Manual Trigger] --> B[Checkout Repository]
-    B --> C["Install gh-aw CLI<br/>(pinned v0.77.0)"]
+    B --> C["Install gh-aw CLI<br/>(pinned v0.77.3)"]
     C --> D["Run gh aw compile --validate<br/>Validates frontmatter + safe-outputs"]
     D --> E["Commit & Push<br/>.lock.yml Files"]
 
@@ -1204,7 +1204,7 @@ graph LR
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
 | **Manual Trigger Only** | `workflow_dispatch` — no automatic runs | Change control |
-| **Version Pin** | `GH_AW_VERSION: v0.77.0` pinned at workflow env | Supply chain integrity |
+| **Version Pin** | `GH_AW_VERSION: v0.77.3` pinned at workflow env | Supply chain integrity |
 | **Token Fallback** | `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` with `GITHUB_TOKEN` fallback | Credential management |
 | **Write Permissions** | `contents: write`, `pull-requests: write`, `actions: write`, `issues: write` | Least privilege for compilation |
 
@@ -1266,7 +1266,7 @@ graph LR
 ### 15. Agentics Maintenance
 
 **📄 File:** `.github/workflows/agentics-maintenance.yml`  
-**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.77.0` is in effect.  
+**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.77.3` is in effect.  
 **⏰ Trigger:** Scheduled (weekly) + manual dispatch  
 
 #### Security Controls
@@ -2003,7 +2003,7 @@ The following tools integrate with the GitHub Security Dashboard via SARIF or na
 | **Policy Section** | **Implementation** | **Evidence** |
 | --- | --- | --- |
 | **§3.2 Architecture Documentation** | Documentation-as-code in release workflow | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
-| **§3.3 Testing Requirements** | 3026+ unit/integration tests, E2E tests, 82%+ coverage | [Test & Report Workflow](.github/workflows/test-and-report.yml) |
+| **§3.3 Testing Requirements** | 5,933+ unit/integration tests, E2E tests, 82%+ coverage | [Test & Report Workflow](.github/workflows/test-and-report.yml) |
 | **§4.1 CI/CD Security** | All workflows with security controls | This document |
 | **§4.3 Security Scanning** | CodeQL, npm audit, Dependabot | [CodeQL Workflow](.github/workflows/codeql.yml) |
 | **§4.4 Supply Chain Security** | SLSA L3, SBOM, Dependency Review, REUSE, npm provenance | [Release Workflow](.github/workflows/release.yml) |
