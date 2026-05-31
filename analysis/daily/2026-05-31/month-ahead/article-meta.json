@@ -1,0 +1,36 @@
+{
+  "date": "2026-05-31",
+  "articleType": "month-ahead",
+  "runId": "month-ahead-run296-1780217775",
+  "gateResult": "GREEN",
+  "slug": "2026-05-31-month-ahead",
+  "articlePath": "analysis/daily/2026-05-31/month-ahead/article.md",
+  "topFinding": "Run date: 2026-05-31 · Article type: month-ahead · Data mode: degraded-feeds · Overall confidence: 🟡 MEDIUM",
+  "keyTakeaways": [
+    "A French market/fiscal event → Scenario B becomes modal.",
+    "A geopolitical or trade shock → Scenario C activates, agenda re-orders.",
+    "Confirmation of the June final agenda → tightens F2–F7 from MEDIUM toward HIGH.",
+    "**Spine:** TA-0112 + ANN01 (2027 guidelines, adopted Apr); IMF deficit series.",
+    "**Decisive uncertainty:** whether the Council reading proceeds on schedule.",
+    "**Expectation:** budget item on June agenda — *Likely* (F2). 🟢/🟡 mixed.",
+    "**Spine:** TA-0010 / TA-0161 (financing, accountability)."
+  ],
+  "topRisks": [
+    "**R2 / R4 (score 12)** — highest combined risk. R2 managed by banding F2",
+    "**R1 (score 10)** — low likelihood, severe impact: covered by tripwires TW-1/"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

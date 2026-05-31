@@ -1,0 +1,104 @@
+{
+  "articleType": "month-ahead",
+  "runDate": "2026-05-31",
+  "runId": "month-ahead-run296-1780217775",
+  "analysisDir": "analysis/daily/2026-05-31/month-ahead",
+  "dataMode": "degraded-feeds",
+  "gateResult": "GREEN",
+  "pass2": {
+    "startedAt": "minute-12-approx",
+    "endedAt": "minute-19-approx",
+    "rewriteCount": 20,
+    "rewrittenArtifacts": [
+      "executive-brief.md",
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/economic-context.md",
+      "intelligence/economic-context.fallback.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/forward-projection.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/procedures-proxy.md",
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/risk-matrix.md",
+      "extended/media-framing-analysis.md",
+      "data-availability-assessment.md"
+    ]
+  },
+  "dataQualityWarnings": [
+    "3 prefetched feeds returned HTTP 404 (documents-feed, events-feed, procedures-feed)",
+    "forward plenary-agenda feed empty - modal June agenda inferred from adopted-texts pipeline",
+    "get_voting_records: per-MEP June roll-calls unavailable - coalition arithmetic inferential",
+    "June 2026 agenda not yet published - forward statements banded at MEDIUM confidence"
+  ],
+  "mcpServersUsed": [
+    "european-parliament-mcp-server@1.3.12",
+    "imf-sdmx-fetch-proxy",
+    "worldbank-mcp"
+  ],
+  "imfIntegration": "present",
+  "chartjsPresent": false,
+  "mermaidPresent": true,
+  "forwardStatementsReviewed": 4,
+  "forwardStatementsGenerated": 3,
+  "freshDataCollected": {
+    "adoptedTexts2026": "41 texts (grade A2), 21 key June-relevant",
+    "imfWeo": "DEU/FRA/ITA GDP, inflation, fiscal 2025-2027 (SDMX 3.0, grade A1, Sept-2025 vintage)",
+    "recoveryPath": "EP adopted-texts year=2026 + IMF WEO after 3 feed 404s"
+  },
+  "files": {
+    "classification": [
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md",
+      "classification/significance-classification.md"
+    ],
+    "root": [
+      "data-availability-assessment.md",
+      "executive-brief.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md"
+    ],
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/economic-context.fallback.md",
+      "intelligence/economic-context.md",
+      "intelligence/forward-projection.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/procedures-proxy.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/risk-matrix.md"
+    ]
+  },
+  "history": [
+    {
+      "runId": "month-ahead-run296-1780217775",
+      "runDate": "2026-05-31",
+      "runEpoch": 1780217775,
+      "gateResult": "GREEN",
+      "artifactCount": 20,
+      "totalFiles": 22,
+      "pass2RewriteCount": 20
+    }
+  ]
+}
