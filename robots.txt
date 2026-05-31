@@ -1,3 +1,14 @@
 User-agent: *
 Allow: /
+
+# Block source Markdown files (not intended for browsers)
+Disallow: /*.md$
+Disallow: /*.en.md$
+
+# Block analysis source directories (article.md, data files)
+Disallow: /analysis/
+
+# Block metadata and build artifacts
+Disallow: /news/metadata/
+
 Sitemap: https://euparliamentmonitor.com/sitemap.xml
