@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-5.0-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last
+**📋 Document Owner:** CEO | **📄 Version:** 5.0 | **📅 Last
 Updated:** 2026-05-31 (UTC) | **🚀 Release:** v1.0.1  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
@@ -123,6 +123,24 @@ This document maps the **conceptual evolution** of EU Parliament Monitor across
   paradigm shifts (quantum AI, neuromorphic computing) through AGI and post-AGI —
   governed by the Hack23 **AI Policy** (AI proposes, humans remain accountable, no
   autonomous deploy).
+
+> **📌 v5.0 focus — closing the SWOT loop and going agentic.** This revision makes
+> the future vision *traceable* and *visionary after v2.0*. Three new sections answer
+> the strategic question "is every weakness and every opportunity addressed in the
+> future architecture?":
+>
+> 1. [🤖 Future AI Agent Capabilities — What Is Really Possible](#-future-ai-agent-capabilities--what-is-really-possible-2026--2037)
+>    analyses the *realistic* (not science-fiction) trajectory of agentic AI — the
+>    autonomous multi-agent OSINT newsroom that supersedes today's single-session
+>    `gh-aw` pipeline — with explicit feasibility bands.
+> 2. [📡 Multi-Channel Distribution and Expanded Data Surfaces](#-multi-channel-distribution-and-expanded-data-surfaces)
+>    captures the distribution and data-surface opportunities (RSS/ActivityPub,
+>    newsletter, audio, PWA, Council/OECD/Eurostat/UN) that earlier revisions left
+>    implicit.
+> 3. [🧩 SWOT-to-Future Traceability](#-swot-to-future-traceability--every-weakness-mitigated-every-opportunity-captured)
+>    maps **every** [SWOT.md](SWOT.md) weakness (W1–W19) and opportunity (O1–O17) to
+>    a concrete future-state resolution, horizon, and owning capability — so no
+>    improvement area is left unaddressed.
 
 ### Three-Horizon Comparison
 
@@ -840,6 +858,288 @@ timeline
 
 ---
 
+## 🤖 Future AI Agent Capabilities — What Is Really Possible (2026 → 2037)
+
+Today the platform is authored by a **single-session `gh-aw` agent** that runs
+Stages A→E inside one 60-minute window and produces exactly one PR (see SWOT.md
+**W18**, **W19**). That model is the current ceiling, not the destination. This
+section analyses, with **explicit feasibility bands**, what genuinely becomes
+possible as agentic AI matures from today's tool-using assistants toward
+Bedrock-managed multi-agent orchestration and, eventually, near-AGI reasoning.
+
+> **Feasibility legend** (so the vision stays honest, per the AI-First Quality
+> discipline): 🟢 **Realistic now / ≤ 18 months** — buildable on shipping Bedrock
+> Agents + Step Functions; 🔵 **Emerging / 2–4 years** — depends on the next 2–3
+> annual model upgrades and managed-agent maturity; ⚪ **Aspirational / 5+ years** —
+> contingent on pre-AGI reasoning and sovereign-AI availability. **Every band keeps
+> the AI Policy invariant: AI proposes, a human approves, no autonomous production
+> deploy.**
+
+### From Single-Session Pipeline to Autonomous Multi-Agent OSINT Newsroom
+
+The decisive shift is decomposing the monolithic 60-minute run into a **fleet of
+specialised, cooperating agents**, each a Bedrock Agent with scoped tool access,
+its own Guardrail, and a bounded mandate. This directly retires the
+single-session timeout fragility (**W18**), the gateway-keepalive risk (**W19**),
+and the single-threaded LLM dependency (**W4**, **W7**).
+
+```mermaid
+mindmap
+  root((Autonomous Multi-Agent OSINT Newsroom))
+    Collector Agents
+      EP MCP Harvesting
+      Economic Context Pull
+      DOCEO Real Time Votes
+      New Source Discovery
+    Analyst Agents
+      Coalition Mathematics
+      Significance Scoring
+      Scenario Forecasting
+      Threat Methodology
+    Verification Agents
+      Cross Source Triangulation
+      Evidence Citation Check
+      Hallucination Detection
+      Numeric Fact Reconciliation
+    Editor Agents
+      Tradecraft Gate Enforcement
+      Style and Neutrality Review
+      Devils Advocate Challenge
+      BLUF and WEP Banding
+    Translator Agents
+      Fourteen Language Fan Out
+      Idiomatic Political Vocabulary
+      RTL and East Asian Parity
+      Per Language Heading Spot Check
+    Publisher Agents
+      Deterministic Aggregator Render
+      Manifest and SEO Assembly
+      Multi Channel Syndication
+    Auditor Agents
+      Methodology Reflection
+      Workflow Self Audit
+      Drift and Regression Watch
+    Orchestrator
+      Step Functions Supervision
+      Bedrock Agent Handoffs
+      Human Approval Gate
+      No Autonomous Deploy
+```
+
+### What Each Capability Realistically Unlocks
+
+```mermaid
+mindmap
+  root((Agentic Capability Unlock))
+    Parallelism Beats the Clock
+      No Single 60 Min Session
+      Step Functions Fan Out
+      Per Stage Retry and Resume
+      Removes W18 and W19
+    Self Curating Data Surfaces
+      Auto Discover New MCP Tools
+      Propose Indicator Mappings
+      Council OECD Eurostat UN
+      Removes W8 and W9
+    Continuous Quality Assurance
+      Always On Fact Check
+      Multi Agent Disagreement Flags
+      Confidence Calibrated Output
+      Removes W3
+    Translation Parity Agents
+      Back Translation Verification
+      Terminology Memory Per Locale
+      Quarterly Human Spot Check
+      Removes W13 and T17
+    Self Healing Operations
+      Auto Bump gh-aw Pin
+      Recompile and Smoke Test
+      Performance Auto Tuning
+      Removes W6 and W10
+    Predictive Legislative Analytics
+      Causal Inference on Votes
+      Coalition Drift Early Warning
+      Mandate Fulfilment Scoring
+```
+
+### Agentic Capability Realism — Horizon Table
+
+| Capability | Feasibility | Horizon | Retires SWOT Item | Governing Control |
+| ---------- | ----------- | ------- | ----------------- | ----------------- |
+| Multi-agent stage parallelism (Step Functions + Bedrock Agents) | 🟢 Realistic | v3.0 (2028) | W18, W19 | AI Policy human gate |
+| Always-on verification / fact-check agents | 🟢 Realistic | v2.0→v3.0 | W3, T1 | Bedrock Guardrails |
+| Multi-channel publisher agents (RSS, ActivityPub, audio, newsletter) | 🟢 Realistic | v2.0 | O6, O9 | Deterministic aggregator |
+| Self-curating data-surface onboarding (Council, OECD, Eurostat, UN) | 🔵 Emerging | v3.1 (2029) | W8, W9, O7, O16 | Human-approved source registry |
+| Translation-parity / back-translation agents | 🔵 Emerging | v3.0 | W13, T17 | Quarterly human spot-check |
+| Knowledge-graph reasoning agents over Neptune | 🔵 Emerging | v3.1 | O3-graph moat | Cited evidence chains |
+| Self-healing dependency + pipeline ops (auto gh-aw bump) | ⚪ Aspirational | v3.2 (2030) | W6, W10 | Human approval before merge |
+| Causal predictive legislative analytics | ⚪ Aspirational | 2031+ | O15 deepened | WEP-banded, no determinism claim |
+| Autonomous proposal generation (pre-AGI) | ⚪ Aspirational | 2035+ | — | **Human accountability retained** |
+
+### Governance Invariant Across Every Horizon
+
+```mermaid
+mindmap
+  root((Agent Governance and Human Accountability))
+    AI Proposes
+      Drafts and Analysis
+      Source Proposals
+      Mitigation Suggestions
+    Human Approves
+      PR Review Gate
+      Source Registry Sign Off
+      Dependency Bump Approval
+    Guardrails Enforce
+      Political Neutrality
+      GDPR Public Roles Only
+      Hallucination Filters
+      PII Redaction
+    Full Auditability
+      CloudTrail Agent Actions
+      Methodology Reflection Artifacts
+      Workflow Self Audit
+      Reproducible Determinism
+    Never
+      No Autonomous Deploy
+      No Private Life Profiling
+      No Unsourced Claims
+```
+
+---
+
+## 📡 Multi-Channel Distribution and Expanded Data Surfaces
+
+Earlier revisions left several [SWOT.md](SWOT.md) opportunities **implicit**. This
+section makes them first-class so the future vision visibly captures them:
+multi-channel distribution (**O6**), federated reach (**O9**), PWA mobile
+(**O10**), and an expanded MCP data surface beyond EP/WB/IMF (**O7**, **O16**).
+
+### Distribution Channel Expansion
+
+```mermaid
+mindmap
+  root((Multi-Channel Distribution))
+    Web Static Core
+      S3 and CloudFront
+      Fourteen Language HTML
+      WCAG 2.1 AA
+    Syndication Feeds
+      RSS Per Language
+      Atom Feeds
+      JSON Feed
+    Federated Social
+      ActivityPub and Mastodon
+      Journalist Communities
+      No Centralized Platform Lock
+    Newsletter
+      Email Digest Opt In
+      Weekly Intelligence Brief
+      Substack Style Long Form
+    Audio and Voice
+      Text to Speech Articles
+      Amazon Polly Narration
+      Podcast Episode Feed
+    Progressive Web App
+      Installable Offline Shell
+      Push Notifications
+      Native Feel No App Store
+    Programmatic Access
+      Public JSON API
+      Journalist and Researcher Tiers
+      Webhook Event Alerts
+```
+
+### Expanded Data-Surface Roadmap
+
+```mermaid
+mindmap
+  root((Expanded Data Surfaces))
+    Today Sourced
+      European Parliament MCP
+      World Bank WDI
+      IMF WEO and FM
+    Near Term Triangulation
+      Eurostat EU Indicators
+      DOCEO Real Time Votes
+      EU Transparency Register
+    Institutional Expansion
+      Council of the EU
+      European Commission
+      OECD Statistics
+      United Nations Data
+    Cross Parliament
+      National Open Data Portals
+      Unified Entity Resolution
+      Cross Border Normalization
+    Governance
+      Human Approved Source Registry
+      Admiralty Source Grading
+      Provenance and Licensing Check
+```
+
+---
+
+## 🧩 SWOT-to-Future Traceability — Every Weakness Mitigated, Every Opportunity Captured
+
+This is the traceability backbone requested in the v5.0 review: a one-to-one map
+from each current-state [SWOT.md](SWOT.md) **weakness** and **opportunity** to the
+future-state capability, horizon, and section that resolves or captures it. Items
+already marked *Resolved* in SWOT.md (e.g. **W15**) are noted for completeness.
+
+### Weakness → Future-State Resolution (W1–W19)
+
+| Weakness (SWOT.md) | Future-State Resolution | Horizon | Where Addressed |
+| ------------------ | ----------------------- | ------- | --------------- |
+| **W1** MCP server dev dependency | Hack23-owned EP MCP hardened + redundant cross-parliament surfaces | v3.1 | Expanded Data Surfaces; Multi-Parliament |
+| **W2** Limited runtime analytics | Serverless backend (DynamoDB, OpenSearch) + live AppSync dashboards | v3.0 | v3.0 Serverless Foundation |
+| **W3** Manual content quality assessment | Always-on verification agents + Guardrails | v2.0→v3.0 | Future AI Agent Capabilities |
+| **W4** Single-threaded LLM dependency | Model-agnostic Bedrock + multi-agent fleet | v3.0 | Multi-Agent OSINT Newsroom |
+| **W5** Limited community engagement | Contributor program, API tiers, civic-tech partnerships | v2.0+ | Partnership; Distribution |
+| **W6** Manual optimization and tuning | Self-healing / auto-tuning serverless ops agents | v3.2 | Agentic Capability Unlock |
+| **W7** Sole LLM-provider dependency | Bedrock multi-model abstraction + competitor eval | v3.0 | Technology Stack Evolution |
+| **W8** EP MCP single technical source | Council/OECD/Eurostat/UN + cross-parliament redundancy | v3.1 | Expanded Data Surfaces |
+| **W9** IMF+WB indicator curation burden | Self-curating data-surface agents propose mappings | v3.1 | Agentic Capability Unlock |
+| **W10** gh-aw pin fragility | Self-healing auto-bump + recompile + smoke test | v3.2 | Agentic Capability Unlock |
+| **W11** Minimal engagement surface (by design) | Opt-in dynamic layer (search, NL query) behind static edge | v3.0/v3.1 | Feature Roadmap; Distribution |
+| **W12** Bus factor 1–2 | Community growth + CRA Art. 24 reference + documented methodology | v2.0+ | Partnership; Distribution |
+| **W13** Monolingual source-of-truth | Translation-parity / back-translation agents + spot-checks | v3.0 | Future AI Agent Capabilities |
+| **W14** EP fixed-window feed limits | v3 real-time EventBridge/Kinesis ingestion | v3.0 | Data Flow Mindmap |
+| **W15** EP MCP tool-list export (Resolved) | Already exported + drift-guarded | ✅ now | n/a |
+| **W16** EP MCP skeleton coverage | Real-time DOCEO + serverless re-indexing | v3.0 | Data Flow; Expanded Data Surfaces |
+| **W17** IMF probe degradation | Eurostat triangulation surface (additive) | v3.0 | Expanded Data Surfaces |
+| **W18** Single-session 60-min timeout | Step Functions multi-agent parallelism | v3.0 | Multi-Agent OSINT Newsroom |
+| **W19** MCP gateway keepalive | Serverless ingestion removes gateway dependency | v3.0 | Multi-Agent OSINT Newsroom |
+
+### Opportunity → Future-State Capture (O1–O17)
+
+| Opportunity (SWOT.md) | Future-State Capture | Horizon | Where Addressed |
+| --------------------- | -------------------- | ------- | --------------- |
+| **O1** AI / LLM advancement | Bedrock model-agnostic core + annual upgrades + agent fleet | v3.0→2037 | AI Evolution Path; Agent Capabilities |
+| **O2** EU transparency / open data | Mandatory-transparency-API readiness + open methodology | v2.0+ | Competitive/Disruption Landscape |
+| **O3** EP API expansion | Real-time ingestion + Neptune knowledge graph | v3.0/v3.1 | Data Flow; Expanded Data Surfaces |
+| **O4** Academic / media partnerships | API tiers + syndication + research datasets | v3.1 | Partnership Mindmap |
+| **O5** Open-source community growth | Contributor program + GitHub ecosystem | v2.0+ | Partnership; Distribution |
+| **O6** Multi-channel distribution | RSS, newsletter, audio/podcast, PWA, API | v2.0/v3.0 | Multi-Channel Distribution |
+| **O7** Expand MCP data surface | Council, OECD, Eurostat, UN onboarding | v3.1 | Expanded Data Surfaces |
+| **O8** Cross-parliament coverage | National-parliament onboarding + entity resolution | v3.1 | Geographic Expansion |
+| **O9** Federated distribution | ActivityPub / Mastodon syndication | v2.0 | Multi-Channel Distribution |
+| **O10** PWA mobile experience | Installable offline PWA atop static site | v3.0 | Multi-Channel Distribution |
+| **O11** Civic-tech partnership ecosystem | NGO joint advocacy + shared surfaces | v2.0+ | Partnership Mindmap |
+| **O12** Academic research partnerships | Publishable analytics dataset | v3.1 | Partnership; Growth Metrics |
+| **O13** CRA Article 24 reference impl. | Exemplar OSS-steward compliance posture | v2.0 | Security/Compliance; Distribution |
+| **O14** Stage-C completeness roll-out | Verification agents enforce thresholds platform-wide | v2.0→v3.0 | Future AI Agent Capabilities |
+| **O15** Deeper long-horizon intelligence | term-outlook + predictive analytics | v3.0→2031 | Intelligence Capabilities; Agent Capabilities |
+| **O16** IMF + Eurostat triangulation | Eurostat added as triangulation surface | v3.0 | Expanded Data Surfaces |
+| **O17** Real-time DOCEO vote integration | Live vote tracking + coalition-drift alerts | v3.0/v3.1 | Data Flow; Multi-Agent Newsroom |
+
+> **Coverage verdict:** all 19 weaknesses and all 17 opportunities in
+> [SWOT.md](SWOT.md) now map to an explicit future-state capability and horizon.
+> Aspirational items (⚪) are marked honestly and remain bound by the AI Policy
+> human-accountability invariant — they are directions of travel, not commitments
+> to autonomy.
+
+---
+
 ## 📚 References
 
 ### Current State
@@ -876,5 +1176,8 @@ timeline
 | **Next Review** | CEO, Hack23 AB | ⏳ Scheduled | 2026-08-31 |
 
 **Document Status**: ✅ **APPROVED FOR PLANNING**  
+**Document Version**: 5.0 — adds Future AI Agent Capabilities, Multi-Channel
+Distribution and Expanded Data Surfaces, and full SWOT-to-Future traceability
+(every W1–W19 and O1–O17 mapped to a future-state resolution).  
 **Next Review**: 2026-08-31 (Quarterly)  
 **Classification**: Public (Open Source European Parliament Monitoring Platform)
