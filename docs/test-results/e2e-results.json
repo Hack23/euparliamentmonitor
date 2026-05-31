@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/3c8ae4ff1a59c58c068c7a450818cc190e1f84dc",
-        "commitHash": "3c8ae4ff1a59c58c068c7a450818cc190e1f84dc",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26687093243"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/283cf143f833c0dd9635bdf1427cbf3ce0b3413c",
+        "commitHash": "283cf143f833c0dd9635bdf1427cbf3ce0b3413c",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26717342526"
       },
       "gitCommit": {
-        "shortHash": "3c8ae4ff1a",
-        "hash": "3c8ae4ff1a59c58c068c7a450818cc190e1f84dc",
-        "subject": "Merge pull request #2279 from Hack23/copilot/update-isms-documents",
-        "body": "Merge pull request #2279 from Hack23/copilot/update-isms-documents\n\ndocs: complete deep-review refresh of THREAT_MODEL (v2.4) and SWOT (v1.5)",
+        "shortHash": "283cf143f8",
+        "hash": "283cf143f833c0dd9635bdf1427cbf3ce0b3413c",
+        "subject": "chore(articles): regenerate all article.md and 14-language HTML output",
+        "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/26717097369\n",
         "author": {
-          "name": "James Pether Sörling",
-          "email": "pethers@users.noreply.github.com",
-          "time": 1780153333000
+          "name": "github-actions[bot]",
+          "email": "github-actions[bot]@users.noreply.github.com",
+          "time": 1780242774000
         },
         "committer": {
-          "name": "GitHub",
-          "email": "noreply@github.com",
-          "time": 1780153333000
+          "name": "github-actions[bot]",
+          "email": "github-actions[bot]@users.noreply.github.com",
+          "time": 1780242774000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/3c8ae4ff1a59c58c068c7a450818cc190e1f84dc",
-            "commitHash": "3c8ae4ff1a59c58c068c7a450818cc190e1f84dc",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26687093243"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/283cf143f833c0dd9635bdf1427cbf3ce0b3413c",
+            "commitHash": "283cf143f833c0dd9635bdf1427cbf3ce0b3413c",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26717342526"
           },
           "gitCommit": {
-            "shortHash": "3c8ae4ff1a",
-            "hash": "3c8ae4ff1a59c58c068c7a450818cc190e1f84dc",
-            "subject": "Merge pull request #2279 from Hack23/copilot/update-isms-documents",
-            "body": "Merge pull request #2279 from Hack23/copilot/update-isms-documents\n\ndocs: complete deep-review refresh of THREAT_MODEL (v2.4) and SWOT (v1.5)",
+            "shortHash": "283cf143f8",
+            "hash": "283cf143f833c0dd9635bdf1427cbf3ce0b3413c",
+            "subject": "chore(articles): regenerate all article.md and 14-language HTML output",
+            "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/26717097369\n",
             "author": {
-              "name": "James Pether Sörling",
-              "email": "pethers@users.noreply.github.com",
-              "time": 1780153333000
+              "name": "github-actions[bot]",
+              "email": "github-actions[bot]@users.noreply.github.com",
+              "time": 1780242774000
             },
             "committer": {
-              "name": "GitHub",
-              "email": "noreply@github.com",
-              "time": 1780153333000
+              "name": "github-actions[bot]",
+              "email": "github-actions[bot]@users.noreply.github.com",
+              "time": 1780242774000
             },
             "branch": "main"
           },
@@ -148,12 +148,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1247,
+                      "duration": 1570,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-30T15:14:01.793Z",
+                      "startTime": "2026-05-31T16:07:54.594Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -182,12 +182,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1095,
+                      "duration": 1321,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-30T15:14:01.696Z",
+                      "startTime": "2026-05-31T16:07:54.719Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -215,61 +215,18 @@
                     {
                       "workerIndex": 2,
                       "parallelIndex": 2,
-                      "status": "timedOut",
-                      "duration": 31989,
-                      "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                      },
-                      "errors": [
-                        {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-30T15:14:01.767Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-display-recent-articles-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-display-recent-articles-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-display-recent-articles-chromium/error-context.md"
-                        }
-                      ]
-                    },
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 739,
+                      "duration": 1304,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-05-30T15:14:34.483Z",
+                      "retry": 0,
+                      "startTime": "2026-05-31T16:07:54.649Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-display-recent-articles-chromium-retry1/trace.zip"
-                        }
-                      ]
+                      "attachments": []
                     }
                   ],
-                  "status": "flaky"
+                  "status": "expected"
                 }
               ],
               "id": "2911e419fbc39a4e7680-27d49131a818d270c9ff",
@@ -290,15 +247,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 725,
+                      "duration": 945,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-30T15:14:03.133Z",
+                      "startTime": "2026-05-31T16:07:56.217Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -324,20 +281,66 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 840,
-                      "errors": [],
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "timedOut",
+                      "duration": 37238,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/__w/euparliamentmonitor/euparliamentmonitor/e2e/tests/homepage.spec.js",
+                            "column": 16,
+                            "line": 82
+                          },
+                          "message": "Error: page.goto: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/\", waiting until \"load\"\u001b[22m\n\n\n  80 |\n  81 |   test('should have proper HTML structure', async ({ page }) => {\n> 82 |     await page.goto('/');\n     |                ^\n  83 |\n  84 |     // Verify DOCTYPE and HTML element\n  85 |     const htmlElement = page.locator('html');\n    at /__w/euparliamentmonitor/euparliamentmonitor/e2e/tests/homepage.spec.js:82:16"
+                        }
+                      ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-30T15:14:03.322Z",
+                      "startTime": "2026-05-31T16:07:56.238Z",
                       "annotations": [],
-                      "attachments": []
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-have-proper-HTML-structure-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-have-proper-HTML-structure-chromium/error-context.md"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1003,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-05-31T16:08:34.025Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-have-proper-HTML-structure-chromium-retry1/trace.zip"
+                        }
+                      ]
                     }
                   ],
-                  "status": "expected"
+                  "status": "flaky"
                 }
               ],
               "id": "2911e419fbc39a4e7680-c7724d6b53e7f0703f85",
@@ -358,15 +361,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 627,
+                      "duration": 834,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-30T15:14:03.882Z",
+                      "startTime": "2026-05-31T16:07:56.495Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -386,8 +389,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-30T15:14:00.096Z",
-    "duration": 35287.247,
+    "startTime": "2026-05-31T16:07:52.931Z",
+    "duration": 42295.63,
     "expected": 5,
     "skipped": 0,
     "unexpected": 0,

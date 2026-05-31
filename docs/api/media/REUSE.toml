@@ -22,7 +22,7 @@ SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = ["docs/api/**", "docs/coverage/**", "docs/test-results/**"]
+path = ["docs/**"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
@@ -58,7 +58,13 @@ SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
-path = ["analysis/**/*.json", "analysis/**/*.md", "analysis/**/*.marker"]
+path = ["analysis/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["playwright-report/**"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
