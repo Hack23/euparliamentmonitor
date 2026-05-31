@@ -5,20 +5,20 @@
 <h1 align="center">🔄 EU Parliament Monitor — Future State Diagrams</h1>
 
 <p align="center">
-  <strong>🔀 Advanced Adaptive State Management with ML-Based Transitions</strong><br>
-  <em>🎯 From Static Build States to Dynamic Real-Time Intelligence (2026-2037)</em>
+  <strong>🔀 Three-Horizon State Management: Static Build Lifecycle → AWS-Native Serverless Intelligence</strong><br>
+  <em>🎯 From Deterministic Build States to Event-Driven, Agentic, Self-Healing State Machines (2026-2037)</em>
 </p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last
-Updated:** 2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
+**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last
+Updated:** 2026-05-31 (UTC) | **🚀 Release:** v1.0.1  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
 
 ---
@@ -44,6 +44,7 @@ Updated:** 2026-03-19 (UTC)
 | **[Security Architecture](SECURITY_ARCHITECTURE.md)** | 🛡️ Security | Current security implementation | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md) |
 | **[Future Security Architecture](FUTURE_SECURITY_ARCHITECTURE.md)** | 🛡️ Security | Security enhancement roadmap | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_SECURITY_ARCHITECTURE.md) |
 | **[Threat Model](THREAT_MODEL.md)** | 🎯 Security | STRIDE threat analysis | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md) |
+| **[Future Threat Model](FUTURE_THREAT_MODEL.md)** | 🎯 Security | Forward-looking threat analysis | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/FUTURE_THREAT_MODEL.md) |
 | **[Classification](CLASSIFICATION.md)** | 🏷️ Governance | CIA classification & BCP | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/CLASSIFICATION.md) |
 | **[CRA Assessment](CRA-ASSESSMENT.md)** | 🛡️ Compliance | Cyber Resilience Act | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/CRA-ASSESSMENT.md) |
 | **[Workflows](WORKFLOWS.md)** | ⚙️ DevOps | CI/CD documentation | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md) |
@@ -62,53 +63,76 @@ Updated:** 2026-03-19 (UTC)
 
 ## 🔐 ISMS Policy Alignment
 
-This future state diagram is designed to implement all controls from Hack23 AB's ISMS framework as the EU Parliament Monitor platform evolves.
+This future state diagram is designed to implement all controls from Hack23 AB's ISMS framework as the EU Parliament Monitor platform evolves across its three strategic horizons — from the **v2.0 enhanced static intelligence** lifecycle to the **v3.0+ AWS-native serverless** state machines.
 
 ### Related ISMS Policies
 
 | **Policy Domain** | **Policy** | **Planned Implementation** |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
-| **🔐 Core Security** | [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Overall security governance framework for enhanced monitoring |
-| **🛠️ Development** | [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Security-integrated development lifecycle enhancements |
-| **🌐 Network** | [Network Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Network_Security_Policy.md) | CDN architecture, WAF, DDoS protection |
-| **🔒 Cryptography** | [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | Content signing, TLS 1.3, integrity verification |
-| **🔑 Access Control** | [Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) | MCP authentication, request authorization |
-| **🏷️ Data Classification** | [Data Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Data_Classification_Policy.md) | European Parliament data classification |
-| **🔍 Vulnerability** | [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Enhanced automated scanning and monitoring |
-| **🚨 Incident Response** | [Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | Automated incident detection and response |
-| **💾 Backup & Recovery** | [Backup Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md) | Content backup, version control, recovery |
-| **🔄 Business Continuity** | [Business Continuity Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Business_Continuity_Plan.md) | Multi-CDN deployment, disaster recovery |
-| **🤝 Third-Party** | [Third Party Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md) | CDN provider security assessment |
-| **🏷️ Classification** | [Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Business impact analysis for platform |
+| **🔐 Core Security** | [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Overall security governance framework for state lifecycle |
+| **🤖 AI Governance** | [AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) | AI = proposal generator; human-review gate states; no autonomous deploy |
+| **🛠️ Development** | [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Security-integrated state machine design and validation |
+| **🌐 Network** | [Network Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Network_Security_Policy.md) | CloudFront edge states, AWS WAF + Shield, rate-limit states |
+| **🔒 Cryptography** | [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | SLSA provenance signing, TLS 1.3, AWS KMS envelope encryption |
+| **🔑 Access Control** | [Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) | Amazon Cognito session states, IAM least-privilege transitions |
+| **🏷️ Data Classification** | [Data Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Data_Classification_Policy.md) | European Parliament public open-data classification states |
+| **🔍 Vulnerability** | [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Amazon Inspector / CodeQL scan states in build lifecycle |
+| **🚨 Incident Response** | [Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | GuardDuty/Security Hub detection → response state transitions |
+| **💾 Backup & Recovery** | [Backup Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md) | S3 versioning, point-in-time recovery states |
+| **🔄 Business Continuity** | [Business Continuity Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Business_Continuity_Plan.md) | Multi-AZ serverless failover, static-edge fallback states |
+| **🤝 Third-Party** | [Third Party Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md) | AWS shared-responsibility and MCP provider assessment |
+| **🏷️ Classification** | [Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Business impact analysis for platform state criticality |
 
 ### Compliance Framework Mapping
 
 | **Framework** | **Version** | **Relevant Controls** |
 | ------------- | ----------- | --------------------- |
-| **ISO 27001** | 2022 | A.5.1, A.8.25, A.8.26, A.8.27 |
-| **NIST CSF** | 2.0 | GV.OC, GV.RM, ID.AM, PR.AT |
-| **CIS Controls** | v8.1 | Control 1-5, 14, 16 |
+| **ISO 27001** | 2022 | A.5.1, A.8.25, A.8.26, A.8.27, A.8.28 |
+| **NIST CSF** | 2.0 | GV.OC, GV.RM, ID.AM, PR.AT, DE.CM, RS.MA |
+| **CIS Controls** | v8.1 | Control 1-5, 8, 13, 14, 16 |
+| **GDPR** | 2016/679 | Public MEP roles only; Bedrock Guardrails PII states |
 
 ---
 
 ## 📋 Executive Summary
 
-This document defines the evolution of EU Parliament Monitor's state management
-from **simple build-time states** to **complex real-time adaptive state
-machines** with **ML-based state prediction**, **intelligent error recovery**,
-and **auto-scaling capabilities**.
+This document defines the evolution of EU Parliament Monitor's **state management**
+across three strategic horizons. Today (v1.0.x) the platform is a **pure static-site
+generator** whose only "states" are deterministic build-pipeline stages running in
+GitHub Actions and publishing to **Amazon S3 + Amazon CloudFront**. The future is
+**not** a single leap to "real-time"; it is a deliberate, governed progression:
+
+- **🟢 v2.0 — Enhanced Static Intelligence (2026 H2 → 2027):** keep the static HTML
+  architecture and its simple, auditable build/publish lifecycle, but enrich the
+  *content* states — richer party / political-group landscape dashboards, deeper
+  OSINT tradecraft, and the 51-template analysis catalog — all baked at build time
+  and delivered as static, cacheable assets. **No servers, no runtime state stores.**
+- **🔵 v3.0+ — AWS-Native Serverless Intelligence Platform (2028+):** layer
+  event-driven, agentic, and session-aware state machines *behind* the static edge
+  using **AWS Step Functions, Lambda, EventBridge, Kinesis, Amazon Cognito, Amazon
+  Bedrock, Amazon Neptune Serverless, DynamoDB DAX, GuardDuty and Security Hub** —
+  evolving the platform into a political-intelligence-operations ("intop") system
+  without abandoning the cheap, resilient static front door.
+- **⚪ 10-Year AI Lookahead (2026 → 2037):** state machines progressively move from
+  reactive → predictive → autonomous (self-healing), governed by the Hack23
+  **AI Policy** (AI proposes, humans remain accountable, no autonomous production
+  deploy).
+
+> **Design principle:** complexity is *added behind* the static edge, never *in front
+> of* it. The public, open-data front door always degrades to a pre-rendered static
+> snapshot. This is the resilience and cost moat.
 
 ### State Management Transformation
 
-| Aspect                | Current (2026)         | Future (2027)              | Enhancement               |
+| Aspect | Current (v1.0.x) | v2.0 (Enhanced Static) | v3.0+ (AWS Serverless) |
 | --------------------- | ---------------------- | -------------------------- | ------------------------- |
-| **State Persistence** | None (ephemeral build) | Redis + PostgreSQL         | Persistent state tracking |
-| **State Complexity**  | Linear workflow        | Complex state machine      | 50+ states                |
-| **Error Recovery**    | Fail and retry         | Intelligent recovery paths | Self-healing              |
-| **Predictive States** | None                   | ML-based predictions       | Proactive actions         |
-| **Auto-Scaling**      | Fixed resources        | Dynamic scaling states     | Cost optimization         |
-| **Monitoring**        | Basic logs             | Real-time state dashboards | Full visibility           |
-| **Concurrency**       | Serial execution       | Parallel state machines    | 10x throughput            |
+| **State Persistence** | None (ephemeral build) | None (ephemeral build) | DynamoDB + Aurora Serverless v2 + Step Functions execution history |
+| **State Complexity** | Linear build workflow | Linear build + dataset states | Event-driven, parallel, agentic state machines |
+| **Orchestration** | GitHub Actions jobs | GitHub Actions (gh-aw) | AWS Step Functions + EventBridge |
+| **Error Recovery** | Fail and re-run | Fail and re-run | Retry/catch states, DLQ, self-healing |
+| **Identity/Session** | None (anonymous static) | None (anonymous static) | Amazon Cognito session states |
+| **AI Generation** | Build-time LLM (gh-aw) | Build-time LLM (gh-aw) | Bedrock + Knowledge Bases + Guardrails + human gate |
+| **Security States** | CI scan gates | CI scan gates | GuardDuty/Security Hub detect → respond |
 
 ---
 
@@ -116,625 +140,486 @@ and **auto-scaling capabilities**.
 
 ```mermaid
 gantt
-    title State Management Evolution Timeline
+    title State Management Evolution Timeline (v2.0 to v3.0+)
     dateFormat YYYY-MM
 
-    section Phase 1: Foundation
-    State Machine Framework              :p1a, 2026-04, 2M
-    Redis State Store                    :p1b, 2026-04, 1M
-    State Persistence Layer              :p1c, 2026-05, 1M
+    section v2.0 Enhanced Static
+    Party Landscape Dashboard States     :v2a, 2026-07, 3M
+    OSINT Tradecraft State Enrichment    :v2b, 2026-09, 3M
+    Dataset Build Lifecycle Hardening    :v2c, 2026-10, 2M
+    51-Template Catalog Integration      :v2d, 2026-11, 3M
 
-    section Phase 2: Intelligence
-    ML State Predictor                   :p2a, 2026-07, 2M
-    Auto-Recovery Mechanisms             :p2b, 2026-08, 1M
-    Smart Error Handling                 :p2c, 2026-09, 1M
+    section v3.0 Serverless Foundation
+    Step Functions Orchestration         :v3a, 2028-01, 4M
+    EventBridge Event Ingestion States   :v3b, 2028-03, 3M
+    Cognito Session/Auth States          :v3c, 2028-05, 3M
 
-    section Phase 3: Optimization
-    Auto-Scaling States                  :p3a, 2026-10, 2M
-    Load Balancing States                :p3b, 2026-11, 1M
-    Circuit Breaker Patterns             :p3c, 2026-12, 1M
+    section v3.1 Intelligence Core
+    Bedrock Generation State Machine     :v3d, 2028-07, 4M
+    Neptune Knowledge Graph States       :v3e, 2028-09, 3M
+    DAX Cache State Management            :v3f, 2028-10, 2M
 
-    section Phase 4: Advanced
-    Distributed State Sync               :p4a, 2027-01, 2M
-    State Replay & Time Travel           :p4b, 2027-02, 1M
-    Predictive Scaling                   :p4c, 2027-03, 1M
+    section v3.2 Autonomous Resilience
+    GuardDuty Security State Response    :v4a, 2029-01, 3M
+    Self-Healing Recovery States         :v4b, 2029-03, 4M
+    Agentic OSINT State Orchestration    :v4c, 2029-06, 4M
 ```
 
 ---
 
-## 🚀 Future System Lifecycle State Machine
+## 🟢 v2.0 — Static Build & Publish Lifecycle State Machine
 
-**Complete system lifecycle** with intelligent transitions and recovery paths.
+The v2.0 horizon **preserves** the deterministic, server-free build lifecycle. A
+gh-aw agentic workflow authors Stage-B markdown analysis artifacts, the deterministic
+aggregator renders 14-language HTML, and the result is deployed to Amazon S3 and
+served via Amazon CloudFront. These states are short-lived, fully reproducible, and
+leave no runtime state to defend.
 
 ```mermaid
 stateDiagram-v2
-    [*] --> SystemInitializing: System Boot
+    [*] --> Idle: Repository Ready
 
-    SystemInitializing --> HealthCheck: Load Configuration
-    HealthCheck --> DependencyCheck: Health OK
-    HealthCheck --> DegradedMode: Health Degraded
+    Idle --> WorkflowTriggered: Schedule or Dispatch
+    WorkflowTriggered --> RunnerProvisioned: GitHub Actions Runner
 
-    DependencyCheck --> AllServicesReady: All Dependencies OK
-    DependencyCheck --> PartialAvailability: Some Dependencies Down
-    DependencyCheck --> EmergencyMode: Critical Dependencies Down
+    RunnerProvisioned --> AgenticRun: Start gh-aw Workflow
+    AgenticRun --> DataCollection: Query MCP Sources
 
-    AllServicesReady --> Idle: System Ready
-    PartialAvailability --> Idle: Non-Critical Failures
-    DegradedMode --> Idle: Acceptable Performance
+    DataCollection --> DataCollected: EP MCP plus WorldBank plus IMF
+    DataCollection --> DataDegraded: Source Timeout
+    DataDegraded --> DataCollected: Fallback or Cached Window
 
-    Idle --> EventListening: Start Event Listeners
+    DataCollected --> AnalysisAuthoring: LLM Authors Artifacts
+    AnalysisAuthoring --> ArtifactsWritten: Stage B Markdown Committed
+    AnalysisAuthoring --> AuthoringRetry: Quality Below Floor
+    AuthoringRetry --> AnalysisAuthoring: Refine and Reauthor
 
-    EventListening --> EventReceived: EP Event Occurs
-    EventReceived --> EventValidation: Parse Event
+    ArtifactsWritten --> ManifestValidation: Validate manifest.json
+    ManifestValidation --> ManifestValid: Schema and Floors OK
+    ManifestValidation --> ManifestInvalid: Missing Artifacts
+    ManifestInvalid --> AuthoringRetry: Regenerate Gaps
 
-    EventValidation --> EventProcessing: Valid Event
-    EventValidation --> EventRejected: Invalid Event
-    EventRejected --> EventListening: Log & Discard
+    ManifestValid --> AggregatorRender: Deterministic HTML Build
+    AggregatorRender --> SecurityScan: CodeQL and Scorecard
+    SecurityScan --> ScanPassed: No Blocking Findings
+    SecurityScan --> ScanFailed: Findings Present
+    ScanFailed --> BuildHalted: Block Publish
 
-    EventProcessing --> ArticleGenerationQueued: Enqueue Job
-    ArticleGenerationQueued --> WorkerAvailable: Check Worker Pool
+    ScanPassed --> ProvenanceSigning: SLSA 3 Attestation
+    ProvenanceSigning --> S3Upload: Sync Static Assets
 
-    WorkerAvailable --> WorkerProcessing: Worker Picks Job
-    WorkerAvailable --> WorkerQueueFull: No Workers
-    WorkerQueueFull --> AutoScaling: Trigger Scale-Up
+    S3Upload --> S3Uploaded: Objects Versioned
+    S3Upload --> S3UploadRetry: Transient S3 Error
+    S3UploadRetry --> S3Upload: Retry With Backoff
 
-    AutoScaling --> WorkerProvisioning: Add Workers
-    WorkerProvisioning --> WorkerAvailable: New Workers Ready
+    S3Uploaded --> CloudFrontInvalidation: Invalidate Edge Cache
+    CloudFrontInvalidation --> EdgePropagating: Distribute to PoPs
+    EdgePropagating --> Published: Content Live
 
-    WorkerProcessing --> DataFetching: Start Generation
-    DataFetching --> DataFetchSuccess: Data Retrieved
-    DataFetching --> DataFetchRetry: Transient Error
-    DataFetching --> DataFetchFailed: Permanent Error
+    Published --> Idle: Await Next Trigger
+    BuildHalted --> Idle: Human Remediation
 
-    DataFetchRetry --> DataFetching: Retry (3x max)
-    DataFetchFailed --> ErrorRecovery: Handle Failure
-
-    DataFetchSuccess --> ContentGeneration: LLM Call
-
-    ContentGeneration --> QualityScoring: Content Generated
-    ContentGeneration --> GenerationRetry: Low Quality
-    ContentGeneration --> GenerationFailed: Max Retries
-
-    GenerationRetry --> ContentGeneration: Refine Prompt
-    GenerationFailed --> ErrorRecovery: Escalate
-
-    QualityScoring --> QualityAcceptable: Score >= 0.70
-    QualityScoring --> QualityRejected: Score < 0.70
-    QualityRejected --> GenerationRetry: Retry
-
-    QualityAcceptable --> FactChecking: Verify Facts
-
-    FactChecking --> FactCheckPassed: Verified
-    FactChecking --> FactCheckFailed: Disputed
-    FactChecking --> FactCheckUncertain: Unverified
-
-    FactCheckFailed --> HumanReview: Queue for Review
-    FactCheckUncertain --> HumanReview: Low Confidence
-
-    FactCheckPassed --> TranslationQueued: Enqueue Translations
-
-    TranslationQueued --> TranslatingParallel: 14 Languages
-    TranslatingParallel --> TranslationComplete: All Done
-    TranslatingParallel --> TranslationPartial: Some Failed
-
-    TranslationPartial --> TranslationRetry: Retry Failed
-    TranslationRetry --> TranslatingParallel: Reattempt
-
-    TranslationComplete --> DatabaseWriting: Persist Article
-
-    DatabaseWriting --> DatabaseSuccess: Write OK
-    DatabaseWriting --> DatabaseRetry: Transient Error
-    DatabaseWriting --> DatabaseFailed: Permanent Error
-
-    DatabaseRetry --> DatabaseWriting: Retry (5x max)
-    DatabaseFailed --> ErrorRecovery: Critical Failure
-
-    DatabaseSuccess --> CachingArticle: Warm Cache
-    CachingArticle --> CDNDeployment: Deploy to CDN
-
-    CDNDeployment --> CDNDeployed: Deployed
-    CDNDeployment --> CDNRetry: Deploy Failed
-    CDNRetry --> CDNDeployment: Retry
-
-    CDNDeployed --> NotifyingUsers: Push Notifications
-    NotifyingUsers --> ArticlePublished: Notifications Sent
-
-    ArticlePublished --> IndexingSearch: Update Search Index
-    IndexingSearch --> IndexingComplete: Indexed
-
-    IndexingComplete --> AnalyticsLogging: Log Metrics
-    AnalyticsLogging --> WorkerIdle: Job Complete
-
-    WorkerIdle --> EventListening: Return to Pool
-    WorkerIdle --> WorkerShutdown: Scale Down
-    WorkerShutdown --> EventListening: Worker Removed
-
-    HumanReview --> ManualApproved: Editor Approves
-    HumanReview --> ManualRejected: Editor Rejects
-    ManualApproved --> TranslationQueued: Continue Pipeline
-    ManualRejected --> EventRejected: Discard
-
-    ErrorRecovery --> RecoveryAttempt: Smart Recovery
-    RecoveryAttempt --> RecoverySuccess: Recovered
-    RecoveryAttempt --> RecoveryFailed: Cannot Recover
-    RecoverySuccess --> DataFetching: Resume Pipeline
-    RecoveryFailed --> DeadLetterQueue: Move to DLQ
-
-    DeadLetterQueue --> ManualIntervention: Alert Team
-    ManualIntervention --> EventRejected: Resolved
-
-    EmergencyMode --> EmergencyShutdown: Critical Failure
-    EmergencyShutdown --> MaintenanceMode: Manual Recovery
-    MaintenanceMode --> SystemInitializing: Restart System
-
-    note right of AutoScaling
-        ML-based decision:
-        - Queue depth
-        - Historical patterns
-        - Time of day
-        - Cost optimization
+    note right of AnalysisAuthoring
+        gh-aw + Anthropic Claude:
+        51-template catalog
+        ICD 203 confidence grading
+        Politically neutral, cited
     end note
 
-    note right of ErrorRecovery
-        Intelligent recovery:
-        - Identify error type
-        - Apply best strategy
-        - Learn from failures
+    note right of CloudFrontInvalidation
+        Static edge stays the
+        public front door across
+        all three horizons.
     end note
 ```
 
 ---
 
-## 🎯 Article Generation State Machine
+## 🟢 v2.0 — Dashboard Dataset Build State Machine
 
-**Detailed state machine** for individual article generation with ML quality
-gates.
+v2.0's differentiator is **higher-quality political-landscape intelligence**, with a
+focus on parties and political groups. Interactive dashboards (Chart.js 4 + D3 7)
+consume **pre-rendered datasets baked at build time** — there is no runtime query
+path, preserving pure static delivery. The state machine below governs how a dataset
+(e.g., political-group cohesion, coalition mathematics, seat projection, voting-pattern
+heatmap) is assembled, validated, and frozen into a static JSON asset.
 
 ```mermaid
 stateDiagram-v2
-    [*] --> JobQueued: Article Request
+    [*] --> DatasetRequested: Build Step Begins
 
-    JobQueued --> PriorityAssignment: Assign Priority
-    PriorityAssignment --> HighPriority: Breaking News (P0)
-    PriorityAssignment --> MediumPriority: Important (P1)
-    PriorityAssignment --> LowPriority: Regular (P2)
+    DatasetRequested --> SourceResolution: Resolve MCP Tools
+    SourceResolution --> Fetching: Pull Voting and Membership Data
+    Fetching --> Fetched: Records Retrieved
+    Fetching --> FetchPartial: Window Gap
+    FetchPartial --> Fetched: Merge Cached Window
 
-    HighPriority --> WorkerAssignment: Fast Lane
-    MediumPriority --> WorkerAssignment: Normal Lane
-    LowPriority --> WorkerAssignment: Batch Lane
+    Fetched --> Normalizing: Canonicalize Entities
+    Normalizing --> Computing: Aggregate Metrics
 
-    WorkerAssignment --> Initializing: Worker Acquired
+    Computing --> CohesionScored: Group Cohesion Index
+    Computing --> CoalitionMapped: Coalition Mathematics
+    Computing --> SeatProjected: Seat or Election Cycle
 
-    Initializing --> FetchingContext: Load Context
-    FetchingContext --> ContextReady: Context Loaded
-    FetchingContext --> ContextFailed: Load Failed
+    CohesionScored --> Validating: Cross-Check Totals
+    CoalitionMapped --> Validating: Cross-Check Totals
+    SeatProjected --> Validating: Cross-Check Totals
 
-    ContextFailed --> RetryContext: Retry (3x)
-    RetryContext --> FetchingContext: Reattempt
-    RetryContext --> Failed: Max Retries
+    Validating --> Valid: Sums and Ranges OK
+    Validating --> Invalid: Anomaly Detected
+    Invalid --> Recompute: Flag and Recompute
+    Recompute --> Computing: Reaggregate
 
-    ContextReady --> SelectingModel: Choose LLM
-    SelectingModel --> ModelSelected: Model Ready
+    Valid --> Freezing: Serialize Static JSON
+    Freezing --> Embedded: Bake Into Build Output
+    Embedded --> [*]: Dataset Ready For Edge
 
-    ModelSelected --> GeneratingContent: Call LLM
-    GeneratingContent --> ContentGenerated: Content Ready
-    GeneratingContent --> GenerationError: LLM Error
-
-    GenerationError --> RetryGeneration: Retry Different Model
-    RetryGeneration --> SelectingModel: Try Alternative
-
-    ContentGenerated --> QualityScoring: ML Quality Check
-
-    QualityScoring --> QualityExcellent: Score >= 0.85
-    QualityScoring --> QualityGood: Score 0.70-0.84
-    QualityScoring --> QualityPoor: Score < 0.70
-
-    QualityPoor --> RefinePrompt: Improve Prompt
-    RefinePrompt --> GeneratingContent: Regenerate
-    RefinePrompt --> ManualReview: Max Attempts
-
-    QualityGood --> FactChecking: Verify Facts
-    QualityExcellent --> FactChecking: Verify Facts
-
-    FactChecking --> ClaimExtraction: Extract Claims
-    ClaimExtraction --> ClaimVerification: Verify Each Claim
-
-    ClaimVerification --> AllVerified: 100% Verified
-    ClaimVerification --> MostlyVerified: >80% Verified
-    ClaimVerification --> SomeDisputed: Has Disputes
-
-    AllVerified --> ReadabilityCheck: Check Readability
-    MostlyVerified --> ReadabilityCheck: Acceptable
-    SomeDisputed --> ManualReview: Needs Review
-
-    ReadabilityCheck --> ReadabilityOK: Score OK
-    ReadabilityCheck --> ReadabilityPoor: Too Complex
-
-    ReadabilityPoor --> SimplifyContent: AI Simplification
-    SimplifyContent --> ReadabilityCheck: Re-check
-
-    ReadabilityOK --> SentimentAnalysis: Check Neutrality
-
-    SentimentAnalysis --> NeutralTone: Neutral
-    SentimentAnalysis --> BiasedTone: Bias Detected
-
-    BiasedTone --> AdjustTone: Neutralize
-    AdjustTone --> SentimentAnalysis: Re-check
-
-    NeutralTone --> ReadyForTranslation: Pre-publication Ready
-
-    ReadyForTranslation --> TranslationInitiated: Start Translations
-    TranslationInitiated --> TranslatingAll: Parallel Processing
-
-    TranslatingAll --> AllTranslated: All Complete
-    TranslatingAll --> PartialTranslation: Some Failed
-
-    PartialTranslation --> RetryTranslations: Retry Failed
-    RetryTranslations --> TranslatingAll: Reattempt
-
-    AllTranslated --> SEOOptimization: Add Metadata
-
-    SEOOptimization --> SEOComplete: SEO Ready
-
-    SEOComplete --> GeneratingEmbeddings: Vector Embeddings
-    GeneratingEmbeddings --> EmbeddingsReady: Embeddings Created
-
-    EmbeddingsReady --> SavingToDatabase: Multi-DB Write
-
-    SavingToDatabase --> DatabaseWritten: Write Success
-    SavingToDatabase --> DatabaseError: Write Failed
-
-    DatabaseError --> RetryDatabase: Retry Write
-    RetryDatabase --> SavingToDatabase: Reattempt
-    DatabaseError --> Failed: Critical Error
-
-    DatabaseWritten --> CachingContent: Cache in Redis
-    CachingContent --> Cached: Cache Ready
-
-    Cached --> DeployingToCDN: Deploy to Edge
-    DeployingToCDN --> CDNDeployed: Deployed
-
-    CDNDeployed --> SendingNotifications: Notify Users
-    SendingNotifications --> NotificationsSent: Sent
-
-    NotificationsSent --> IndexingSearch: Index in ES
-    IndexingSearch --> SearchIndexed: Indexed
-
-    SearchIndexed --> LoggingAnalytics: Log Metrics
-    LoggingAnalytics --> Published: Article Live
-
-    Published --> [*]: Complete
-
-    ManualReview --> ApprovedByEditor: Editor OK
-    ManualReview --> RejectedByEditor: Editor Rejects
-
-    ApprovedByEditor --> ReadyForTranslation: Continue
-    RejectedByEditor --> Failed: Discard
-
-    Failed --> [*]: Job Failed
-
-    note right of QualityScoring
-        ML Model evaluates:
-        - Readability
-        - Factual density
-        - Coherence
-        - Grammar
-        - Source credibility
-    end note
-
-    note right of FactChecking
-        Automated verification:
-        - Extract claims
-        - Cross-reference EP data
-        - Calculate confidence
+    note right of Computing
+        Party / political-group focus:
+        cohesion, defection, alliance
+        networks, scorecards, heatmaps.
     end note
 ```
 
 ---
 
-## 🔧 Worker Pool State Management
+## 🔵 v3.0+ — Step Functions Article & Intelligence Generation State Machine
 
-**Dynamic worker scaling** based on queue depth and ML predictions.
+In v3.0+ the build-time generation path is complemented by an **AWS Step
+Functions**-orchestrated state machine for on-demand and event-triggered intelligence
+products. **Amazon Bedrock** provides model-agnostic foundation models, **Bedrock
+Knowledge Bases** supply managed RAG over the EP corpus and committed analysis
+artifacts, and **Bedrock Guardrails** enforce neutrality, GDPR/PII boundaries, and
+hallucination control. Per the Hack23 **AI Policy**, a **human-review gate** precedes
+any publication — AI proposes, humans remain accountable.
 
 ```mermaid
 stateDiagram-v2
-    [*] --> PoolInitializing: System Start
+    [*] --> ExecutionStarted: Step Functions Invoke
 
-    PoolInitializing --> PoolIdle: Min Workers (2)
+    ExecutionStarted --> InputValidation: Validate Payload
+    InputValidation --> ContextRetrieval: Valid Request
+    InputValidation --> Rejected: Schema Error
+    Rejected --> [*]: Fail Fast
 
-    PoolIdle --> MonitoringQueue: Check Queue
+    ContextRetrieval --> KnowledgeBaseQuery: Bedrock Knowledge Base
+    KnowledgeBaseQuery --> ContextAssembled: RAG Chunks Retrieved
+    KnowledgeBaseQuery --> RetrievalRetry: Throttled
+    RetrievalRetry --> KnowledgeBaseQuery: Backoff Retry
 
-    MonitoringQueue --> QueueEmpty: No Jobs
-    MonitoringQueue --> QueueLow: 1-10 Jobs
-    MonitoringQueue --> QueueMedium: 11-50 Jobs
-    MonitoringQueue --> QueueHigh: 51-200 Jobs
-    MonitoringQueue --> QueueCritical: >200 Jobs
+    ContextAssembled --> ModelInvocation: Bedrock InvokeModel
+    ModelInvocation --> DraftGenerated: Tokens Returned
+    ModelInvocation --> InvocationRetry: Transient Error
+    InvocationRetry --> ModelInvocation: Retry With Jitter
+    ModelInvocation --> FallbackModel: Capacity Exhausted
+    FallbackModel --> ModelInvocation: Switch Bedrock Model
 
-    QueueEmpty --> PoolIdle: Maintain Min
-    QueueLow --> PoolIdle: Current Capacity OK
+    DraftGenerated --> GuardrailEvaluation: Bedrock Guardrails
+    GuardrailEvaluation --> GuardrailPassed: Neutral and Clean
+    GuardrailEvaluation --> GuardrailBlocked: Policy Violation
+    GuardrailBlocked --> Regeneration: Adjust Prompt
+    Regeneration --> ModelInvocation: Regenerate
+    Regeneration --> HumanReviewGate: Max Attempts
 
-    QueueMedium --> PredictiveScaling: ML Prediction
-    PredictiveScaling --> ScaleUpSmall: Predicted Surge
-    PredictiveScaling --> PoolIdle: Predicted Decrease
+    GuardrailPassed --> QualityScoring: ICD 203 and Citations
+    QualityScoring --> QualityAcceptable: Floor Met
+    QualityScoring --> QualityRejected: Below Floor
+    QualityRejected --> Regeneration: Refine
 
-    QueueHigh --> ScaleUpMedium: Add Workers
-    QueueCritical --> ScaleUpLarge: Emergency Scale
+    QualityAcceptable --> HumanReviewGate: Editorial Approval Required
 
-    ScaleUpSmall --> ProvisioningWorkers: +2 Workers
-    ScaleUpMedium --> ProvisioningWorkers: +5 Workers
-    ScaleUpLarge --> ProvisioningWorkers: +10 Workers
+    HumanReviewGate --> Approved: Editor Approves
+    HumanReviewGate --> ChangesRequested: Editor Edits
+    HumanReviewGate --> Discarded: Editor Rejects
+    ChangesRequested --> ModelInvocation: Apply Feedback
+    Discarded --> [*]: Halt Execution
 
-    ProvisioningWorkers --> WorkersReady: Provisioned
-    WorkersReady --> PoolActive: Increased Capacity
+    Approved --> Translation: Amazon Translate 14 Langs
+    Translation --> TranslationDone: All Locales Ready
+    Translation --> TranslationRetry: Locale Failed
+    TranslationRetry --> Translation: Retry Failed Locales
 
-    PoolActive --> ProcessingJobs: Workers Busy
+    TranslationDone --> Persistence: Write DynamoDB and S3
+    Persistence --> EdgePublish: CloudFront Invalidate
+    EdgePublish --> ExecutionSucceeded: Product Live
+    ExecutionSucceeded --> [*]: Emit Completion Event
 
-    ProcessingJobs --> MonitorUtilization: Check Load
-
-    MonitorUtilization --> HighUtilization: >80% Busy
-    MonitorUtilization --> MediumUtilization: 50-80% Busy
-    MonitorUtilization --> LowUtilization: <50% Busy
-
-    HighUtilization --> PoolActive: Maintain
-    MediumUtilization --> PoolActive: Optimal
-    LowUtilization --> ConsiderScaleDown: Evaluate
-
-    ConsiderScaleDown --> ScaleDownDecision: Cost Analysis
-    ScaleDownDecision --> ScalingDown: Remove Workers
-    ScaleDownDecision --> PoolActive: Keep Current
-
-    ScalingDown --> GracefulShutdown: Drain Workers
-    GracefulShutdown --> WorkersStopped: Workers Removed
-    WorkersStopped --> PoolIdle: Reduced Capacity
-
-    PoolActive --> PoolFailure: Worker Crash
-    PoolFailure --> RecoverWorker: Restart Worker
-    RecoverWorker --> PoolActive: Recovered
-    RecoverWorker --> PoolDegraded: Cannot Recover
-
-    PoolDegraded --> EmergencyProvision: Add Replacement
-    EmergencyProvision --> PoolActive: Replaced
-
-    note right of PredictiveScaling
-        ML predicts:
-        - Time of day patterns
-        - EP calendar events
-        - Historical queue depth
-        - Cost optimization
+    note right of HumanReviewGate
+        AI Policy: AI proposes,
+        humans are accountable.
+        No autonomous production
+        publish.
     end note
 
-    note right of ScaleDownDecision
-        Considers:
-        - Current queue depth
-        - Next predicted surge
-        - Cost of keeping vs. restarting
-        - Minimum pool size
+    note right of GuardrailEvaluation
+        Neutrality, PII/GDPR,
+        hallucination control on
+        every generated draft.
     end note
 ```
 
 ---
 
-## 🌐 Multi-Parliament Data Aggregation States
+## 🔵 v3.0+ — Real-Time EP Event Ingestion State Machine
 
-**Complex state machine** managing 28 parliament data sources.
+To support near-real-time political intelligence, v3.0+ ingests European Parliament
+events through **Amazon EventBridge**, **Amazon Kinesis** (stream buffering), and
+**AWS Lambda** consumers. Events (new votes, tabled documents, plenary activities)
+flow from MCP feed polling into a durable stream, are deduplicated and classified,
+then either trigger the Step Functions generation machine or update the knowledge
+graph. Failures route to **Amazon SQS** dead-letter queues.
 
 ```mermaid
 stateDiagram-v2
-    [*] --> AggregationIdle: System Ready
+    [*] --> Polling: EventBridge Scheduler
 
-    AggregationIdle --> ScheduledCheck: Timer Trigger
-    AggregationIdle --> EventTriggered: Real-time Event
+    Polling --> FeedQueried: Lambda Polls MCP Feeds
+    FeedQueried --> NoChange: Empty Window
+    FeedQueried --> EventsDetected: New Items
+    NoChange --> Polling: Await Next Tick
 
-    ScheduledCheck --> SelectParliaments: Choose Sources
-    EventTriggered --> SelectParliaments: Specific Source
+    EventsDetected --> Buffering: Publish to Kinesis
+    Buffering --> Consuming: Lambda Stream Consumer
 
-    SelectParliaments --> ParallelFetching: Fetch Data (28 sources)
+    Consuming --> Deduplicating: Check Idempotency Key
+    Deduplicating --> Duplicate: Already Processed
+    Deduplicating --> NewEvent: Unseen Event
+    Duplicate --> Polling: Drop and Continue
 
-    ParallelFetching --> EP_Fetching: European Parliament
-    ParallelFetching --> DE_Fetching: German Bundestag
-    ParallelFetching --> FR_Fetching: French Assemblée
-    ParallelFetching --> IT_Fetching: Swedish Riksdag
-    ParallelFetching --> OtherParliaments: 24 More Sources
+    NewEvent --> Classifying: 7-Dimension Classification
+    Classifying --> Significant: Above Threshold
+    Classifying --> Routine: Below Threshold
 
-    EP_Fetching --> EP_Success: Data Retrieved
-    EP_Fetching --> EP_Failed: Connection Error
+    Routine --> GraphUpdateQueued: Update Knowledge Graph Only
+    Significant --> GenerationTriggered: Start Step Functions
+    Significant --> GraphUpdateQueued: Update Knowledge Graph
 
-    DE_Fetching --> DE_Success: Data Retrieved
-    DE_Fetching --> DE_Failed: Connection Error
+    GenerationTriggered --> Acknowledged: Execution Accepted
+    GraphUpdateQueued --> Acknowledged: Update Enqueued
+    Acknowledged --> Polling: Return to Stream
 
-    FR_Fetching --> FR_Success: Data Retrieved
-    FR_Fetching --> FR_Failed: Connection Error
+    Consuming --> ProcessingError: Consumer Exception
+    ProcessingError --> RetryConsume: Within Retry Budget
+    RetryConsume --> Consuming: Reprocess
+    ProcessingError --> DeadLetter: Budget Exhausted
+    DeadLetter --> OperatorAlert: SNS Notify
+    OperatorAlert --> Polling: Manual Triage Logged
 
-    IT_Fetching --> IT_Success: Data Retrieved
-    IT_Fetching --> IT_Failed: Connection Error
-
-    OtherParliaments --> Others_Success: Data Retrieved
-    OtherParliaments --> Others_Failed: Some Failed
-
-    EP_Success --> Normalizing: Standardize Format
-    DE_Success --> Normalizing: Standardize Format
-    FR_Success --> Normalizing: Standardize Format
-    IT_Success --> Normalizing: Standardize Format
-    Others_Success --> Normalizing: Standardize Format
-
-    EP_Failed --> RetryEP: Retry (3x)
-    DE_Failed --> RetryDE: Retry (3x)
-    FR_Failed --> RetryFR: Retry (3x)
-    IT_Failed --> RetryIT: Retry (3x)
-    Others_Failed --> RetryOthers: Retry (3x)
-
-    RetryEP --> EP_Fetching: Reattempt
-    RetryDE --> DE_Fetching: Reattempt
-    RetryFR --> FR_Fetching: Reattempt
-    RetryIT --> IT_Fetching: Reattempt
-    RetryOthers --> OtherParliaments: Reattempt
-
-    RetryEP --> PartialSuccess: Max Retries
-    RetryDE --> PartialSuccess: Max Retries
-    RetryFR --> PartialSuccess: Max Retries
-    RetryIT --> PartialSuccess: Max Retries
-    RetryOthers --> PartialSuccess: Max Retries
-
-    Normalizing --> CrossReferencing: Link Activities
-
-    CrossReferencing --> FindingRelations: Detect Connections
-    FindingRelations --> RelationsFound: EU-National Links
-
-    RelationsFound --> StoringData: Persist to Database
-
-    StoringData --> DataStored: Write Success
-    StoringData --> StorageError: Write Failed
-
-    StorageError --> RetryStorage: Retry Write
-    RetryStorage --> StoringData: Reattempt
-
-    DataStored --> TriggeringArticles: Generate Articles
-    TriggeringArticles --> ArticlesQueued: Jobs Created
-
-    ArticlesQueued --> AggregationComplete: Done
-    PartialSuccess --> AggregationComplete: Partial Data
-
-    AggregationComplete --> AggregationIdle: Return to Idle
-
-    note right of CrossReferencing
-        Identifies:
-        - EU directives being implemented
-        - Similar legislation across countries
-        - Cross-border initiatives
+    note right of Classifying
+        Significance scoring feeds
+        the analysis catalog and
+        early-warning indicators.
     end note
 ```
 
 ---
 
-## 🔒 Security State Management
+## 🔵 v3.0+ — API Session & Authentication State Machine (Amazon Cognito)
 
-**Security-aware states** with threat detection and response.
+The v3.0+ API ecosystem serves journalists, researchers, and programmatic consumers
+via **Amazon API Gateway** fronted by **AWS WAF**, with identity managed by **Amazon
+Cognito** user pools (federated sign-in supported). The state machine governs a
+consumer session from anonymous edge access through authenticated, token-scoped API
+use. Public open-data endpoints remain anonymously reachable through the static edge.
 
 ```mermaid
 stateDiagram-v2
-    [*] --> SecureState: Normal Operation
+    [*] --> Anonymous: Reach Static Edge
 
-    SecureState --> MonitoringSecurity: Continuous Monitoring
+    Anonymous --> PublicAccess: Read Open Data
+    PublicAccess --> Anonymous: Continue Browsing
+    Anonymous --> AuthInitiated: Request API Access
 
-    MonitoringSecurity --> ThreatDetected: Anomaly Found
-    MonitoringSecurity --> SecureState: No Threats
+    AuthInitiated --> CredentialEntry: Cognito Hosted UI
+    CredentialEntry --> Authenticating: Submit Credentials
+    Authenticating --> MFAChallenge: MFA Required
+    Authenticating --> AuthFailed: Invalid Credentials
+    AuthFailed --> CredentialEntry: Retry Within Limit
+    AuthFailed --> LockedOut: Threshold Exceeded
+    LockedOut --> Anonymous: Cooldown Elapsed
 
-    ThreatDetected --> AnalyzingThreat: Classify Threat
+    MFAChallenge --> MFAVerified: Valid Code
+    MFAChallenge --> AuthFailed: Invalid Code
+    MFAVerified --> TokensIssued: ID and Access Tokens
 
-    AnalyzingThreat --> LowThreat: Minor Anomaly
-    AnalyzingThreat --> MediumThreat: Suspicious Activity
-    AnalyzingThreat --> HighThreat: Active Attack
+    TokensIssued --> Authenticated: Session Active
+    Authenticated --> AuthorizedCall: API Gateway Authorizer
+    AuthorizedCall --> ScopeChecked: Validate Cognito Scopes
+    ScopeChecked --> CallAllowed: Scope Permits
+    ScopeChecked --> CallDenied: Insufficient Scope
+    CallDenied --> Authenticated: Return 403
+    CallAllowed --> Authenticated: Return Result
 
-    LowThreat --> LogAndContinue: Log Event
-    LogAndContinue --> SecureState: Continue
+    Authenticated --> TokenRefresh: Access Token Expiring
+    TokenRefresh --> TokensIssued: Refresh Token Valid
+    TokenRefresh --> SessionExpired: Refresh Expired
 
-    MediumThreat --> EnhancedMonitoring: Increase Vigilance
-    EnhancedMonitoring --> InvestigatingThreat: Analyze Pattern
+    Authenticated --> SignOut: User Logout
+    SignOut --> SessionExpired: Revoke Tokens
+    SessionExpired --> Anonymous: Session Terminated
 
-    InvestigatingThreat --> FalsePositive: Benign
-    InvestigatingThreat --> ConfirmedThreat: Malicious
-
-    FalsePositive --> SecureState: Resume Normal
-    ConfirmedThreat --> ActivatingDefenses: Enable Protection
-
-    HighThreat --> EmergencyMode: Immediate Response
-
-    EmergencyMode --> BlockingTraffic: Rate Limiting
-    EmergencyMode --> AlertingSecurity: Notify Team
-
-    BlockingTraffic --> MitigatingAttack: Apply Countermeasures
-    AlertingSecurity --> MitigatingAttack: Team Engaged
-
-    MitigatingAttack --> AttackBlocked: Threat Neutralized
-    MitigatingAttack --> AttackOngoing: Escalate
-
-    AttackBlocked --> PostIncident: Analyze & Learn
-    AttackOngoing --> CircuitBreaker: Isolate Systems
-
-    CircuitBreaker --> SystemIsolated: Protected Mode
-    SystemIsolated --> ManualIntervention: Human Decision
-
-    ManualIntervention --> SystemRecovery: Cleared
-    SystemRecovery --> SecureState: Resume
-
-    PostIncident --> UpdateRules: Improve Detection
-    UpdateRules --> SecureState: Enhanced Security
-
-    ActivatingDefenses --> DefensesActive: Protected
-    DefensesActive --> MonitoringThreat: Watch Closely
-    MonitoringThreat --> ThreatGone: Threat Cleared
-    MonitoringThreat --> ThreatPersists: Still Active
-
-    ThreatGone --> DeactivatingDefenses: Return to Normal
-    DeactivatingDefenses --> SecureState: Secure
-
-    ThreatPersists --> EmergencyMode: Escalate
-
-    note right of AnalyzingThreat
-        Threat types:
-        - DDoS attacks
-        - API abuse
-        - Data scraping
-        - SQL injection attempts
-        - XSS attempts
+    note right of ScopeChecked
+        IAM least privilege plus
+        Cognito scopes. Public
+        open-data needs no auth.
     end note
 ```
 
 ---
 
-## 🔄 Cache State Management
+## 🔵 v3.0+ — Knowledge Graph Update State Machine (Amazon Neptune)
 
-**Intelligent caching** with predictive invalidation.
+The political knowledge graph (MEPs ↔ political groups ↔ committees ↔ dossiers ↔
+votes) lives in **Amazon Neptune Serverless**. Updates arrive from the event
+ingestion machine and from batch reconciliation jobs. The state machine enforces
+transactional consistency, entity resolution, and provenance tagging before commits
+become queryable via natural-language search (AppSync/OpenSearch-backed).
 
 ```mermaid
 stateDiagram-v2
-    [*] --> CacheEmpty: System Start
+    [*] --> Idle: Graph Ready
 
-    CacheEmpty --> CacheWarming: Preload Hot Data
-    CacheWarming --> CacheReady: Cache Populated
+    Idle --> UpdateReceived: Event or Batch Trigger
+    UpdateReceived --> EntityResolution: Match Canonical IDs
 
-    CacheReady --> ServingFromCache: Handle Request
+    EntityResolution --> Resolved: Existing Entities
+    EntityResolution --> NewEntities: Unseen Nodes
+    NewEntities --> NodeCreation: Create Nodes
+    NodeCreation --> Resolved: Nodes Registered
 
-    ServingFromCache --> CacheHit: Data Found
-    ServingFromCache --> CacheMiss: Data Not Found
+    Resolved --> EdgeStaging: Stage Relationships
+    EdgeStaging --> ProvenanceTagging: Attach Source and Confidence
+    ProvenanceTagging --> TransactionOpen: Begin Neptune Tx
 
-    CacheHit --> UpdateStats: Log Hit
-    UpdateStats --> CacheReady: Continue
+    TransactionOpen --> Writing: Apply Mutations
+    Writing --> ConsistencyCheck: Validate Invariants
+    ConsistencyCheck --> Committing: Invariants Hold
+    ConsistencyCheck --> Conflict: Invariant Violated
 
-    CacheMiss --> FetchFromDB: Query Database
-    FetchFromDB --> DataRetrieved: Data Found
-    FetchFromDB --> DataNotFound: No Data
+    Conflict --> RollingBack: Abort Tx
+    RollingBack --> Reconciling: Resolve Divergence
+    Reconciling --> EdgeStaging: Restage Corrected
 
-    DataRetrieved --> StoringInCache: Cache Data
-    StoringInCache --> CacheReady: Cached
+    Committing --> Committed: Tx Durable
+    Committed --> IndexSync: Sync OpenSearch Vectors
+    IndexSync --> Queryable: NL Query Ready
+    Queryable --> Idle: Await Next Update
 
-    DataNotFound --> CacheReady: Log Miss
+    Writing --> WriteError: Engine Error
+    WriteError --> RetryWrite: Within Budget
+    RetryWrite --> Writing: Retry Mutation
+    WriteError --> RollingBack: Budget Exhausted
 
-    CacheReady --> ContentUpdated: New Article
-    ContentUpdated --> InvalidatingCache: Clear Old Cache
+    note right of ProvenanceTagging
+        Every edge carries source
+        grade and ICD 203 confidence
+        for auditable intelligence.
+    end note
+```
 
-    InvalidatingCache --> SelectiveInvalidation: Smart Invalidation
-    SelectiveInvalidation --> RelatedCacheCleared: Clear Related
+---
 
-    RelatedCacheCleared --> CacheReady: Cache Updated
+## 🔵 v3.0+ — Cache State Management (CloudFront + DynamoDB DAX)
 
-    CacheReady --> PredictivePreload: ML Prediction
-    PredictivePreload --> PreloadingData: Fetch Likely Requests
-    PreloadingData --> CacheReady: Cache Warmed
+v3.0+ caching is two-tiered: **Amazon CloudFront** at the edge (static assets and
+cacheable API responses) and **Amazon DynamoDB Accelerated (DAX)** for hot key-value
+read paths behind dynamic Lambda functions. The state machine governs cache warming,
+hit/miss handling, event-driven invalidation, and eviction — with predictive warming
+guided by the parliamentary calendar.
 
-    CacheReady --> CacheExpiration: TTL Reached
-    CacheExpiration --> EvictingOldData: Remove Stale
-    EvictingOldData --> CacheReady: Cleaned
+```mermaid
+stateDiagram-v2
+    [*] --> CacheCold: Stack Deployed
 
-    CacheReady --> CacheFull: Memory Limit
-    CacheFull --> LRUEviction: Remove Least Recent
-    LRUEviction --> CacheReady: Space Freed
+    CacheCold --> Warming: Preload Hot Partitions
+    Warming --> CacheReady: Edge and DAX Populated
 
-    note right of PredictivePreload
-        ML predicts:
-        - Likely user requests
-        - Trending articles
-        - Time-based patterns
+    CacheReady --> Serving: Handle Request
+    Serving --> EdgeHit: CloudFront Hit
+    Serving --> DaxHit: DAX Hit
+    Serving --> CacheMiss: Not Cached
+
+    EdgeHit --> CacheReady: Return Cached
+    DaxHit --> CacheReady: Return Cached
+
+    CacheMiss --> OriginFetch: Lambda Reads DynamoDB
+    OriginFetch --> Populating: Write Through DAX
+    Populating --> CacheReady: Entry Stored
+
+    CacheReady --> Invalidating: Content Updated Event
+    Invalidating --> SelectivePurge: Targeted Keys
+    SelectivePurge --> CacheReady: Related Entries Cleared
+
+    CacheReady --> PredictiveWarm: Calendar Signal
+    PredictiveWarm --> Warming: Pre-Fetch Likely Reads
+
+    CacheReady --> TtlExpiry: TTL Reached
+    TtlExpiry --> Evicting: Remove Stale
+    Evicting --> CacheReady: Entry Evicted
+
+    CacheReady --> Pressure: Memory Threshold
+    Pressure --> LruEvict: Evict Least Recently Used
+    LruEvict --> CacheReady: Capacity Restored
+
+    note right of PredictiveWarm
+        Plenary sessions and vote
+        windows drive proactive
+        warming before demand.
+    end note
+```
+
+---
+
+## 🔵 v3.0+ — Security State Management (GuardDuty + Security Hub)
+
+Runtime security states are driven by **Amazon GuardDuty** (threat detection) and
+**AWS Security Hub** (finding aggregation and posture), with automated response
+orchestrated by **EventBridge → Lambda** and escalation via **Amazon SNS**. The
+machine moves from steady-state monitoring through detection, automated containment,
+and human-decision escalation, then back to a hardened secure state with updated
+detection rules.
+
+```mermaid
+stateDiagram-v2
+    [*] --> SecureState: Baseline Posture
+
+    SecureState --> Monitoring: GuardDuty Active
+    Monitoring --> FindingRaised: Anomaly Detected
+    Monitoring --> SecureState: All Clear
+
+    FindingRaised --> Triage: Security Hub Correlates
+    Triage --> LowSeverity: Informational
+    Triage --> MediumSeverity: Suspicious
+    Triage --> HighSeverity: Confirmed Threat
+
+    LowSeverity --> Logging: Record and Continue
+    Logging --> SecureState: No Action Needed
+
+    MediumSeverity --> AutoContainment: EventBridge Lambda
+    AutoContainment --> Contained: WAF Rule or Isolation
+    AutoContainment --> ContainmentFailed: Action Error
+    ContainmentFailed --> Escalation: Page On-Call
+
+    HighSeverity --> Escalation: Notify Responders
+    Escalation --> IncidentOpen: SNS Alert Sent
+
+    IncidentOpen --> Investigating: Responder Engaged
+    Investigating --> Mitigating: Apply Countermeasures
+    Mitigating --> Neutralized: Threat Removed
+    Mitigating --> CircuitBreaker: Isolate Component
+
+    CircuitBreaker --> Isolated: Protected Mode
+    Isolated --> Investigating: Continue Response
+
+    Contained --> PostIncident: Review and Learn
+    Neutralized --> PostIncident: Review and Learn
+    PostIncident --> RuleUpdate: Tune Detections
+    RuleUpdate --> SecureState: Hardened Posture
+
+    note right of AutoContainment
+        Automated response within
+        seconds; humans approve
+        irreversible actions.
     end note
 ```
 
@@ -744,28 +629,44 @@ stateDiagram-v2
 
 ### Key Performance Indicators
 
-| State Category         | Metric                   | Target            | Alert Threshold |
+| State Category | Metric | Target | Alert Threshold |
 | ---------------------- | ------------------------ | ----------------- | --------------- |
-| **Article Generation** | Time to Published state  | <5 min (breaking) | >10 min         |
-| **Worker Pool**        | Scale-up latency         | <30 seconds       | >60 seconds     |
-| **Error Recovery**     | Recovery success rate    | >90%              | <80%            |
-| **Cache**              | Cache hit rate           | >95%              | <90%            |
-| **Security**           | Threat response time     | <10 seconds       | >30 seconds     |
-| **Database**           | Transaction success rate | >99.9%            | <99.5%          |
+| **Static Build (v2.0)** | Build-to-Published time | <12 min | >25 min |
+| **Dataset Build (v2.0)** | Dataset freeze success rate | >99% | <97% |
+| **Step Functions (v3.0)** | Execution success rate | >99% | <97% |
+| **Bedrock Generation** | Draft-to-approved latency | <6 min | >15 min |
+| **Event Ingestion** | Event processing lag | <60 seconds | >300 seconds |
+| **Cognito Auth** | Token issuance latency | <500 ms | >2 seconds |
+| **Neptune Update** | Commit-to-queryable lag | <30 seconds | >120 seconds |
+| **Cache (CloudFront/DAX)** | Combined cache hit rate | >95% | <90% |
+| **Security Response** | Detect-to-contain time | <30 seconds | >120 seconds |
+
+### Governance Notes
+
+- **Human-review gate is non-bypassable.** No Step Functions execution reaches
+  `EdgePublish` without an `Approved` transition through `HumanReviewGate`, per the
+  [AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md).
+- **Static edge fallback is always available.** If any dynamic v3.0+ state machine is
+  degraded, CloudFront continues serving the last pre-rendered static snapshot.
+- **All states emit CloudTrail / CloudWatch events** for auditability and X-Ray
+  tracing, satisfying NIST CSF DE.CM and ISO 27001 A.8.15/A.8.16.
 
 ---
 
-## 🎯 State Comparison: Current vs. Future
+## 🎯 State Comparison: Current vs. v2.0 vs. v3.0
 
-| State Aspect            | Current (2026)        | Future (2027)           | Improvement          |
+| State Aspect | Current (v1.0.x) | v2.0 (Enhanced Static) | v3.0+ (AWS Serverless) |
 | ----------------------- | --------------------- | ----------------------- | -------------------- |
-| **Total States**        | ~10 (simple workflow) | 50+ (complex machine)   | 5x complexity        |
-| **State Persistence**   | None (ephemeral)      | Redis + PostgreSQL      | Persistent tracking  |
-| **Error States**        | Single failure state  | Multiple recovery paths | Intelligent recovery |
-| **Parallel States**     | None (serial)         | Multiple concurrent     | True parallelism     |
-| **Predictive States**   | None                  | ML-based predictions    | Proactive actions    |
-| **State Visualization** | Logs only             | Real-time dashboards    | Full visibility      |
-| **State Replay**        | Not possible          | Time-travel debugging   | Historical analysis  |
+| **Total States** | ~10 (build workflow) | ~20 (build + dataset) | 120+ (multi-machine) |
+| **State Persistence** | None (ephemeral) | None (ephemeral) | DynamoDB + Aurora SLv2 + Step Functions history |
+| **Orchestration** | GitHub Actions | GitHub Actions (gh-aw) | Step Functions + EventBridge |
+| **Error States** | Re-run job | Re-run job | Retry/catch, DLQ, self-healing |
+| **Parallel States** | None (serial) | Limited (parallel datasets) | True parallel + fan-out |
+| **Identity States** | None (anonymous) | None (anonymous) | Amazon Cognito sessions |
+| **AI States** | Build-time gh-aw LLM | Build-time gh-aw LLM | Bedrock + KB + Guardrails + gate |
+| **Security States** | CI scan gates | CI scan gates | GuardDuty/Security Hub detect→respond |
+| **Predictive States** | None | None | Predictive cache warming, anomaly forecast |
+| **Public Front Door** | Static (S3+CloudFront) | Static (S3+CloudFront) | Static edge + dynamic behind it |
 
 ---
 
@@ -773,48 +674,75 @@ stateDiagram-v2
 
 ### AI-Driven State Evolution
 
-As AI capabilities evolve — from Anthropic Opus 4.7 (minor updates every ~2.3
-months, major version upgrades annually) through potential AGI — state
-management must evolve from reactive to predictive to autonomous.
+As foundation models advance — accessed model-agnostically through **Amazon Bedrock**
+and continuously benchmarked against competitors (OpenAI, Google, Meta, EU sovereign
+AI) at each release — state management evolves from **reactive** (v2.0 build gates)
+to **predictive** (v3.0 anomaly and demand forecasting) to **autonomous self-healing**
+(late-horizon), always within Hack23 **AI Policy** guardrails: AI proposes, humans
+remain accountable, no autonomous production deploy.
+
+### AI Model Evolution — DevSecOps & Development Perspective
+
+| Year | AI Model | DevSecOps Capability Evolution |
+| ---- | -------- | ------------------------------ |
+| 2026 | Opus 4.6–4.9 | 🟢 AI-assisted code review, automated test generation, agentic CI/CD workflows |
+| 2027 | Opus 5.x | 🔵 Predictive vulnerability detection, intelligent dependency management |
+| 2028 | Opus 6.x | 🟣 Multi-modal security analysis (code + architecture + runtime), automated threat modeling |
+| 2029 | Opus 7.x | 🟠 Autonomous security pipeline orchestration, self-healing build systems |
+| 2030 | Opus 8.x | 🔴 Near-expert automated security review, AI-driven architecture validation |
+| 2031–2033 | Opus 9–10.x / Pre-AGI | ⚪ Autonomous secure development lifecycle management |
+| 2034–2037 | AGI / Post-AGI | ⭐ Transformative software engineering with built-in security assurance |
+
+> **Assumptions:** major AI model upgrades annually; competitors evaluated at each
+> release; architecture accommodates potential paradigm shifts (quantum AI,
+> neuromorphic computing). Full cross-perspective analysis lives in the Hack23
+> Information Security Strategy § AI Model Evolution Strategy; governance per
+> [AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md).
 
 ### Phase 5: Predictive State Intelligence (2027-2029)
 
-- **AI State Prediction**: ML models predict next system states based on
-  parliamentary calendar, historical patterns, and real-time signals — enabling
-  proactive resource allocation before demand spikes
-- **Self-Optimizing State Machines**: State transition logic that autonomously
-  tunes itself based on performance metrics, reducing latency and improving
-  throughput without manual intervention
-- **Distributed State Consensus**: Multi-region state synchronization using
-  Raft/Paxos consensus algorithms for global consistency with low latency
+- **SageMaker-Driven State Prediction**: Amazon SageMaker models forecast next
+  system states from the parliamentary calendar, historical patterns, and real-time
+  EventBridge signals — pre-warming DAX/CloudFront and pre-provisioning Lambda
+  concurrency before plenary-session demand spikes.
+- **Self-Optimizing Step Functions**: execution paths whose retry budgets,
+  parallelism, and model selection self-tune from CloudWatch metrics, reducing
+  latency and cost without manual intervention.
+- **Cross-Region State Consensus**: multi-Region DynamoDB Global Tables and Neptune
+  replication provide globally consistent read state with low-latency edge access.
 
-### Phase 6: Autonomous State Management (2029-2032)
+### Phase 6: Autonomous Self-Healing State Recovery (2029-2032)
 
-- **Intent-Based State Machines**: Define desired outcomes (e.g., "all articles
-  published within 5 minutes of plenary session end") and AI autonomously
-  designs optimal state transition paths
-- **Self-Healing State Recovery**: AI agents diagnose state corruption, identify
-  root causes, and apply corrective state transitions with full audit trails
-- **Temporal State Analytics**: Time-travel through historical state snapshots
-  to analyze system behavior patterns and predict future state evolution
+- **Intent-Based State Machines**: operators declare desired outcomes (e.g., "all
+  significant votes summarized within 5 minutes of publication"), and Bedrock Agents
+  propose optimal Step Functions transition paths for human approval.
+- **Self-Healing Recovery States**: agents diagnose stuck executions, dead-letter
+  backlogs, or Neptune conflicts, and apply corrective transitions with full
+  CloudTrail audit trails — while irreversible actions still require human sign-off.
+- **Temporal State Analytics**: Step Functions execution history and S3 state
+  snapshots enable time-travel replay to analyze behavior and forecast evolution.
 
 ### Phase 7: Cognitive State Systems (2032-2035)
 
-- **Natural Language State Definition**: Stakeholders describe state behavior
-  in natural language; AI generates and deploys formal state machine definitions
-- **Cross-System State Orchestration**: Unified state management across 50+
-  parliament monitoring instances with intelligent conflict resolution
-- **Predictive Failure Prevention**: AI forecasts state machine failures days
-  or weeks in advance based on subtle performance degradation patterns
+- **Natural-Language State Definition**: stakeholders describe behavior in natural
+  language; Bedrock Agents generate formal Amazon States Language definitions for
+  human review and gated deployment.
+- **Cross-Parliament State Orchestration**: a unified serverless control plane manages
+  many parliament-monitoring instances with intelligent conflict resolution, sharing
+  the Neptune knowledge-graph schema.
+- **Predictive Failure Prevention**: anomaly models forecast state-machine failures
+  from subtle CloudWatch/X-Ray degradation signals before incidents occur.
 
 ### Phase 8: AGI-Native State Architecture (2035-2037)
 
-- **Dynamic State Evolution**: AGI systems design, test, and deploy new state
-  machines autonomously based on changing requirements
-- **Universal State Abstraction**: Single state management paradigm that scales
-  from simple workflows to complex multi-system orchestrations
-- **Autonomous Operations**: Zero-human-intervention state management with
-  comprehensive safety boundaries and ethical guardrails
+- **Dynamic State Evolution**: pre-AGI/AGI systems design, test, and propose new
+  state machines as requirements change — deployment remains human-gated and
+  policy-bound.
+- **Universal State Abstraction**: a single serverless state paradigm scales from a
+  simple static build to complex multi-system, multi-parliament orchestration.
+- **Bounded Autonomy**: maximally automated operations with comprehensive safety
+  boundaries, Bedrock Guardrails, and ethical guardrails — preserving the AI Policy
+  invariant that humans remain accountable for published intelligence.
 
 ---
 
@@ -824,21 +752,39 @@ management must evolve from reactive to predictive to autonomous.
 
 - [Current State Diagram](STATEDIAGRAM.md)
 - [Current Architecture](ARCHITECTURE.md)
+- [Current Data Model](DATA_MODEL.md)
+- [Current Flowchart](FLOWCHART.md)
 
 ### Future State
 
 - [Future Architecture](FUTURE_ARCHITECTURE.md)
 - [Future Flowchart](FUTURE_FLOWCHART.md)
 - [Future Data Model](FUTURE_DATA_MODEL.md)
+- [Future Mindmap](FUTURE_MINDMAP.md)
+- [Future SWOT](FUTURE_SWOT.md)
+- [Future Security Architecture](FUTURE_SECURITY_ARCHITECTURE.md)
+- [Future Threat Model](FUTURE_THREAT_MODEL.md)
+- [Future Workflows](FUTURE_WORKFLOWS.md)
 
-### Technologies
+### AWS Services & Patterns
 
-- XState: https://xstate.js.org/
-- Redis State Machine: https://redis.io/topics/streams-intro
-- Circuit Breaker Pattern: https://martinfowler.com/bliki/CircuitBreaker.html
+- AWS Step Functions: https://docs.aws.amazon.com/step-functions/
+- Amazon Bedrock: https://docs.aws.amazon.com/bedrock/
+- Amazon EventBridge: https://docs.aws.amazon.com/eventbridge/
+- Amazon Cognito: https://docs.aws.amazon.com/cognito/
+- Amazon Neptune Serverless: https://docs.aws.amazon.com/neptune/
+- Amazon DynamoDB DAX: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html
+- Amazon GuardDuty: https://docs.aws.amazon.com/guardduty/
+- AWS Security Hub: https://docs.aws.amazon.com/securityhub/
+
+### Governance
+
+- [Hack23 AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md)
+- [Hack23 ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC)
 
 ---
 
 **Document Status**: ✅ **APPROVED FOR PLANNING**  
-**Next Review**: 2026-05-24 (Quarterly)  
+**Last Updated**: 2026-05-31 (UTC)  
+**Next Review**: 2026-08-31 (Quarterly)  
 **Classification**: Public
