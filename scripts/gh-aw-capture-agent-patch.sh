@@ -119,7 +119,8 @@ if [ -z "$candidate" ]; then
   # SEO metadata resolver, pre-existing HTML files under news/ will appear
   # modified in the workspace but must NOT be captured as agent artifacts.
   # Regression: PR #2290 shipped 87 unrelated HTML files via this path.
-  _slug="${GH_AW_PAT_FALLBACK_SLUG:-${ARTICLE_TYPE_SLUG:-}}"
+  _slug="${ARTICLE_TYPE_SLUG:-}"
+  _slug="${GH_AW_PAT_FALLBACK_SLUG:-$_slug}"
   is_translate_capture=false
   case "$_slug" in
    translate-briefs|translate) is_translate_capture=true ;;
