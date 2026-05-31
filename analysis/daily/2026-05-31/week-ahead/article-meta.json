@@ -1,0 +1,45 @@
+{
+  "date": "2026-05-31",
+  "articleType": "week-ahead",
+  "runId": "week-ahead-run275-1780209976",
+  "gateResult": "PENDING",
+  "slug": "2026-05-31-week-ahead",
+  "articlePath": "analysis/daily/2026-05-31/week-ahead/article.md",
+  "topFinding": "The week of 1–7 June 2026 is an almost-certainly routine committee/group week with no plenary.",
+  "keyTakeaways": [
+    "**No plenary votes.** The May session ended 21 May; the next is 15–18 June. 🟢 High.",
+    "**Committee/group activity:** report adoptions, amendment tabling, shadow-rapporteur",
+    "**Late-week signal:** a draft 15–18 June order of business may surface (typically the",
+    "[x] No-plenary status confirmed (calendar A2)",
+    "[x] Next session dated (15–18 June, Strasbourg)",
+    "[x] 17 June agenda shape reported (5 debates, 13+ votes)",
+    "[x] Subjects withheld (titles empty, 🔴 Low)"
+  ],
+  "topRisks": [
+    "**SO (leverage):** Use the **stable calendar + steady pace** (S1/S2) to convert the",
+    "**WT (defend):** The **degraded-feeds + empty-titles weaknesses** (W1/W2) compound the"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**European Commission** — defends 2027 budget proposal and competitiveness agenda;",
+    "**European Central Bank** — subject of annual-report scrutiny (TA-0034); the",
+    "**Council / Member States** — France (deficit politics), Germany (defence/infra",
+    "**Third countries with pending consents** — Uzbekistan (EPCA TA-0174), Lebanon",
+    "**Leverage points:** committee chairs, rapporteurships on economic files.",
+    "**Constraints:** dependence on S&D/Renew for floor majorities.",
+    "**Most likely concession:** softened budget language in exchange for competitiveness wins.",
+    "**Leverage points:** EGF files, social-conditionality amendments."
+  ],
+  "macroContext": "All values are IMF WEO projections; 🟡 Medium confidence reflects the inherent",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
