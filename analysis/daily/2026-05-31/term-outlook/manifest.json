@@ -1,0 +1,66 @@
+{
+  "articleType": "term-outlook",
+  "dataMode": "degraded-feeds",
+  "runDate": "2026-05-31",
+  "date": "2026-05-31",
+  "runId": "term-outlook-run365-1780235784",
+  "generatedAt": "2026-05-31T14:24:46Z",
+  "horizonEnd": "2031-05-30",
+  "electoralOverlay": true,
+  "files": {
+    "root": [
+      "executive-brief.md",
+      "data-availability-assessment.md"
+    ],
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/economic-context.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/forward-projection.md",
+      "intelligence/term-arc.md",
+      "intelligence/seat-projection.md",
+      "intelligence/mandate-fulfilment-scorecard.md",
+      "intelligence/presidency-trio-context.md",
+      "intelligence/commission-wp-alignment.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "extended": [
+      "extended/forward-indicators.md",
+      "extended/historical-parallels.md",
+      "extended/comparative-international.md",
+      "extended/media-framing-analysis.md"
+    ]
+  },
+  "pass2": {
+    "rewriteCount": 30,
+    "startedAt": "2026-05-31T14:05:00Z",
+    "endedAt": "2026-05-31T14:24:46Z"
+  },
+  "history": [
+    {
+      "runId": "term-outlook-run365-1780235784",
+      "timestamp": "2026-05-31T14:24:46Z",
+      "dataMode": "degraded-feeds",
+      "artifactCount": 30,
+      "note": "Initial term-outlook run; degraded-feeds (procedures/events 404, IMF/WB unavailable). All 30 artifacts written across 2 passes."
+    }
+  ]
+}
