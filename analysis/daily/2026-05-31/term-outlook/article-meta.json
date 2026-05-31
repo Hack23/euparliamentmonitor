@@ -1,0 +1,52 @@
+{
+  "date": "2026-05-31",
+  "articleType": "term-outlook",
+  "runId": "term-outlook-run365-1780235784",
+  "gateResult": "PENDING",
+  "slug": "2026-05-31-term-outlook",
+  "articlePath": "analysis/daily/2026-05-31/term-outlook/article.md",
+  "topFinding": "then contracts into the June 2029 election.",
+  "keyTakeaways": [
+    "**Key Assumptions Check.** Core assumption: the nine-group configuration is",
+    "**Quality of Information Check.** Primary numeric backbone is EP precomputed",
+    "**Scenario Analysis.** Six term-end scenarios are developed in",
+    "**Analysis of Competing Hypotheses (ACH).** Applied to the coalition question",
+    "**EPP (185, 25.7%).**",
+    "**S&D (135, 18.8%).**",
+    "**PfE (84, 11.7%).**"
+  ],
+  "topRisks": [
+    "Each risk scored on likelihood (WEP) × impact (1–5).",
+    "Source grade attached; residual risk after watch noted.",
+    "**R1 — Right normalisation.** Likely × Impact 4. Source C3. 🟡 MEDIUM.",
+    "**R2 — Legislative gridlock.** Roughly Even × Impact 3. Source B3. 🟡 MEDIUM.",
+    "**R3 — Election-year capture.** Highly Likely × Impact 4. Source A2. 🟢 HIGH.",
+    "**R4 — Pro-EU core erosion.** Unlikely × Impact 4. Source C3. 🟡 MEDIUM.",
+    "**R5 — Data-feed unreliability.** Likely × Impact 2. Source B3. 🟡 MEDIUM.",
+    "**R6 — Climate-ambition erosion.** Likely × Impact 3. Source C3. 🟡 MEDIUM."
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**EPP (185).** The pivot. Source A2. 🟢 HIGH.",
+    "**S&D (135).** Core partner. Source B2.",
+    "**PfE (84).** Hard right; cordoned. Source C3.",
+    "**ECR (79).** Right entry point. Source B3.",
+    "**Renew (76).** Squeezed centre. Source B2.",
+    "**Greens/EFA (53).** Climate defence. Source C3.",
+    "**The Left (46).** Opposition pole. Source C3.",
+    "**ESN (28) / NI (33).** Marginal. Source D3. 🔴 LOW."
+  ],
+  "macroContext": "autonomy rather than headline macro management.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
