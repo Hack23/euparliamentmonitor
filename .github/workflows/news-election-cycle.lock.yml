@@ -1,4 +1,4 @@
-# gh-aw-metadata: {"schema_version":"v4","frontmatter_hash":"7198236c9106b3b338faedd461a3c134e99c70b845792dfd8651ef246d49c9a4","body_hash":"5790ee5a8a468f286a6d120d3948a9c174a89020bd77e183a7912bf40e83ec7e","compiler_version":"v0.77.3","agent_id":"copilot","agent_model":"claude-opus-4.8"}
+# gh-aw-metadata: {"schema_version":"v4","frontmatter_hash":"2caa86bb3b32066a1758068d1209759ff792a6afd4933e5de703c4a7f872eac8","body_hash":"5790ee5a8a468f286a6d120d3948a9c174a89020bd77e183a7912bf40e83ec7e","compiler_version":"v0.77.3","agent_id":"copilot","agent_model":"claude-opus-4.8"}
 # gh-aw-manifest: {"version":1,"secrets":["COPILOT_GITHUB_TOKEN","COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN","GH_AW_CI_TRIGGER_TOKEN","GH_AW_GITHUB_MCP_SERVER_TOKEN","GH_AW_GITHUB_TOKEN","GITHUB_TOKEN","IMF_API_PRIMARY_KEY","IMF_API_SECONDARY_KEY"],"actions":[{"repo":"actions/cache/restore","sha":"27d5ce7f107fe9357f9df03efb73ab90386fccae","version":"v5.0.5"},{"repo":"actions/cache/save","sha":"27d5ce7f107fe9357f9df03efb73ab90386fccae","version":"v5.0.5"},{"repo":"actions/checkout","sha":"de0fac2e4500dabe0009e67214ff5f5447ce83dd","version":"v6.0.2"},{"repo":"actions/download-artifact","sha":"3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c","version":"v8.0.1"},{"repo":"actions/github-script","sha":"3a2844b7e9c422d3c10d287c895573f7108da1b3","version":"v9.0.0"},{"repo":"actions/setup-node","sha":"48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e","version":"v6.4.0"},{"repo":"actions/setup-node","sha":"53b83947a5a98c8d113130e565377fae1a50d02f","version":"53b83947a5a98c8d113130e565377fae1a50d02f"},{"repo":"actions/upload-artifact","sha":"043fb46d1a93c77aae656e7c1c64a875d1fc6a0a","version":"v7.0.1"},{"repo":"github/gh-aw-actions/setup","sha":"97f280b14527ca95859c0facba201aeccb2c097f","version":"v0.77.3"},{"repo":"github/gh-aw/actions/setup-cli","sha":"5a9bb4baac6c31077dd35cb80617a08a411f2817","version":"v0.77.3"}],"containers":[{"image":"alpine:latest","digest":"sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11","pinned_image":"alpine:latest@sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11"},{"image":"ghcr.io/github/gh-aw-firewall/agent:0.25.56","digest":"sha256:83501aa3848cda3f02aa300b90a7444f5a72c23629936c1d78d5c4518e6ccba5","pinned_image":"ghcr.io/github/gh-aw-firewall/agent:0.25.56@sha256:83501aa3848cda3f02aa300b90a7444f5a72c23629936c1d78d5c4518e6ccba5"},{"image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.25.56","digest":"sha256:3832c91e64b7dc20ab99024791a7436548275d1c8d6cd0b329b070c9924113c8","pinned_image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.25.56@sha256:3832c91e64b7dc20ab99024791a7436548275d1c8d6cd0b329b070c9924113c8"},{"image":"ghcr.io/github/gh-aw-firewall/squid:0.25.56","digest":"sha256:c6db2c30e76b2a30290c6c243567bdb68c43ba6ed7b0bc763e543d7eb3e5b909","pinned_image":"ghcr.io/github/gh-aw-firewall/squid:0.25.56@sha256:c6db2c30e76b2a30290c6c243567bdb68c43ba6ed7b0bc763e543d7eb3e5b909"},{"image":"ghcr.io/github/gh-aw-mcpg:v0.3.20","digest":"sha256:6d79c7b356d7f504229ee693914b46f3920982966b58d96cc15eaf66327faee9","pinned_image":"ghcr.io/github/gh-aw-mcpg:v0.3.20@sha256:6d79c7b356d7f504229ee693914b46f3920982966b58d96cc15eaf66327faee9"},{"image":"ghcr.io/github/github-mcp-server:v1.1.0","digest":"sha256:71b07d9abecb83b4a2595bcd8ccb35f9a0166361a12335f9e16da1ef07172029","pinned_image":"ghcr.io/github/github-mcp-server:v1.1.0@sha256:71b07d9abecb83b4a2595bcd8ccb35f9a0166361a12335f9e16da1ef07172029"},{"image":"node:26-alpine","digest":"sha256:e71ac5e964b9201072425d59d2e876359efa25dc96bb1768cb73295728d6e4ea","pinned_image":"node:26-alpine@sha256:e71ac5e964b9201072425d59d2e876359efa25dc96bb1768cb73295728d6e4ea"},{"image":"node:lts-alpine","digest":"sha256:2bdb65ed1dab192432bc31c95f94155ca5ad7fc1392fb7eb7526ab682fa5bf14","pinned_image":"node:lts-alpine@sha256:2bdb65ed1dab192432bc31c95f94155ca5ad7fc1392fb7eb7526ab682fa5bf14"}]}
 #    ___                   _   _      
 #   / _ \                 | | (_)     
@@ -210,25 +210,25 @@ jobs:
         run: |
           bash "${RUNNER_TEMP}/gh-aw/actions/create_prompt_first.sh"
           {
-          cat << 'GH_AW_PROMPT_7df42ccd9d6fa094_EOF'
+          cat << 'GH_AW_PROMPT_8fd3567f58fd0705_EOF'
           <system>
-          GH_AW_PROMPT_7df42ccd9d6fa094_EOF
+          GH_AW_PROMPT_8fd3567f58fd0705_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/xpia.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/temp_folder_prompt.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/markdown.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/agentic_workflows_guide.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/cache_memory_prompt.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/safe_outputs_prompt.md"
-          cat << 'GH_AW_PROMPT_7df42ccd9d6fa094_EOF'
+          cat << 'GH_AW_PROMPT_8fd3567f58fd0705_EOF'
           <safe-output-tools>
           Tools: create_pull_request, dispatch_workflow, missing_tool, missing_data, noop
-          GH_AW_PROMPT_7df42ccd9d6fa094_EOF
+          GH_AW_PROMPT_8fd3567f58fd0705_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/safe_outputs_create_pull_request.md"
-          cat << 'GH_AW_PROMPT_7df42ccd9d6fa094_EOF'
+          cat << 'GH_AW_PROMPT_8fd3567f58fd0705_EOF'
           </safe-output-tools>
-          GH_AW_PROMPT_7df42ccd9d6fa094_EOF
+          GH_AW_PROMPT_8fd3567f58fd0705_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/mcp_cli_tools_prompt.md"
-          cat << 'GH_AW_PROMPT_7df42ccd9d6fa094_EOF'
+          cat << 'GH_AW_PROMPT_8fd3567f58fd0705_EOF'
           <github-context>
           The following GitHub context information is available for this workflow:
           {{#if github.actor}}
@@ -256,13 +256,13 @@ jobs:
           - **workflow-run-id**: __GH_AW_GITHUB_RUN_ID__
           {{/if}}
           - **checkouts**: The following repositories have been checked out and are available in the workspace:
-            - `$GITHUB_WORKSPACE` → `__GH_AW_GITHUB_REPOSITORY__` (cwd) [full history, all branches available as remote-tracking refs]
+            - `$GITHUB_WORKSPACE` → `__GH_AW_GITHUB_REPOSITORY__` (cwd) [shallow clone, fetch-depth=1]
             - **Note**: If a branch you need is not in the list above and is not listed as an additional fetched ref, it has NOT been checked out. For private repositories you cannot fetch it without proper authentication. If the branch is required and not available, exit with an error and ask the user to add it to the `fetch:` option of the `checkout:` configuration (e.g., `fetch: ["refs/pulls/open/*"]` for all open PR refs, or `fetch: ["main", "feature/my-branch"]` for specific branches).
           </github-context>
           
-          GH_AW_PROMPT_7df42ccd9d6fa094_EOF
+          GH_AW_PROMPT_8fd3567f58fd0705_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/github_mcp_tools_with_safeoutputs_prompt.md"
-          cat << 'GH_AW_PROMPT_7df42ccd9d6fa094_EOF'
+          cat << 'GH_AW_PROMPT_8fd3567f58fd0705_EOF'
           </system>
           ## 🗓️ Date Context + Stable Folder Resolution (MANDATORY — first bash block)
           
@@ -409,17 +409,34 @@ jobs:
           
           
           # Deterministic article rendering from the committed analysis artifacts.
-          #    Emits news/<TODAY>-election-cycle.en.md (canonical aggregated markdown) plus
-          #    news/<TODAY>-election-cycle-en.html (rendered article). Always
-          #    regenerates article.md + HTML on every run (never no-op): the renderer
-          #    overwrites byte-for-byte from the freshly extended/rewritten Stage-B
-          #    analysis artifacts.
+          #    Emits news/<slug>.en.md (canonical aggregated markdown) plus
+          #    news/<slug>-<lang>.html for each supported language (where <slug> is
+          #    the full filename stem including date, e.g. 2026-05-30-week-ahead).
+          #    Always regenerates article.md + article-meta.json + HTML on every run
+          #    (never no-op): the renderer overwrites byte-for-byte from the freshly
+          #    extended/rewritten Stage-B analysis artifacts.
           npm run generate-article -- --run "${ANALYSIS_DIR}"
           ```
           
           The renderer is bounded to ≤ 2 min on a typical run. If the gate result is
           `ANALYSIS_ONLY`, the renderer emits a short placeholder article documenting
           the missing artifacts rather than a full prose article.
+          
+          **Output scope**: `--run "${ANALYSIS_DIR}"` generates ONLY the current
+          article's files — `article.md` and `article-meta.json` inside the run
+          directory, plus the `news/<slug>.en.md` and `news/<slug>-<lang>.html`
+          variants (where `<slug>` is the full filename stem including date, e.g.
+          `2026-05-30-week-ahead`). It does NOT touch any pre-existing news
+          files. Do **NOT** use `--all` (which regenerates every article in the
+          repository). The `--type`, `--lang`, `--language`, and `--markdown-only`
+          flags do not exist and will throw an error.
+          
+          **File staging guardrail** (Stage E scope): Never run `git add news/` or
+          `git add news/*` — this stages unrelated existing articles. Stage and
+          commit only this run's analysis directory and the specific
+          `news/<slug>*` files from the renderer output. The
+          `safeoutputs___create_pull_request` tool then bundles the committed
+          changes into the PR via `git format-patch`.
           
           ### Stage E — Single PR (Ref: 06)
           
@@ -525,6 +542,9 @@ jobs:
           
           - Call `safeoutputs___create_pull_request` exactly once, at Stage E.
           - Stage D owns `news/**`; do not edit it outside `npm run generate-article`.
+          - Never pass `--all` to `generate-article` — it regenerates ALL articles and causes mass file changes.
+          - Never pass removed/invalid flags (`--type`, `--lang`, `--language`, `--markdown-only`, `--run-dir`) — they throw errors.
+          - Never run `git add news/` or `git add news/*` — this stages every existing article. Stage only this run's specific output files.
           - Dispatch other workflows only via `dispatch-workflow:` (`news-translate`, once after merge).
           - Write files with native `create` / `edit`. `python3` / `ruby` / `perl` heredocs are banned for **any** file — they silently truncate at context limits and trip the bash-safety filter on tokens like *"kill"*. `cat > … << EOF` heredocs are additionally banned for prose. Heredocs stay legal only for short keyword-free structured writes (`jq` → `manifest.json`, SPDX stubs).
           - Pre-size every artifact to its floor on the first `create` call from `runs/thresholds-cache.json`. No `wc -l` → `cat >>` extend loops.
@@ -539,7 +559,7 @@ jobs:
           {{#runtime-import .github/workflows/shared/mcp/news-mcp-servers.md}}
           {{#runtime-import .github/workflows/shared/prompts/news-unified-runtime.md}}
           {{#runtime-import .github/workflows/news-election-cycle.md}}
-          GH_AW_PROMPT_7df42ccd9d6fa094_EOF
+          GH_AW_PROMPT_8fd3567f58fd0705_EOF
           } > "$GH_AW_PROMPT"
       - name: Interpolate variables and render templates
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
@@ -684,7 +704,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
-          fetch-depth: 0
+          fetch-depth: 1
       - name: Merge remote .github folder
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
@@ -836,9 +856,9 @@ jobs:
           mkdir -p "${RUNNER_TEMP}/gh-aw/safeoutputs"
           mkdir -p /tmp/gh-aw/safeoutputs
           mkdir -p /tmp/gh-aw/mcp-logs/safeoutputs
-          cat > "${RUNNER_TEMP}/gh-aw/safeoutputs/config.json" << GH_AW_SAFE_OUTPUTS_CONFIG_2a31259ec3387bf5_EOF
-          {"create_pull_request":{"allowed_base_branches":["main"],"auto_close_issue":false,"draft":false,"excluded_files":["**/*.lock","node_modules/**",".github/workflows/*.lock.yml","analysis/**/data/**"],"expires":336,"fallback_as_issue":true,"github-token":"${COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN}","if_no_changes":"warn","labels":["agentic-news","analysis-data","type:election-cycle"],"max":1,"max_patch_files":2500,"max_patch_size":10240,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","CHANGELOG.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md","CLAUDE.md","GEMINI.md"],"protected_files_policy":"request_review","title_prefix":"[news] "},"create_report_incomplete_issue":{},"dispatch_workflow":{"aw_context_workflows":["news-translate"],"max":1,"workflow_files":{"news-translate":".lock.yml"},"workflows":["news-translate"]},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"true"},"report_incomplete":{}}
-          GH_AW_SAFE_OUTPUTS_CONFIG_2a31259ec3387bf5_EOF
+          cat > "${RUNNER_TEMP}/gh-aw/safeoutputs/config.json" << GH_AW_SAFE_OUTPUTS_CONFIG_c5e25f560fc0aae3_EOF
+          {"create_pull_request":{"allowed_base_branches":["main"],"auto_close_issue":false,"draft":false,"excluded_files":["**/*.lock","node_modules/**",".github/workflows/*.lock.yml","analysis/**/data/**"],"expires":336,"fallback_as_issue":true,"github-token":"${COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN}","if_no_changes":"warn","labels":["agentic-news","analysis-data","type:election-cycle"],"max":1,"max_patch_files":200,"max_patch_size":10240,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","CHANGELOG.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md","CLAUDE.md","GEMINI.md"],"protected_files_policy":"request_review","title_prefix":"[news] "},"create_report_incomplete_issue":{},"dispatch_workflow":{"aw_context_workflows":["news-translate"],"max":1,"workflow_files":{"news-translate":".lock.yml"},"workflows":["news-translate"]},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"true"},"report_incomplete":{}}
+          GH_AW_SAFE_OUTPUTS_CONFIG_c5e25f560fc0aae3_EOF
       - name: Generate Safe Outputs Tools
         env:
           GH_AW_TOOLS_META_JSON: |
@@ -1101,7 +1121,7 @@ jobs:
           
           mkdir -p /home/runner/.copilot
           GH_AW_NODE=$(which node 2>/dev/null || command -v node 2>/dev/null || echo node)
-          cat << GH_AW_MCP_CONFIG_91043e71915e23d0_EOF | "$GH_AW_NODE" "${RUNNER_TEMP}/gh-aw/actions/start_mcp_gateway.cjs"
+          cat << GH_AW_MCP_CONFIG_ef03630a1c5f319f_EOF | "$GH_AW_NODE" "${RUNNER_TEMP}/gh-aw/actions/start_mcp_gateway.cjs"
           {
             "mcpServers": {
               "agenticworkflows": {
@@ -1267,7 +1287,7 @@ jobs:
               "payloadDir": "${MCP_GATEWAY_PAYLOAD_DIR}"
             }
           }
-          GH_AW_MCP_CONFIG_91043e71915e23d0_EOF
+          GH_AW_MCP_CONFIG_ef03630a1c5f319f_EOF
       - name: Mount MCP servers as CLIs
         id: mount-mcp-clis
         continue-on-error: true
@@ -2034,7 +2054,7 @@ jobs:
           ref: ${{ github.event.repository.default_branch }}
           token: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           persist-credentials: false
-          fetch-depth: 0
+          fetch-depth: 1
       - name: Checkout repository
         if: (!cancelled()) && needs.agent.result != 'skipped' && contains(needs.agent.outputs.output_types, 'create_pull_request') && github.event_name != 'issue_comment' && github.event_name != 'pull_request_review_comment'
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -2042,7 +2062,7 @@ jobs:
           ref: ${{ steps.extract-base-branch.outputs.base-branch || github.base_ref || github.event.pull_request.base.ref || github.ref_name || github.event.repository.default_branch }}
           token: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           persist-credentials: false
-          fetch-depth: 0
+          fetch-depth: 1
       - name: Configure Git credentials
         if: (!cancelled()) && needs.agent.result != 'skipped' && contains(needs.agent.outputs.output_types, 'create_pull_request')
         env:
@@ -2092,7 +2112,7 @@ jobs:
           GH_AW_ALLOWED_DOMAINS: "*.euparliamentmonitor.com,*.europa.eu,*.githubusercontent.com,*.hack23.com,*.imf.org,*.riksdagsmonitor.com,*.worldbank.org,admin.data.europarl.europa.eu,api.business.githubcopilot.com,api.enterprise.githubcopilot.com,api.euparliamentmonitor.com,api.github.com,api.githubcopilot.com,api.imf.org,api.individual.githubcopilot.com,api.npms.io,api.snapcraft.io,api.worldbank.org,archive.ubuntu.com,auth.docker.io,azure.archive.ubuntu.com,blacktrigram.com,bun.sh,cdn.jsdelivr.net,ciacompliancemanager.com,codeload.github.com,crl.geotrust.com,crl.globalsign.com,crl.identrust.com,crl.sectigo.com,crl.thawte.com,crl.usertrust.com,crl.verisign.com,crl3.digicert.com,crl4.digicert.com,crls.ssl.com,data.consilium.europa.eu,data.ecb.europa.eu,data.europa.eu,data.europarl.europa.eu,data.imf.org,data.worldbank.org,dataservices.imf.org,deb.nodesource.com,deno.land,digital-strategy.ec.europa.eu,docker.io,docs.github.com,ec.europa.eu,esm.sh,euparliamentmonitor.com,eur-lex.europa.eu,europarl.europa.eu,get.pnpm.io,github-cloud.githubusercontent.com,github-cloud.s3.amazonaws.com,github.blog,github.com,github.githubassets.com,googleapis.deno.dev,googlechromelabs.github.io,hack23.com,hack23.github.io,host.docker.internal,iate.europa.eu,json-schema.org,json.schemastore.org,jsr.io,keyserver.ubuntu.com,lfs.github.com,localhost,multimedia.europarl.europa.eu,nodejs.org,npm.pkg.github.com,npmjs.com,npmjs.org,objects.githubusercontent.com,ocsp.digicert.com,ocsp.geotrust.com,ocsp.globalsign.com,ocsp.identrust.com,ocsp.sectigo.com,ocsp.ssl.com,ocsp.thawte.com,ocsp.usertrust.com,ocsp.verisign.com,oeil.secure.europarl.europa.eu,packagecloud.io,packages.cloud.google.com,packages.microsoft.com,patch-diff.githubusercontent.com,ppa.launchpad.net,production.cloudflare.docker.com,raw.githubusercontent.com,registry-1.docker.io,registry.bower.io,registry.npmjs.com,registry.npmjs.org,registry.yarnpkg.com,repo.yarnpkg.com,riksdagsmonitor.com,s.symcb.com,s.symcd.com,sdmx.imf.org,security.ubuntu.com,skimdb.npmjs.com,storage.googleapis.com,telemetry.enterprise.githubcopilot.com,telemetry.vercel.com,ts-crl.ws.symantec.com,ts-ocsp.ws.symantec.com,www.blacktrigram.com,www.ciacompliancemanager.com,www.euparliamentmonitor.com,www.europarl.europa.eu,www.googleapis.com,www.hack23.com,www.imf.org,www.npmjs.com,www.npmjs.org,www.riksdagsmonitor.com,www.worldbank.org,yarnpkg.com"
           GITHUB_SERVER_URL: ${{ github.server_url }}
           GITHUB_API_URL: ${{ github.api_url }}
-          GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: "{\"create_pull_request\":{\"allowed_base_branches\":[\"main\"],\"auto_close_issue\":false,\"draft\":false,\"excluded_files\":[\"**/*.lock\",\"node_modules/**\",\".github/workflows/*.lock.yml\",\"analysis/**/data/**\"],\"expires\":336,\"fallback_as_issue\":true,\"github-token\":\"${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}\",\"if_no_changes\":\"warn\",\"labels\":[\"agentic-news\",\"analysis-data\",\"type:election-cycle\"],\"max\":1,\"max_patch_files\":2500,\"max_patch_size\":10240,\"protect_top_level_dot_folders\":true,\"protected_files\":[\"package.json\",\"bun.lockb\",\"bunfig.toml\",\"deno.json\",\"deno.jsonc\",\"deno.lock\",\"global.json\",\"NuGet.Config\",\"Directory.Packages.props\",\"mix.exs\",\"mix.lock\",\"go.mod\",\"go.sum\",\"stack.yaml\",\"stack.yaml.lock\",\"pom.xml\",\"build.gradle\",\"build.gradle.kts\",\"settings.gradle\",\"settings.gradle.kts\",\"gradle.properties\",\"package-lock.json\",\"yarn.lock\",\"pnpm-lock.yaml\",\"npm-shrinkwrap.json\",\"requirements.txt\",\"Pipfile\",\"Pipfile.lock\",\"pyproject.toml\",\"setup.py\",\"setup.cfg\",\"Gemfile\",\"Gemfile.lock\",\"uv.lock\",\"CODEOWNERS\",\"DESIGN.md\",\"README.md\",\"CONTRIBUTING.md\",\"CHANGELOG.md\",\"SECURITY.md\",\"CODE_OF_CONDUCT.md\",\"AGENTS.md\",\"CLAUDE.md\",\"GEMINI.md\"],\"protected_files_policy\":\"request_review\",\"title_prefix\":\"[news] \"},\"create_report_incomplete_issue\":{},\"dispatch_workflow\":{\"aw_context_workflows\":[\"news-translate\"],\"max\":1,\"workflow_files\":{\"news-translate\":\".lock.yml\"},\"workflows\":[\"news-translate\"]},\"missing_data\":{},\"missing_tool\":{},\"noop\":{\"max\":1,\"report-as-issue\":\"true\"},\"report_incomplete\":{}}"
+          GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: "{\"create_pull_request\":{\"allowed_base_branches\":[\"main\"],\"auto_close_issue\":false,\"draft\":false,\"excluded_files\":[\"**/*.lock\",\"node_modules/**\",\".github/workflows/*.lock.yml\",\"analysis/**/data/**\"],\"expires\":336,\"fallback_as_issue\":true,\"github-token\":\"${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}\",\"if_no_changes\":\"warn\",\"labels\":[\"agentic-news\",\"analysis-data\",\"type:election-cycle\"],\"max\":1,\"max_patch_files\":200,\"max_patch_size\":10240,\"protect_top_level_dot_folders\":true,\"protected_files\":[\"package.json\",\"bun.lockb\",\"bunfig.toml\",\"deno.json\",\"deno.jsonc\",\"deno.lock\",\"global.json\",\"NuGet.Config\",\"Directory.Packages.props\",\"mix.exs\",\"mix.lock\",\"go.mod\",\"go.sum\",\"stack.yaml\",\"stack.yaml.lock\",\"pom.xml\",\"build.gradle\",\"build.gradle.kts\",\"settings.gradle\",\"settings.gradle.kts\",\"gradle.properties\",\"package-lock.json\",\"yarn.lock\",\"pnpm-lock.yaml\",\"npm-shrinkwrap.json\",\"requirements.txt\",\"Pipfile\",\"Pipfile.lock\",\"pyproject.toml\",\"setup.py\",\"setup.cfg\",\"Gemfile\",\"Gemfile.lock\",\"uv.lock\",\"CODEOWNERS\",\"DESIGN.md\",\"README.md\",\"CONTRIBUTING.md\",\"CHANGELOG.md\",\"SECURITY.md\",\"CODE_OF_CONDUCT.md\",\"AGENTS.md\",\"CLAUDE.md\",\"GEMINI.md\"],\"protected_files_policy\":\"request_review\",\"title_prefix\":\"[news] \"},\"create_report_incomplete_issue\":{},\"dispatch_workflow\":{\"aw_context_workflows\":[\"news-translate\"],\"max\":1,\"workflow_files\":{\"news-translate\":\".lock.yml\"},\"workflows\":[\"news-translate\"]},\"missing_data\":{},\"missing_tool\":{},\"noop\":{\"max\":1,\"report-as-issue\":\"true\"},\"report_incomplete\":{}}"
           GH_AW_CI_TRIGGER_TOKEN: ${{ secrets.GH_AW_CI_TRIGGER_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
         with:
