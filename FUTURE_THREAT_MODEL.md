@@ -11,14 +11,14 @@
 
 <p align="center">
   <a><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
+  <a><img src="https://img.shields.io/badge/Version-3.1-555?style=for-the-badge" alt="Version"/></a>
   <a><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a><img src="https://img.shields.io/badge/Effective-2026--05--31-success?style=for-the-badge" alt="Effective Date"/></a>
   <a><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:**
+**📋 Document Owner:** CEO | **📄 Version:** 3.1 | **📅 Last Updated:**
 2026-05-31 (UTC) | **🚀 Release:** v1.0.1  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
@@ -322,6 +322,38 @@ flowchart LR
 | **IaC Supply-Chain Compromise** | Malicious module/template in the CDK/Terraform deploy path | Tampering | [T1195](https://attack.mitre.org/techniques/T1195/) | Low | Critical | Pinned modules, plan review, OIDC-scoped deploy roles, drift detection |
 | **Serverless Event-Injection** | Forged EventBridge/SQS/Kinesis events trigger unintended Lambda/agent actions | Tampering | [T1565](https://attack.mitre.org/techniques/T1565/) | Low | High | Event source validation, schema registry, signed events, DLQs |
 | **Cost / Resource Exhaustion (Denial of Wallet)** | Adversary drives serverless invocations to inflate cost or throttle service | Denial of Service | [T1499](https://attack.mitre.org/techniques/T1499/) | Medium | Medium | WAF + edge caching, concurrency caps, budgets/alarms, throttles |
+
+### **🕵️ FT-009: Intelligence Integrity & Analytic-Neutrality Threats**
+
+**Applies to:** v2.0 → v3.2+ (the **intelligence product** itself — the
+capability roadmap in [FUTURE_MINDMAP.md](FUTURE_MINDMAP.md#-political-intelligence-capability-roadmap--ai-driven-osint-tradecraft-2026--2037)).
+Where FT-001…FT-008 protect the *infrastructure and pipeline*, FT-009 protects the
+**trustworthiness, neutrality, and provenance of the analysis** — the actual moat.
+These are *tradecraft* threats: a successful one does not crash a server, it
+silently produces a **biased, false, or weaponisable assessment** that a citizen
+trusts. STRIDE is shown for table parity but the governing doctrine is the
+**5-framework political-threat methodology** (STRIDE is explicitly rejected for
+political analysis).
+
+| Threat | Description | STRIDE | MITRE ATT&CK / ATLAS | Likelihood | Impact | Mitigation Strategy |
+|---|---|---|---|---|---|---|
+| **Model Political-Lean Drift** | A model upgrade silently shifts the partisan baseline of generated analysis, eroding neutrality | Tampering | ATLAS AML.T0018 | Medium | Critical | Continuous political-lean benchmarking, neutrality regression suite, sovereign/EU model eval, human sign-off |
+| **False Indications-and-Warning Manufacturing** | Adversary engineers PUBLIC-source activity to trip a watchlist indicator and provoke a false warning | Tampering | [T1565](https://attack.mitre.org/techniques/T1565/) · ATLAS AML.T0020 | Low | High | Multi-indicator corroboration, WEP-banded confidence, human-confirmation gate, baseline anomaly review |
+| **Integrity-Analytics False Positive (Defamation Risk)** | A lobby-to-vote or conflict-of-interest correlation is published as fact rather than sourced question, harming a public figure | Repudiation | N/A | Medium | Critical | Question-not-accusation framing, evidence-chain requirement, human legal/editorial review before release |
+| **Counter-FIMI False Attribution** | Coordinated-narrative detection over-attributes a campaign to a state/actor beyond the evidence | Repudiation | N/A | Medium | High | Evidence-bounded attribution, DISARM TTP discipline, no attribution beyond sourced facts, dual review |
+| **Forecast-Calibration Gaming** | Estimative questions or resolution criteria are framed to flatter the track record | Repudiation | N/A | Low | Medium | Pre-registered questions, independent outcome scoring, immutable forecast ledger |
+| **Narrative Laundering via the Platform** | Adversary cites neutral platform output out of context to lend false credibility to a partisan claim | Spoofing | [T1583](https://attack.mitre.org/techniques/T1583/) | Medium | Medium | Content-authenticity signing (C2PA), canonical URLs, context-preserving summaries, correction channel |
+| **Dissent Suppression / Single-Hypothesis Collapse** | Pressure or automation drops the minority hypothesis, producing false analytic certainty | Tampering | ATLAS AML.T0048 | Low | High | Mandatory competing hypotheses, recorded dissent, red-team/devil's-advocate gate |
+| **Source-Triangulation Evasion** | A single manipulated source is presented as corroborated by recycling it across surfaces | Tampering | [T1565](https://attack.mitre.org/techniques/T1565/) | Medium | High | Independent-source requirement, Admiralty grading, single-source flagging |
+| **Provenance / Evidence-Chain Tampering** | Citations are altered or detached so a claim cannot be traced to a primary EP source | Tampering | [T1565](https://attack.mitre.org/techniques/T1565/) | Low | Critical | Immutable evidence manifest, CloudTrail logging, signed artifacts, citation-existence validation |
+
+**Analytic-integrity invariant:** every FT-009 mitigation reduces to the same three
+non-negotiables enforced across the methodology library — **competing hypotheses
+always, confidence and source-grade always, human accountability always.** The
+single highest-impact threat is *Model Political-Lean Drift*: it is slow, silent,
+and strikes the neutrality that is the platform's entire reason to exist, which is
+why **model-neutrality assurance** is elevated to a first-class control in
+[FUTURE_SECURITY_ARCHITECTURE.md](FUTURE_SECURITY_ARCHITECTURE.md).
 
 ---
 

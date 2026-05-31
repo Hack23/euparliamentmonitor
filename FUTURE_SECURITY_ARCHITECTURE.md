@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
+**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:**
 2026-05-31 (UTC)  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
@@ -2670,6 +2670,105 @@ async function getAnalytics(env) {
 - Implement Edge Workers
 - Test geographic routing
 - Optimize caching
+
+---
+
+## 🕵️ Intelligence Integrity & Neutrality Security Controls (2026 → 2037)
+
+Every other section of this document protects the **platform** — its edge, APIs,
+identities, keys, and data stores. This section protects the **intelligence product
+itself**: its **neutrality, provenance, and resistance to manipulation**. These
+controls are the security realisation of the OSINT capability roadmap in
+[FUTURE_MINDMAP.md](FUTURE_MINDMAP.md#-political-intelligence-capability-roadmap--ai-driven-osint-tradecraft-2026--2037)
+and the direct mitigations for
+[FUTURE_THREAT_MODEL.md FT-009 (Intelligence Integrity & Analytic-Neutrality Threats)](FUTURE_THREAT_MODEL.md).
+For this platform, **a neutrality failure is a security incident** — the moat is
+trust, and these controls defend it.
+
+> **Control invariant (AI Policy):** AI proposes evidence, gradings, and forecasts;
+> a human approves; **no intelligence assessment is published autonomously**. Every
+> control below is designed so that a single technical failure cannot bypass the
+> human-accountability gate.
+
+### Model-Neutrality Assurance (the highest-priority control)
+
+The existential risk is **silent political-lean drift** when models are upgraded.
+Neutrality is therefore treated as a measurable, regression-tested property — not an
+assumption.
+
+| Control | Implementation | Cadence | Framework |
+| ------- | -------------- | ------- | --------- |
+| **Political-lean benchmark suite** | Curated neutral-prompt battery scored for partisan skew before any model is promoted | Every model upgrade + quarterly | AI Policy; NIST GV.RM |
+| **Neutrality regression gate** | CI gate blocks promotion if skew exceeds tolerance vs the approved baseline | Per release | ISO 27001 A.8.29 |
+| **Sovereign / EU model evaluation** | Bedrock multi-model eval comparing Claude, Nova, and EU-hosted models on the same suite | Annual | AI Policy |
+| **Partisan-output red-teaming** | Adversarial prompt suites attempt to elicit biased or advocacy output | Continuous | NIST DE.CM |
+| **Guardrail effectiveness scoring** | Bedrock Guardrails measured against a labelled bypass corpus | Per release | ISO 27001 A.8.16 |
+
+### Provenance & Content Authenticity
+
+Trust requires that a reader can **prove what the platform actually said** and trace
+every claim to a primary EP source.
+
+- **Immutable evidence chain.** Each published claim references its PUBLIC source
+  (`vote_id` / `procedure_ref` / declaration id); the manifest is content-addressed
+  in S3 with Object Lock and logged in CloudTrail.
+- **Content credentials (C2PA).** v3.2 signs published artifacts with KMS-backed
+  content credentials so downstream consumers can verify integrity and detect
+  tampered or out-of-context reuse (FT-009 *Narrative Laundering*).
+- **Citation-existence validation.** A verification agent confirms every cited
+  source resolves and supports the claim before the human gate — hallucinated or
+  detached citations block production.
+- **Canonical URLs + correction channel.** Every assessment has one canonical,
+  signed location and an auditable correction history.
+
+### OSINT Input Hardening (anti-poisoning & prompt-injection)
+
+Ingested EP documents, debate transcripts, and external-source feeds are
+**untrusted input** and are isolated from instruction context.
+
+| Vector | Control |
+| ------ | ------- |
+| Prompt injection via documents | Strict data/instruction separation, system-prompt hardening, Bedrock Guardrails, output validation |
+| OSINT source poisoning | Human-approved source registry, Admiralty grading, independent-source triangulation, single-source flagging |
+| Knowledge-graph poisoning | Signed ingest, write-path validation, graph-integrity audits, every edge cites evidence |
+| Entity-resolution mis-merge | Deterministic rules + confidence thresholds + human adjudication |
+| Synthetic-media contamination of speech source | Provenance-first verification, content-authenticity checks, ASR confidence flags |
+
+### Analytic-Tradecraft Enforcement Controls
+
+Security controls that make the **tradecraft itself** tamper-evident:
+
+- **Competing-hypotheses enforcement.** Production is blocked unless ≥2 hypotheses
+  and recorded dissent are present (mitigates FT-009 *Single-Hypothesis Collapse*).
+- **Confidence & source-grade enforcement.** Every assessment must carry an ICD 203
+  confidence and Admiralty grade; missing metadata fails the gate.
+- **Immutable forecast ledger.** Pre-registered estimative questions and
+  independent outcome scoring prevent calibration gaming.
+- **Question-not-accusation gate.** Integrity-analytics output is editorially and
+  (where needed) legally reviewed and framed as a sourced question before release,
+  bounding defamation risk.
+- **Indications-and-Warning confirmation gate.** No warning disseminates without
+  multi-indicator corroboration and human confirmation.
+
+### Control-to-Threat Coverage (FT-009)
+
+| FT-009 Threat | Primary Control(s) |
+| ------------- | ------------------ |
+| Model political-lean drift | Neutrality benchmark + regression gate; sovereign-model eval |
+| False I&W manufacturing | Multi-indicator corroboration; human-confirmation gate |
+| Integrity-analytics false positive | Question-not-accusation framing; editorial/legal review |
+| Counter-FIMI false attribution | Evidence-bounded attribution; dual review |
+| Forecast-calibration gaming | Pre-registered questions; immutable ledger |
+| Narrative laundering | C2PA signing; canonical URLs; correction channel |
+| Dissent suppression | Mandatory competing hypotheses; red-team gate |
+| Source-triangulation evasion | Independent-source requirement; single-source flagging |
+| Provenance/evidence-chain tampering | Object Lock manifest; CloudTrail; citation validation |
+
+> **NIST CSF 2.0 / ISO 27001 mapping.** These controls extend the platform's
+> security posture into the analytic domain: **GV.RM / GV.OC** (neutrality as a
+> governed risk), **PR.DS / A.8.24** (provenance integrity), **DE.CM** (continuous
+> bias and bypass monitoring), and **RS / RC** (correction and recalibration as the
+> intelligence-integrity incident response).
 
 ---
 
