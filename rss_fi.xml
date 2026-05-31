@@ -7,12 +7,20 @@
     <link>https://euparliamentmonitor.com</link>
     <description>Avoin poliittinen tiedustelutieto Euroopan parlamentista — äänestykset, esitykset, valiokuntatyö ja lainsäädäntöputki, päivittäin tiivistettynä Euroopan parlamentin avoimesta datasta 14 kielellä.</description>
     <language>fi</language>
-    <lastBuildDate>Sun, 31 May 2026 15:03:47 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 31 May 2026 15:52:54 GMT</lastBuildDate>
     <atom:link href="https://euparliamentmonitor.com/rss_fi.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>June 2026 is, on the modal forecast | EPM</title>
+      <title>Vaalisykli: EP10 → EP11 (2029) — 2026-05-31 | EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-31-election-cycle-fi.html</link>
+      <description>2026-05-31 — Suomi — Vaalisykli — Election Cycle — At the EP10 term midpoint (term-progress index ≈ 38%), the European Parliament governs from structural strength but campaigns…</description>
+      <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-31-election-cycle-fi.html</guid>
+      <dc:language>fi</dc:language>
+    </item>
+    <item>
+      <title>Johtava tiedote — Euroopan parlamentin kuukausiennuste | EPM</title>
       <link>https://euparliamentmonitor.com/news/2026-05-31-month-ahead-fi.html</link>
-      <description>2026-05-31 — Suomi — Tuleva Kuukausi — Month Ahead — June 2026 is, on the modal forecast, a fiscal-discipline month for the European Parliament.</description>
+      <description>2026-05-31 — Suomi — Tuleva Kuukausi — Month Ahead — Kesäkuu 2026 on modaaliennusteen mukaan budjettikurinpidon kuukausi Euroopan parlamentille.</description>
       <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-31-month-ahead-fi.html</guid>
       <dc:language>fi</dc:language>

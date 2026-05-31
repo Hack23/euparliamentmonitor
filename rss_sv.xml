@@ -7,12 +7,20 @@
     <link>https://euparliamentmonitor.com</link>
     <description>Öppen politisk underrättelseplattform om Europaparlamentet — omröstningar, motioner, utskottsarbete och lagstiftningsflödet, sammanfattat dagligen från Europaparlamentets öppna data på 14 språk.</description>
     <language>sv</language>
-    <lastBuildDate>Sun, 31 May 2026 15:03:47 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 31 May 2026 15:52:54 GMT</lastBuildDate>
     <atom:link href="https://euparliamentmonitor.com/rss_sv.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>June 2026 is, on the modal forecast | EU-parlamentsmonitor</title>
+      <title>Valcykel: EP10 → EP11 (2029) — 2026-05-31 | EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-31-election-cycle-sv.html</link>
+      <description>2026-05-31 — Svenska — Valcykel — Election Cycle — At the EP10 term midpoint (term-progress index ≈ 38%), the European Parliament governs from structural strength but campaigns…</description>
+      <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-31-election-cycle-sv.html</guid>
+      <dc:language>sv</dc:language>
+    </item>
+    <item>
+      <title>Exekutiv sammanfattning — Europaparlamentets | EPM</title>
       <link>https://euparliamentmonitor.com/news/2026-05-31-month-ahead-sv.html</link>
-      <description>2026-05-31 — Svenska — Månad Framåt — Month Ahead — June 2026 is, on the modal forecast, a fiscal-discipline month for the European Parliament.</description>
+      <description>2026-05-31 — Svenska — Månad Framåt — Month Ahead — Juni 2026 är, enligt den modala prognosen, en månad präglad av budgetdisciplin för Europaparlamentet för läsare som följer EU…</description>
       <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-31-month-ahead-sv.html</guid>
       <dc:language>sv</dc:language>

@@ -7,12 +7,20 @@
     <link>https://euparliamentmonitor.com</link>
     <description>Offene politische Aufklärung zum Europäischen Parlament — Abstimmungen, Anträge, Ausschussarbeit und legislative Pipeline, täglich aus den offenen Daten des EP destilliert und in 14 Sprachen lesbar gemacht.</description>
     <language>de</language>
-    <lastBuildDate>Sun, 31 May 2026 15:03:47 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 31 May 2026 15:52:54 GMT</lastBuildDate>
     <atom:link href="https://euparliamentmonitor.com/rss_de.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>June 2026 is, on the modal forecast | EU-Parlamentsmonitor</title>
+      <title>Wahlzyklus: EP10 → EP11 (2029) — 2026-05-31 | EPM</title>
+      <link>https://euparliamentmonitor.com/news/2026-05-31-election-cycle-de.html</link>
+      <description>2026-05-31 — Deutsch — Wahlzyklus — Election Cycle — At the EP10 term midpoint (term-progress index ≈ 38%), the European Parliament governs from structural strength but campaign…</description>
+      <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-31-election-cycle-de.html</guid>
+      <dc:language>de</dc:language>
+    </item>
+    <item>
+      <title>Exekutivbriefing — Monatsausblick des Europäischen | EPM</title>
       <link>https://euparliamentmonitor.com/news/2026-05-31-month-ahead-de.html</link>
-      <description>2026-05-31 — Deutsch — Monat Voraus — Month Ahead — June 2026 is, on the modal forecast, a fiscal-discipline month for the European Parliament.</description>
+      <description>2026-05-31 — Deutsch — Monat Voraus — Month Ahead — Der Juni 2026 ist nach der modalen Prognose ein Monat der Haushaltsdisziplin für das Europäische Parlament für Leser, die dem…</description>
       <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
       <guid isPermaLink="true">https://euparliamentmonitor.com/news/2026-05-31-month-ahead-de.html</guid>
       <dc:language>de</dc:language>
