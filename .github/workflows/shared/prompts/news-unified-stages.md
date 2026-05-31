@@ -206,17 +206,18 @@ the missing artifacts rather than a full prose article.
 
 **Output scope**: `--run "${ANALYSIS_DIR}"` generates ONLY the current
 article's files — `article.md` inside the run directory, plus the
-`news/<slug>.en.md` and `news/<slug>-<lang>.html` variants. It does NOT
-touch any pre-existing news files. Do **NOT** use `--all` (which
-regenerates every article in the repository). The `--type`, `--lang`,
-`--language`, and `--markdown-only` flags do not exist and will throw
-an error.
+`news/<slug>.en.md` and `news/<slug>-<lang>.html` variants (where
+`<slug>` is the full filename stem including date, e.g.
+`2026-05-30-week-ahead`). It does NOT touch any pre-existing news
+files. Do **NOT** use `--all` (which regenerates every article in the
+repository). The `--type`, `--lang`, `--language`, and `--markdown-only`
+flags do not exist and will throw an error.
 
 **File staging guardrail** (Stage E scope): Never run `git add news/` or
 `git add news/*` — this stages unrelated existing articles. The
 `safeoutputs___create_pull_request` tool handles all file staging
 automatically. Only this run's analysis directory and the specific
-`news/<TODAY>-<slug>*` files from the renderer output must be included.
+`news/<slug>*` files from the renderer output must be included.
 
 ### Stage E — Single PR (Ref: 06)
 
