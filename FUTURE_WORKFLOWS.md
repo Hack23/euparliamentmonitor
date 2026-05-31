@@ -16,8 +16,8 @@
   <a href="#"><img src="https://img.shields.io/badge/Timeline-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last Updated:** 2026-03-31 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30  
+**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last Updated:** 2026-05-31 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
 
 ---
@@ -1167,7 +1167,7 @@ This document will be reviewed quarterly to assess progress and adjust prioritie
 - Compliance requirements (GDPR, NIS2, EU CRA)
 - European Parliament institutional changes
 
-**Next Review:** 2026-06-30
+**Next Review:** 2026-08-31
 
 ---
 

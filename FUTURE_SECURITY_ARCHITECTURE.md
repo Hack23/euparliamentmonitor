@@ -17,9 +17,9 @@
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
-2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
+**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
+2026-05-31 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -2792,7 +2792,7 @@ evolve to address both new capabilities and new threat vectors.
 ---
 
 **Document Status**: Living document, updated quarterly  
-**Next Review**: 2026-05-24  
+**Next Review**: 2026-08-31  
 **Owner**: CEO, Hack23 AB
 
 <p align="center">

@@ -5,20 +5,20 @@
 <h1 align="center">🔄 EU Parliament Monitor — Future Flowcharts</h1>
 
 <p align="center">
-  <strong>📊 Improved AI-Driven Workflows and Real-Time Processing</strong><br>
-  <em>🎯 From Batch Generation to Intelligent Event-Driven Architecture (2026-2037)</em>
+  <strong>📊 From Static Intelligence Generation to AWS-Native Serverless OSINT Operations</strong><br>
+  <em>🎯 Three Horizons: Enhanced Static (v2.0) → AWS Serverless Platform (v3.0+) → 10-Year AI Lookahead (2026-2037)</em>
 </p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last
-Updated:** 2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
+**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last
+Updated:** 2026-05-31 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31 | **🏷️ Release:** v1.0.1  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
 
 ---
@@ -62,53 +62,84 @@ Updated:** 2026-03-19 (UTC)
 
 ## 🔐 ISMS Policy Alignment
 
-This future flowchart is designed to implement all controls from Hack23 AB's ISMS framework as the EU Parliament Monitor platform evolves.
+This future flowchart is designed to implement all controls from Hack23 AB's ISMS
+framework as the EU Parliament Monitor platform evolves across its three horizons —
+**v2.0 enhanced static intelligence**, **v3.0+ AWS-native serverless OSINT
+operations**, and the **10-year AI lookahead**. The static front door remains the
+cheap, cacheable, auditable substrate; dynamic AWS-native features layer behind it
+without weakening provenance or neutrality guarantees.
 
 ### Related ISMS Policies
 
 | **Policy Domain** | **Policy** | **Planned Implementation** |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
-| **🔐 Core Security** | [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Overall security governance framework for enhanced monitoring |
-| **🛠️ Development** | [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Security-integrated development lifecycle enhancements |
-| **🌐 Network** | [Network Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Network_Security_Policy.md) | CDN architecture, WAF, DDoS protection |
-| **🔒 Cryptography** | [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | Content signing, TLS 1.3, integrity verification |
-| **🔑 Access Control** | [Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) | MCP authentication, request authorization |
-| **🏷️ Data Classification** | [Data Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Data_Classification_Policy.md) | European Parliament data classification |
-| **🔍 Vulnerability** | [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Enhanced automated scanning and monitoring |
-| **🚨 Incident Response** | [Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | Automated incident detection and response |
-| **💾 Backup & Recovery** | [Backup Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md) | Content backup, version control, recovery |
-| **🔄 Business Continuity** | [Business Continuity Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Business_Continuity_Plan.md) | Multi-CDN deployment, disaster recovery |
-| **🤝 Third-Party** | [Third Party Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md) | CDN provider security assessment |
+| **🔐 Core Security** | [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Overall security governance for enhanced monitoring & AWS workloads |
+| **🤖 AI Governance** | [AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) | AI = proposal generator; human accountability; no autonomous deploy |
+| **🛠️ Development** | [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Security-integrated SSDLC for Lambda/Step Functions pipelines |
+| **🌐 Network** | [Network Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Network_Security_Policy.md) | CloudFront + AWS WAF + Shield, VPC isolation, private endpoints |
+| **🔒 Cryptography** | [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | AWS KMS, TLS 1.3, SLSA provenance, content integrity verification |
+| **🔑 Access Control** | [Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) | Amazon Cognito, IAM least-privilege, API Gateway authorizers |
+| **🏷️ Data Classification** | [Data Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Data_Classification_Policy.md) | European Parliament PUBLIC open-data classification |
+| **🔍 Vulnerability** | [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | CodeQL, OpenSSF Scorecard, GuardDuty, Security Hub automation |
+| **🚨 Incident Response** | [Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | CloudWatch alarms, EventBridge-driven automated response |
+| **💾 Backup & Recovery** | [Backup Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md) | S3 versioning, DynamoDB PITR, Aurora snapshots, Git provenance |
+| **🔄 Business Continuity** | [Business Continuity Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Business_Continuity_Plan.md) | Multi-AZ serverless, CloudFront edge, static fallback |
+| **🤝 Third-Party** | [Third Party Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md) | EP MCP, World Bank MCP, IMF REST, Bedrock model provider review |
 | **🏷️ Classification** | [Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Business impact analysis for platform |
 
 ### Compliance Framework Mapping
 
 | **Framework** | **Version** | **Relevant Controls** |
 | ------------- | ----------- | --------------------- |
-| **ISO 27001** | 2022 | A.5.1, A.8.25, A.8.26, A.8.27 |
-| **NIST CSF** | 2.0 | GV.OC, GV.RM, ID.AM, PR.AT |
-| **CIS Controls** | v8.1 | Control 1-5, 14, 16 |
+| **ISO 27001** | 2022 | A.5.1, A.5.23, A.8.25, A.8.26, A.8.27, A.8.28 |
+| **NIST CSF** | 2.0 | GV.OC, GV.RM, ID.AM, PR.AT, PR.DS, DE.CM |
+| **CIS Controls** | v8.1 | Control 1-5, 8, 13, 14, 16 |
+| **GDPR** | 2016/679 | Public MEP roles only; data minimization; purpose limitation |
 
 ---
 
 ## 📋 Executive Summary
 
-This document outlines the evolution of EU Parliament Monitor's workflows from
-**batch-oriented static generation** to **real-time event-driven processing**
-with **AI-powered quality gates**, **automated fact-checking**, and
-**intelligent content optimization**.
+This document maps the evolution of EU Parliament Monitor's **process and data
+flows** across three strategic horizons. Today's platform (v1.0.x) is a
+**pure static-site generator** — `gh-aw` agentic workflows author Stage-B analysis
+markdown, the deterministic `src/aggregator/**` pipeline renders 14-language HTML,
+and the result is served from **Amazon S3 + Amazon CloudFront**. No servers, no
+runtime database, no AI-authored HTML.
 
-### Workflow Transformation
+- **🟢 v2.0 — Enhanced Static Intelligence (2026 H2 → 2027):** keep the static
+  architecture. Deepen the **political-landscape and party/political-group
+  dashboards** and the **OSINT tradecraft** (51-template catalog, ICD 203
+  confidence, Admiralty grading, Kent/WEP bands, 5-framework political threat
+  methodology, 2-pass AI-first quality). All dashboard data is pre-computed at
+  build time and delivered as static assets via CloudFront. The moat is **analysis
+  quality**, not real-time infrastructure.
+- **🔵 v3.0+ — AWS-Native Serverless OSINT Platform (2028+):** layer dynamic,
+  event-driven intelligence behind the static edge using **AWS Lambda, Step
+  Functions, EventBridge, Kinesis, API Gateway, AppSync, Cognito, DynamoDB, Aurora
+  Serverless v2, OpenSearch Serverless, Neptune Serverless, and Amazon Bedrock**
+  (foundation models, Knowledge Bases RAG, Bedrock Agents, Guardrails). Real-time
+  EP event ingestion, natural-language query over the political knowledge graph,
+  and an API ecosystem for journalists and researchers.
+- **⚪ 10-Year AI Lookahead (2026 → 2037):** annual major-model upgrades, competitor
+  evaluation each release, model-agnostic routing via Bedrock, and resilience to
+  paradigm shifts (quantum AI, neuromorphic computing) and AGI / post-AGI — all
+  governed by the Hack23 [AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md)
+  (AI proposes, humans are accountable, no autonomous deploy).
 
-| Aspect                 | Current (2026)              | Future (2027)               | Enhancement    |
-| ---------------------- | --------------------------- | --------------------------- | -------------- |
-| **Trigger**            | Daily scheduled (06:00 UTC) | Event-driven (real-time)    | <30s latency   |
-| **Processing**         | Sequential batch            | Parallel pipeline           | 10x throughput |
-| **Quality Control**    | Manual review               | ML-automated gates          | 95% automation |
-| **Content Generation** | Single-pass LLM             | Multi-stage with refinement | 2x quality     |
-| **Fact-Checking**      | Manual (optional)           | Automated verification      | 90%+ accuracy  |
-| **Translation**        | Batch neural MT             | LLM-enhanced streaming      | Native quality |
-| **Distribution**       | Git commit + push           | CDN + WebSocket push        | <1s delivery   |
+### Workflow Transformation Across Horizons
+
+| Aspect | Current (v1.0.x) | v2.0 (Static-Enhanced) | v3.0+ (AWS Serverless) |
+| ---------------------- | --------------------------- | --------------------------- | -------------------------- |
+| **Trigger** | Scheduled `gh-aw` (cron) | Scheduled + richer build matrix | EventBridge / Kinesis (real-time) |
+| **Compute** | GitHub Actions runners | GitHub Actions runners | AWS Lambda + Step Functions |
+| **Authoring** | LLM (Claude) → markdown | LLM + 51-template OSINT catalog | Bedrock + Knowledge Bases RAG + Agents |
+| **Rendering** | `src/aggregator/**` → HTML | Aggregator + richer dashboards | Aggregator (edge) + dynamic APIs |
+| **Dashboards** | Chart.js 4 + D3 7 (in-article) | Pre-computed party/landscape datasets | Live datasets via AppSync/API Gateway |
+| **Data stores** | Committed markdown + JSON | Committed artifacts + build cache | DynamoDB · Aurora · OpenSearch · Neptune |
+| **Delivery** | S3 + CloudFront (static) | S3 + CloudFront (static) | CloudFront static edge + serverless APIs |
+| **Query** | None (pre-rendered pages) | Faceted client-side filtering | NL query over knowledge graph (Bedrock) |
+| **Neutrality control** | Style guide + 2-pass review | Style guide + ICD 203 + Admiralty | Bedrock Guardrails + human sign-off |
 
 ---
 
@@ -116,639 +147,549 @@ with **AI-powered quality gates**, **automated fact-checking**, and
 
 ```mermaid
 gantt
-    title Workflow Enhancement Roadmap
+    title Workflow Evolution Roadmap (v2.0 to v3.0+)
     dateFormat YYYY-MM
 
-    section Phase 1: Real-Time Foundation
-    Event-driven architecture              :p1a, 2026-04, 2M
-    WebSocket event streaming             :p1b, 2026-04, 2M
-    Async job queue (Bull/Redis)          :p1c, 2026-05, 1M
+    section v2.0 Enhanced Static Intelligence
+    Party landscape dashboards            :v2a, 2026-07, 3M
+    Coalition mathematics visualizations  :v2b, 2026-09, 2M
+    OSINT 51-template catalog hardening   :v2c, 2026-08, 3M
+    ICD 203 + Admiralty quality gates     :v2d, 2026-10, 2M
+    Seat projection + election cycle views :v2e, 2026-11, 3M
 
-    section Phase 2: AI Quality Gates
-    ML quality scoring integration        :p2a, 2026-07, 2M
-    Automated fact-checking pipeline      :p2b, 2026-08, 2M
-    Content optimization engine           :p2c, 2026-09, 1M
+    section v3.0 Serverless Foundation
+    EventBridge + Kinesis ingestion       :v3a, 2028-01, 3M
+    Lambda + Step Functions orchestration :v3b, 2028-02, 3M
+    Neptune knowledge graph build         :v3c, 2028-04, 4M
+    Cognito + API Gateway + AppSync       :v3d, 2028-06, 3M
 
-    section Phase 3: Advanced Features
-    Multi-model LLM routing              :p3a, 2026-10, 2M
-    Real-time translation streaming      :p3b, 2026-11, 1M
-    Predictive content scheduling        :p3c, 2026-12, 1M
+    section v3.x Bedrock Intelligence
+    Bedrock Knowledge Bases RAG           :v3e, 2028-09, 3M
+    Bedrock Agents OSINT workflows        :v3f, 2028-11, 4M
+    NL query over knowledge graph         :v3g, 2029-02, 3M
+    Guardrails neutrality + GDPR controls :v3h, 2029-01, 3M
 
-    section Phase 4: Intelligence
-    Automated story clustering           :p4a, 2027-01, 2M
-    Trending topic detection            :p4b, 2027-02, 1M
-    Personalized content delivery       :p4c, 2027-03, 1M
+    section 10-Year AI Lookahead
+    Model-agnostic Bedrock routing        :ai1, 2029-06, 6M
+    Autonomous agentic pipelines (assisted) :ai2, 2030-01, 12M
+    Multi-parliament expansion            :ai3, 2031-01, 18M
 ```
 
 ---
 
-## 🚀 Future Real-Time Article Generation Flow
+# 🟢 HORIZON v2.0 — Enhanced Static Intelligence Flows
 
-**Complete end-to-end flow** from EP event occurrence to user notification.
+> **Architecture unchanged: build-time generation, `gh-aw` + aggregator, pure
+> static delivery on Amazon S3 + Amazon CloudFront.** v2.0 adds depth — better
+> party/political-landscape dashboards and stronger OSINT tradecraft — while every
+> byte served remains a pre-computed static asset.
+
+## 🏛️ Party & Political-Landscape Dashboard Generation Flow
+
+**Build-time flow** producing pre-computed party / political-group dashboard
+datasets from European Parliament open data. All charts render **client-side** from
+JSON baked into the static bundle — no server, no runtime query.
 
 ```mermaid
 flowchart TD
-    Start([🌍 EP Event Occurs<br/>Plenary Vote, Committee Meeting]) --> EventDetect{📡 Event Detection<br/>Source?}
+    Trigger([🕒 gh-aw Scheduled Workflow<br/>GitHub Actions]) --> MCPFetch[🔌 EP MCP Server Fetch<br/>get_meps, get_voting_records<br/>analyze_coalition_dynamics<br/>compare_political_groups]
 
-    EventDetect -->|Real-time| MCPStream[🔌 EP MCP Server<br/>WebSocket Stream<br/>Latency: <5s]
-    EventDetect -->|Polling| APICheck[🔍 EP API Poll<br/>HTTP Request<br/>Interval: 30s]
+    MCPFetch --> Enrich[🌐 Optional Context Enrichment<br/>World Bank MCP WDI<br/>IMF REST WEO/FM]
 
-    MCPStream --> EventNormalize[🔄 Event Normalization<br/>Standardize Format<br/>Extract Metadata]
-    APICheck --> EventNormalize
+    Enrich --> Analysis[🧠 Stage-A/B Analysis Artifacts<br/>significance-scoring, actor-mapping<br/>coalition-dynamics, voting-patterns<br/>51-template catalog]
 
-    EventNormalize --> EventValidate{✅ Event Valid?}
-    EventValidate -->|❌ Invalid| LogError1[📝 Log Invalid Event<br/>Alert Monitoring<br/>Dead Letter Queue]
-    EventValidate -->|✅ Valid| Prioritize[⚡ Priority Assignment<br/>Breaking: P0<br/>Important: P1<br/>Regular: P2]
+    Analysis --> Precompute[⚙️ Pre-compute Dashboard Datasets<br/>Party cohesion + defection rates<br/>Coalition mathematics<br/>Seat projections + election cycle<br/>Cross-party alliance edges]
 
-    Prioritize --> EnqueueJob["📥 Enqueue Job\nBull Queue with Redis\nPriority-based"]
+    Precompute --> Shape[📐 Shape Static JSON<br/>Heatmap matrices<br/>Network graph nodes/edges<br/>Time-series voting trends]
 
-    EnqueueJob --> WorkerPick[👷 Worker Picks Job<br/>Parallel Workers: 5<br/>Auto-scaling]
+    Shape --> AggRender[🏗️ Deterministic Aggregator<br/>src/aggregator/** renders HTML<br/>Embeds Chart.js 4 + D3 7]
 
-    WorkerPick --> SourceAgg[📊 Multi-Source Aggregation<br/>EP Data + Context<br/>Historical Patterns]
+    AggRender --> Lang[🌍 14-Language Expansion<br/>Per-language static pages]
 
-    SourceAgg --> MLClassify{🤖 ML Classification<br/>Content Type?}
+    Lang --> Commit[💾 Commit Artifacts + Provenance<br/>SLSA 3, signed, version-controlled]
 
-    MLClassify -->|Breaking News| BreakingPipeline[⚡ Breaking Pipeline<br/>Speed Priority<br/>Target: 2 min]
-    MLClassify -->|Analysis| AnalysisPipeline[🔬 Analysis Pipeline<br/>Depth Priority<br/>Target: 15 min]
-    MLClassify -->|Routine Update| RoutinePipeline[📰 Routine Pipeline<br/>Quality Priority<br/>Target: 30 min]
+    Commit --> Deploy[📤 Deploy Static Bundle<br/>Amazon S3 origin]
 
-    BreakingPipeline --> LLMRoute
-    AnalysisPipeline --> LLMRoute
-    RoutinePipeline --> LLMRoute
+    Deploy --> CDN[⚡ Amazon CloudFront<br/>Global edge cache<br/>Lambda@Edge headers/security]
 
-    LLMRoute[🧠 LLM Router<br/>Model Selection:<br/>GPT-4 / Claude-3 / Local] --> GeneratePrompt[📝 Prompt Engineering<br/>Context Injection<br/>Style Guidelines]
+    CDN --> Client[🖥️ Browser Renders Dashboards<br/>Client-side Chart.js/D3<br/>Faceted filtering, no backend]
 
-    GeneratePrompt --> LLMGenerate[✨ LLM Generation<br/>Stream Response<br/>Token Limit: 2000]
+    Client --> Done([✅ Static Party/Landscape Dashboard Live<br/>Cacheable, cheap, auditable])
 
-    LLMGenerate --> ContentParse[🔍 Parse Generated Content<br/>Extract Structure<br/>Validate Format]
+    style Trigger fill:#e8f5e9
+    style MCPFetch fill:#e1f5ff
+    style Precompute fill:#fff4e1
+    style AggRender fill:#e1f5ff
+    style CDN fill:#fff4e1
+    style Done fill:#d4edda
+```
 
-    ContentParse --> QualityGate1{🎯 Quality Gate 1<br/>ML Quality Score}
+### Dashboard Datasets Produced (v2.0)
 
-    QualityGate1 -->|Score < 0.70| RegenerateDecision{🔄 Retry?}
-    RegenerateDecision -->|Attempts < 3| PromptRefine[🔧 Refine Prompt<br/>Add Constraints<br/>Adjust Parameters]
-    PromptRefine --> LLMGenerate
-    RegenerateDecision -->|Attempts ≥ 3| HumanReview1[👤 Human Review Queue<br/>Flag: Low Quality]
+| Dashboard | Source MCP Tools | Visualization | Delivery |
+| --------- | ---------------- | ------------- | -------- |
+| **Party / group landscape** | `generate_political_landscape`, `get_meps` | Seat-share treemap, group cards | Static JSON + Chart.js |
+| **Coalition mathematics** | `analyze_coalition_dynamics`, `compare_political_groups` | Stacked-bar majority calculator | Static JSON + D3 |
+| **Cohesion & defection** | `sentiment_tracker`, `detect_voting_anomalies` | Cohesion heatmap, z-score flags | Static JSON + Chart.js |
+| **Cross-party alliances** | `network_analysis`, `analyze_voting_patterns` | Force-directed network graph | Static JSON + D3 |
+| **Seat projection / election cycle** | electoral-domain artifacts | Trend lines + projection bands | Static JSON + Chart.js |
+| **MEP / party scorecards** | `assess_mep_influence`, `analyze_legislative_effectiveness` | Radar + ranked tables | Static JSON + Chart.js |
 
-    QualityGate1 -->|Score ≥ 0.70| FactCheck[🔍 Automated Fact-Checking<br/>Claim Extraction<br/>Source Verification]
+---
 
-    FactCheck --> FactCheckResult{✅ Fact-Check Result}
+## 🔬 Enhanced OSINT Quality Pipeline (v2.0)
 
-    FactCheckResult -->|Disputed Claims| HumanReview2[👤 Human Review Queue<br/>Flag: Disputed Facts<br/>Show Discrepancies]
-    FactCheckResult -->|Verified| ReadabilityCheck[📖 Readability Analysis<br/>Flesch-Kincaid<br/>Sentence Complexity]
+**The 2.0 moat.** Every analysis artifact passes structured OSINT tradecraft —
+ICD 203 confidence verbalization, Admiralty source grading, Kent/WEP probability
+bands, structured analytic techniques (ACH) — and the mandatory **2-pass AI-first
+quality** loop. STRIDE is explicitly rejected for political analysis in favour of
+the **5-framework political threat methodology** (Political Threat Landscape 6D +
+Attack Trees + Kill Chain + Diamond Model + ICO Profiling).
 
-    ReadabilityCheck --> ReadabilityResult{📊 Readable?}
-    ReadabilityResult -->|Too Complex| SimplifyContent[✏️ AI Simplification<br/>Reduce Complexity<br/>Maintain Accuracy]
-    SimplifyContent --> ReadabilityCheck
+```mermaid
+flowchart TD
+    Raw([📥 Raw EP Open Data<br/>MCP feeds, documents, votes]) --> Collect[🗂️ Collection & Provenance<br/>Source capture<br/>PUBLIC-only classification]
 
-    ReadabilityResult -->|✅ Clear| SentimentCheck[😊 Sentiment Analysis<br/>Neutrality Score<br/>Bias Detection]
+    Collect --> Grade[🏷️ Admiralty Source Grading<br/>Reliability A-F<br/>Credibility 1-6]
 
-    SentimentCheck --> SentimentResult{⚖️ Neutral?}
-    SentimentResult -->|Biased| AdjustTone[🎨 Tone Adjustment<br/>Neutralize Language<br/>Remove Opinion]
-    AdjustTone --> SentimentCheck
+    Grade --> Template[📚 51-Template Catalog Routing<br/>artifact-catalog.md maps<br/>artifact to methodology]
 
-    SentimentResult -->|✅ Neutral| TranslationQueue[🌍 Translation Pipeline<br/>14 Languages<br/>Parallel Processing]
+    Template --> Pass1[✍️ Pass 1 - Initial Analysis<br/>SWOT, actor-mapping<br/>coalition-dynamics, risk-matrix<br/>significance-scoring]
 
-    TranslationQueue --> TranslateParallel[🔀 Parallel Translation<br/>LLM + Neural MT<br/>Quality > Speed]
+    Pass1 --> Confidence[📊 ICD 203 Confidence Verbalization<br/>High / Moderate / Low<br/>Kent/WEP probability bands]
 
-    TranslateParallel --> TranslationQC{✅ Translation QC}
-    TranslationQC -->|Failed| RetranslateDecision{🔄 Retry Translation?}
-    RetranslateDecision -->|Yes| TranslateParallel
-    RetranslateDecision -->|No| HumanTranslation[👤 Human Translation Queue]
+    Confidence --> Threat[🎯 5-Framework Threat Methodology<br/>Threat Landscape 6D, Attack Trees<br/>Kill Chain, Diamond, ICO<br/>STRIDE rejected]
 
-    TranslationQC -->|✅ Passed| SEOOptimize[🔎 SEO Optimization<br/>Meta Tags<br/>Keywords<br/>Schema Markup]
+    Threat --> ACH[🔀 Structured Analytic Techniques<br/>Competing hypotheses ACH<br/>Key assumptions check<br/>Devil's advocacy]
 
-    SEOOptimize --> GenerateEmbedding[🧮 Generate Embeddings<br/>Vector: 1536-dim<br/>Model: text-embedding-3]
+    ACH --> Pass2[🔁 Pass 2 - Full Read-Back<br/>Word-by-word improvement<br/>Expand shallow sections<br/>Add evidence citations]
 
-    GenerateEmbedding --> SaveToDB[💾 Multi-Database Save<br/>PostgreSQL: Metadata<br/>MongoDB: Content<br/>Elasticsearch: Index]
+    Pass2 --> Gate{✅ Quality Gate<br/>Reference thresholds met?}
 
-    SaveToDB --> CacheWarm[🔥 Warm Cache<br/>Redis: Hot Articles<br/>CDN: Edge Cache]
+    Gate -->|❌ Below floor| Refine[🔧 Refine & Re-deepen<br/>Add cross-references<br/>Add confidence levels]
+    Refine --> Pass2
 
-    CacheWarm --> PublishCDN[📤 Publish to CDN<br/>CloudFlare<br/>Global Distribution]
+    Gate -->|✅ Meets floor| Neutral{⚖️ Neutrality & GDPR Check<br/>Politically neutral?<br/>Public roles only?}
 
-    PublishCDN --> NotifyUsers[📱 Push Notifications<br/>WebSocket: Real-time<br/>FCM: Mobile<br/>Email: Digest]
+    Neutral -->|Biased / PII risk| Adjust[🎨 Neutralize & Minimize<br/>Remove opinion<br/>Public MEP roles only]
+    Adjust --> Neutral
 
-    NotifyUsers --> UpdateIndex[🗂️ Update Indexes<br/>Sitemap.xml<br/>RSS Feeds<br/>Language Indexes]
+    Neutral -->|✅ Neutral| Audit[🧾 Self-Audit Artifacts<br/>workflow-audit<br/>methodology-reflection]
 
-    UpdateIndex --> Analytics[📊 Log Analytics<br/>Event Tracking<br/>Performance Metrics]
+    Audit --> Publish([✅ Committed Analysis Artifacts<br/>Feed aggregator + dashboards])
 
-    Analytics --> Complete([✅ Article Published<br/>Total Time: 2-30 min<br/>Quality: ≥0.85])
+    style Raw fill:#e8f5e9
+    style Gate fill:#fff4e1
+    style Neutral fill:#fff4e1
+    style Refine fill:#fff9c4
+    style Adjust fill:#fff9c4
+    style Publish fill:#d4edda
+```
 
-    LogError1 --> End([❌ Workflow Failed])
-    HumanReview1 --> End
-    HumanReview2 --> End
-    HumanTranslation --> End
-    Complete --> End([🎉 Success])
+### OSINT Tradecraft Standards Applied
 
-    style Start fill:#e8f5e9
-    style EventDetect fill:#fff4e1
-    style MCPStream fill:#e1f5ff
-    style EventValidate fill:#fff4e1
-    style QualityGate1 fill:#fff4e1
-    style FactCheckResult fill:#fff4e1
-    style ReadabilityResult fill:#fff4e1
-    style SentimentResult fill:#fff4e1
-    style TranslationQC fill:#fff4e1
-    style Complete fill:#d4edda
-    style End fill:#d4edda
-    style HumanReview1 fill:#ffe1e1
-    style HumanReview2 fill:#ffe1e1
-    style LogError1 fill:#ffe1e1
+| Standard | Purpose | Where Enforced |
+| -------- | ------- | -------------- |
+| **ICD 203** | Analytic confidence verbalization | Every assessment carries High/Moderate/Low |
+| **Admiralty System** | Source reliability × credibility grading | Collection stage, before analysis |
+| **Kent / WEP bands** | Calibrated probability language | Forecast & scenario artifacts |
+| **ACH** | Competing-hypothesis discipline | Significance & actor-mapping artifacts |
+| **5-framework threat** | Political threat analysis (not STRIDE) | `political-threat-landscape` artifact |
+| **2-pass AI-first** | Depth & evidence quality floor | All artifacts, Pass 1 + Pass 2 |
+
+---
+
+# 🔵 HORIZON v3.0+ — AWS-Native Serverless OSINT Operations
+
+> **All-in on AWS, fully serverless.** The static CloudFront edge stays the public,
+> cacheable front door; dynamic intelligence is layered behind it. No Kubernetes,
+> no self-managed message bus, no self-hosted databases — every component is a
+> managed AWS service with IAM least-privilege and zero-ops scaling.
+
+## ⚡ Real-Time EP Event Ingestion Flow
+
+**Event-driven pipeline** replacing scheduled polling with near-real-time capture
+of plenary votes, committee activity, and document publication.
+
+```mermaid
+flowchart TD
+    EP([🌍 European Parliament Events<br/>Plenary votes, committees, docs]) --> Ingest[🔌 Ingestion Lambda<br/>EP MCP + Open Data Portal<br/>Poll/subscribe adapters]
+
+    Ingest --> Stream[🌊 Amazon Kinesis Data Streams<br/>Ordered event shards<br/>Durable buffer]
+
+    Stream --> Bus[📡 Amazon EventBridge<br/>Event bus + rules<br/>Schema registry]
+
+    Bus --> Route{🔀 EventBridge Rule Routing<br/>detail-type}
+
+    Route -->|Plenary Vote| VoteSF[🗳️ Vote Step Functions<br/>Enrich + score significance]
+    Route -->|Committee Activity| CommSF[📋 Committee Step Functions<br/>Activity + document linkage]
+    Route -->|Document Published| DocSF[📄 Document Step Functions<br/>Parse + classify + index]
+    Route -->|Anomaly Signal| AnomSF[🚨 Anomaly Step Functions<br/>detect_voting_anomalies]
+
+    VoteSF --> Persist[💾 Persist & Index Lambda]
+    CommSF --> Persist
+    DocSF --> Persist
+    AnomSF --> Persist
+
+    Persist --> DDB[(🟦 DynamoDB<br/>Hot single-table state)]
+    Persist --> Aurora[(🟦 Aurora Serverless v2<br/>Voting history)]
+    Persist --> OS[(🟦 OpenSearch Serverless<br/>Full-text + vector)]
+    Persist --> Neptune[(🟦 Neptune Serverless<br/>Knowledge graph)]
+
+    Persist --> Notify[📣 Amazon SNS / SQS<br/>Downstream fan-out]
+
+    Notify --> DLQ{Delivery OK?}
+    DLQ -->|❌ Fail| DeadLetter[(🪦 SQS Dead-Letter Queue<br/>Replay + alarm)]
+    DLQ -->|✅ OK| Trigger([⚙️ Triggers Generation Pipeline<br/>See Bedrock flow])
+
+    style EP fill:#e8f5e9
+    style Stream fill:#e1f5ff
+    style Bus fill:#e1f5ff
+    style Route fill:#fff4e1
+    style DLQ fill:#fff4e1
+    style DeadLetter fill:#ffcdd2
+    style Trigger fill:#d4edda
 ```
 
 ---
 
-## 🔬 ML Quality Scoring Pipeline
+## 🧠 Bedrock-Backed Article & Intelligence Generation Flow
 
-**Detailed quality assessment workflow** with multiple quality dimensions.
+**Managed generative pipeline** using Amazon Bedrock foundation models, Knowledge
+Bases (RAG over the EP corpus + committed analysis artifacts), Bedrock Agents for
+agentic OSINT tool use, and Guardrails for neutrality, GDPR, and hallucination
+control. Output still flows through the **deterministic aggregator** — AI proposes
+content; humans remain accountable for what publishes.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant EB as EventBridge
+    participant SF as Step Functions
+    participant Agent as Bedrock Agent
+    participant KB as Bedrock Knowledge Base (RAG)
+    participant FM as Bedrock Foundation Model
+    participant GR as Bedrock Guardrails
+    participant Agg as Deterministic Aggregator
+    participant Rev as Human Editor
+    participant S3 as S3 + CloudFront
+
+    EB->>SF: Significant EP event detected
+    SF->>Agent: Invoke OSINT generation workflow
+    Agent->>KB: Retrieve EP corpus + analysis artifacts
+    KB-->>Agent: Grounded context + citations
+    Agent->>FM: Generate analysis proposal (model-agnostic)
+    FM-->>Agent: Draft intelligence artifact
+    Agent->>GR: Apply neutrality / PII / hallucination checks
+    GR-->>Agent: Pass or block with reasons
+    Agent->>SF: Return graded artifact + confidence
+    SF->>Rev: Route to human review queue
+    Rev-->>SF: Approve / request changes (accountable sign-off)
+    SF->>Agg: Approved markdown artifact
+    Agg->>S3: Render 14-language static HTML
+    S3-->>EB: Publish event (article.published)
+```
+
+### Bedrock Layer Responsibilities
+
+| Component | Role | Governance |
+| --------- | ---- | ---------- |
+| **Bedrock Foundation Models** | Draft analysis (Claude, Nova; model-agnostic) | Routed by cost/quality/latency |
+| **Bedrock Knowledge Bases** | Managed RAG grounding over EP corpus | Citations required; no ungrounded claims |
+| **Bedrock Agents** | Agentic OSINT tool use / orchestration | Tool allow-list, least-privilege IAM |
+| **Bedrock Guardrails** | Neutrality, PII/GDPR, hallucination control | Blocks biased or private-life content |
+| **Human Editor** | Accountable approval before publish | Per AI Policy — no autonomous deploy |
+
+---
+
+## 🔐 API Request Flow (Journalists / Researchers / API Consumers)
+
+**Authenticated, serverless API** layered behind the static edge. Amazon Cognito
+federates identity; API Gateway (REST/WebSocket) and AppSync (GraphQL) front
+Lambda resolvers that read the polyglot data layer.
 
 ```mermaid
 flowchart TD
-    Input[📝 Generated Article<br/>Raw Content] --> ExtractFeatures[🔍 Feature Extraction<br/>Linguistic Features<br/>Structural Features]
+    User([👤 Journalist / Researcher / API Client]) --> Edge[⚡ Amazon CloudFront<br/>Static edge + API routing]
 
-    ExtractFeatures --> ParallelScoring[⚡ Parallel Scoring]
+    Edge --> WAF[🛡️ AWS WAF + Shield<br/>Rate limiting, OWASP rules]
 
-    ParallelScoring --> Readability[📖 Readability Scorer<br/>Flesch-Kincaid<br/>SMOG Index<br/>ARI]
-    ParallelScoring --> FactualDensity[📊 Factual Density<br/>Entity Count<br/>Citation Rate<br/>Data Points]
-    ParallelScoring --> Coherence[🔗 Coherence Scorer<br/>Sentence Transitions<br/>Logical Flow<br/>Structure]
-    ParallelScoring --> Grammar[✍️ Grammar Checker<br/>LanguageTool<br/>Spelling<br/>Syntax]
-    ParallelScoring --> SourceCredibility[🎯 Source Credibility<br/>EP Official Weight<br/>Verification Status]
+    WAF --> Auth[🔑 Amazon Cognito<br/>User pools, federated auth<br/>JWT / OAuth2 tokens]
 
-    Readability --> Aggregate[📈 Weighted Aggregation<br/>Readability: 20%<br/>Factual: 30%<br/>Coherence: 25%<br/>Grammar: 15%<br/>Source: 10%]
-    FactualDensity --> Aggregate
-    Coherence --> Aggregate
-    Grammar --> Aggregate
-    SourceCredibility --> Aggregate
+    Auth --> AuthZ{✅ Token Valid + Scoped?}
+    AuthZ -->|❌ Denied| Reject[🚫 401/403 Response]
 
-    Aggregate --> OverallScore{🎯 Overall Score}
+    AuthZ -->|✅ REST| APIGW[🌐 Amazon API Gateway<br/>REST + WebSocket APIs<br/>Authorizer + throttling]
+    AuthZ -->|✅ GraphQL| AppSync[🔗 AWS AppSync<br/>GraphQL + subscriptions]
 
-    OverallScore -->|0.00-0.50| Reject[❌ Reject<br/>Quality: Unacceptable<br/>Action: Regenerate]
-    OverallScore -->|0.51-0.69| NeedsWork[⚠️ Needs Improvement<br/>Quality: Below Target<br/>Action: Refine]
-    OverallScore -->|0.70-0.84| Good[✅ Good Quality<br/>Quality: Acceptable<br/>Action: Proceed]
-    OverallScore -->|0.85-1.00| Excellent[🌟 Excellent<br/>Quality: High Standard<br/>Action: Fast-track]
+    APIGW --> Resolver[⚙️ Lambda Resolvers<br/>Business logic, least-privilege IAM]
+    AppSync --> Resolver
 
-    Reject --> LogMetrics[📊 Log Quality Metrics<br/>Dashboard Update<br/>Alert Team]
-    NeedsWork --> LogMetrics
-    Good --> LogMetrics
-    Excellent --> LogMetrics
+    Resolver --> DDB[(🟦 DynamoDB<br/>Hot key-value + DAX cache)]
+    Resolver --> Aurora[(🟦 Aurora Serverless v2<br/>Relational voting history)]
+    Resolver --> OS[(🟦 OpenSearch Serverless<br/>Full-text + vector search)]
+    Resolver --> Neptune[(🟦 Neptune Serverless<br/>Political knowledge graph)]
 
-    LogMetrics --> Output([Quality Assessment Complete])
+    DDB --> Compose[🧩 Compose Response<br/>Shape JSON / GraphQL payload]
+    Aurora --> Compose
+    OS --> Compose
+    Neptune --> Compose
 
-    style Input fill:#e8f5e9
-    style OverallScore fill:#fff4e1
+    Compose --> Trace[📊 CloudWatch + X-Ray<br/>Metrics, traces, CloudTrail audit]
+
+    Trace --> Return([✅ Response to Client<br/>Cached at edge where safe])
+
+    style User fill:#e8f5e9
+    style Auth fill:#e1f5ff
+    style AuthZ fill:#fff4e1
     style Reject fill:#ffcdd2
-    style NeedsWork fill:#fff9c4
-    style Good fill:#c8e6c9
-    style Excellent fill:#a5d6a7
-    style Output fill:#d4edda
-```
-
-### Quality Score Calculation
-
-```typescript
-// src/ml/quality-scorer.ts
-interface QualityMetrics {
-  readability: number; // 0-1
-  factualDensity: number; // 0-1
-  coherence: number; // 0-1
-  grammar: number; // 0-1
-  sourceCredibility: number; // 0-1
-}
-
-function calculateOverallScore(metrics: QualityMetrics): number {
-  const weights = {
-    readability: 0.2,
-    factualDensity: 0.3,
-    coherence: 0.25,
-    grammar: 0.15,
-    sourceCredibility: 0.1,
-  };
-
-  return (
-    metrics.readability * weights.readability +
-    metrics.factualDensity * weights.factualDensity +
-    metrics.coherence * weights.coherence +
-    metrics.grammar * weights.grammar +
-    metrics.sourceCredibility * weights.sourceCredibility
-  );
-}
-
-// Quality thresholds
-const QUALITY_THRESHOLDS = {
-  REJECT: 0.5,
-  NEEDS_WORK: 0.7,
-  GOOD: 0.85,
-  EXCELLENT: 1.0,
-};
+    style Return fill:#d4edda
 ```
 
 ---
 
-## 🔍 Automated Fact-Checking Flow
+## 💬 Natural-Language Query Over the Knowledge Graph
 
-**Comprehensive fact verification** against authoritative sources.
+**Conversational OSINT access.** A user asks a question in natural language;
+Bedrock translates intent into graph + search queries against Neptune and
+OpenSearch, grounds the answer via Knowledge Bases, and returns a cited, neutral
+response — never an ungrounded opinion.
 
 ```mermaid
 flowchart TD
-    Article[📄 Article Content] --> ExtractClaims[🔍 Claim Extraction<br/>NLP: Named Entity Recognition<br/>Dependency Parsing]
+    Q([💬 NL Question<br/>"Which groups co-voted most<br/>on energy dossiers in 2028?"]) --> Front[⚡ CloudFront + Cognito Auth]
 
-    ExtractClaims --> ClaimsList[📋 Claims List<br/>Factual Statements<br/>Verifiable Data Points]
+    Front --> NLU[🧠 Bedrock Agent<br/>Intent + entity extraction<br/>Amazon Comprehend NLP]
 
-    ClaimsList --> ClassifyClaims[🏷️ Claim Classification<br/>Vote Results<br/>Dates/Times<br/>Names/Roles<br/>Procedural Facts]
+    NLU --> Plan[🗺️ Query Planning<br/>Decompose to graph + search ops]
 
-    ClassifyClaims --> ParallelVerify[⚡ Parallel Verification]
+    Plan --> GraphQ[🔷 Neptune Serverless<br/>Gremlin/openCypher traversal<br/>MEP-group-dossier-vote edges]
+    Plan --> SearchQ[🔎 OpenSearch Serverless<br/>Vector + full-text retrieval]
+    Plan --> KBQ[📚 Bedrock Knowledge Base<br/>RAG over analysis artifacts]
 
-    ParallelVerify --> VerifyVotes[🗳️ Verify Vote Claims<br/>EP Official Results<br/>MCP Server Query]
-    ParallelVerify --> VerifyDates[📅 Verify Dates/Times<br/>EP Calendar<br/>Session Records]
-    ParallelVerify --> VerifyNames[👤 Verify Names/Roles<br/>MEP Database<br/>Committee Rosters]
-    ParallelVerify --> VerifyProcedure[📜 Verify Procedures<br/>EP Rules of Procedure<br/>Legislative Process]
+    GraphQ --> Fuse[🧩 Evidence Fusion<br/>Join graph + search + RAG<br/>Attach source citations]
+    SearchQ --> Fuse
+    KBQ --> Fuse
 
-    VerifyVotes --> ResultVotes{Match?}
-    VerifyDates --> ResultDates{Match?}
-    VerifyNames --> ResultNames{Match?}
-    VerifyProcedure --> ResultProc{Match?}
+    Fuse --> Generate[✨ Bedrock Foundation Model<br/>Compose grounded answer]
 
-    ResultVotes -->|✅ Match| ConfidenceVotes[✓ Verified<br/>Confidence: 0.95+]
-    ResultVotes -->|❌ Mismatch| DisputedVotes[⚠️ Disputed<br/>Evidence: Contradicts]
-    ResultVotes -->|❓ Unknown| UnverifiedVotes[? Unverified<br/>Evidence: Insufficient]
+    Generate --> Guard{⚖️ Bedrock Guardrails<br/>Neutral? Grounded? PII-safe?}
 
-    ResultDates -->|✅ Match| ConfidenceDates[✓ Verified]
-    ResultDates -->|❌ Mismatch| DisputedDates[⚠️ Disputed]
-    ResultDates -->|❓ Unknown| UnverifiedDates[? Unverified]
+    Guard -->|❌ Block| Safe[🚧 Safe Fallback<br/>Decline + show raw evidence]
+    Guard -->|✅ Pass| Answer([📋 Cited Neutral Answer<br/>Links to dashboards + sources])
 
-    ResultNames -->|✅ Match| ConfidenceNames[✓ Verified]
-    ResultNames -->|❌ Mismatch| DisputedNames[⚠️ Disputed]
-    ResultNames -->|❓ Unknown| UnverifiedNames[? Unverified]
-
-    ResultProc -->|✅ Match| ConfidenceProc[✓ Verified]
-    ResultProc -->|❌ Mismatch| DisputedProc[⚠️ Disputed]
-    ResultProc -->|❓ Unknown| UnverifiedProc[? Unverified]
-
-    ConfidenceVotes --> Aggregate
-    ConfidenceDates --> Aggregate
-    ConfidenceNames --> Aggregate
-    ConfidenceProc --> Aggregate
-    DisputedVotes --> Aggregate
-    DisputedDates --> Aggregate
-    DisputedNames --> Aggregate
-    DisputedProc --> Aggregate
-    UnverifiedVotes --> Aggregate
-    UnverifiedDates --> Aggregate
-    UnverifiedNames --> Aggregate
-    UnverifiedProc --> Aggregate
-
-    Aggregate[📊 Aggregate Results<br/>Verified: Count<br/>Disputed: Count<br/>Unverified: Count] --> CalculateStatus{Overall Status}
-
-    CalculateStatus -->|Disputed > 0| Disputed[❌ DISPUTED<br/>Action: Human Review<br/>Show Discrepancies]
-    CalculateStatus -->|Verified = 100%| Verified[✅ VERIFIED<br/>Confidence: High<br/>Action: Proceed]
-    CalculateStatus -->|Unverified > 30%| Unverified[⚠️ UNVERIFIED<br/>Confidence: Low<br/>Action: Review]
-    CalculateStatus -->|Mixed| PartiallyVerified[🟡 PARTIALLY VERIFIED<br/>Confidence: Medium<br/>Action: Editor Decision]
-
-    Disputed --> AttachEvidence[📎 Attach Evidence<br/>Contradicting Sources<br/>Correction Suggestions]
-    Verified --> AttachEvidence
-    Unverified --> AttachEvidence
-    PartiallyVerified --> AttachEvidence
-
-    AttachEvidence --> Complete([Fact-Check Complete<br/>Status + Evidence])
-
-    style Article fill:#e8f5e9
-    style CalculateStatus fill:#fff4e1
-    style Disputed fill:#ffcdd2
-    style Verified fill:#c8e6c9
-    style Unverified fill:#fff9c4
-    style PartiallyVerified fill:#ffe0b2
-    style Complete fill:#d4edda
-```
-
-### Fact-Check Example
-
-```typescript
-// Example fact-check result
-{
-  "articleId": "uuid-123",
-  "status": "VERIFIED",
-  "confidence": 0.92,
-  "claims": [
-    {
-      "claim": "MEP Jane Smith voted in favor of the AI Act",
-      "type": "vote_result",
-      "verified": true,
-      "confidence": 0.98,
-      "evidence": {
-        "source": "EP Official Voting Record",
-        "url": "https://ep.europa.eu/votes/2026-06-15",
-        "mepId": "MEP-12345",
-        "voteId": "V-2026-0123",
-        "vote": "FOR"
-      }
-    },
-    {
-      "claim": "The vote took place on June 15, 2026",
-      "type": "date_fact",
-      "verified": true,
-      "confidence": 1.0,
-      "evidence": {
-        "source": "EP Plenary Calendar",
-        "sessionId": "PL-2026-06-15"
-      }
-    },
-    {
-      "claim": "The AI Act establishes risk categories for AI systems",
-      "type": "legislative_content",
-      "verified": true,
-      "confidence": 0.85,
-      "evidence": {
-        "source": "AI Act Final Text",
-        "documentId": "EP-2026-AI-ACT",
-        "article": "Article 6"
-      }
-    }
-  ],
-  "verifiedCount": 3,
-  "disputedCount": 0,
-  "unverifiedCount": 0,
-  "checkedAt": "2026-06-15T14:35:00Z"
-}
+    style Q fill:#e8f5e9
+    style NLU fill:#e1f5ff
+    style Guard fill:#fff4e1
+    style Safe fill:#ffcdd2
+    style Answer fill:#d4edda
 ```
 
 ---
 
-## 🌍 Real-Time Translation Pipeline
+## 🔄 Event-Driven Continuous-Improvement Loop
 
-**Streaming translation** with quality enhancement.
-
-```mermaid
-flowchart LR
-    Source[📝 Source Article<br/>Primary Language: EN] --> DetectLanguages[🌐 Language Detection<br/>Target: 13 Languages]
-
-    DetectLanguages --> QueueTranslations[📥 Queue Translation Jobs<br/>Priority: High-traffic langs first]
-
-    QueueTranslations --> ParallelWorkers[⚡ Parallel Translation Workers<br/>5 Workers<br/>Auto-scaling]
-
-    ParallelWorkers --> NeuralMT[🤖 Neural MT<br/>Google Translate API<br/>Fast, Good Quality]
-
-    NeuralMT --> LLMRefine[✨ LLM Refinement<br/>Context Preservation<br/>Terminology Consistency]
-
-    LLMRefine --> QualityCheck{✅ Translation Quality}
-
-    QualityCheck -->|Score < 0.80| Retry[🔄 Retry with<br/>Different Model]
-    Retry --> NeuralMT
-
-    QualityCheck -->|Score ≥ 0.80| SaveTranslation[💾 Save Translation<br/>MongoDB<br/>Cache in Redis]
-
-    SaveTranslation --> IndexSearch[🔍 Index in Elasticsearch<br/>Language-specific analyzer]
-
-    IndexSearch --> Complete([✅ Translation Complete<br/>Quality: ≥0.80])
-
-    style Source fill:#e8f5e9
-    style QualityCheck fill:#fff4e1
-    style Complete fill:#d4edda
-```
-
----
-
-## 📊 Real-Time Analytics & Monitoring Flow
-
-**Continuous monitoring** of all workflows and quality metrics.
+**Self-monitoring, human-governed.** Quality and engagement signals feed model
+routing and prompt/template refinement. Per the AI Policy, model or prompt changes
+are **proposals** that require human approval and canary validation before
+promotion — there is no autonomous production deploy.
 
 ```mermaid
 flowchart TD
-    Workflows[🔄 All Workflows] --> Instrumentation[📊 OpenTelemetry Instrumentation<br/>Traces<br/>Metrics<br/>Logs]
+    Observe[📊 Observe<br/>CloudWatch metrics<br/>Quality scores, citations<br/>User engagement] --> Lake[🪣 S3 Data Lake<br/>Glue catalog + Athena<br/>QuickSight BI]
 
-    Instrumentation --> Collectors[📡 Data Collectors<br/>Datadog Agent<br/>Log Aggregation]
+    Lake --> Detect[🔍 Pattern Detection<br/>SageMaker anomaly/quality models<br/>What drives quality?]
 
-    Collectors --> ProcessMetrics[📈 Process Metrics<br/>Latency<br/>Throughput<br/>Error Rate]
+    Detect --> Propose[💡 Improvement Proposals<br/>Model routing tweaks<br/>Prompt + template updates<br/>Guardrail adjustments]
 
-    ProcessMetrics --> QualityMetrics[🎯 Quality Metrics<br/>Average Quality Score<br/>Fact-Check Pass Rate<br/>Translation Quality]
+    Propose --> Human{👤 Human Review<br/>AI Policy gate}
 
-    QualityMetrics --> BusinessMetrics[💼 Business Metrics<br/>Articles Published/Hour<br/>User Engagement<br/>API Usage]
+    Human -->|❌ Reject| Archive[🗄️ Archive + Document<br/>Rationale captured]
+    Human -->|✅ Approve| Canary[🐤 Canary via Lambda Alias<br/>Weighted traffic shift<br/>Monitor X-Ray + alarms]
 
-    BusinessMetrics --> Dashboards[📊 Real-Time Dashboards<br/>Grafana<br/>Custom Panels]
+    Canary --> Result{Canary Healthy?}
+    Result -->|❌ Regress| Rollback[↩️ Rollback Alias<br/>Revert weights, post-mortem]
+    Result -->|✅ Improve| Promote[🚀 Promote<br/>Update routing + templates]
 
-    Dashboards --> AlertEngine{🚨 Alert Engine<br/>Threshold Exceeded?}
+    Promote --> Observe
+    Rollback --> Observe
+    Archive --> Observe
 
-    AlertEngine -->|✅ Normal| Continue[✅ Continue Monitoring]
-    AlertEngine -->|⚠️ Warning| SlackAlert[📱 Slack Notification<br/>Channel: #alerts<br/>Severity: Warning]
-    AlertEngine -->|❌ Critical| PagerDuty[📟 PagerDuty Alert<br/>On-call Engineer<br/>Severity: Critical]
-
-    SlackAlert --> IncidentLog[📝 Incident Log<br/>Track Issue<br/>Response Time]
-    PagerDuty --> IncidentLog
-    Continue --> IncidentLog
-
-    IncidentLog --> HistoricalAnalysis[📈 Historical Analysis<br/>Trend Detection<br/>Capacity Planning]
-
-    HistoricalAnalysis --> Optimization[⚙️ Workflow Optimization<br/>Bottleneck Identification<br/>Performance Tuning]
-
-    style Workflows fill:#e8f5e9
-    style AlertEngine fill:#fff4e1
-    style PagerDuty fill:#ffcdd2
-    style SlackAlert fill:#fff9c4
-    style Continue fill:#d4edda
-```
-
-### Key Metrics Tracked
-
-| Metric Category     | Metrics                 | Target                                | Alert Threshold    |
-| ------------------- | ----------------------- | ------------------------------------- | ------------------ |
-| **Latency**         | Article generation time | <5 min (breaking), <15 min (analysis) | >10 min (breaking) |
-| **Quality**         | Average quality score   | >0.85                                 | <0.75              |
-| **Accuracy**        | Fact-check pass rate    | >90%                                  | <80%               |
-| **Throughput**      | Articles/hour           | >10                                   | <5                 |
-| **Availability**    | System uptime           | 99.9%                                 | <99.5%             |
-| **User Experience** | Page load time          | <2s                                   | >5s                |
-
----
-
-## 🎯 Event-Driven Architecture Flow
-
-**Reactive system** responding to EP events in real-time.
-
-```mermaid
-flowchart TD
-    EPEvents[🌍 European Parliament Events] --> EventBus[📡 Event Bus<br/>Kafka / Redis Streams]
-
-    EventBus --> Filter[🔍 Event Filter<br/>Relevance Check<br/>Deduplication]
-
-    Filter --> Router{🔀 Event Router<br/>Event Type}
-
-    Router -->|Plenary Vote| VoteHandler[🗳️ Vote Event Handler<br/>Generate Breaking News<br/>Priority: P0]
-    Router -->|Committee Meeting| CommitteeHandler[📋 Committee Handler<br/>Generate Analysis<br/>Priority: P1]
-    Router -->|Document Published| DocHandler[📄 Document Handler<br/>Generate Summary<br/>Priority: P2]
-    Router -->|Question Filed| QuestionHandler[❓ Question Handler<br/>Generate Update<br/>Priority: P3]
-
-    VoteHandler --> ArticleQueue[📥 Article Generation Queue<br/>Bull/Redis]
-    CommitteeHandler --> ArticleQueue
-    DocHandler --> ArticleQueue
-    QuestionHandler --> ArticleQueue
-
-    ArticleQueue --> GenerationFlow[🔄 Article Generation Flow<br/>See Main Flow Above]
-
-    GenerationFlow --> PublishEvent[📤 Publish Event<br/>article.published]
-
-    PublishEvent --> Subscribers[📢 Event Subscribers]
-
-    Subscribers --> WebSocketPush[📱 WebSocket Push<br/>Real-time Client Updates]
-    Subscribers --> CacheInvalidation[🗑️ Cache Invalidation<br/>Clear Old Cache]
-    Subscribers --> SearchReindex[🔍 Search Reindex<br/>Update Elasticsearch]
-    Subscribers --> AnalyticsTrack[📊 Analytics Tracking<br/>Event Logging]
-
-    style EPEvents fill:#e8f5e9
-    style Router fill:#fff4e1
-    style ArticleQueue fill:#e1f5ff
-```
-
----
-
-## 🔄 Continuous Improvement Loop
-
-**Self-optimizing system** learning from quality metrics.
-
-```mermaid
-flowchart TD
-    MonitorPerformance[📊 Monitor Performance<br/>Quality Scores<br/>User Feedback] --> CollectData[📈 Collect Training Data<br/>High-Quality Articles<br/>Low-Quality Articles]
-
-    CollectData --> AnalyzePatterns[🔍 Analyze Patterns<br/>What Makes Quality?<br/>Common Failures]
-
-    AnalyzePatterns --> RetrainModels[🧠 Retrain ML Models<br/>Quality Scorer<br/>Fact-Checker]
-
-    RetrainModels --> ValidateModels[✅ Validate Models<br/>Test Set Performance<br/>A/B Testing]
-
-    ValidateModels --> DeployModels{Deploy New Models?}
-
-    DeployModels -->|Improved Performance| CanaryDeploy[🐤 Canary Deployment<br/>10% Traffic<br/>Monitor Metrics]
-    DeployModels -->|No Improvement| KeepCurrent[✋ Keep Current Models<br/>Investigate Issues]
-
-    CanaryDeploy --> CanaryResults{Canary Success?}
-    CanaryResults -->|✅ Success| FullDeploy[🚀 Full Deployment<br/>100% Traffic<br/>Promote to Production]
-    CanaryResults -->|❌ Failure| Rollback[↩️ Rollback<br/>Revert to Previous<br/>Post-mortem]
-
-    FullDeploy --> UpdatePrompts[📝 Update Prompts<br/>LLM Prompt Library<br/>Best Practices]
-
-    UpdatePrompts --> DocumentLearnings[📚 Document Learnings<br/>Internal Wiki<br/>Team Knowledge Base]
-
-    DocumentLearnings --> MonitorPerformance
-
-    KeepCurrent --> MonitorPerformance
-    Rollback --> MonitorPerformance
-
-    style MonitorPerformance fill:#e8f5e9
-    style DeployModels fill:#fff4e1
-    style CanaryResults fill:#fff4e1
-    style FullDeploy fill:#d4edda
+    style Observe fill:#e8f5e9
+    style Human fill:#fff4e1
+    style Result fill:#fff4e1
     style Rollback fill:#ffcdd2
+    style Promote fill:#d4edda
 ```
-
----
-
-## 📚 Workflow Comparison: Current vs. Future
-
-| Process Step           | Current (2026)         | Future (2027)             | Improvement        |
-| ---------------------- | ---------------------- | ------------------------- | ------------------ |
-| **Event Detection**    | Scheduled poll (daily) | Real-time stream (<5s)    | 17,280x faster     |
-| **Data Fetching**      | Batch HTTP requests    | Streaming WebSocket       | Continuous updates |
-| **Content Generation** | Single LLM call        | Multi-stage pipeline      | 2x quality         |
-| **Quality Control**    | None                   | ML-automated (95%)        | Significant        |
-| **Fact-Checking**      | Manual (optional)      | Automated (90%+ accuracy) | 10x faster         |
-| **Translation**        | Batch neural MT        | LLM-enhanced streaming    | Native quality     |
-| **Publication**        | Git commit (minutes)   | CDN push (<1s)            | 60x faster         |
-| **User Notification**  | None                   | WebSocket + Push          | Real-time          |
-| **Monitoring**         | Basic logs             | Full observability        | Deep insights      |
 
 ---
 
 ## 📊 Performance Targets
 
-### SLA Targets (Phase 4 - Production)
+### v2.0 — Static-Enhanced Targets
 
-| Metric                    | Target                            | Monitoring           |
-| ------------------------- | --------------------------------- | -------------------- |
-| **Breaking News Latency** | <2 minutes (event to publication) | Real-time alerting   |
-| **Analysis Latency**      | <15 minutes                       | Dashboard tracking   |
-| **Quality Score (Avg)**   | >0.85                             | Daily reports        |
-| **Fact-Check Accuracy**   | >90% vs. manual review            | Weekly audits        |
-| **Translation Quality**   | >0.80 (all languages)             | Sampling reviews     |
-| **System Uptime**         | 99.9%                             | Datadog monitoring   |
-| **API Response Time**     | <200ms (P95)                      | Continuous profiling |
-| **Error Rate**            | <0.5%                             | Automated alerting   |
+| Metric | Target | Monitoring |
+| ------ | ------ | ---------- |
+| **Build-to-publish (full site)** | <30 min per scheduled run | GitHub Actions timing |
+| **Dashboard dataset freshness** | ≤ daily (per EP feed cadence) | Provenance timestamps |
+| **Page load (LCP)** | <2.0 s on CloudFront edge | RUM / Lighthouse CI |
+| **Analysis quality floor** | All artifacts meet reference thresholds | Stage-C quality gate |
+| **Accessibility** | WCAG 2.1 AA | axe-core CI |
+| **Languages** | 14 complete | Aggregator coverage check |
+
+### v3.0+ — AWS Serverless Targets
+
+| Metric | Target | Monitoring |
+| ------ | ------ | ---------- |
+| **Event ingestion latency** | <30 s (event → indexed) | CloudWatch + X-Ray |
+| **Breaking analysis (assisted)** | <5 min event → reviewed draft | Step Functions metrics |
+| **API response (P95)** | <200 ms | API Gateway / AppSync metrics |
+| **NL query (P95)** | <3 s grounded answer | Bedrock + X-Ray traces |
+| **Static edge availability** | 99.99% (CloudFront + S3) | CloudWatch Synthetics |
+| **Guardrail block accuracy** | >95% neutrality/PII enforcement | Bedrock Guardrails reports |
+| **Cost per 1k API calls** | Within serverless budget envelope | Cost Explorer / Budgets |
+
+---
+
+## 📚 Workflow Comparison: Current vs v2.0 vs v3.0
+
+| Process Step | Current (v1.0.x) | v2.0 (Static-Enhanced) | v3.0+ (AWS Serverless) |
+| ---------------------- | ---------------------- | ------------------------- | ------------------ |
+| **Event detection** | Scheduled `gh-aw` cron | Scheduled cron (richer matrix) | EventBridge + Kinesis (<30 s) |
+| **Compute substrate** | GitHub Actions runners | GitHub Actions runners | Lambda + Step Functions |
+| **Data fetching** | EP MCP batch | EP MCP + WB/IMF enrichment | Streaming ingestion adapters |
+| **Analysis authoring** | LLM → markdown | LLM + 51-template OSINT | Bedrock + KB RAG + Agents |
+| **Quality control** | 2-pass review | ICD 203 + Admiralty + 2-pass | Guardrails + human sign-off |
+| **Dashboards** | In-article Chart.js/D3 | Pre-computed party/landscape | Live AppSync/API Gateway data |
+| **Rendering** | Aggregator → HTML | Aggregator → HTML | Aggregator (edge) + dynamic APIs |
+| **Data stores** | Committed markdown/JSON | Committed artifacts + cache | DynamoDB · Aurora · OpenSearch · Neptune |
+| **Query** | None (pre-rendered) | Client-side faceted filter | NL query over knowledge graph |
+| **Identity** | None (public static) | None (public static) | Amazon Cognito federated auth |
+| **Delivery** | S3 + CloudFront | S3 + CloudFront | CloudFront edge + serverless APIs |
+| **Observability** | Actions logs | Actions logs + RUM | CloudWatch · X-Ray · CloudTrail |
 
 ---
 
 ## 🔮 Visionary Workflow Roadmap: 2027-2037
 
-### AI-Powered Workflow Evolution
+The platform's workflows evolve from human-orchestrated `gh-aw` pipelines, through
+AWS-native serverless OSINT operations, toward increasingly autonomous — but always
+human-accountable — agentic intelligence. Three principles hold across the decade:
+**model-agnostic routing** (no single-vendor lock-in via Amazon Bedrock),
+**neutrality and provenance by construction**, and **AI as a proposal generator**
+with humans accountable for every publish (per the
+[AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md)).
 
-As Anthropic Opus 4.7 evolves (minor updates every ~2.3 months, major version
-upgrades annually) alongside competitors and potential AGI breakthroughs, the
-platform's workflows will transform from human-orchestrated pipelines to
-autonomous intelligence operations.
+### AI Model Evolution — DevSecOps & Development Perspective
 
-### Phase 5: Autonomous Content Operations (2027-2029)
+| Year | AI Model | DevSecOps Capability Evolution |
+| ---- | -------- | ------------------------------ |
+| 2026 | Opus 4.6–4.9 | 🟢 AI-assisted code review, automated test generation, agentic CI/CD workflows |
+| 2027 | Opus 5.x | 🔵 Predictive vulnerability detection, intelligent dependency management |
+| 2028 | Opus 6.x | 🟣 Multi-modal security analysis (code + architecture + runtime), automated threat modeling |
+| 2029 | Opus 7.x | 🟠 Autonomous security pipeline orchestration, self-healing build systems |
+| 2030 | Opus 8.x | 🔴 Near-expert automated security review, AI-driven architecture validation |
+| 2031–2033 | Opus 9–10.x / Pre-AGI | ⚪ Autonomous secure development lifecycle management |
+| 2034–2037 | AGI / Post-AGI | ⭐ Transformative software engineering with built-in security assurance |
 
-- **Self-Directing Workflows**: AI agents autonomously decide what content to
-  generate based on parliamentary activity signals, news relevance scoring,
-  and audience demand patterns
-- **Multi-Model Routing**: Intelligent workflow routing that selects optimal
-  LLM (Opus 5.x, competitors, open-source models) per task based on cost,
-  quality, and latency requirements
-- **Zero-Touch Publishing**: End-to-end content pipeline from event detection
-  to multi-language publication without human intervention for routine articles
-- **Real-Time Collaborative Editing**: AI agents collaboratively refine
-  articles, with specialized agents for fact-checking, style, and translation
+> **Assumptions:** major AI model upgrades occur annually; competitors (OpenAI,
+> Google, Meta, EU sovereign AI) are evaluated at each release; the architecture
+> accommodates potential paradigm shifts (quantum AI, neuromorphic computing).
+> Full cross-perspective analysis lives in the Hack23 Information Security Strategy
+> § AI Model Evolution Strategy; governance per
+> [AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md).
+
+### Phase 5: Autonomous Agentic Pipelines — Assisted (2027-2029)
+
+- **Self-Directing OSINT Workflows**: Bedrock Agents propose which analyses to
+  generate based on parliamentary-activity signals and significance scoring; humans
+  approve scope. AI decides *what to draft*, not *what to publish*.
+- **Model-Agnostic Bedrock Routing**: every generation task routed to the optimal
+  foundation model (Opus 5.x, Amazon Nova, open-source) by cost, quality, and
+  latency — swappable without rewriting pipelines.
+- **Zero-Touch Drafting, Human Publish**: routine summaries flow end-to-end to a
+  reviewed draft automatically; a human editor remains the accountable gate before
+  CloudFront publication.
 
 ### Phase 6: Predictive Intelligence Workflows (2029-2032)
 
-- **Anticipatory Content Generation**: Pre-generate analytical frameworks for
-  upcoming votes, debates, and committee sessions based on calendar and
-  political intelligence
-- **Dynamic Workflow Composition**: AI composes optimal workflow graphs
-  on-the-fly based on content type, urgency, and quality requirements
-- **Cross-Parliament Synthesis Flows**: Automated workflows that detect related
-  legislative activity across 27+ parliaments and generate comparative analysis
-- **Citizen-Triggered Workflows**: Citizens request specific analyses that
-  spawn custom AI workflow pipelines
+- **Anticipatory Frameworks**: Step Functions pre-stage analytical scaffolds for
+  upcoming votes and committee sessions from the EP calendar in Neptune.
+- **Dynamic Workflow Composition**: Bedrock Agents assemble optimal Step Functions
+  graphs on demand by content type, urgency, and quality requirement.
+- **Cross-Parliament Synthesis**: serverless fan-out detects related legislative
+  activity across multiple parliaments for comparative, neutral analysis.
 
 ### Phase 7: Cognitive Workflow Intelligence (2032-2035)
 
-- **Causal Analysis Pipelines**: Workflows that trace legislative impacts
-  through economic, social, and environmental indicators
-- **Adaptive Quality Standards**: AI dynamically adjusts quality gates based on
-  content sensitivity, audience, and regulatory context
-- **Global Event Correlation**: Real-time correlation of parliamentary events
-  worldwide to identify global legislative trends
+- **Causal Analysis Pipelines**: trace legislative impacts through economic
+  (IMF/World Bank), social, and environmental indicators with cited evidence chains.
+- **Adaptive Guardrails**: Bedrock Guardrails dynamically tune to content
+  sensitivity and regulatory context while holding the neutrality floor.
+- **Global Event Correlation**: Kinesis + Neptune correlate parliamentary events
+  worldwide to surface emerging legislative trends.
 
-### Phase 8: AGI-Native Operations (2035-2037)
+### Phase 8: AGI-Native Operations — Governed (2035-2037)
 
-- **Fully Autonomous Democratic Monitoring**: AGI-powered systems continuously
-  monitor all covered parliaments with real-time analysis and reporting
-- **Natural Language Workflow Definition**: Stakeholders describe desired
-  analyses in natural language; AGI systems design and execute optimal workflows
-- **Self-Evolving Pipelines**: Workflows that autonomously improve their own
-  processes, quality metrics, and efficiency over time
+- **Continuous Democratic Monitoring**: AGI-class systems monitor covered
+  parliaments with real-time, evidence-cited analysis — under standing human
+  oversight and audit (CloudTrail, Security Hub).
+- **Natural-Language Workflow Definition**: stakeholders describe desired analyses
+  in plain language; systems design and execute optimal serverless workflows,
+  subject to AI-Policy approval gates.
+- **Self-Evolving, Human-Accountable Pipelines**: workflows propose their own
+  efficiency and quality improvements; promotion always requires human sign-off and
+  canary validation — never autonomous production deploy.
 
 ---
 
 ## 📚 References
 
-### Current State
+### Current State (v1.0.x)
 
 - [Current Flowchart](FLOWCHART.md)
 - [Current Architecture](ARCHITECTURE.md)
 - [Current Data Model](DATA_MODEL.md)
+- [Current State Diagram](STATEDIAGRAM.md)
 
 ### Future State
 
 - [Future Architecture](FUTURE_ARCHITECTURE.md)
 - [Future Data Model](FUTURE_DATA_MODEL.md)
 - [Future State Diagram](FUTURE_STATEDIAGRAM.md)
+- [Future Mindmap](FUTURE_MINDMAP.md)
+- [Future SWOT](FUTURE_SWOT.md)
+- [Future Security Architecture](FUTURE_SECURITY_ARCHITECTURE.md)
+- [Future Threat Model](FUTURE_THREAT_MODEL.md)
+- [Future Workflows](FUTURE_WORKFLOWS.md)
 
-### Technologies
+### AWS Services Referenced
 
-- Bull Queue: https://optimalbits.github.io/bull/
-- LangChain: https://langchain.com/
-- OpenTelemetry: https://opentelemetry.io/
-- LanguageTool: https://languagetool.org/
+- AWS Lambda — https://aws.amazon.com/lambda/
+- AWS Step Functions — https://aws.amazon.com/step-functions/
+- Amazon EventBridge — https://aws.amazon.com/eventbridge/
+- Amazon Kinesis — https://aws.amazon.com/kinesis/
+- Amazon API Gateway — https://aws.amazon.com/api-gateway/
+- AWS AppSync — https://aws.amazon.com/appsync/
+- Amazon Cognito — https://aws.amazon.com/cognito/
+- Amazon DynamoDB — https://aws.amazon.com/dynamodb/
+- Amazon Aurora Serverless v2 — https://aws.amazon.com/rds/aurora/serverless/
+- Amazon OpenSearch Serverless — https://aws.amazon.com/opensearch-service/
+- Amazon Neptune Serverless — https://aws.amazon.com/neptune/
+- Amazon Bedrock — https://aws.amazon.com/bedrock/
+- Amazon SageMaker — https://aws.amazon.com/sagemaker/
+- Amazon CloudFront — https://aws.amazon.com/cloudfront/
+
+### Governance & Methodology
+
+- [Hack23 AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md)
+- [OSINT Tradecraft Standards](analysis/methodologies/osint-tradecraft-standards.md)
+- [Artifact Catalog (51 templates)](analysis/methodologies/artifact-catalog.md)
+- [Political Threat Framework v4.0](analysis/methodologies/political-threat-framework.md)
 
 ---
 
 **Document Status**: ✅ **APPROVED FOR PLANNING**  
-**Next Review**: 2026-05-24 (Quarterly)  
+**Last Updated**: 2026-05-31 (UTC) | **Release**: v1.0.1  
+**Next Review**: 2026-08-31 (Quarterly)  
 **Classification**: Public
