@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.1-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last
+**📋 Document Owner:** CEO | **📄 Version:** 4.1 | **📅 Last
 Updated:** 2026-05-31 (UTC) | **🚀 Release:** v1.0.1  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
@@ -994,6 +994,128 @@ Security is **defence-in-depth and PUBLIC-data-only by design.**
   intelligence-operative GDPR duty; processing recorded per Art. 30.
 - See [FUTURE_SECURITY_ARCHITECTURE.md](FUTURE_SECURITY_ARCHITECTURE.md) and
   [FUTURE_THREAT_MODEL.md](FUTURE_THREAT_MODEL.md) for the full control set.
+
+---
+
+## 🕵️ Political Intelligence Data Capabilities (2026 → 2037)
+
+The stores above hold the **base** political data — MEPs, groups, votes, dossiers.
+This section adds the **intelligence-grade** data structures required by the OSINT
+capability roadmap in
+[FUTURE_MINDMAP.md](FUTURE_MINDMAP.md#-political-intelligence-capability-roadmap--ai-driven-osint-tradecraft-2026--2037)
+and realised architecturally in
+[FUTURE_ARCHITECTURE.md](FUTURE_ARCHITECTURE.md#-intelligence-capability-architecture-2026--2037).
+Each new entity family is the data backbone of a missing capability a senior
+intelligence operative would expect — and every one stays inside the **PUBLIC
+open-data, public-parliamentary-role** boundary with provenance attached.
+
+> **GDPR / neutrality invariant.** New entities describe **public roles, public
+> declarations, public documents, and public discourse only**. No private-life
+> attribute, no protected characteristic, and no psychographic field is ever
+> modelled. Integrity findings are stored as *questions with evidence*, never as
+> adjudicated accusations.
+
+### New Intelligence Entity Families
+
+| Capability | New Entities | Store | Horizon |
+| ---------- | ------------ | ----- | ------- |
+| **Collection management / PIR** | `IntelligenceRequirement`, `CollectionTask`, `CoverageGap` | DynamoDB | 🟢 v2.0 → 🔵 v3.0 |
+| **Indications and Warning** | `Indicator`, `Watchlist`, `WarningEvent`, `Tripwire` | DynamoDB + Kinesis | 🔵 v3.0 |
+| **Integrity / conflict-of-interest** | `FinancialInterest`, `OutsideActivity`, `RegisterEntry`, `Meeting`, `InterestOrganization` | Aurora + Neptune | 🔵 v3.1 |
+| **Verbatim speech intelligence** | `Speech`, `Utterance`, `StanceSignal` | Aurora + OpenSearch | 🔵 v3.1 |
+| **Counter-FIMI** | `Narrative`, `MediaItem`, `NarrativeCampaign`, `FIMIIncident` | OpenSearch + Neptune | ⚪ v3.2 |
+| **Forecasting + ACH** | `Forecast`, `Hypothesis`, `ConfidenceAssessment`, `RedTeamReview` | Aurora | 🔵 v3.0 |
+| **Provenance + authenticity** | `EvidenceChain`, `SourceGrade`, `ContentCredential` | S3 + Neptune | 🟢 → ⚪ v3.2 |
+
+### Knowledge-Graph Extensions (openCypher)
+
+These vertices and edges extend the v3.0 Neptune
+[political knowledge graph](#-amazon-neptune-serverless--political-knowledge-graph)
+so multi-hop **influence and integrity** tracing becomes a single query.
+
+```cypher
+// New PUBLIC-only intelligence vertices
+(:InterestOrganization {org_id, name, register_id, country, category})
+(:RegisterEntry {entry_id, declared_interest, lobby_budget_band, updated})
+(:Meeting {meeting_id, date, subject, dossier_ref})
+(:FinancialInterest {decl_id, type, declared_on, source})
+(:Narrative {narrative_id, theme, first_seen, languages})
+(:FIMIIncident {incident_id, disarm_ttp, confidence_band, status})
+(:Indicator {indicator_id, name, baseline, threshold})
+(:WarningEvent {warning_id, level, raised_at, confirmed_by})
+
+// New edges — every edge references a PUBLIC EP / register source
+(:MEP)-[:DECLARED {declared_on}]->(:FinancialInterest)
+(:MEP)-[:MET_WITH {date}]->(:InterestOrganization)
+(:InterestOrganization)-[:LISTED_IN]->(:RegisterEntry)
+(:InterestOrganization)-[:LOBBIED_ON]->(:Dossier)
+(:Meeting)-[:CONCERNS]->(:Dossier)
+(:Narrative)-[:REFERENCES]->(:Dossier)
+(:FIMIIncident)-[:AMPLIFIES]->(:Narrative)
+(:Indicator)-[:WATCHES]->(:PoliticalGroup)
+(:WarningEvent)-[:RAISED_BY]->(:Indicator)
+```
+
+```cypher
+// Integrity question (NOT an accusation): rapporteurs whose dossier overlaps a
+// declared outside interest AND a registered lobby meeting on the same dossier.
+MATCH (m:MEP)-[:SITS_ON {role:'Rapporteur'}]->(:Committee)-[:RESPONSIBLE_FOR]->(d:Dossier),
+      (m)-[:DECLARED]->(fi:FinancialInterest),
+      (m)-[:MET_WITH]->(o:InterestOrganization)-[:LOBBIED_ON]->(d)
+RETURN m.full_name AS public_role, d.procedure_ref, fi.type, o.name
+ORDER BY d.procedure_ref;
+// Output is a SOURCED prompt for journalistic review, WEP-banded, human-reviewed.
+```
+
+### Indications-and-Warning Indicator Schema (DynamoDB)
+
+The I&W store turns the abstract "warning problem" into queryable indicators with
+calibrated tripwires and an auditable promotion history.
+
+```json
+{
+  "PK": "WATCHLIST#coalition-collapse",
+  "SK": "INDICATOR#cohesion-decline-EPP",
+  "indicator": "EPP roll-call cohesion 30-day rolling mean",
+  "baseline": 0.92,
+  "current": 0.81,
+  "tripwire": 0.85,
+  "deviation_sigma": 2.4,
+  "confidence_band": "likely (WEP 55-70%)",
+  "state": "WARNING",
+  "evidence_vote_ids": ["RCV-2029-0412", "RCV-2029-0418"],
+  "raised_at": "2029-03-14T09:00:00Z",
+  "human_confirmed_by": "analyst-on-duty",
+  "anchoring_methodology": "coalition-dynamics-analysis.md"
+}
+```
+
+### Forecast and Hypothesis Schema (Aurora)
+
+Predictive products are stored with their **competing hypotheses, confidence band,
+and red-team review** attached — never a bare point estimate — so every forecast is
+auditable against the outcome and the analytic track record is measurable.
+
+```sql
+CREATE TABLE forecast (
+  forecast_id      uuid PRIMARY KEY,
+  subject_ref      text NOT NULL,          -- dossier / coalition / election
+  question         text NOT NULL,          -- the estimative question
+  estimate         numeric,                -- probability 0..1
+  wep_band         text NOT NULL,          -- Kent / Words of Estimative Probability
+  confidence       text NOT NULL,          -- ICD 203 low/moderate/high
+  competing_hyps   jsonb NOT NULL,         -- >= 2 hypotheses required
+  red_team_review  jsonb,                  -- devil's-advocate dissent record
+  evidence_chain   jsonb NOT NULL,         -- cited PUBLIC sources
+  resolved_outcome numeric,                -- filled after the event for calibration
+  human_signoff    text NOT NULL
+);
+```
+
+> **Calibration loop.** `resolved_outcome` closes the feedback arm of the
+> intelligence cycle: forecast accuracy is scored over time (Brier-style), feeding
+> the analytic track record and re-tasking the collection plan — the data-model
+> realisation of "be early *and* honest about it".
 
 ---
 

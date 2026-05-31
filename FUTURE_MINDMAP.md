@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-5.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-5.2-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 5.1 | **📅 Last
+**📋 Document Owner:** CEO | **📄 Version:** 5.2 | **📅 Last
 Updated:** 2026-05-31 (UTC) | **🚀 Release:** v1.0.1  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
@@ -1317,6 +1317,252 @@ mindmap
       Neutral Descriptive Framing
 ```
 
+### Collection Management and Priority Intelligence Requirements
+
+Professional intelligence does not collect everything — it collects **against
+requirements**. The missing discipline today is an explicit **Priority
+Intelligence Requirements (PIR)** layer that tasks the agentic collectors,
+declares **named areas of interest** (a contested dossier, a fracturing group, an
+election cycle), measures **collection coverage versus gaps**, and re-tasks when a
+gap is found. This turns the EP MCP harvest from opportunistic scraping into a
+**managed collection plan** with auditable provenance — the front end of the OSINT
+cycle the platform otherwise jumps over.
+
+```mermaid
+mindmap
+  root((Collection Management and PIR))
+    Requirements Definition
+      Standing Intelligence Requirements
+      Event Driven Ad Hoc Requirements
+      Named Areas of Interest
+      Essential Elements of Information
+    Collection Tasking
+      Agentic Collector Assignment
+      Source Prioritization by Reliability
+      Refresh Cadence per Requirement
+      Deduplication and Cost Control
+    Coverage and Gap Tracking
+      Requirement Coverage Scoring
+      Collection Gap Detection
+      Single Source Dependency Flags
+      Stale Requirement Alerts
+    Re Tasking Loop
+      Gap Driven Recollection
+      Requirement Retirement
+      Analyst Feedback Intake
+      Provenance Manifest Update
+```
+
+### Indications and Warning — The Warning Problem
+
+The single largest tradecraft gap for a high-level operative is a formal
+**Indications and Warning (I&W)** system. Drift alerts exist, but there is no
+codified **warning problem**, no **watchlist of indicators**, no **tripwire
+thresholds**, and no **escalation ladder** translating a signal into a graded
+warning a journalist or researcher can act on. I&W is the discipline of being
+**early and calibrated** rather than merely descriptive after the fact — coalition
+collapse, a whip rebellion, a rushed trilogue, an abnormal abstention bloc — each
+expressed as watched indicators with WEP-banded confidence.
+
+```mermaid
+mindmap
+  root((Indications and Warning System))
+    Warning Problems
+      Coalition Collapse Watch
+      Whip Rebellion Watch
+      Rushed Legislation Watch
+      Abstention Bloc Watch
+      Group Realignment Watch
+    Indicator Library
+      Cohesion Decline Indicator
+      Cross Group Vote Migration
+      Attendance Anomaly Indicator
+      Amendment Surge Indicator
+      Rhetoric Escalation Indicator
+    Tripwire Thresholds
+      Calibrated Warning Levels
+      Confidence Banded Triggers
+      False Alarm Suppression
+      Baseline Deviation Scoring
+    Escalation Ladder
+      Watch to Warning Promotion
+      Human Confirmation Gate
+      Graded Notification Output
+      After Action Calibration Review
+```
+
+### Counter-FIMI and Foreign-Influence Tradecraft
+
+Counter-disinformation is named above; the **operative-grade** extension is
+structured **Foreign Information Manipulation and Interference (FIMI)** analysis
+aligned to the EEAS / DISARM framework — tagging adversary **tactics, techniques
+and procedures (TTPs)**, framing incidents with a neutral **ABCDE** actor model,
+and tracing **coordinated inauthentic amplification** of narratives around EP
+activity. This stays strictly **defensive and descriptive** — detection and
+context for citizens, never influence, never attribution beyond the evidence, never
+targeting of individuals.
+
+```mermaid
+mindmap
+  root((Counter FIMI Tradecraft))
+    Incident Framing
+      DISARM TTP Tagging
+      Actor Behaviour Content Model
+      Narrative and Vector Mapping
+      Effect and Reach Estimation
+    Coordination Detection
+      Coordinated Inauthentic Signals
+      Amplification Network Patterns
+      Cross Language Narrative Sync
+      Bot and Sockpuppet Heuristics
+    EP Linkage Analysis
+      Narrative to Dossier Mapping
+      Targeted MEP Role Context
+      Third Country Talking Point Match
+      Timeline Correlation with Votes
+    Defensive Boundaries
+      Detection Not Influence
+      Evidence Bounded Attribution
+      No Individual Targeting
+      Public Interest Context Only
+```
+
+### Integrity, Declarations, and Conflict-of-Interest Analytics
+
+The Qatargate era proved that parliamentary **integrity** is itself an
+intelligence problem. Using only **public** declarations of financial interests,
+the Transparency Register, and roll-call records, AI can surface **lobby-to-vote
+correlations**, **revolving-door** patterns, **third-country influence exposure**,
+and **undeclared-interest anomalies** — every finding sourced, WEP-banded, and
+framed as a question for journalists, never as an accusation.
+
+```mermaid
+mindmap
+  root((Integrity and Conflict of Interest))
+    Declaration Analytics
+      Financial Interest Parsing
+      Outside Activity Mapping
+      Gift and Travel Disclosure Review
+      Declaration Completeness Scoring
+    Lobby to Vote Linkage
+      Register Meeting to Dossier Match
+      Rapporteur Interest Overlap
+      Amendment Sponsor Influence Trace
+      Temporal Proximity Signals
+    Revolving Door Patterns
+      Pre Mandate Affiliation Trace
+      Post Mandate Destination Watch
+      Staff and Advisor Linkage
+      Sector Concentration Mapping
+    Strict Framing
+      Public Declarations Only
+      Question Not Accusation
+      Evidence Linked Findings
+      Human Reviewed Before Release
+```
+
+### Verbatim Speech and Debate Intelligence
+
+Today the platform reads documents and votes; it does not yet **listen**. Verbatim
+**plenary and committee debate** is a rich, under-exploited source. AI
+speech-to-text with speaker diarisation, plus stance, framing, and sentiment NLP
+across all 24 EU languages, converts hours of oratory into structured signals —
+**rhetoric drift**, **position reversals**, **talking-point synchronisation**, and
+**issue-salience shifts** — all linked back to the speaker's public role.
+
+```mermaid
+mindmap
+  root((Verbatim Speech Intelligence))
+    Capture and Transcription
+      Plenary Stream ASR
+      Speaker Diarisation
+      Multilingual Verbatim Alignment
+      Official Record Reconciliation
+    Discourse Analytics
+      Stance and Position Detection
+      Framing and Rhetoric Drift
+      Sentiment and Tone Trends
+      Topic and Issue Salience
+    Cross Reference
+      Speech to Vote Consistency
+      Talking Point Synchronization
+      Position Reversal Detection
+      Group Message Discipline
+    Guardrails
+      Public Debate Record Only
+      Role Bounded Attribution
+      Translation Confidence Flags
+      No Tone Based Profiling
+```
+
+### Analytic Wargaming and Structured Red-Teaming
+
+ACH is in the methodology library; the **adversarial** complement is not. A
+high-level operative expects **structured red-teaming** — Team A versus Team B
+competitive analysis, a standing **devil's advocate** agent, **key-assumptions
+checks**, and **what-if wargaming** that stress-tests every forecast before it
+ships. This is how analytic overconfidence is caught before publication, not after.
+
+```mermaid
+mindmap
+  root((Analytic Wargaming and Red Teaming))
+    Competitive Analysis
+      Team A Team B Hypotheses
+      Standing Devils Advocate Agent
+      Key Assumptions Check
+      Pre Mortem Failure Analysis
+    What If Simulation
+      Coalition Defection Branches
+      Vote Threshold Stress Tests
+      Exogenous Shock Injection
+      Historical Analogue Comparison
+    Overconfidence Control
+      Confidence Deconfliction
+      Dissent Recording
+      Calibration Against Outcomes
+      Forecast Track Record Scoring
+    Discipline
+      Competing Hypotheses Required
+      Documented Reasoning Trail
+      Human Adjudication of Splits
+      No Single Model Authority
+```
+
+### Content Authenticity and Model-Neutrality Assurance
+
+Two emerging **assurance** capabilities protect the moat itself. **Content
+authenticity** signs every published artifact with verifiable provenance (C2PA /
+content credentials) so readers can prove what the platform actually said, and
+hardens the pipeline against synthetic-media poisoning. **Model-neutrality
+assurance** continuously audits the underlying models for **political lean**,
+benchmarks sovereign and EU-hosted models, and red-teams outputs for partisanship —
+the safeguard that keeps "AI-driven" from ever meaning "AI-biased".
+
+```mermaid
+mindmap
+  root((Authenticity and Neutrality Assurance))
+    Content Authenticity
+      Provenance Signed Outputs
+      Content Credentials Standard
+      Tamper Evident Evidence Chains
+      Synthetic Media Resistance
+    Model Neutrality Audit
+      Political Lean Benchmarking
+      Sovereign and EU Model Evaluation
+      Partisan Output Red Teaming
+      Bias Drift Monitoring
+    Continuous Evaluation
+      Annual Model Upgrade Review
+      Competitor Model Benchmarks
+      Regression on Neutrality Suite
+      Guardrail Effectiveness Scoring
+    Governance
+      AI Policy Human Accountability
+      Quantum Safe Crypto Migration
+      AGI Readiness Controls
+      Privacy Enhancing Aggregation
+```
+
 ### Political Intelligence Capability Maturity — Year by Year to 2037
 
 This timeline sharpens the thin **Intelligence Capabilities** branch of the
@@ -1327,24 +1573,24 @@ accountable.
 ```mermaid
 timeline
     title Political Intelligence Capability Maturity 2026 to 2037
-    2026 : OSINT quality moat : All MEP scorecards : Coalition mathematics
-    2027 : Confidence calibrated estimates : Electoral retrospective and forecast
-    2028 : Always on verification : Knowledge graph citations : NL intelligence query
-    2029 : Cross parliament comparison : Influence network mapping : Drift early warning
-    2030 : Causal inference on votes : Predictive passage models
-    2031 to 2033 : Mandate fulfilment scoring : Counter disinformation integrity layer
-    2034 to 2037 : Pre AGI assisted assessment with human accountability retained
+    2026 : OSINT quality moat : All MEP scorecards : Coalition mathematics : Collection PIR pilot
+    2027 : Confidence calibrated estimates : Electoral retrospective and forecast : Integrity declaration analytics
+    2028 : Always on verification : Knowledge graph citations : NL intelligence query : Indications and Warning system
+    2029 : Cross parliament comparison : Influence network mapping : Drift early warning : Verbatim speech intelligence
+    2030 : Causal inference on votes : Predictive passage models : Analytic wargaming and red teaming
+    2031 to 2033 : Mandate fulfilment scoring : Counter FIMI integrity layer : Content authenticity provenance
+    2034 to 2037 : Pre AGI assisted assessment with human accountability retained : Model neutrality assurance at scale
 ```
 
 | Year | AI Capability | Political Intelligence Advance |
 | ---- | ------------- | ------------------------------ |
-| 2026 | 🟢 Build-time analytics | All-MEP scorecards, coalition math, source grading |
-| 2027 | 🟢 Calibrated estimation | ICD 203 confidence bands, electoral forecast depth |
-| 2028 | 🔵 Verification at scale | Always-on fact-check, knowledge-graph citations, NL query |
-| 2029 | 🔵 Operations platform | Cross-parliament comparison, influence networks, drift alerts |
-| 2030 | 🔵 Predictive modelling | Causal inference, WEP-banded passage probability |
-| 2031–2033 | ⚪ Deep analytics | Mandate-fulfilment scoring, counter-disinformation layer |
-| 2034–2037 | ⭐ Pre-AGI assistance | Near-expert assessment drafting, human accountability retained |
+| 2026 | 🟢 Build-time analytics | All-MEP scorecards, coalition math, source grading, PIR collection pilot |
+| 2027 | 🟢 Calibrated estimation | ICD 203 confidence bands, electoral forecast depth, integrity / conflict-of-interest analytics |
+| 2028 | 🔵 Verification at scale | Always-on fact-check, knowledge-graph citations, NL query, formal I&W watchlists |
+| 2029 | 🔵 Operations platform | Cross-parliament comparison, influence networks, drift alerts, verbatim speech intelligence |
+| 2030 | 🔵 Predictive modelling | Causal inference, WEP-banded passage probability, analytic wargaming / red-teaming |
+| 2031–2033 | ⚪ Deep analytics | Mandate-fulfilment scoring, counter-FIMI layer (DISARM), content-authenticity provenance |
+| 2034–2037 | ⭐ Pre-AGI assistance | Near-expert assessment drafting + continuous model-neutrality assurance, human accountability retained |
 
 ### Ethics, Neutrality, and the Analytic Boundary
 
@@ -1384,8 +1630,15 @@ mindmap
 > risk scoring, the 5-framework threat model, scenario and wildcard forecasting,
 > electoral domain, media framing, and synthesis briefs — now has an explicit
 > AI-advancement trajectory to 2037 with a feasibility band, an anchoring
-> methodology, and a governing control. The moat is **analytic quality**, and AI is
-> the lever that scales it without ever crossing the neutrality or GDPR boundary.
+> methodology, and a governing control. The v5.2 revision closes the remaining
+> tradecraft gaps a senior operative would flag: a managed **collection plan (PIR)**
+> at the front of the cycle, a formal **Indications and Warning** system for being
+> early rather than retrospective, **counter-FIMI / DISARM** incident framing,
+> **integrity and conflict-of-interest** analytics on public declarations,
+> **verbatim speech intelligence**, **analytic wargaming / red-teaming** against
+> overconfidence, and **content-authenticity plus model-neutrality assurance** to
+> protect the moat itself. The moat is **analytic quality**, and AI is the lever
+> that scales it without ever crossing the neutrality or GDPR boundary.
 
 ---
 
