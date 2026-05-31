@@ -545,6 +545,7 @@ jobs:
           - Never pass `--all` to `generate-article` — it regenerates ALL articles and causes mass file changes.
           - Never pass removed/invalid flags (`--type`, `--lang`, `--language`, `--markdown-only`, `--run-dir`) — they throw errors.
           - Never run `git add news/` or `git add news/*` — this stages every existing article. Stage only this run's specific output files.
+          - Never regenerate HTML files from previous dates — only the current run's article should produce HTML output via `npm run generate-article -- --run "${ANALYSIS_DIR}"`.
           - Dispatch other workflows only via `dispatch-workflow:` (`news-translate`, once after merge).
           - Write files with native `create` / `edit`. `python3` / `ruby` / `perl` heredocs are banned for **any** file — they silently truncate at context limits and trip the bash-safety filter on tokens like *"kill"*. `cat > … << EOF` heredocs are additionally banned for prose. Heredocs stay legal only for short keyword-free structured writes (`jq` → `manifest.json`, SPDX stubs).
           - Pre-size every artifact to its floor on the first `create` call from `runs/thresholds-cache.json`. No `wc -l` → `cat >>` extend loops.
