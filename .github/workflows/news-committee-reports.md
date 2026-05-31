@@ -71,7 +71,7 @@ safe-outputs:
   # Explicit file ceiling raised to 2500 (schema has no upper bound). Single
   # runs typically touch ≤50 files (analysis + article + meta); 2500 gives
   # generous headroom for large analysis runs and catch-up flushes.
-  max-patch-files: 2500
+  max-patch-files: 200
   # Cron retries handle failures; auto-created failure issues are noise.
   report-failure-as-issue: false
   # threat-detection + bundle-prerequisite steps + allowed-domains are inherited

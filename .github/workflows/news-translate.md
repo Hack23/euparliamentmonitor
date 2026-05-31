@@ -148,7 +148,7 @@ safe-outputs:
   # on across all news-* workflows. Translation flushes ≤ max_briefs × 13
   # langs ≈ 52 files; 2500 gives ample headroom for validator reports and
   # retry flushes without ever approaching the cap.
-  max-patch-files: 2500
+  max-patch-files: 200
   steps:
     - name: Fetch triggering commit for bundle prerequisites
       # The safe_outputs job checks out the current branch tip with

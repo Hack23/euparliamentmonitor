@@ -192,11 +192,12 @@ export USE_EP_MCP=true
 
 
 # Deterministic article rendering from the committed analysis artifacts.
-#    Emits news/<TODAY>-${{ github.aw.import-inputs.slug }}.en.md (canonical aggregated markdown) plus
-#    news/<TODAY>-${{ github.aw.import-inputs.slug }}-en.html (rendered article). Always
-#    regenerates article.md + HTML on every run (never no-op): the renderer
-#    overwrites byte-for-byte from the freshly extended/rewritten Stage-B
-#    analysis artifacts.
+#    Emits news/<slug>.en.md (canonical aggregated markdown) plus
+#    news/<slug>-<lang>.html for each supported language (where <slug> is
+#    the full filename stem including date, e.g. 2026-05-30-week-ahead).
+#    Always regenerates article.md + article-meta.json + HTML on every run
+#    (never no-op): the renderer overwrites byte-for-byte from the freshly
+#    extended/rewritten Stage-B analysis artifacts.
 npm run generate-article -- --run "${ANALYSIS_DIR}"
 ```
 
@@ -205,19 +206,20 @@ The renderer is bounded to ≤ 2 min on a typical run. If the gate result is
 the missing artifacts rather than a full prose article.
 
 **Output scope**: `--run "${ANALYSIS_DIR}"` generates ONLY the current
-article's files — `article.md` inside the run directory, plus the
-`news/<slug>.en.md` and `news/<slug>-<lang>.html` variants (where
-`<slug>` is the full filename stem including date, e.g.
+article's files — `article.md` and `article-meta.json` inside the run
+directory, plus the `news/<slug>.en.md` and `news/<slug>-<lang>.html`
+variants (where `<slug>` is the full filename stem including date, e.g.
 `2026-05-30-week-ahead`). It does NOT touch any pre-existing news
 files. Do **NOT** use `--all` (which regenerates every article in the
 repository). The `--type`, `--lang`, `--language`, and `--markdown-only`
 flags do not exist and will throw an error.
 
 **File staging guardrail** (Stage E scope): Never run `git add news/` or
-`git add news/*` — this stages unrelated existing articles. The
-`safeoutputs___create_pull_request` tool handles all file staging
-automatically. Only this run's analysis directory and the specific
-`news/<slug>*` files from the renderer output must be included.
+`git add news/*` — this stages unrelated existing articles. Stage and
+commit only this run's analysis directory and the specific
+`news/<slug>*` files from the renderer output. The
+`safeoutputs___create_pull_request` tool then bundles the committed
+changes into the PR via `git format-patch`.
 
 ### Stage E — Single PR (Ref: 06)
 
@@ -323,9 +325,9 @@ Hard rules — violations fail Stage C or the safe-outputs bundle.
 
 - Call `safeoutputs___create_pull_request` exactly once, at Stage E.
 - Stage D owns `news/**`; do not edit it outside `npm run generate-article`.
-- Pass `--all` to `generate-article` — it regenerates ALL articles and causes mass file changes.
-- Pass removed/invalid flags (`--type`, `--lang`, `--language`, `--markdown-only`, `--run-dir`) — they throw errors.
-- Run `git add news/` or `git add news/*` — this stages every existing article. Let `safeoutputs___create_pull_request` handle file staging.
+- Never pass `--all` to `generate-article` — it regenerates ALL articles and causes mass file changes.
+- Never pass removed/invalid flags (`--type`, `--lang`, `--language`, `--markdown-only`, `--run-dir`) — they throw errors.
+- Never run `git add news/` or `git add news/*` — this stages every existing article. Stage only this run's specific output files.
 - Dispatch other workflows only via `dispatch-workflow:` (`news-translate`, once after merge).
 - Write files with native `create` / `edit`. `python3` / `ruby` / `perl` heredocs are banned for **any** file — they silently truncate at context limits and trip the bash-safety filter on tokens like *"kill"*. `cat > … << EOF` heredocs are additionally banned for prose. Heredocs stay legal only for short keyword-free structured writes (`jq` → `manifest.json`, SPDX stubs).
 - Pre-size every artifact to its floor on the first `create` call from `runs/thresholds-cache.json`. No `wc -l` → `cat >>` extend loops.
