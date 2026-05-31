@@ -517,51 +517,87 @@ quadrantChart
 
 **Mitigation:** Bot detection, behavioral analysis, rate limiting per account, proof-of-work for registration, anomaly detection on voting patterns
 
+#### **Misuse Case 3: Multi-Agent Newsroom Hijacking (v3.0+)**
+
+**Scenario:** With the autonomous multi-agent OSINT newsroom live, an adversary plants an indirect prompt-injection payload inside a legitimate EP committee document. The collector agent ingests it; the embedded instruction propagates to the analyst agent and attempts to make it bias significance-scoring and then instruct the publisher agent to syndicate across all channels — without human review.
+
+**Attack Path:**
+1. Adversary inserts crafted instruction text into an EP source document harvested by a collector agent
+2. Inter-agent cascade carries the payload to the analyst agent (memory/context poisoning)
+3. Payload attempts to escalate the publisher agent to auto-syndicate and skip the human approval gate
+4. If unmitigated, biased analysis reaches RSS/ActivityPub/newsletter/audio channels at scale
+
+**Impact:** Critical — Autonomous, multi-channel propagation of manipulated political analysis from a trusted source
+
+**Mitigation:** Per-agent least-privilege tool scopes, Bedrock Guardrails on every hop, verification agents between stages, inter-agent message provenance tags, immutable Step Functions definitions, and a **hard human approval gate that no agent can bypass** (AI Policy invariant). CloudTrail logs every agent action for audit.
+
+#### **Misuse Case 4: Knowledge-Graph & Source-Onboarding Poisoning (v3.1)**
+
+**Scenario:** As expanded data surfaces (Council, OECD, Eurostat, UN, national parliaments) are onboarded into the Amazon Neptune knowledge graph, an attacker supplies a manipulated dataset through a newly proposed source, aiming to corrupt MEP/party entity relationships that downstream analytics and dashboards rely on.
+
+**Attack Path:**
+1. Self-curating data-surface agent proposes a new institutional source mapping
+2. Manipulated near-duplicate identities trigger entity mis-merge during resolution
+3. Poisoned edges propagate to coalition/voting analytics across products
+
+**Impact:** High — Corrupted graph relationships silently bias many downstream intelligence artifacts
+
+**Mitigation:** Human-approved source registry with Admiralty grading and licensing checks, deterministic entity-resolution rules with confidence thresholds and human adjudication, Neptune write-path validation, signed ingest, and periodic graph-integrity audits with cited evidence chains.
+
 ### **🤔 What-If Analysis**
 
 | What-If Scenario | Probability | Impact | Response Strategy |
 | --- | --- | --- | --- |
 | **What if EP Open Data API introduces authentication?** | Medium | High | Implement OAuth2 client, update MCP server, credential rotation |
-| **What if a major LLM provider has a security breach?** | Low | Critical | Model isolation, fallback to template-based generation, incident response |
-| **What if EU AI Act mandates content labeling?** | High | Medium | Implement AI content disclosure, transparency watermarking |
+| **What if a managed foundation-model provider has a security breach?** | Low | Critical | Model-agnostic Bedrock abstraction, fallback to deterministic templates, incident response |
+| **What if an agent attempts to bypass the human approval gate?** | Low | Critical | Policy-enforced gate, branch protection, deny-by-default deploy, CloudTrail alarm + auto-halt |
+| **What if EU AI Act classifies the agent fleet as high-risk?** | Medium | High | AI risk assessment, human-oversight evidence, content labeling, conformity documentation |
+| **What if a newly onboarded data source is compromised?** | Low | High | Source quarantine, registry revocation, graph rollback, anomaly detection |
 | **What if a federation partner is compromised?** | Low | High | Mutual TLS revocation, data quarantine, partner isolation |
 | **What if coordinated attack targets during EU elections?** | Medium | Critical | Election security protocols, enhanced monitoring, manual override |
+| **What if a denial-of-wallet attack targets serverless endpoints?** | Medium | Medium | Edge caching, concurrency caps, AWS Budgets alarms, WAF rate limiting |
 
 ---
 
 ## 🛡️ Planned Security Controls
 
-### **Phase 2: AI Content Pipeline Security**
+### **v2.0: AI Content & Distribution Security**
 
 | Control | Purpose | Priority | Timeline | STRIDE Mitigation |
 |---|---|---|---|---|
 | **Confidence Scoring System** | Score 0.0-1.0 for each generated article; human review if <0.85 | P1 | Q3 2026 | Tampering |
 | **LLM Output Validation** | Automated fact-checking against official EP data sources | P1 | Q3 2026 | Tampering |
+| **Bedrock Guardrails** | Neutrality, PII/GDPR redaction, hallucination filters on every model call | P1 | Q3 2026 | Tampering, Information Disclosure |
 | **Prompt Injection Detection** | Input sanitization for EP data before LLM processing | P1 | Q3 2026 | Tampering |
-| **Content Integrity Pipeline** | Cross-reference generated content with source EP data | P2 | Q4 2026 | Tampering, Repudiation |
+| **Content Integrity Pipeline** | Deterministic aggregator render (no AI authors HTML); cross-reference with source | P2 | Q4 2026 | Tampering, Repudiation |
 | **AI Bias Detection** | Automated political neutrality checking across 14 languages | P2 | Q4 2026 | Tampering |
-| **Model Provenance Verification** | Signed model artifacts, checksum validation | P1 | Q3 2026 | Tampering |
+| **Feed Signing & Canonical URLs** | Integrity for RSS/Atom/JSON + ActivityPub HTTP-signature verification | P2 | Q4 2026 | Tampering, Spoofing |
+| **Newsletter Double Opt-In + KMS** | Subscriber consent, encrypted list, unsubscribe integrity | P1 | Q4 2026 | Information Disclosure |
 
-### **Phase 3: API & Community Security**
-
-| Control | Purpose | Priority | Timeline | STRIDE Mitigation |
-|---|---|---|---|---|
-| **API Gateway with WAF** | Rate limiting, authentication, request validation | P1 | Q1 2027 | DoS, Tampering |
-| **OAuth2/OIDC Authentication** | Secure user authentication for community features | P1 | Q1 2027 | Spoofing |
-| **Content Moderation System** | Anti-spam, disinformation detection, reporting | P1 | Q2 2027 | Tampering, Repudiation |
-| **GDPR Compliance Layer** | Privacy by design, data minimization, consent management | P1 | Q1 2027 | Information Disclosure |
-| **Real-Time Anomaly Detection** | Monitor live data feeds for integrity violations | P2 | Q2 2027 | Tampering |
-| **GraphQL Query Complexity Limiting** | Prevent denial-of-service via complex queries | P1 | Q1 2027 | DoS |
-
-### **Phase 4: Federation Security**
+### **v3.0+: Agentic, API & Cloud Security**
 
 | Control | Purpose | Priority | Timeline | STRIDE Mitigation |
 |---|---|---|---|---|
-| **Mutual TLS for Federation** | Secure inter-parliament communication | P1 | 2028 | Spoofing, Tampering |
-| **Data Reconciliation Engine** | Cross-validate data between parliament sources | P1 | 2028 | Tampering |
-| **Jurisdiction Compliance Engine** | Automated GDPR/national law compliance checking | P2 | 2028 | Information Disclosure |
-| **Zero-Trust Federation Architecture** | Never trust, always verify partner data | P1 | 2028 | Spoofing, Elevation of Privilege |
-| **Federation Audit Trail** | Immutable logging of all cross-parliament operations | P1 | 2028 | Repudiation |
+| **Per-Agent Least-Privilege IAM** | Scoped tool grants + IAM roles per Bedrock Agent; no write-to-prod | P1 | 2028 | Elevation of Privilege |
+| **Human Approval Gate (no bypass)** | Mandatory sign-off before any publish/merge; deny autonomous deploy | P1 | 2028 | Elevation of Privilege, Repudiation |
+| **Inter-Agent Verification & Provenance** | Verification agents + provenance tags between newsroom stages | P1 | 2028 | Tampering |
+| **Immutable Step Functions Definitions** | IaC-reviewed, integrity-checked orchestration; CloudTrail alarms | P1 | 2028 | Tampering |
+| **Human-Approved Source/Tool Registry** | Admiralty grading + licensing for new sources/MCP tools | P1 | 2028 | Tampering |
+| **Knowledge-Graph Integrity Controls** | Neptune write-path validation, signed ingest, graph audits | P2 | 2029 | Tampering |
+| **API Gateway/AppSync with WAF** | Rate limiting, Cognito auth, query depth/complexity limits | P1 | 2028 | DoS, Tampering, Spoofing |
+| **AWS Hardening Baseline** | IMDSv2, Block Public Access, KMS CMKs + rotation, OIDC deploy roles | P1 | 2028 | Information Disclosure, EoP |
+| **Denial-of-Wallet Guardrails** | Concurrency caps, AWS Budgets alarms, edge caching | P2 | 2028 | DoS |
+
+### **10-Year Lookahead: Federation & Self-Healing Security**
+
+| Control | Purpose | Priority | Timeline | STRIDE Mitigation |
+|---|---|---|---|---|
+| **Mutual TLS for Federation** | Secure inter-parliament communication | P1 | 2031+ | Spoofing, Tampering |
+| **Data Reconciliation Engine** | Cross-validate data between parliament sources | P1 | 2031+ | Tampering |
+| **Jurisdiction Compliance Engine** | Automated GDPR/national law compliance checking | P2 | 2031+ | Information Disclosure |
+| **Zero-Trust Federation Architecture** | Never trust, always verify partner data | P1 | 2031+ | Spoofing, Elevation of Privilege |
+| **Self-Healing Auto-Bump Guardrails** | Recompile + smoke test + human approval before dependency merge | P1 | 2030 | Tampering |
+| **Federation Audit Trail** | Immutable logging of all cross-parliament operations | P1 | 2031+ | Repudiation |
 
 ---
 
@@ -571,20 +607,21 @@ quadrantChart
 
 | Regulation | Effective Date | Impact on EP Monitor | Required Controls |
 | --- | --- | --- | --- |
-| **EU AI Act** | 2026-2027 | AI content generation transparency requirements | AI content labeling, risk assessment, bias detection |
+| **EU AI Act** | 2026-2027 | AI content generation + agentic systems transparency/oversight | AI content labeling, risk assessment, human oversight evidence, bias detection |
 | **EU Cyber Resilience Act (CRA)** | 2027 | Software security requirements for open-source | SBOM, vulnerability disclosure, security updates |
+| **EU Digital Services Act (DSA)** | Already effective | Distribution/syndication of information at scale | Content provenance, transparency reporting, notice-and-action readiness |
 | **NIS2 Directive** | Already effective | Critical infrastructure security (if classified) | Incident reporting, risk management, supply chain security |
-| **GDPR** | Already effective | User data protection for community features | Privacy by design, DPO, DPIA, consent management |
+| **GDPR** | Already effective | Newsletter subscribers + authenticated-consumer data | Privacy by design, DPO, DPIA, consent management |
 | **EU Data Act** | 2025-2026 | Data sharing and interoperability requirements | Data portability, fair access, interoperability standards |
 
 ### **🏛️ Future ISO 27001:2022 Control Mapping**
 
-| Control | Phase 2 Relevance | Phase 3 Relevance | Phase 4 Relevance |
+| Control | v2.0 Relevance | v3.0+ Relevance | 10-Year Relevance |
 | --- | --- | --- | --- |
-| **A.5.23 Cloud Security** | LLM API security | API gateway cloud deployment | Federation cloud architecture |
-| **A.8.9 Configuration Management** | AI pipeline config | API & user config | Federation config management |
-| **A.8.12 Data Leakage Prevention** | LLM output filtering | User data protection | Cross-border data controls |
-| **A.8.25 Secure Development** | AI pipeline testing | API security testing | Federation protocol testing |
+| **A.5.23 Cloud Security** | Bedrock/distribution security | AWS-native serverless platform | Federation cloud architecture |
+| **A.8.9 Configuration Management** | Agent/guardrail config | API, IaC & data-store config | Federation config management |
+| **A.8.12 Data Leakage Prevention** | Guardrail output filtering | User/graph data protection | Cross-border data controls |
+| **A.8.25 Secure Development** | Agent pipeline testing | API + IaC security testing | Federation protocol testing |
 | **A.8.28 Secure Coding** | Prompt engineering | API input validation | Protocol implementation |
 
 ---
@@ -597,14 +634,16 @@ The following developments should trigger a threat model update:
 
 | Indicator | Trigger Action | Review Priority |
 |---|---|---|
-| **New LLM vulnerability class discovered** | Update OWASP LLM Top 10 alignment | 🔴 High |
+| **New LLM / agentic vulnerability class discovered** | Update OWASP LLM + Agentic / MITRE ATLAS alignment | 🔴 High |
 | **EP API major version change** | Re-assess data integrity controls | 🔴 High |
 | **European Parliament election period** | Activate election security protocols | 🔴 High |
+| **New Bedrock Agent / tool onboarded** | Re-scope agent IAM + tool registry review | 🔴 High |
+| **New distribution channel launched (ActivityPub, podcast, API tier)** | Assess distribution-surface threats (FT-004) | 🟡 Medium |
 | **New ENISA Threat Landscape published** | Update ENISA alignment section | 🟡 Medium |
-| **GitHub Actions security advisory** | Review CI/CD security controls | 🟡 Medium |
-| **New EU regulation (AI Act, CRA update)** | Update compliance mapping | 🟡 Medium |
-| **National parliament data source added** | Expand threat model scope | 🟡 Medium |
-| **Major LLM provider breach or incident** | Review AI pipeline security controls | 🔴 High |
+| **GitHub Actions / gh-aw security advisory** | Review CI/CD + self-healing auto-bump controls | 🟡 Medium |
+| **New EU regulation (AI Act, CRA, DSA update)** | Update compliance mapping | 🟡 Medium |
+| **National parliament or institutional data source added** | Expand threat model scope + source registry review | 🟡 Medium |
+| **Managed foundation-model provider breach or incident** | Review AI pipeline + Guardrail controls | 🔴 High |
 | **Federation partner security incident** | Activate partner isolation protocols | 🔴 High |
 
 ### **📅 Future Assessment Lifecycle**
@@ -612,7 +651,7 @@ The following developments should trigger a threat model update:
 | Assessment Type | Frequency | Trigger | Scope |
 | --- | --- | --- | --- |
 | **Quarterly Review** | Every 3 months | Scheduled | Full threat landscape review |
-| **Phase Transition Assessment** | Per architecture phase | Phase completion | New attack surface analysis |
+| **Horizon Transition Assessment** | Per horizon (v2.0 → v3.0+ → 10-year) | Horizon milestone | New attack surface analysis |
 | **Incident-Driven Assessment** | As needed | Security incident | Affected threat categories |
 | **Regulatory Update Assessment** | As needed | New regulation | Compliance impact analysis |
 | **ENISA-Triggered Review** | Annually | ENISA report publication | EU threat landscape alignment |
@@ -623,12 +662,12 @@ The following developments should trigger a threat model update:
 
 ### **📈 Planned Maturity Progression**
 
-| Level | Phase | Capabilities | Evidence |
+| Level | Horizon | Capabilities | Evidence |
 | --- | --- | --- | --- |
-| **🟢 Level 2: Repeatable** | Current | Structured STRIDE analysis, MITRE ATT&CK mapping | THREAT_MODEL.md v2.0 |
-| **🟡 Level 3: Defined** | Phase 2 | AI-specific threat modeling, automated threat detection | OWASP LLM integration, CI/CD security gates |
-| **🟠 Level 4: Managed** | Phase 3 | Quantitative risk assessment, threat intelligence feeds | Real-time monitoring, SIEM integration |
-| **🔴 Level 5: Optimized** | Phase 4 | Predictive threat analysis, automated response | AI-driven threat detection, self-healing controls |
+| **🟢 Level 2: Repeatable** | Current v1.0.x | Structured STRIDE analysis, MITRE ATT&CK mapping | THREAT_MODEL.md v2.4 |
+| **🟡 Level 3: Defined** | v2.0 Enhanced Static | AI/agentic threat modeling, automated threat detection | OWASP LLM/Agentic + ATLAS integration, CI/CD security gates |
+| **🟠 Level 4: Managed** | v3.0+ AWS Serverless | Quantitative risk assessment, threat intelligence feeds | Real-time monitoring, CloudTrail/SIEM integration |
+| **🔴 Level 5: Optimized** | 10-Year Lookahead | Predictive threat analysis, governed automated response | AI-driven threat detection, self-healing controls (human-approved) |
 
 ---
 
@@ -636,10 +675,12 @@ The following developments should trigger a threat model update:
 
 | Document | Description | Link |
 |---|---|---|
-| **THREAT_MODEL.md** | Current threat landscape (20 threats) | [THREAT_MODEL.md](THREAT_MODEL.md) |
+| **THREAT_MODEL.md** | Current threat landscape (20 threats, v2.4) | [THREAT_MODEL.md](THREAT_MODEL.md) |
 | **SECURITY_ARCHITECTURE.md** | Current security controls | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
 | **FUTURE_SECURITY_ARCHITECTURE.md** | Planned security enhancements | [FUTURE_SECURITY_ARCHITECTURE.md](FUTURE_SECURITY_ARCHITECTURE.md) |
-| **FUTURE_ARCHITECTURE.md** | Planned architectural evolution | [FUTURE_ARCHITECTURE.md](FUTURE_ARCHITECTURE.md) |
+| **FUTURE_ARCHITECTURE.md** | Three-horizon AWS-native architectural evolution | [FUTURE_ARCHITECTURE.md](FUTURE_ARCHITECTURE.md) |
+| **FUTURE_MINDMAP.md** | v5.0 future scenarios + SWOT-to-future traceability | [FUTURE_MINDMAP.md](FUTURE_MINDMAP.md) |
+| **FUTURE_DATA_MODEL.md** | AWS-native serverless + knowledge-graph data model | [FUTURE_DATA_MODEL.md](FUTURE_DATA_MODEL.md) |
 | **Hack23 ISMS - Threat Modeling** | Policy framework | [Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) |
 | **Hack23 ISMS - Secure Development** | Secure SDLC requirements | [Secure_Development_Policy.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) |
 | **Hack23 ISMS - Vulnerability Management** | Vulnerability lifecycle | [Vulnerability_Management.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) |
@@ -651,9 +692,9 @@ The following developments should trigger a threat model update:
 
 | Role                   | Name          | Date       | Signature |
 | ---------------------- | ------------- | ---------- | --------- |
-| **Security Architect** | Security Team | 2026-03-19 | Approved  |
-| **Product Owner**      | Product Team  | 2026-03-19 | Approved  |
-| **CEO / CISO**         | CEO           | 2026-03-19 | Approved  |
+| **Security Architect** | Security Team | 2026-05-31 | Approved  |
+| **Product Owner**      | Product Team  | 2026-05-31 | Approved  |
+| **CEO / CISO**         | CEO           | 2026-05-31 | Approved  |
 
 ---
 
@@ -667,4 +708,4 @@ The following developments should trigger a threat model update:
 
 ---
 
-_This future threat model anticipates the evolving threat landscape for the EU Parliament Monitor as it advances from a static site generator to a comprehensive European Parliament intelligence platform. It demonstrates Hack23 AB's commitment to proactive security through forward-looking threat analysis aligned with the [Hack23 ISMS Threat Modeling Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md)._
+_This future threat model anticipates the evolving threat landscape for the EU Parliament Monitor as it advances across three horizons — from today's static site generator (v1.0.x), through an enhanced static intelligence platform (v2.0), to a fully AWS-native serverless intelligence platform (v3.0+) with an autonomous multi-agent OSINT newsroom, multi-channel distribution, and an expanded data-surface knowledge graph, looking ahead to 2037. It demonstrates Hack23 AB's commitment to proactive, governed security — where AI proposes and a human approves, with no autonomous production deploy — through forward-looking threat analysis aligned with the [Hack23 ISMS Threat Modeling Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md)._
