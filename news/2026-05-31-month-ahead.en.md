@@ -3076,6 +3076,1955 @@ Every forward judgement carries its own confidence marker and Admiralty grade.
 and `cache/imf/`. See `intelligence/mcp-reliability-audit.md` for the full
 tool-call ledger.*
 
+### Executive Brief Ar
+
+*تاريخ التشغيل: 2026-05-31 · نوع المقال: `month-ahead` · وضع البيانات: `degraded-feeds`
+· مستوى الثقة الإجمالي: 🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+يُعدّ يونيو 2026، وفق التوقع المشروط، **شهر الانضباط المالي** بامتياز بالنسبة للبرلمان الأوروبي.
+تجري قراءة ميزانية عام 2027، واستمرار تمويل أوكرانيا ومساءلتها، وحزمة من ملفات الدفاع التجاري،
+كلها عبر منظور المالية العامة الأوروبية المقيّدة. ويرسم المسار المالي المحسّن لألمانيا
+(عجز الحكومة العامة −1.76% من الناتج المحلي الإجمالي عام 2026 وفق IMF WEO) والعجز
+المستمر لفرنسا (−4.94%) الإطار الحسابي للتحالف الداخلي، الذي سيحدد مدى سخاء
+المواقف البرلمانية في يونيو وطبيعتها المشروطة. يتمثل مخاطر الانحراف الرئيسية في
+إشارة مالية فرنسية أو إشارة سوق سيادية (السيناريو B، 25–40%)؛ فيما يكمن خطر الذيل
+في صدمة خارجية تُزيح الأجندة بالكامل (السيناريو C، 10–20%).
+
+### 2. What we forecast for June
+
+| الموضوع | الإجراء المرجح في يونيو | مستوى الثقة |
+|---------|-------------------------|-------------|
+| ميزانية الاتحاد الأوروبي 2027 | القراءة / تحديد المواقف، مُميَّل نحو الانضباط | 🟡 متوسط |
+| تمويل أوكرانيا والمساءلة | استمرار الدعم، جدال حول الاشتراطات | 🟢 متوسط–مرتفع |
+| الدفاع التجاري (رسوم جمركية أمريكية، ميركوسور) | قرارات، تموضع واعٍ لمحكمة العدل الأوروبية | 🟡 متوسط |
+| تطبيق قانون DMA | ضغط رقابي على المفوضية | 🟡 متوسط |
+| إصلاح قانون الانتخابات الأوروبي | تقدم إجرائي | 🟢 منخفض–متوسط |
+| الذكاء الاصطناعي للتجارة | إطار تأطير / مسار مبادرة خاصة | 🟢 منخفض–متوسط |
+
+تستند هذه الموضوعات إلى خط أنابيب النصوص المعتمدة المصنّفة A2 (41 نصاً،
+سنة=2026)، إذ أعاد التغذية الأمامية لجدول أعمال الجلسة العامة نتيجة فارغة في هذه الجلسة.
+
+### 3. The three scenarios
+
+- **السيناريو A — شهر مشروط منضبط (55–70%).** تسير الأجندة المنشورة على النحو المتوقع؛
+  تُشكّل الشُّح المالي لكنها لا تُعطّل ملفات الميزانية وأوكرانيا.
+- **السيناريو B — إشارة مالية فرنسية (25–40%).** حركة في هوامش الديون السيادية الفرنسية
+  أو حدث مالي داخلي يُعزز إطار الانضباط ويُعقّد حسابات التحالف في شأن الميزانية.
+- **السيناريو C — صدمة خارجية (10–20%).** تصعيد عسكري، أو جولة جديدة من الرسوم الأمريكية،
+  أو تطور في قضية CJEU Mercosur يُزيح الأجندة المخططة.
+
+تُشكّل السيناريوهات *تدفقاً* احتمالياً لا حدثاً فردياً: يمكن أن ينتقل الشهر من A إلى B
+بسبب محفّز مالي، أو من A إلى C بسبب صدمة خارجية، ويمكن أن يتعافى.
+
+### 4. Why this matters
+
+تقع جلسة يونيو عند **النقطة المحورية الاقتصادية-السياسية**: يُعادل القيد المالي الذي ينضبط به
+ميزانية 2027 قيداً على مقدار دعم أوكرانيا الذي سيضمنه البرلمان، ومدى حزمه في دعم الدفاع التجاري.
+المحفّزات القانونية (تقويم CJEU Mercosur) هي المحفّزات الخارجية الأكثر احتمالاً. وهذا شهر
+تكون فيه الواقع الكلي المالي، لا المبادرات التشريعية الجديدة، هي المتغير المهيمن.
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| الاقتصاد | نمو الناتج المحلي 2026 | التضخم 2026 | الرصيد المالي 2026 (% ناتج محلي) |
+|---------|------------------------|-------------|----------------------------------|
+| ألمانيا | 0.79% | 2.65% | −1.76% |
+| فرنسا | 0.86% | 1.84% | −4.94% |
+| إيطاليا | 0.52% | 2.64% | −2.82% |
+
+التباين المالي الألماني-الفرنسي هو أهم مجموعة أرقام بامتياز لحسابات يونيو:
+يُفسّر لماذا يتمتع إطار الانضباط بقوة جذب، ولماذا تُشكّل التعرضات الفرنسية مخاطر الانحراف الرئيسية.
+
+### 6. Key risks
+
+1. **استيلاء الشُّح المالي على ميزانية 2027** — أعلى احتمال × تأثير مشترك.
+2. **صدمة خارجية تُزيح الأجندة** — تأثير مرتفع، احتمال متوسط.
+3. **خطأ في تحليل التحالف** — حسابات تحالف يونيو مُنمذجة لا مُلاحظة (لا توجد بعد
+   أصوات لكل نائب في يونيو)؛ مُنطوية وفق ذلك.
+
+### 7. Confidence and caveats
+
+يبلغ مستوى الثقة الإجمالي 🟡 **MEDIUM**، مقيّداً بقيدين على البيانات: التغذية الأمامية
+الفارغة للجلسة العامة (الأجندة المشروطة المستنتجة من النصوص المعتمدة) والطابع الاستنتاجي
+لحسابات التحالف. لا يمس أيٌّ من القيدين درجة المصادر الجوهرية — يرتكز التحليل على
+نصوص معتمدة من فئة A2 وبيانات ماكرو IMF من فئة A1. تُسلَّم الجلسة بوصفها `degraded-feeds`
+لا `minimal`، لأن مسار الاسترداد حافظ على جودة المصادر.
+
+### 8. What would change our view
+
+- نشر أجندة يونيو (سيرفع التوقع المشروط نحو 🟢 مرتفع).
+- حركة في هوامش الديون السيادية الفرنسية تتجاوز نقطة الإشعال (سترفع السيناريو B).
+- إعلان رسوم جمركية أمريكية أو تاريخ CJEU Mercosur (سيرفع السيناريو C).
+- تأخر قراءة الميزانية على الجانب الأوروبي للمجلس (سيرفع مخاطر التوقيت T2).
+
+### 9. Reader guidance
+
+- **القراء المؤسسيون:** التخطيط للسيناريو A؛ الإعداد المسبق لطوارئ B.
+- **قراء الأسواق:** السيناريو B هو الحالة المراقَبة — تتبّع هوامش الديون الفرنسية.
+- **قراء السياسات:** السيناريو C احتمال منخفض لكنه مُعيد رسم الأجندة.
+
+### 10. Provenance
+
+بُني انطلاقاً من `data/adopted-texts-2026.json` (بوابة البيانات المفتوحة للبرلمان الأوروبي)
+و`cache/imf/weo-decoded.json` (IMF WEO SDMX 3.0). المنهجية الكاملة والنقد الذاتي في
+`intelligence/methodology-reflection.md`؛ بوابة الاكتمال عبر `npm run validate-analysis`.
+
+### 11. Indicator dashboard (June lead-up)
+
+| المؤشر | الاتجاه المؤكِّد للمشروط | نقطة المراجعة |
+|---------|--------------------------|---------------|
+| نشر أجندة يونيو النهائية | تتطابق مع الموضوعات المستنتجة | TW-7 |
+| موعد المجلس لقراءة ميزانية 2027 | في التقويم، بلا تأخير | TW-14 |
+| هامش الديون الفرنسية 10 سنوات مقابل البوند | مستقر / متقلص | مستمر |
+| موقف التجارة الأمريكي | لا جولة رسوم جديدة | مستمر |
+| تقويم CJEU Mercosur | لا تاريخ قريب | متغير |
+| إشارات الخط الأمامي / التصعيد | هادئ | مستمر |
+
+لوحة قياس نظيفة عند TW-7 تُعزز التوقع نحو السيناريو A؛ أي مؤشر أحمر
+يُرجّح كفة الاحتمالية نحو B (مالية) أو C (خارجية).
+
+### 12. Editorial framing guidance
+
+يجب أن يبدأ مقال المرحلة D بعدسة الملاءة المالية، ويربط كل ادعاء يتعلق بالميزانية أو أوكرانيا
+بالرقم IMF ذي الصلة، ويقدم نقاط الدفاع التجاري بالإسناد لا بالموافقة. لا يجوز لأي
+إطار واحد — انضباط مالي، تضامن، حزم جيوسياسي، سيادة، أو عملية تكنوقراطية — أن يهيمن
+على المقال دون نقاش، حتى لو جعل صدمة ما إطاراً ما مهيمناً في دورة الأخبار.
+هذه قاعدة التوازن هي الثابت التحريري لجميع إصدارات الـ 14 لغة.
+
+### 13. Sourcing transparency
+
+لا يصدر هذا الموجز أي ادعاء لا يمكن تتبعه إلى نتيجة ثابتة محفوظة. يُوسم استنتاج
+الأجندة المستقبلية صراحةً بوصفه بديلاً (النصوص المعتمدة ← النية المستقبلية)،
+ويحمل كل رقم كلي بصمة IMF WEO سبتمبر 2025. يجب على القراء الذين يحتاجون
+سلسلة الاستدلال الكاملة الرجوع إلى `intelligence/methodology-reflection.md`
+لسجل SAT والنقد الذاتي.
+
+### 14. One-line summary
+
+يونيو منضبط مالياً، مستقر وفق التوقع المشروط لكن مع مخاطر انحراف مالي فرنسي حي
+وذيل صدمة خارجية غير صفري — متوقَّع عند مستوى ثقة 🟡 MEDIUM على قاعدة بيانات
+متردية لكن مُستعادة.
+
+---
+
+*هذا الموجز هو العمود الفقري التحريري لإصدار مقال المرحلة D. ويدمج
+`intelligence/synthesis-summary.md` و`intelligence/scenario-forecast.md`
+و`intelligence/economic-context.md` و`intelligence/forward-projection.md`.*
+
+### Source reliability (Admiralty)
+
+| المصدر | درجة الأدميرالية | الموثوقية |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | موثوق تماماً / مؤكَّد |
+| تغذية النصوص المعتمدة للبرلمان الأوروبي (سنة=2026) | A2 | موثوق / صحيح على الأرجح |
+| التغذيات المستقبلية للبرلمان الأوروبي (متردية في هذه الجلسة) | C4 | موثوق نسبياً / مشكوك فيه |
+
+### Executive Brief Da
+
+*Kørselsdato: 2026-05-31 · Artikeltype: `month-ahead` · Datatilstand: `degraded-feeds`
+· Samlet konfidensgrad: 🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+Juni 2026 er, ifølge den modale prognose, en **måned præget af budgetdisciplin** for
+Europa-Parlamentet. Budgetbehandlingen for 2027, den fortsatte Ukraine-finansiering og
+ansvarliggørelse samt en klynge af handelsforsvarsakter afgøres alle
+gennem linsen af begrænsede europæiske offentlige finanser. Tysklands forbedrede finanspolitiske
+kurs (offentligt underskud −1,76 % af BNP i 2026 ifølge IMF WEO) og
+Frankrigs vedvarende underskud (−4,94 %) danner rammen for den intrakoalitionsmæssige
+aritmetik, der afgør, hvor generøse — og hvor betingede — Parlamentets junipolitiske
+holdninger vil være. Den primære afvigelsesrisiko er et fransk finans- eller
+statsobligationsmarkeds-signal (Scenario B, 25–40 %); halerisikoen er et eksternt chok,
+der fuldstændig fortrænger dagsordenen (Scenario C, 10–20 %).
+
+### 2. What we forecast for June
+
+| Tema | Sandsynlig juniaktion | Konfidensgrad |
+|------|-----------------------|---------------|
+| EU's budget 2027 | Behandling / holdningstagen, disciplinskæv | 🟡 Medium |
+| Ukraine-finansiering og ansvarliggørelse | Fortsat støtte, debat om betingelser | 🟢 Med–Høj |
+| Handelsforsvar (amerikanske toldsatser, Mercosur) | Resolutioner, CJEU-bevidst positionering | 🟡 Medium |
+| DMA-håndhævelse | Tilsynspres på Kommissionen | 🟡 Medium |
+| Reform af den europæiske valglov | Procedurelovgivningsmæssig progression | 🟢 Lav–Med |
+| AI til handel | Indramning / eget initiativspor | 🟢 Lav–Med |
+
+Disse temaer er udledt af A2-klassificerede vedtagne teksters pipeline (41 tekster,
+år=2026), idet strømmen med den fremtidige plenardagsorden returnerede tom under
+denne kørsel.
+
+### 3. The three scenarios
+
+- **Scenario A — Disciplineret modal måned (55–70 %).** Den offentliggjorte dagsorden holder;
+  finansiel knaphed former men afsporer ikke budget- og Ukrainaakterne.
+- **Scenario B — Fransk finanssignal (25–40 %).** Et fransk statsrisiko-spreadbevægelse
+  eller en indenlandsk finanspolitisk begivenhed styrker disciplinrammen og komplicerer
+  koalitionsaritmetikken vedrørende budgettet.
+- **Scenario C — Eksternt chok (10–20 %).** En militær eskalering, en ny amerikansk
+  toldrunde eller en CJEU Mercosur-begivenhed fortrænger den planlagte dagsorden.
+
+Scenarierne udgør et sandsynligheds*flow*, ikke et engangstræk: måneden kan
+migrere A→B ved en finanspolitisk udløser eller A→C ved et eksternt chok og kan komme sig.
+
+### 4. Why this matters
+
+Junisessionen befinder sig ved det **økonomi-politiske nexus**: den samme finanspolitiske
+begrænsning, der disciplinerer 2027-budgettet, betinger også, hvor meget Ukraine-støtte
+Parlamentet vil garantere, og hvor beslutsomme det bakker op om handelsforsvar. Juridiske
+udløsere (CJEU Mercosur-kalenderen) er de sandsynligste eksterne katalysatorer. Det er
+en måned, hvor makrofinansiel virkelighed, ikke nye lovgivningsinitiativ, er den dominerende variabel.
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| Økonomi | BNP-vækst 2026 | Inflation 2026 | Finansiel saldo 2026 (% af BNP) |
+|---------|----------------|----------------|----------------------------------|
+| Tyskland | 0,79 % | 2,65 % | −1,76 % |
+| Frankrig | 0,86 % | 1,84 % | −4,94 % |
+| Italien | 0,52 % | 2,64 % | −2,82 % |
+
+Den tysk-franske finanspolitiske divergens er det enkelt vigtigste talsæt for
+juniaritmetikken: det forklarer, hvorfor disciplinrammen har gennemslagskraft, og hvorfor
+fransk eksponering er den primære afvigelsesrisiko.
+
+### 6. Key risks
+
+1. **Finansiel knaphed der dominerer 2027-budgettet** — højest kombineret
+   sandsynlighed × indvirkning.
+2. **Eksternt chok der fortrænger dagsordenen** — høj indvirkning, middel sandsynlighed.
+3. **Inferentiel koalitionsfejl** — junimånedens koalitionsaritmetik er modelleret,
+   ikke observeret (ingen per-MEP-afstemninger for juni eksisterer endnu); båndbreddebegrænset derefter.
+
+### 7. Confidence and caveats
+
+Den overordnede konfidensgrad er 🟡 **MEDIUM**, begrænset af to databegrænsninger: det tomme
+fremtidige plenumstrøm (modal dagsorden udledt af vedtagne tekster) og den inferentielle
+karakter af koalitionsaritmetikken. Ingen af begrænsningerne berører den substantive
+kildegrad — analysen hviler på A2-klassificerede vedtagne tekster og A1-klassificerede IMF
+makrodata. Kørslen leveres som `degraded-feeds`, ikke `minimal`, fordi genopretningsstien
+bevarede kildekvaliteten.
+
+### 8. What would change our view
+
+- En offentliggjort junidagsorden (ville løfte den modale prognose mod 🟢 HØJ).
+- Et fransk statsrisiko-spreadbevægelse ud over udløserpunktet (ville hæve Scenario B).
+- En amerikansk toldbekendtgørelse eller en CJEU Mercosur-dato (ville hæve Scenario C).
+- En forsinkelse af budgetbehandlingen på rådsiden (ville hæve tidsrisiko T2).
+
+### 9. Reader guidance
+
+- **Institutionelle læsere:** planlæg for Scenario A; forbered beredskab for B.
+- **Markedslæsere:** Scenario B er opmærksomhedssagen — følg franske spreads.
+- **Politiklæsere:** Scenario C har lav sandsynlighed men er dagsordensomstrukturerende.
+
+### 10. Provenance
+
+Bygget fra `data/adopted-texts-2026.json` (EP Open Data Portal) og
+`cache/imf/weo-decoded.json` (IMF WEO SDMX 3.0). Fuld metodik og
+selvkritik i `intelligence/methodology-reflection.md`; fuldstændighedsport via
+`npm run validate-analysis`.
+
+### 11. Indicator dashboard (June lead-up)
+
+| Indikator | Retning der bekræfter modal | Gennemgangssted |
+|-----------|------------------------------|-----------------|
+| Endelig junidagsorden offentliggjort | Matcher udledte temaer | TW-7 |
+| Rådets budgetbehandlingsplads for 2027 | I kalenderen, ingen glidning | TW-14 |
+| Franske 10-årige spread vs Bund | Stabil / faldende | Løbende |
+| Amerikansk handelsposition | Ingen ny toldrunde | Løbende |
+| CJEU Mercosur-kalender | Ingen nær dato | Variabel |
+| Frontlinje- / eskaleringssignaler | Rolig | Løbende |
+
+Et rent dashboard ved TW-7 konsoliderer prognosen mod Scenario A; enhver rød
+indikator forskyver sandsynlighedsmasse mod B (finanspolitisk) eller C (ekstern).
+
+### 12. Editorial framing guidance
+
+Stage D-artiklen bør ledede med den finanspolitiske linse, parre hvert budget- eller
+Ukrainakrav med det relevante IMF-tal og præsentere handelsforsvarsemner med
+tilskrivelse frem for billigelse. Ingen enkelt ramme — finanspolitisk disciplin,
+solidaritet, geopolitisk beslutsomhed, suverænitet eller teknokratisk proces — må
+besætte artiklen ubestridt, selv om et chok gør én ramme dominerende i nyhedscyklussen.
+Denne balanceregel er den redaktionelle invariant for alle 14 sprogrenderinger.
+
+### 13. Sourcing transparency
+
+Denne briefing fremsætter ingen påstand, der ikke kan spores til et persisteret artefakt.
+Dagsordensinfekonteksten er eksplicit mærket som et stedfortræder (vedtagne tekster →
+fremtidig hensigt), og hvert makrotal bærer sin IMF WEO Sept-2025 vintage. Læsere,
+der har brug for den fulde ræsonnementskæde, bør konsultere
+`intelligence/methodology-reflection.md` for SAT-loggen og selvkritikken.
+
+### 14. One-line summary
+
+En finanspolitisk disciplineret juni, modalt stabil men med en levende fransk-finanspolitisk
+afvigelsesrisiko og en ikke-nul ekstern chokhale — forudset ved 🟡 MEDIUM konfidensgrad på
+et degraderet-men-genvundet datagrundlag.
+
+---
+
+*Denne briefing er den redaktionelle rygsøjle for Stage D-artikelversionen. Den integrerer
+`intelligence/synthesis-summary.md`, `intelligence/scenario-forecast.md`,
+`intelligence/economic-context.md` og `intelligence/forward-projection.md`.*
+
+### Source reliability (Admiralty)
+
+| Kilde | Admiralty-klasse | Pålidelighed |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | Fuldstændig pålidelig / bekræftet |
+| EP vedtagne tekster-strøm (år=2026) | A2 | Pålidelig / sandsynligvis sand |
+| EP fremtidige strømme (degraderede denne kørsel) | C4 | Rimeligt pålidelig / tvivlsom |
+
+### Executive Brief De
+
+*Ausführungsdatum: 2026-05-31 · Artikeltyp: `month-ahead` · Datenmodus: `degraded-feeds`
+· Gesamtkonfidenzgrad: 🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+Der Juni 2026 ist nach der modalen Prognose ein **Monat der Haushaltsdisziplin** für
+das Europäische Parlament. Die Haushaltslesung für 2027, die fortgesetzt Ukraine-Finanzierung und
+Rechenschaftspflicht sowie ein Cluster von Handelsschutzakten werden alle durch den
+Blickwinkel begrenzter europäischer öffentlicher Finanzen entschieden. Deutschlands verbesserte
+fiskalische Entwicklung (gesamtstaatliches Defizit −1,76 % des BIP 2026 gemäß IMF WEO) und
+Frankreichs anhaltendes Defizit (−4,94 %) bilden den Rahmen für die innerkoalitionäre Arithmetik,
+die bestimmt, wie großzügig — und wie konditional — die Junipositionen des Parlaments
+sein werden. Das primäre Abweichungsrisiko ist ein französisches fiskalisches oder
+Staatsanleihemarktsignal (Szenario B, 25–40 %); das Tail-Risiko ist ein externer Schock,
+der die Tagesordnung vollständig verdrängt (Szenario C, 10–20 %).
+
+### 2. What we forecast for June
+
+| Thema | Wahrscheinliche Juniaktion | Konfidenzgrad |
+|-------|---------------------------|---------------|
+| EU-Haushalt 2027 | Lesung / Positionsformulierung, disziplinorientiert | 🟡 Medium |
+| Ukraine-Finanzierung und Rechenschaftspflicht | Fortgesetzte Unterstützung, Konditionierungsdebatte | 🟢 Mittel–Hoch |
+| Handelsschutz (US-Zölle, Mercosur) | Entschließungen, CJEU-bewusste Positionierung | 🟡 Medium |
+| DMA-Durchsetzung | Aufsichtsdruck auf die Kommission | 🟡 Medium |
+| Reform des Europäischen Wahlrechts | Verfahrensmäßige Progression | 🟢 Niedrig–Mittel |
+| KI für Handel | Rahmensetzung / Initiativbericht | 🟢 Niedrig–Mittel |
+
+Diese Themen wurden aus der Pipeline der A2-klassifizierten angenommenen Texte abgeleitet
+(41 Texte, Jahr=2026), da der Vorwärts-Plenardagordnungs-Feed in diesem Lauf leer zurückgegeben wurde.
+
+### 3. The three scenarios
+
+- **Szenario A — Disziplinierter modaler Monat (55–70 %).** Die veröffentlichte Tagesordnung hält;
+  Haushaltszwang prägt, aber entgleist nicht die Haushalts- und Ukraineakten.
+- **Szenario B — Französisches Fiskal-Signal (25–40 %).** Eine französische Staatsrisiko-Spread-Bewegung
+  oder ein inländisches Fiskalereignis verstärkt den Disziplinrahmen und erschwert
+  die Koalitionsarithmetik beim Haushalt.
+- **Szenario C — Externer Schock (10–20 %).** Eine militärische Eskalation, eine neue US-Zollrunde
+  oder eine CJEU Mercosur-Entwicklung verdrängt die geplante Tagesordnung.
+
+Die Szenarien bilden einen Wahrscheinlichkeits*fluss*, kein einmaliges Ereignis: Der Monat kann
+von A→B bei einem fiskalischen Auslöser oder A→C bei einem externen Schock migrieren und sich erholen.
+
+### 4. Why this matters
+
+Die Junisitzung befindet sich am **wirtschaftlich-politischen Nexus**: Die gleiche fiskalische
+Einschränkung, die den Haushalt 2027 diszipliniert, bedingt auch, wie viel Ukraine-Unterstützung
+das Parlament garantieren wird und wie entschlossen es den Handelsschutz unterstützt. Rechtliche
+Auslöser (der CJEU Mercosur-Kalender) sind die wahrscheinlichsten externen Katalysatoren. Dies ist
+ein Monat, in dem makrofiskalische Realität, nicht neue Gesetzgebungsinitiative, die dominierende Variable ist.
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| Wirtschaft | BIP-Wachstum 2026 | Inflation 2026 | Fiskalischer Saldo 2026 (% des BIP) |
+|------------|-------------------|----------------|--------------------------------------|
+| Deutschland | 0,79 % | 2,65 % | −1,76 % |
+| Frankreich | 0,86 % | 1,84 % | −4,94 % |
+| Italien | 0,52 % | 2,64 % | −2,82 % |
+
+Die deutsch-französische Fiskaldiverge ist der mit Abstand wichtigste Zahlensatz für
+die Juniarithmetik: Er erklärt, warum der Disziplinrahmen Zugkraft hat und warum
+französische Exponierung das Hauptabweichungsrisiko ist.
+
+### 6. Key risks
+
+1. **Haushaltszwang-Dominanz des EU-Haushalts 2027** — höchste kombinierte
+   Wahrscheinlichkeit × Wirkung.
+2. **Externer Schock, der die Tagesordnung verdrängt** — hohe Wirkung, mittlere Wahrscheinlichkeit.
+3. **Inferenzieller Koalitionsfehler** — Die Juni-Koalitionsarithmetik ist modelliert,
+   nicht beobachtet (keine Per-MEP-Junistimmen existieren noch); entsprechend gebändert.
+
+### 7. Confidence and caveats
+
+Der Gesamtkonfidenzgrad ist 🟡 **MEDIUM**, begrenzt durch zwei Datenlimitierungen: den leeren
+Vorwärts-Plenumsfeed (modale Tagesordnung aus angenommenen Texten abgeleitet) und die inferenzielle
+Natur der Koalitionsarithmetik. Keine der Limitierungen berührt den substantiellen Quellengrad —
+die Analyse ruht auf A2-klassifizierten angenommenen Texten und A1-klassifizierten IMF-Makrodaten.
+Der Lauf wird als `degraded-feeds`, nicht als `minimal`, geliefert, weil der Wiederherstellungspfad
+die Quellqualität erhielt.
+
+### 8. What would change our view
+
+- Eine veröffentlichte Junidagordnung (würde die modale Prognose in Richtung 🟢 HOCH anheben).
+- Eine französische Staatsrisiko-Spread-Bewegung jenseits des Auslösepunkts (würde Szenario B erhöhen).
+- Eine US-Zollankündigung oder ein CJEU Mercosur-Datum (würde Szenario C erhöhen).
+- Eine Verzögerung der Haushaltslesung auf Ratsseite (würde Zeitrisiko T2 erhöhen).
+
+### 9. Reader guidance
+
+- **Institutionelle Leser:** Planen für Szenario A; Vorbereitung von Notfallplänen für B.
+- **Marktleser:** Szenario B ist der Überwachungsfall — Verfolgung französischer Spreads.
+- **Politikleser:** Szenario C hat geringe Wahrscheinlichkeit, ist aber tagesordnungsumstrukturierend.
+
+### 10. Provenance
+
+Erstellt aus `data/adopted-texts-2026.json` (EP Open Data Portal) und
+`cache/imf/weo-decoded.json` (IMF WEO SDMX 3.0). Vollständige Methodik und
+Selbstkritik in `intelligence/methodology-reflection.md`; Vollständigkeitsschranke via
+`npm run validate-analysis`.
+
+### 11. Indicator dashboard (June lead-up)
+
+| Indikator | Richtung, die das Modal bestätigt | Überprüfungspunkt |
+|-----------|-----------------------------------|-------------------|
+| Endgültige Junidagordnung veröffentlicht | Entspricht abgeleiteten Themen | TW-7 |
+| Ratsplatz für Haushaltslesung 2027 | Im Kalender, kein Rückgang | TW-14 |
+| Französische 10-Jahres-Spread vs. Bund | Stabil / sinkend | Laufend |
+| US-Handelspositionierung | Keine neue Zollrunde | Laufend |
+| CJEU Mercosur-Kalender | Kein nahes Datum | Variabel |
+| Frontlinie- / Eskalationssignale | Ruhig | Laufend |
+
+Ein sauberes Dashboard bei TW-7 konsolidiert die Prognose in Richtung Szenario A; jeder rote
+Indikator verschiebt Wahrscheinlichkeitsmasse in Richtung B (fiskalisch) oder C (extern).
+
+### 12. Editorial framing guidance
+
+Der Stage-D-Artikel sollte mit der fiskalischen Perspektive beginnen, jeden Haushalts- oder
+Ukraineanspruch mit dem relevanten IMF-Wert verknüpfen und Handelsschutzpunkte mit
+Zuschreibung statt Billigung präsentieren. Kein einzelner Rahmen — fiskalische Disziplin,
+Solidarität, geopolitische Entschlossenheit, Souveränität oder technokratischer Prozess — darf
+den Artikel unbestritten einnehmen, auch wenn ein Schock einen Rahmen im Nachrichtenzyklus dominieren lässt.
+Diese Ausgewogenheitsregel ist die redaktionelle Invariante für alle 14 Sprachversionen.
+
+### 13. Sourcing transparency
+
+Dieser Briefing erhebt keinen Anspruch, der nicht zu einem persistierten Artefakt rückverfolgbar ist.
+Die Vorwärts-Tagesordnungsinferenz ist ausdrücklich als Proxy gekennzeichnet (angenommene Texte →
+Vorwärtsabsicht), und jede Makrozahl trägt ihren IMF WEO September-2025 Jahrgang.
+Leser, die die vollständige Argumentationskette benötigen, sollten
+`intelligence/methodology-reflection.md` für das SAT-Log und die Selbstkritik konsultieren.
+
+### 14. One-line summary
+
+Ein fiskalisch disziplinierter Juni, modal stabil, aber mit einem lebendigen französisch-fiskalischen
+Abweichungsrisiko und einem nicht-nullen externen Schock-Tail — prognostiziert bei 🟡 MEDIUM-Konfidenzgrad
+auf einer degradierten, aber wiederhergestellten Datengrundlage.
+
+---
+
+*Dieser Briefing ist die redaktionelle Wirbelsäule für die Stage-D-Artikelversion. Er integriert
+`intelligence/synthesis-summary.md`, `intelligence/scenario-forecast.md`,
+`intelligence/economic-context.md` und `intelligence/forward-projection.md`.*
+
+### Source reliability (Admiralty)
+
+| Quelle | Admiralitätsklasse | Zuverlässigkeit |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | Vollständig zuverlässig / bestätigt |
+| EP angenommener Texte-Feed (Jahr=2026) | A2 | Zuverlässig / wahrscheinlich wahr |
+| EP Vorwärts-Feeds (in diesem Lauf degradiert) | C4 | Einigermaßen zuverlässig / zweifelhaft |
+
+### Executive Brief Es
+
+*Fecha de ejecución: 2026-05-31 · Tipo de artículo: `month-ahead` · Modo de datos: `degraded-feeds`
+· Nivel de confianza global: 🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+Junio de 2026 es, según la previsión modal, un **mes de disciplina presupuestaria** para
+el Parlamento Europeo. La lectura del presupuesto de 2027, la financiación continua de Ucrania y
+la rendición de cuentas, así como un conjunto de expedientes de defensa comercial, se resuelven todos
+a través del prisma de las finanzas públicas europeas limitadas. La mejora de la trayectoria fiscal
+de Alemania (déficit de las administraciones públicas −1,76 % del PIB en 2026 según IMF WEO) y
+el déficit persistente de Francia (−4,94 %) enmarcan la aritmética intracoalicional que
+determinará cuán generosas —y cuán condicionales— serán las posiciones de junio del Parlamento.
+El principal riesgo de desviación es una señal fiscal o de mercado de deuda soberana francesa
+(Escenario B, 25–40 %); el riesgo de cola es un choque externo que desplace completamente la agenda
+(Escenario C, 10–20 %).
+
+### 2. What we forecast for June
+
+| Tema | Acción probable en junio | Nivel de confianza |
+|------|--------------------------|-------------------|
+| Presupuesto de la UE 2027 | Lectura / formulación de posición, orientada a la disciplina | 🟡 Medio |
+| Financiación de Ucrania y rendición de cuentas | Apoyo continuo, debate sobre condicionalidad | 🟢 Medio–Alto |
+| Defensa comercial (aranceles de EE. UU., Mercosur) | Resoluciones, posicionamiento con conciencia del TJUE | 🟡 Medio |
+| Aplicación del DMA | Presión supervisora sobre la Comisión | 🟡 Medio |
+| Reforma de la Ley Electoral Europea | Progresión procedimental | 🟢 Bajo–Medio |
+| IA para el comercio | Encuadre / vía de iniciativa propia | 🟢 Bajo–Medio |
+
+Estos temas se deducen del flujo de textos adoptados de clase A2 (41 textos,
+año=2026), dado que el flujo de la agenda plenaria prospectiva devolvió un resultado vacío
+durante esta ejecución.
+
+### 3. The three scenarios
+
+- **Escenario A — Mes modal disciplinado (55–70 %).** La agenda publicada se mantiene;
+  la escasez fiscal da forma pero no descarrila los expedientes presupuestarios y de Ucrania.
+- **Escenario B — Señal fiscal francesa (25–40 %).** Un movimiento del diferencial soberano
+  francés o un acontecimiento fiscal interno endurece el marco disciplinario y complica
+  la aritmética de coalición en el presupuesto.
+- **Escenario C — Choque externo (10–20 %).** Una escalada militar, una nueva ronda de
+  aranceles de EE. UU. o un desarrollo del TJUE Mercosur desplaza la agenda planificada.
+
+Los escenarios forman un *flujo* de probabilidad, no un único evento: el mes puede
+migrar A→B ante un detonante fiscal o A→C ante un choque externo, y puede recuperarse.
+
+### 4. Why this matters
+
+La sesión de junio se sitúa en el **nexo económico-político**: la misma restricción fiscal que
+disciplina el presupuesto de 2027 también condiciona cuánto apoyo a Ucrania garantizará el
+Parlamento y cuán decididamente respalda la defensa comercial. Los detonantes jurídicos
+(el calendario del TJUE Mercosur) son los catalizadores externos más probables. Este es un mes
+en el que la realidad macroeconómica, y no una nueva iniciativa legislativa, es la variable dominante.
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| Economía | Crecimiento del PIB 2026 | Inflación 2026 | Saldo presupuestario 2026 (% del PIB) |
+|----------|--------------------------|----------------|---------------------------------------|
+| Alemania | 0,79 % | 2,65 % | −1,76 % |
+| Francia | 0,86 % | 1,84 % | −4,94 % |
+| Italia | 0,52 % | 2,64 % | −2,82 % |
+
+La divergencia fiscal franco-alemana es, con diferencia, el conjunto de cifras más importante
+para la aritmética de junio: explica por qué el marco disciplinario tiene fuerza y por qué
+la exposición francesa es el principal riesgo de desviación.
+
+### 6. Key risks
+
+1. **Captura por escasez fiscal del presupuesto de 2027** — probabilidad × impacto combinados más altos.
+2. **Choque externo que desplaza la agenda** — alto impacto, probabilidad media.
+3. **Error de coalición inferencial** — la aritmética de coalición de junio está modelada,
+   no observada (no existen aún votaciones por eurodiputado para junio); acotada en consecuencia.
+
+### 7. Confidence and caveats
+
+El nivel de confianza global es 🟡 **MEDIUM**, limitado por dos restricciones de datos: el flujo
+plenario prospectivo vacío (agenda modal deducida de textos adoptados) y la naturaleza inferencial
+de la aritmética de coalición. Ninguna de las restricciones afecta al grado de fuente sustantiva
+— el análisis descansa en textos adoptados de clase A2 y datos macroeconómicos IMF de clase A1.
+La ejecución se entrega como `degraded-feeds`, no como `minimal`, porque la vía de recuperación
+preservó la calidad de las fuentes.
+
+### 8. What would change our view
+
+- Una agenda de junio publicada (elevaría la previsión modal hacia 🟢 ALTO).
+- Un movimiento del diferencial soberano francés más allá del punto de detonación (elevaría el Escenario B).
+- Un anuncio de aranceles de EE. UU. o una fecha del TJUE Mercosur (elevaría el Escenario C).
+- Un retraso en la lectura presupuestaria por el lado del Consejo (elevaría el riesgo de calendario T2).
+
+### 9. Reader guidance
+
+- **Lectores institucionales:** planificar para el Escenario A; poner en marcha planes de contingencia para B.
+- **Lectores de mercados:** el Escenario B es el caso de vigilancia — seguir los diferenciales franceses.
+- **Lectores de política pública:** el Escenario C tiene baja probabilidad pero reestructura la agenda.
+
+### 10. Provenance
+
+Construido a partir de `data/adopted-texts-2026.json` (Portal de datos abiertos del PE) y
+`cache/imf/weo-decoded.json` (IMF WEO SDMX 3.0). Metodología completa y
+autocrítica en `intelligence/methodology-reflection.md`; puerta de exhaustividad vía
+`npm run validate-analysis`.
+
+### 11. Indicator dashboard (June lead-up)
+
+| Indicador | Dirección que confirma el modal | Punto de revisión |
+|-----------|--------------------------------|-------------------|
+| Agenda de junio final publicada | Coincide con los temas deducidos | TW-7 |
+| Plaza del Consejo para la lectura presupuestaria de 2027 | En el calendario, sin deslizamiento | TW-14 |
+| Diferencial francés a 10 años vs. Bund | Estable / reduciéndose | Continuo |
+| Postura comercial de EE. UU. | Sin nueva ronda arancelaria | Continuo |
+| Calendario del TJUE Mercosur | Sin fecha próxima | Variable |
+| Señales de frente / escalada | Tranquilo | Continuo |
+
+Un panel limpio en TW-7 consolida la previsión hacia el Escenario A; cualquier indicador
+en rojo desplaza masa de probabilidad hacia B (fiscal) o C (externo).
+
+### 12. Editorial framing guidance
+
+El artículo de Stage D debería comenzar con el prisma fiscal, vincular cada afirmación
+presupuestaria o sobre Ucrania con la cifra IMF pertinente, y presentar los puntos de defensa
+comercial con atribución en lugar de respaldo. Ningún encuadre único —disciplina fiscal,
+solidaridad, determinación geopolítica, soberanía o proceso tecnocrático— puede ocupar el artículo
+sin contestación, incluso si un choque hace dominante un encuadre en el ciclo informativo.
+Esta regla de equilibrio es el invariante editorial para las 14 versiones lingüísticas.
+
+### 13. Sourcing transparency
+
+Este resumen ejecutivo no formula ninguna afirmación que no sea rastreable hasta un artefacto persistido.
+La inferencia de la agenda prospectiva está explícitamente etiquetada como un indicador sustitutivo
+(textos adoptados → intención prospectiva), y cada cifra macroeconómica lleva su cosecha IMF WEO septiembre de 2025.
+Los lectores que necesiten la cadena de razonamiento completa deben consultar
+`intelligence/methodology-reflection.md` para el registro SAT y la autocrítica.
+
+### 14. One-line summary
+
+Un junio de disciplina fiscal, estable en lo modal pero con un riesgo de desviación fiscal francesa
+activo y una cola de choque externo no nula — previsto con confianza 🟡 MEDIUM sobre una
+base de datos degradada pero recuperada.
+
+---
+
+*Este resumen ejecutivo es el eje editorial de la versión del artículo de Stage D. Integra
+`intelligence/synthesis-summary.md`, `intelligence/scenario-forecast.md`,
+`intelligence/economic-context.md` e `intelligence/forward-projection.md`.*
+
+### Source reliability (Admiralty)
+
+| Fuente | Clase Almirantazgo | Fiabilidad |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | Completamente fiable / confirmada |
+| Flujo de textos adoptados del PE (año=2026) | A2 | Fiable / probablemente cierto |
+| Flujos prospectivos del PE (degradados en esta ejecución) | C4 | Bastante fiable / dudoso |
+
+### Executive Brief Fi
+
+*Ajoaika: 2026-05-31 · Artikkelityyppi: `month-ahead` · Datatila: `degraded-feeds`
+· Kokonaisluottamusaste: 🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+Kesäkuu 2026 on modaaliennusteen mukaan **budjettikurinpidon kuukausi** Euroopan
+parlamentille. Vuoden 2027 talousarvion käsittely, jatkuva Ukrainan rahoitus ja
+vastuuvelvollisuus sekä kauppapuolustustiedostojen ryhmittymä ratkaistaan kaikki
+rajallisten eurooppalaisten julkisten varojen viitekehyksessä. Saksan parantunut
+finanssipoliittinen kehitys (yleishallinnon alijäämä −1,76 % BKT:sta vuonna 2026 per IMF WEO)
+ja Ranskan jatkuva alijäämä (−4,94 %) muodostavat koalitioaritmetiikan, joka
+ratkaisee kuinka anteliaita — ja kuinka ehdollisia — parlamentin kesäkuun kannat
+ovat. Ensisijainen poikkeamasriski on ranskalainen finanssi- tai
+valtionlainamarkkinasignaali (Skenaario B, 25–40 %); häntäriski on ulkoinen sokki,
+joka siirtää ohjelman kokonaan syrjään (Skenaario C, 10–20 %).
+
+### 2. What we forecast for June
+
+| Teema | Todennäköinen kesäkuun toimenpide | Luottamusaste |
+|-------|-----------------------------------|---------------|
+| EU:n talousarvio 2027 | Käsittely / kannanotto, kurinalaisuuskalteva | 🟡 Medium |
+| Ukrainan rahoitus ja vastuuvelvollisuus | Jatkuva tuki, ehdollisuuskeskustelu | 🟢 Keski–Korkea |
+| Kauppapuolustus (Yhdysvaltain tullit, Mercosur) | Päätöslauselmat, CJEU-tietoinen asemointi | 🟡 Medium |
+| DMA-täytäntöönpano | Valvontapaine komissiota kohtaan | 🟡 Medium |
+| Eurooppalaisen vaalilain uudistus | Menettelyllinen eteneminen | 🟢 Matala–Keski |
+| Tekoäly kaupalle | Kehystäminen / omaa aloitetta koskeva jälki | 🟢 Matala–Keski |
+
+Nämä teemat on johdettu A2-luokan hyväksyttyjen tekstien putkilinjasta (41 tekstiä,
+vuosi=2026), koska tulevaisuuden täysistuntoagendan syöte palautti tyhjänä tällä
+ajolla.
+
+### 3. The three scenarios
+
+- **Skenaario A — Kurinalainen modaalikuukausi (55–70 %).** Julkaistu ohjelma pitää;
+  taloudellinen niukkuus muokkaa mutta ei suistaa talousarvio- ja Ukrainatiedostoja.
+- **Skenaario B — Ranskalainen finanssisignaali (25–40 %).** Ranskan valtioriskin
+  korkoero tai kotimainen finanssipoliittinen tapahtuma vahvistaa kurinalaisuuskehystä ja
+  monimutkaistaa koalitioaritmetiikkaa talousarviossa.
+- **Skenaario C — Ulkoinen sokki (10–20 %).** Sotilaallinen eskalaatio, uusi Yhdysvaltain
+  tullierä tai CJEU Mercosur -kehitys siirtää suunnitellun ohjelman syrjään.
+
+Skenaariot muodostavat todennäköisyys*virtauksen*, eivät kertaluontoista nostoa: kuukausi
+voi siirtyä A→B finanssipoliittisessa laukaisijassa tai A→C ulkoisessa sokissa, ja voi toipua.
+
+### 4. Why this matters
+
+Kesäkuun istunto sijaitsee **talous–poliittisessa solmukohdassa**: sama finanssipoliittinen
+rajoitus, joka kurittaa vuoden 2027 talousarviota, ehdollistaa myös sitä, kuinka paljon
+Ukrainan tukea parlamentti turvaa ja kuinka päättäväisesti se tukee kauppapuolustusta.
+Oikeudelliset laukaisimet (CJEU Mercosur -kalenteri) ovat todennäköisimmät ulkoiset
+katalyytit. Tämä on kuukausi, jossa makrotaloudellinen todellisuus, ei uusi
+lainsäädäntöaloite, on hallitseva muuttuja.
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| Talous | BKT-kasvu 2026 | Inflaatio 2026 | Rahoitustase 2026 (% BKT:sta) |
+|--------|----------------|----------------|-------------------------------|
+| Saksa | 0,79 % | 2,65 % | −1,76 % |
+| Ranska | 0,86 % | 1,84 % | −4,94 % |
+| Italia | 0,52 % | 2,64 % | −2,82 % |
+
+Saksan ja Ranskan finanssipoliittinen ero on yksittäisesti tärkein lukujoukko
+kesäkuun aritmetiikalle: se selittää, miksi kurinalaisuuskehyksellä on vaikutusta ja
+miksi ranskalainen altistuminen on pääasiallinen poikkeamasriski.
+
+### 6. Key risks
+
+1. **Taloudellinen niukkuus, joka kaappaa vuoden 2027 talousarvion** — korkein yhdistetty
+   todennäköisyys × vaikutus.
+2. **Ulkoinen sokki, joka siirtää ohjelman syrjään** — korkea vaikutus, keskitasoinen todennäköisyys.
+3. **Päättelyllinen koalitiovirhe** — kesäkuun koalitioaritmetiikka on mallinnettu,
+   ei havaittu (per-MEP kesäkuun äänestyksiä ei vielä ole); rajattu vastaavasti.
+
+### 7. Confidence and caveats
+
+Kokonaisluottamusaste on 🟡 **MEDIUM**, rajoitettu kahdella tietorajoituksella: tyhjä
+tulevaisuuden täysistuntovirta (modaaliohjelma johdettu hyväksytyistä teksteistä) ja
+koalitioaritmetiikan päättelyllinen luonne. Kumpikaan rajoitus ei koske substantiivista
+lähdeasemaa — analyysi perustuu A2-luokan hyväksyttyihin teksteihin ja A1-luokan IMF
+makrodataan. Ajo toimitetaan `degraded-feeds`-tilassa, ei `minimal`-tilassa, koska
+palautumispolku säilytti lähteen laadun.
+
+### 8. What would change our view
+
+- Julkaistu kesäkuun ohjelma (nostaisi modaaliennusteen kohti 🟢 KORKEA).
+- Ranskan valtioriskin korkoero laukaisupistettä pidemmälle (nostaisi Skenaariota B).
+- Yhdysvaltain tullijulistus tai CJEU Mercosur -päivämäärä (nostaisi Skenaariota C).
+- Talousarvion käsittelyn viivästyminen neuvostopuolella (nostaisi aikariskin T2).
+
+### 9. Reader guidance
+
+- **Institutionaaliset lukijat:** suunnittele Skenaarioon A; valmistele varautuminen B:hen.
+- **Markkinasijoittajat:** Skenaario B on tarkkailutapaus — seuraa ranskalaisia korkoeroja.
+- **Politiikkalukijat:** Skenaariolla C on alhainen todennäköisyys, mutta se uudelleenjärjestelee ohjelman.
+
+### 10. Provenance
+
+Rakennettu `data/adopted-texts-2026.json` -tiedostosta (EP Open Data Portal) ja
+`cache/imf/weo-decoded.json` -tiedostosta (IMF WEO SDMX 3.0). Täydellinen metodologia ja
+itsearvostelussa `intelligence/methodology-reflection.md`; täydellisyysportti
+`npm run validate-analysis`-komennon kautta.
+
+### 11. Indicator dashboard (June lead-up)
+
+| Indikaattori | Suunta, joka vahvistaa modaalin | Tarkastuspiste |
+|--------------|----------------------------------|----------------|
+| Lopullinen kesäkuun ohjelma julkaistu | Vastaa johdettuja teemoja | TW-7 |
+| Neuvoston vuoden 2027 talousarvion käsittelypaikka | Kalenterissa, ei liukumaa | TW-14 |
+| Ranska 10 vuoden korkoero vs Bund | Vakaa / kapeneva | Jatkuva |
+| Yhdysvaltain kauppa-asento | Ei uutta tullierää | Jatkuva |
+| CJEU Mercosur -kalenteri | Ei lähipäivämäärää | Vaihteleva |
+| Rintamalinja- / eskalaatiosignaalit | Hiljainen | Jatkuva |
+
+Puhdas kojelauta TW-7:ssä vahvistaa ennusteen Skenaarion A suuntaan; jokainen punainen
+indikaattori siirtää todennäköisyysmassaa kohti B (finanssipoliittista) tai C (ulkoista).
+
+### 12. Editorial framing guidance
+
+Vaiheen D artikkelin pitäisi johtaa finanssipoliittisella linssillä, parittaa jokainen
+talousarvio- tai Ukrainaväite asiaankuuluvan IMF-luvun kanssa ja esitellä
+kauppapuolustuskohteet attribuutiolla eikä hyväksymisellä. Mikään yksittäinen kehys —
+finanssipoliittinen kuri, solidaarisuus, geopoliittinen päättäväisyys, suvereniteetti tai
+teknokraattinen prosessi — ei saa vallata artikkelia kiistattomasti, vaikka sokki tekisi
+yhdestä kehyksestä hallitsevan uutissyklissä. Tämä tasapainosääntö on toimituksellinen
+invariantti kaikille 14 kieliversiolle.
+
+### 13. Sourcing transparency
+
+Tämä tiedote ei esitä väitteitä, joita ei voida jäljittää pysyvään artefaktiin.
+Ohjelma-inferenssi on nimenomaisesti merkitty sijaiseksi (hyväksytyt tekstit →
+tulevaisuuden tarkoitus), ja jokainen makroluku kantaa IMF WEO syyskuu 2025 -vuosikerran.
+Lukijat, jotka tarvitsevat täydellisen päättelyketjun, voivat tutustua
+`intelligence/methodology-reflection.md`-tiedostoon SAT-lokin ja itsekritiikin osalta.
+
+### 14. One-line summary
+
+Finanssipoliittisesti kurinalainen kesäkuu, modaalisesti vakaa mutta elävällä ranskalais-finanssipoliittisella
+poikkeamariskillä ja ei-nollalla ulkoisella sokkihäntällä — ennustettu 🟡 MEDIUM -luottamusasteella
+heikentyneen mutta palautuneen datatietokannan pohjalta.
+
+---
+
+*Tämä tiedote on vaiheen D artikkelin toimituksellinen selkäranka. Se integroi
+`intelligence/synthesis-summary.md`-, `intelligence/scenario-forecast.md`-,
+`intelligence/economic-context.md`- ja `intelligence/forward-projection.md`-tiedostot.*
+
+### Source reliability (Admiralty)
+
+| Lähde | Admiraliteetti-luokka | Luotettavuus |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | Täysin luotettava / vahvistettu |
+| EP hyväksyttyjen tekstien virta (vuosi=2026) | A2 | Luotettava / todennäköisesti totta |
+| EP tulevat virrat (heikentyneet tässä ajossa) | C4 | Melko luotettava / epävarma |
+
+### Executive Brief Fr
+
+*Date d'exécution : 2026-05-31 · Type d'article : `month-ahead` · Mode données : `degraded-feeds`
+· Niveau de confiance global : 🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+Juin 2026 est, selon la prévision modale, un **mois de discipline budgétaire** pour
+le Parlement européen. La lecture du budget 2027, le financement continu de l'Ukraine et
+la responsabilité, ainsi qu'un ensemble de dossiers de défense commerciale, se règlent tous
+au prisme de finances publiques européennes contraintes. La trajectoire budgétaire améliorée
+de l'Allemagne (déficit des administrations publiques −1,76 % du PIB en 2026 selon IMF WEO)
+et le déficit persistant de la France (−4,94 %) définissent l'arithmétique intra-coalitionnelle
+qui déterminera à quel point les positions du Parlement pour juin seront généreuses
+— et à quel point elles seront conditionnelles. Le principal risque de déviation est
+un signal budgétaire ou financier français (Scénario B, 25–40 %) ; le risque de queue
+est un choc externe déplaçant entièrement l'ordre du jour (Scénario C, 10–20 %).
+
+### 2. What we forecast for June
+
+| Thème | Action probable en juin | Niveau de confiance |
+|-------|------------------------|---------------------|
+| Budget UE 2027 | Lecture / prise de position, orientée discipline | 🟡 Moyen |
+| Financement de l'Ukraine et responsabilité | Soutien continu, débat sur la conditionnalité | 🟢 Moyen–Élevé |
+| Défense commerciale (droits de douane américains, Mercosur) | Résolutions, positionnement en tenant compte de la CJUE | 🟡 Moyen |
+| Application du DMA | Pression de supervision sur la Commission | 🟡 Moyen |
+| Réforme de la loi électorale européenne | Progression procédurale | 🟢 Faible–Moyen |
+| IA pour le commerce | Cadrage / piste d'initiative propre | 🟢 Faible–Moyen |
+
+Ces thèmes sont déduits du pipeline des textes adoptés de classe A2 (41 textes,
+année=2026), le flux de l'ordre du jour plénier prospectif ayant renvoyé un résultat vide
+lors de cette exécution.
+
+### 3. The three scenarios
+
+- **Scénario A — Mois modal discipliné (55–70 %).** L'ordre du jour publié tient ;
+  la rigueur budgétaire façonne mais ne déraille pas les dossiers budgétaires et ukrainiens.
+- **Scénario B — Signal budgétaire français (25–40 %).** Un mouvement des spreads souverains
+  français ou un événement budgétaire intérieur renforce le cadre disciplinaire et complique
+  l'arithmétique coalitionnelle sur le budget.
+- **Scénario C — Choc externe (10–20 %).** Une escalade militaire, une nouvelle vague
+  de droits de douane américains ou un développement CJUE Mercosur déplace l'ordre du jour prévu.
+
+Les scénarios forment un *flux* de probabilité, et non un tirage unique : le mois peut
+migrer A→B sur un déclencheur budgétaire ou A→C sur un choc externe, et peut se rétablir.
+
+### 4. Why this matters
+
+La session de juin se situe au **nexus économico-politique** : la même contrainte budgétaire
+qui discipline le budget 2027 conditionne également l'ampleur du soutien à l'Ukraine
+que le Parlement garantira et la vigueur avec laquelle il défend la politique commerciale.
+Les déclencheurs juridiques (le calendrier CJUE Mercosur) sont les catalyseurs externes
+les plus probables. C'est un mois où la réalité macro-budgétaire, et non une nouvelle
+initiative législative, est la variable dominante.
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| Économie | Croissance PIB 2026 | Inflation 2026 | Solde budgétaire 2026 (% PIB) |
+|----------|---------------------|----------------|-------------------------------|
+| Allemagne | 0,79 % | 2,65 % | −1,76 % |
+| France | 0,86 % | 1,84 % | −4,94 % |
+| Italie | 0,52 % | 2,64 % | −2,82 % |
+
+La divergence budgétaire franco-allemande est le jeu de chiffres de loin le plus important
+pour l'arithmétique de juin : elle explique pourquoi le cadre de discipline est porteur
+et pourquoi l'exposition française est le principal risque de déviation.
+
+### 6. Key risks
+
+1. **Mainmise de la rigueur budgétaire sur le budget 2027** — probabilité × impact combinés les plus élevés.
+2. **Choc externe déplaçant l'ordre du jour** — impact élevé, probabilité moyenne.
+3. **Erreur inférentielle de coalition** — l'arithmétique coalitionnelle de juin est modélisée,
+   non observée (aucun vote par député européen pour juin n'existe encore) ; encadrée en conséquence.
+
+### 7. Confidence and caveats
+
+Le niveau de confiance global est 🟡 **MEDIUM**, plafonné par deux limites de données : le flux
+plénier prospectif vide (ordre du jour modal déduit des textes adoptés) et la nature inférentielle
+de l'arithmétique coalitionnelle. Aucune de ces limites ne touche au grade de source substantielle
+— l'analyse repose sur des textes adoptés de classe A2 et des données macroéconomiques IMF de classe A1.
+L'exécution est livrée en `degraded-feeds`, non en `minimal`, car le chemin de récupération
+a préservé la qualité des sources.
+
+### 8. What would change our view
+
+- Un ordre du jour de juin publié (relèverait la prévision modale vers 🟢 ÉLEVÉ).
+- Un mouvement des spreads souverains français au-delà du seuil déclencheur (relèverait le Scénario B).
+- Une annonce de droits de douane américains ou une date CJUE Mercosur (relèverait le Scénario C).
+- Un retard de la lecture budgétaire côté Conseil (relèverait le risque de calendrier T2).
+
+### 9. Reader guidance
+
+- **Lecteurs institutionnels :** planifier pour le Scénario A ; préparer des plans de contingence pour B.
+- **Lecteurs de marché :** le Scénario B est le cas de surveillance — suivre les spreads français.
+- **Lecteurs de politique publique :** le Scénario C a une faible probabilité mais est restructurant pour l'ordre du jour.
+
+### 10. Provenance
+
+Construit à partir de `data/adopted-texts-2026.json` (Portail des données ouvertes du PE) et de
+`cache/imf/weo-decoded.json` (IMF WEO SDMX 3.0). Méthodologie complète et
+autocritique dans `intelligence/methodology-reflection.md` ; portail de complétude via
+`npm run validate-analysis`.
+
+### 11. Indicator dashboard (June lead-up)
+
+| Indicateur | Direction confirmant le modal | Point de révision |
+|------------|-------------------------------|-------------------|
+| Ordre du jour de juin final publié | Correspond aux thèmes déduits | TW-7 |
+| Place du Conseil pour la lecture budgétaire 2027 | Au calendrier, sans glissement | TW-14 |
+| Spread français à 10 ans vs Bund | Stable / en réduction | En continu |
+| Posture commerciale américaine | Aucune nouvelle vague de droits | En continu |
+| Calendrier CJUE Mercosur | Pas de date proche | Variable |
+| Signaux de ligne de front / escalade | Calme | En continu |
+
+Un tableau de bord propre à TW-7 consolide la prévision vers le Scénario A ; tout indicateur
+rouge déplace la masse probabiliste vers B (budgétaire) ou C (externe).
+
+### 12. Editorial framing guidance
+
+L'article Stage D devrait débuter par le prisme budgétaire, associer chaque affirmation
+budgétaire ou ukrainienne au chiffre IMF pertinent, et présenter les points de défense
+commerciale avec attribution plutôt qu'approbation. Aucun cadre unique — discipline budgétaire,
+solidarité, résolution géopolitique, souveraineté ou processus technocratique — ne peut
+occuper l'article sans opposition, même si un choc rend un cadre dominant dans le cycle médiatique.
+Cette règle d'équilibre est l'invariant éditorial pour les 14 versions linguistiques.
+
+### 13. Sourcing transparency
+
+Cette note de synthèse ne formule aucune affirmation qui ne soit pas traçable jusqu'à un artefact persisté.
+L'inférence de l'ordre du jour prospectif est explicitement étiquetée comme une approximation (textes adoptés →
+intention prospective), et chaque chiffre macroéconomique porte son millésime IMF WEO septembre 2025.
+Les lecteurs ayant besoin de la chaîne de raisonnement complète devraient consulter
+`intelligence/methodology-reflection.md` pour le journal SAT et l'autocritique.
+
+### 14. One-line summary
+
+Un juin de discipline budgétaire, stable selon la prévision modale, mais avec un risque de déviation
+budgétaire française actif et une queue de choc externe non nulle — prévu à 🟡 confiance MEDIUM sur
+une base de données dégradée mais récupérée.
+
+---
+
+*Cette note de synthèse est l'épine dorsale éditoriale de la version de l'article Stage D. Elle intègre
+`intelligence/synthesis-summary.md`, `intelligence/scenario-forecast.md`,
+`intelligence/economic-context.md` et `intelligence/forward-projection.md`.*
+
+### Source reliability (Admiralty)
+
+| Source | Classe Amirauté | Fiabilité |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | Complètement fiable / confirmée |
+| Flux des textes adoptés du PE (année=2026) | A2 | Fiable / probablement vrai |
+| Flux prospectifs du PE (dégradés lors de cette exécution) | C4 | Assez fiable / douteux |
+
+### Executive Brief He
+
+*תאריך ריצה: 2026-05-31 · סוג מאמר: `month-ahead` · מצב נתונים: `degraded-feeds`
+· רמת ביטחון כוללת: 🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+יוני 2026 הוא, לפי התחזית המודאלית, **חודש של משמעת תקציבית** עבור
+הפרלמנט האירופי. קריאת התקציב לשנת 2027, מימון אוקראינה המתמשך ואחריותה,
+ואשכול של תיקי הגנה סחר — כולם מוכרעים דרך פריזמת הכספים הציבוריים האירופיים המוגבלים.
+המסלול הפיסקלי המשופר של גרמניה (גירעון ממשלתי כולל −1.76% מהתמ"ג ב-2026 לפי IMF WEO)
+והגירעון המתמשך של צרפת (−4.94%) מתווים את האריתמטיקה הקואליציונית הפנימית
+שתקבע עד כמה נדיבות — ועד כמה מותנות — יהיות עמדות הפרלמנט ביוני. סיכון הסטייה
+העיקרי הוא אות פיסקלי פרנסי או איתות שוק ריבוני (תרחיש B, 25–40%); סיכון הזנב
+הוא זעזוע חיצוני שיסיט את הסדר היום לחלוטין (תרחיש C, 10–20%).
+
+### 2. What we forecast for June
+
+| נושא | פעולה צפויה ביוני | רמת ביטחון |
+|------|-------------------|------------|
+| תקציב האיחוד האירופי 2027 | קריאה / גיבוש עמדה, נוטה למשמעת | 🟡 בינוני |
+| מימון אוקראינה ואחריות | תמיכה מתמשכת, דיון על תנאיות | 🟢 בינוני–גבוה |
+| הגנת סחר (מכסים אמריקאים, מרקוסור) | החלטות, מיצוב עם מודעות ל-CJEU | 🟡 בינוני |
+| אכיפת DMA | לחץ פיקוחי על הנציבות | 🟡 בינוני |
+| רפורמה בחוק הבחירות האירופי | התקדמות פרוצדורלית | 🟢 נמוך–בינוני |
+| בינה מלאכותית לסחר | מסגור / מסלול יוזמה עצמאי | 🟢 נמוך–בינוני |
+
+נושאים אלה מוסקים מצינור הטקסטים המאומצים בדרגת A2 (41 טקסטים,
+שנה=2026), מאחר שפיד סדר היום הפלנרי העתידי החזיר תוצאה ריקה בריצה זו.
+
+### 3. The three scenarios
+
+- **תרחיש A — חודש מודאלי ממושמע (55–70%).** סדר היום המפורסם מחזיק;
+  מחסור פיסקלי מעצב אך אינו מפליל את תיקי התקציב ואוקראינה.
+- **תרחיש B — איתות פיסקלי פרנסי (25–40%).** תנועה במרווחי הסיכון הריבוניים הצרפתיים
+  או אירוע פיסקלי פנימי מחזק את מסגרת המשמעת ומסבך את האריתמטיקה הקואליציונית בנוגע לתקציב.
+- **תרחיש C — זעזוע חיצוני (10–20%).** הסלמה צבאית, סבב מכסים אמריקאי חדש
+  או התפתחות ב-CJEU Mercosur מסיטה את הסדר יום המתוכנן.
+
+התרחישים מהווים *זרימת* הסתברות, לא שאיבה חד-פעמית: החודש יכול
+לעבור A→B על טריגר פיסקלי או A→C על זעזוע חיצוני, ויכול להתאושש.
+
+### 4. Why this matters
+
+ישיבת יוני ממוקמת ב**צומת הכלכלי-פוליטי**: אותה מגבלה פיסקלית שמבייתת את תקציב 2027
+מתנה גם כמה תמיכה באוקראינה יבטיח הפרלמנט ועד כמה נחרצות הוא תומך בהגנת הסחר.
+טריגרים משפטיים (לוח השנה של CJEU Mercosur) הם הזרזים החיצוניים הסבירים ביותר.
+זהו חודש שבו המציאות המאקרו-פיסקלית, לא יוזמה חקיקתית חדשה, היא המשתנה השולט.
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| כלכלה | צמיחת תמ"ג 2026 | אינפלציה 2026 | יתרת פיסקלית 2026 (% מהתמ"ג) |
+|-------|-----------------|---------------|-------------------------------|
+| גרמניה | 0.79% | 2.65% | −1.76% |
+| צרפת | 0.86% | 1.84% | −4.94% |
+| איטליה | 0.52% | 2.64% | −2.82% |
+
+הפיצול הפיסקלי הגרמני-צרפתי הוא מכלול המספרים החשוב ביותר
+לאריתמטיקת יוני: הוא מסביר מדוע למסגרת המשמעת יש כוח משיכה
+ומדוע החשיפה הצרפתית היא סיכון הסטייה העיקרי.
+
+### 6. Key risks
+
+1. **לכידת תקציב 2027 בידי מחסור פיסקלי** — הסתברות × השפעה משולבות גבוהה ביותר.
+2. **זעזוע חיצוני שמסיט את הסדר יום** — השפעה גבוהה, הסתברות בינונית.
+3. **שגיאת קואליציה מסיקה** — אריתמטיקת הקואליציה ליוני מדומה, לא נצפית
+   (אין עדיין הצבעות לכל חבר פרלמנט ליוני); מוגדרת בהתאם.
+
+### 7. Confidence and caveats
+
+רמת הביטחון הכוללת היא 🟡 **MEDIUM**, מוגבלת על ידי שתי מגבלות נתונים: פיד הפלנריה העתידי
+הריק (סדר יום מודאלי מוסק מטקסטים מאומצים) והאופי ההסקתי של האריתמטיקה הקואליציונית.
+אף אחת מהמגבלות אינה נוגעת לדרגת המקור הממשית — הניתוח נשען על טקסטים מאומצים בדרגת A2
+ונתוני מאקרו IMF בדרגת A1. הריצה נמסרת כ-`degraded-feeds`, לא כ-`minimal`, מאחר שנתיב
+ההחלמה שמר על איכות המקור.
+
+### 8. What would change our view
+
+- סדר יום מפורסם ליוני (יגביה את התחזית המודאלית לכיוון 🟢 גבוה).
+- תנועה במרווחי הסיכון הריבוניים הצרפתיים מעבר לנקודת ההדק (יגביה את תרחיש B).
+- הכרזת מכסים אמריקאית או תאריך CJEU Mercosur (יגביה את תרחיש C).
+- עיכוב בקריאת התקציב בצד המועצה (יגביה את סיכון העיתוי T2).
+
+### 9. Reader guidance
+
+- **קוראים מוסדיים:** לתכנן לתרחיש A; להכין תוכניות חירום ל-B.
+- **קוראי שוק:** תרחיש B הוא מקרה המעקב — לעקוב אחר המרווחים הצרפתיים.
+- **קוראי מדיניות:** לתרחיש C יש הסתברות נמוכה אך הוא מארגן מחדש את הסדר יום.
+
+### 10. Provenance
+
+נבנה מ-`data/adopted-texts-2026.json` (פורטל הנתונים הפתוחים של PE) ו-
+`cache/imf/weo-decoded.json` (IMF WEO SDMX 3.0). מתודולוגיה מלאה ונקד עצמי
+ב-`intelligence/methodology-reflection.md`; שער שלמות דרך `npm run validate-analysis`.
+
+### 11. Indicator dashboard (June lead-up)
+
+| מחוון | כיוון המאשש את המודאלי | נקודת בדיקה |
+|-------|------------------------|-------------|
+| סדר יום יוני הסופי פורסם | תואם את הנושאים שהוסקו | TW-7 |
+| מקום המועצה לקריאת תקציב 2027 | בלוח השנה, ללא סחיפה | TW-14 |
+| מרווח צרפת ל-10 שנים לעומת Bund | יציב / מתכווץ | מתמשך |
+| עמדת הסחר האמריקאית | אין סבב מכסים חדש | מתמשך |
+| לוח השנה של CJEU Mercosur | אין תאריך קרוב | משתנה |
+| אותות קו הקרב / הסלמה | שקט | מתמשך |
+
+לוח מחוונים נקי ב-TW-7 מגבש את התחזית לכיוון תרחיש A; כל מחוון אדום
+מעביר מסת הסתברות לכיוון B (פיסקלי) או C (חיצוני).
+
+### 12. Editorial framing guidance
+
+מאמר שלב D צריך להוביל בעדשה הפיסקלית, להצמיד לכל טענה תקציבית או אוקראינית
+את נתון IMF הרלוונטי, ולהציג פריטי הגנת סחר עם ייחוס ולא אישור. אין מסגרת יחידה —
+משמעת פיסקלית, סולידריות, נחישות גיאו-פוליטית, ריבונות, או תהליך טכנוקרטי —
+שיכולה להשתלט על המאמר ללא עוררין, גם אם זעזוע הופך מסגרת מסוימת לשולטת במחזור החדשות.
+כלל האיזון זה הוא האינווריאנט העורכי לכל 14 גרסאות השפה.
+
+### 13. Sourcing transparency
+
+תקציר זה אינו מעלה טענה שאינה ניתנת למעקב עד לתוצר שמור. ההסקה של הסדר יום העתידי
+מסומנת במפורש כשלוחה (טקסטים מאומצים ← כוונה עתידית), וכל נתון מאקרו נושא בחותמת
+IMF WEO ספטמבר 2025. קוראים שזקוקים לשרשרת ההנמקה המלאה יתייעצו
+ב-`intelligence/methodology-reflection.md` לגבי יומן SAT והנקד העצמי.
+
+### 14. One-line summary
+
+יוני ממושמע פיסקלית, יציב במודאלי אך עם סיכון סטייה פיסקלי פרנסי חי
+וזנב זעזוע חיצוני אי-אפסי — חזוי ברמת ביטחון 🟡 MEDIUM על בסיס נתונים
+שנשחק אך שוחזר.
+
+---
+
+*תקציר זה הוא עמוד השדרה העורכי לגרסת מאמר שלב D. הוא משלב את
+`intelligence/synthesis-summary.md`, `intelligence/scenario-forecast.md`,
+`intelligence/economic-context.md` ו-`intelligence/forward-projection.md`.*
+
+### Source reliability (Admiralty)
+
+| מקור | דרגת אדמירליות | אמינות |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | אמין לחלוטין / מאושר |
+| פיד הטקסטים המאומצים של PE (שנה=2026) | A2 | אמין / כנראה נכון |
+| פידים עתידיים של PE (שחוקים בריצה זו) | C4 | אמין במידה סבירה / מוטל בספק |
+
+### Executive Brief Ja
+
+*実行日：2026-05-31 · 記事タイプ：`month-ahead` · データモード：`degraded-feeds`
+· 総合信頼度：🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+2026年6月は、最頻発予測によれば、欧州議会にとって**財政規律の月**となります。
+2027年予算の審議、ウクライナへの継続的な資金供与と説明責任、そして複数の貿易防衛案件がすべて、
+制約された欧州の公共財政という観点から決着を迎えます。ドイツの改善された財政軌道
+（IMF WEO による2026年の一般政府赤字 −1.76% of GDP）とフランスの根強い赤字（−4.94%）が、
+議会の6月のポジションの寛大さと条件性を左右する連立内部の計算を形作ります。
+主要な乖離リスクはフランスの財政・ソブリン市場シグナル（シナリオ B、25〜40%）であり、
+テール・リスクはアジェンダ全体を変位させる外部ショック（シナリオ C、10〜20%）です。
+
+### 2. What we forecast for June
+
+| テーマ | 6月の見込まれる行動 | 信頼度 |
+|--------|---------------------|--------|
+| EU予算2027 | 審議/立場表明、規律重視 | 🟡 中程度 |
+| ウクライナ資金供与と説明責任 | 継続的支援、条件性をめぐる議論 | 🟢 中〜高 |
+| 貿易防衛（米国関税、メルコスル） | 決議、CJEUを意識した位置づけ | 🟡 中程度 |
+| DMA執行 | 欧州委員会への監視圧力 | 🟡 中程度 |
+| 欧州選挙法改革 | 手続き上の進展 | 🟢 低〜中 |
+| 貿易向けAI | フレーミング / 独自イニシアティブの軌跡 | 🟢 低〜中 |
+
+これらのテーマは、A2等級の採択テキストのパイプライン（41テキスト、年=2026）から推定されたものです。
+今回の実行では、将来の本会議議題フィードが空で返ってきたためです。
+
+### 3. The three scenarios
+
+- **シナリオ A — 規律ある最頻発月（55〜70%）。** 公表されたアジェンダが維持される。
+  財政的逼迫が予算およびウクライナ案件を形作るが、脱線させるわけではない。
+- **シナリオ B — フランス財政シグナル（25〜40%）。** フランスのソブリン・スプレッドの動きや
+  国内財政イベントが規律の枠組みを強化し、予算をめぐる連立計算を複雑にする。
+- **シナリオ C — 外部ショック（10〜20%）。** 軍事的エスカレーション、新たな米国関税ラウンド、
+  またはCJEU Mercosuの展開が計画されたアジェンダを変位させる。
+
+シナリオは確率の*フロー*であり、一回限りの引き当てではありません。この月は、財政的引き金によって
+A→B、外部ショックによってA→Cへと移行することもあり、回復することもあります。
+
+### 4. Why this matters
+
+6月会期は**経済・政治の結節点**に位置しています。2027年予算を規律づける同じ財政的制約が、
+議会がどれだけウクライナ支援を保証するか、また貿易防衛をどれほど断固として支持するかを条件づけます。
+法的な引き金（CJEU Mercosurカレンダー）が最も可能性の高い外部触媒です。
+これはマクロ財政の現実が、新たな立法イニシアティブではなく、支配的な変数となる月です。
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| 経済 | GDP成長率2026 | インフレ率2026 | 財政収支2026 (%GDP) |
+|------|--------------|--------------|---------------------|
+| ドイツ | 0.79% | 2.65% | −1.76% |
+| フランス | 0.86% | 1.84% | −4.94% |
+| イタリア | 0.52% | 2.64% | −2.82% |
+
+ドイツとフランスの財政格差は、6月の計算において最も重要な数値セットです。
+規律の枠組みが牽引力を持つ理由と、フランスのエクスポージャーが主要な乖離リスクである理由を説明します。
+
+### 6. Key risks
+
+1. **財政的逼迫による2027年予算の支配** — 最も高い合算確率×影響力。
+2. **アジェンダを変位させる外部ショック** — 高い影響力、中程度の確率。
+3. **推論的連立エラー** — 6月の連立計算はモデル化されたものであり、
+   観察されたものではない（6月のMEP別投票はまだ存在しない）。それ相応に幅を持たせている。
+
+### 7. Confidence and caveats
+
+全体的な信頼度は 🟡 **MEDIUM** であり、二つのデータ上の制限により抑えられています。
+空の将来本会議フィード（採択テキストから推測されたモーダル議題）と連立計算の推論的性質です。
+いずれの制限も実質的なソース等級には影響しません。分析はA2等級の採択テキストと
+A1等級のIMFマクロデータに基づいています。回復パスがソース品質を維持したため、
+実行は `minimal` ではなく `degraded-feeds` として提供されます。
+
+### 8. What would change our view
+
+- 6月のアジェンダが公表された場合（最頻発予測を 🟢 高 に向けて引き上げる）。
+- フランスのソブリン・スプレッドが引き金点を超えて動いた場合（シナリオBを引き上げる）。
+- 米国の関税発表またはCJEU Mercosurの日程（シナリオCを引き上げる）。
+- 理事会側での予算審議の遅延（タイミングリスクT2を引き上げる）。
+
+### 9. Reader guidance
+
+- **機関読者：** シナリオAに向けて計画し、Bへの備えを事前に整える。
+- **市場読者：** シナリオBが監視ケース — フランスのスプレッドを追跡する。
+- **政策読者：** シナリオCは確率が低いが、アジェンダを再編する可能性がある。
+
+### 10. Provenance
+
+`data/adopted-texts-2026.json`（EP Open Data Portal）と
+`cache/imf/weo-decoded.json`（IMF WEO SDMX 3.0）から構築。
+完全な方法論と自己批判は `intelligence/methodology-reflection.md` に記載；
+完全性ゲートは `npm run validate-analysis` 経由で確認。
+
+### 11. Indicator dashboard (June lead-up)
+
+| 指標 | モーダルを確認する方向 | レビュー時点 |
+|------|----------------------|------------|
+| 最終6月アジェンダ公表 | 推測されたテーマと一致 | TW-7 |
+| 理事会の2027年予算審議枠 | カレンダー上に記載、滑りなし | TW-14 |
+| フランス10年スプレッド対Bund | 安定/縮小 | 継続 |
+| 米国の貿易姿勢 | 新たな関税ラウンドなし | 継続 |
+| CJEU Mercosurカレンダー | 近い日程なし | 変動 |
+| 前線/エスカレーション・シグナル | 静か | 継続 |
+
+TW-7での清潔なダッシュボードはシナリオAへと予測を収束させる。
+赤い指標があれば、B（財政的）またはC（外部）に向けて確率質量を移動させる。
+
+### 12. Editorial framing guidance
+
+ステージDの記事は財政的レンズで始まり、すべての予算またはウクライナの主張に
+関連するIMF数字を対応させ、貿易防衛項目は支持でなく帰属で提示すべきです。
+財政規律、連帯、地政学的解決、主権、技術官僚的プロセスのいずれか単独の
+フレームが記事を独占することはできません。たとえショックが一つのフレームを
+ニュースサイクルで支配的にしても、です。このバランスルールは14すべての
+言語バージョンの編集上の不変量です。
+
+### 13. Sourcing transparency
+
+このブリーフは、永続した成果物に遡れない主張を一切行いません。
+将来のアジェンダ推論は明示的に代理として標識されています（採択テキスト → 将来の意図）。
+すべてのマクロ数値はIMF WEO 2025年9月ヴィンテージを持ちます。
+完全な推論の連鎖を必要とする読者は、SATログと自己批判のために
+`intelligence/methodology-reflection.md` を参照してください。
+
+### 14. One-line summary
+
+財政規律のある6月、モーダルでは安定しているが、フランス財政乖離リスクが生きており、
+非ゼロの外部ショックテールが存在する — 劣化したが回復したデータ基盤の上で 🟡 MEDIUM 信頼度で予測。
+
+---
+
+*このブリーフはステージDの記事バージョンの編集上の背骨です。`intelligence/synthesis-summary.md`、
+`intelligence/scenario-forecast.md`、`intelligence/economic-context.md`、
+`intelligence/forward-projection.md` を統合しています。*
+
+### Source reliability (Admiralty)
+
+| ソース | 海軍省等級 | 信頼性 |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | 完全に信頼できる / 確認済み |
+| EP採択テキストフィード（年=2026） | A2 | 信頼できる / おそらく真実 |
+| EP将来フィード（今回実行で劣化） | C4 | まあまあ信頼できる / 疑わしい |
+
+### Executive Brief Ko
+
+*실행 날짜: 2026-05-31 · 기사 유형: `month-ahead` · 데이터 모드: `degraded-feeds`
+· 전체 신뢰도: 🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+2026년 6월은 최빈 예측에 따르면 유럽의회에 있어 **재정 규율의 달**입니다.
+2027년 예산 심의, 지속적인 우크라이나 자금 지원과 책임성, 그리고 무역 방어 파일 묶음이 모두
+제한된 유럽 공공 재정이라는 관점에서 결정됩니다. 독일의 개선된 재정 궤도
+(IMF WEO 기준 2026년 일반 정부 적자 GDP 대비 −1.76%)와 프랑스의 지속적인 적자(−4.94%)는
+의회의 6월 포지션이 얼마나 관대하고 얼마나 조건부인지를 결정하는 연립 내부 산술을
+구성합니다. 주된 이탈 위험은 프랑스 재정 또는 국채 시장 신호(시나리오 B, 25~40%)이며,
+꼬리 위험은 의제를 완전히 대체하는 외부 충격(시나리오 C, 10~20%)입니다.
+
+### 2. What we forecast for June
+
+| 주제 | 6월 예상 행동 | 신뢰도 |
+|------|-------------|--------|
+| EU 예산 2027 | 심의 / 입장 표명, 규율 지향 | 🟡 중간 |
+| 우크라이나 자금 지원 및 책임 | 지속적 지원, 조건부 논의 | 🟢 중간~높음 |
+| 무역 방어 (미국 관세, 메르코수르) | 결의안, CJEU 인식 위치 설정 | 🟡 중간 |
+| DMA 집행 | 집행위원회에 대한 감독 압력 | 🟡 중간 |
+| 유럽 선거법 개혁 | 절차상 진전 | 🟢 낮음~중간 |
+| 무역을 위한 AI | 프레이밍 / 자체 이니셔티브 트랙 | 🟢 낮음~중간 |
+
+이 주제들은 A2등급 채택 텍스트 파이프라인(41개 텍스트, 연도=2026)에서 도출되었습니다.
+이번 실행에서 향후 본회의 의제 피드가 빈 결과를 반환했기 때문입니다.
+
+### 3. The three scenarios
+
+- **시나리오 A — 규율 있는 최빈 달 (55~70%).** 공표된 의제가 유지됩니다.
+  재정 부족이 예산과 우크라이나 파일을 형성하지만 탈선시키지는 않습니다.
+- **시나리오 B — 프랑스 재정 신호 (25~40%).** 프랑스 국채 스프레드 움직임이나
+  국내 재정 이벤트가 규율 프레임을 강화하고 예산을 둘러싼 연립 산술을 복잡하게 만듭니다.
+- **시나리오 C — 외부 충격 (10~20%).** 군사적 확전, 새로운 미국 관세 라운드,
+  또는 CJEU Mercosur 발전이 계획된 의제를 대체합니다.
+
+시나리오들은 확률의 *흐름*을 형성하며 일회성 추첨이 아닙니다. 이달은 재정 트리거에 의해
+A→B로, 외부 충격에 의해 A→C로 이동할 수 있으며 회복도 가능합니다.
+
+### 4. Why this matters
+
+6월 회기는 **경제-정치 넥서스**에 위치합니다. 2027년 예산을 규율하는 동일한 재정 제약이
+의회가 얼마나 많은 우크라이나 지원을 보장할지, 그리고 무역 방어를 얼마나 단호히 지지할지도
+조건 짓습니다. 법적 트리거(CJEU Mercosur 캘린더)가 가장 가능성 높은 외부 촉매입니다.
+새로운 입법 이니셔티브가 아닌 거시 재정 현실이 지배적 변수인 달입니다.
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| 경제 | GDP 성장률 2026 | 인플레이션 2026 | 재정 수지 2026 (%GDP) |
+|------|----------------|----------------|----------------------|
+| 독일 | 0.79% | 2.65% | −1.76% |
+| 프랑스 | 0.86% | 1.84% | −4.94% |
+| 이탈리아 | 0.52% | 2.64% | −2.82% |
+
+독일-프랑스 재정 격차는 6월 산술에서 단연 가장 중요한 수치 세트입니다.
+규율 프레임이 견인력을 갖는 이유와 프랑스 노출이 주요 이탈 위험인 이유를 설명합니다.
+
+### 6. Key risks
+
+1. **재정 부족의 2027 예산 장악** — 가장 높은 합산 확률 × 영향.
+2. **의제를 대체하는 외부 충격** — 높은 영향, 중간 확률.
+3. **추론적 연립 오류** — 6월 연립 산술은 모델화된 것이지 관찰된 것이 아닙니다
+   (6월 MEP별 투표는 아직 존재하지 않음). 그에 따라 밴드를 설정했습니다.
+
+### 7. Confidence and caveats
+
+전체 신뢰도는 🟡 **MEDIUM**이며, 두 가지 데이터 제한에 의해 제한됩니다. 비어 있는
+향후 본회의 피드(채택 텍스트에서 도출된 최빈 의제)와 연립 산술의 추론적 특성입니다.
+어느 제한도 실질적인 소스 등급에 영향을 주지 않습니다. 분석은 A2등급 채택 텍스트와
+A1등급 IMF 거시 데이터에 기반합니다. 회복 경로가 소스 품질을 유지했기 때문에
+실행은 `minimal`이 아닌 `degraded-feeds`로 제공됩니다.
+
+### 8. What would change our view
+
+- 6월 의제 공표 시 (최빈 예측을 🟢 높음으로 끌어올릴 것입니다).
+- 프랑스 국채 스프레드가 트리거 포인트를 넘어 움직일 경우 (시나리오 B를 높일 것입니다).
+- 미국 관세 발표 또는 CJEU Mercosur 날짜 (시나리오 C를 높일 것입니다).
+- 이사회 측에서의 예산 심의 지연 (타이밍 위험 T2를 높일 것입니다).
+
+### 9. Reader guidance
+
+- **기관 독자:** 시나리오 A를 위한 계획; B에 대한 비상 계획 사전 준비.
+- **시장 독자:** 시나리오 B가 감시 케이스 — 프랑스 스프레드 추적.
+- **정책 독자:** 시나리오 C는 확률이 낮지만 의제를 재편합니다.
+
+### 10. Provenance
+
+`data/adopted-texts-2026.json`(EP Open Data Portal)과
+`cache/imf/weo-decoded.json`(IMF WEO SDMX 3.0)으로부터 구축됨.
+완전한 방법론과 자기 비평은 `intelligence/methodology-reflection.md`에 있음;
+완전성 게이트는 `npm run validate-analysis`를 통해.
+
+### 11. Indicator dashboard (June lead-up)
+
+| 지표 | 최빈값을 확인하는 방향 | 검토 시점 |
+|------|----------------------|----------|
+| 최종 6월 의제 공표 | 도출된 주제와 일치 | TW-7 |
+| 이사회 2027년 예산 심의 일정 | 캘린더에 있음, 지연 없음 | TW-14 |
+| 프랑스 10년물 스프레드 vs Bund | 안정 / 축소 | 지속 |
+| 미국 무역 입장 | 새 관세 라운드 없음 | 지속 |
+| CJEU Mercosur 캘린더 | 근접 날짜 없음 | 변동 |
+| 전선 / 확전 신호 | 조용 | 지속 |
+
+TW-7에서의 깨끗한 대시보드는 시나리오 A를 향해 예측을 수렴시킵니다.
+빨간 지표가 있으면 B(재정적) 또는 C(외부)를 향해 확률 질량이 이동합니다.
+
+### 12. Editorial framing guidance
+
+스테이지 D 기사는 재정적 렌즈로 시작하고, 모든 예산 또는 우크라이나 주장을
+관련 IMF 수치와 짝지우며, 무역 방어 항목을 지지가 아닌 귀속으로 제시해야 합니다.
+재정 규율, 연대, 지정학적 결의, 주권, 기술관료적 프로세스 중 어느 하나의 프레임도
+논란 없이 기사를 점령해서는 안 됩니다. 충격이 하나의 프레임을 뉴스 사이클에서
+지배적으로 만들더라도 마찬가지입니다. 이 균형 규칙은 14개 모든 언어 버전의
+편집상 불변량입니다.
+
+### 13. Sourcing transparency
+
+이 브리핑은 영속된 아티팩트로 추적할 수 없는 주장을 하지 않습니다.
+향후 의제 추론은 명시적으로 대리로 표시됩니다(채택 텍스트 → 향후 의도).
+모든 거시 수치는 IMF WEO 2025년 9월 빈티지를 지닙니다. 완전한 추론 체인이
+필요한 독자는 SAT 로그와 자기 비평을 위해 `intelligence/methodology-reflection.md`를 참조하세요.
+
+### 14. One-line summary
+
+재정 규율적인 6월, 최빈값으로는 안정적이지만 살아있는 프랑스 재정 이탈 위험과
+비제로 외부 충격 꼬리가 존재합니다 — 저하되었지만 회복된 데이터 기반 위에서
+🟡 MEDIUM 신뢰도로 예측됩니다.
+
+---
+
+*이 브리핑은 스테이지 D 기사 버전의 편집상 척추입니다. `intelligence/synthesis-summary.md`,
+`intelligence/scenario-forecast.md`, `intelligence/economic-context.md`,
+`intelligence/forward-projection.md`를 통합합니다.*
+
+### Source reliability (Admiralty)
+
+| 출처 | 해군성 등급 | 신뢰도 |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | 완전히 신뢰할 수 있음 / 확인됨 |
+| EP 채택 텍스트 피드 (연도=2026) | A2 | 신뢰할 수 있음 / 사실일 가능성 높음 |
+| EP 향후 피드 (이번 실행에서 저하됨) | C4 | 상당히 신뢰할 수 있음 / 의심스러움 |
+
+### Executive Brief Nl
+
+*Uitvoeringsdatum: 2026-05-31 · Artikeltype: `month-ahead` · Datamodus: `degraded-feeds`
+· Algeheel betrouwbaarheidsniveau: 🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+Juni 2026 is, op basis van de modale prognose, een **maand van begrotingsdiscipline** voor
+het Europees Parlement. De lezing van de begroting 2027, de voortgezette financiering van Oekraïne en
+verantwoording, alsmede een cluster van handelsdefensiedossiers, worden alle beslecht door het
+prisma van beperkte Europese overheidsfinanciën. Duitslands verbeterd begrotingstraject
+(tekort overheid −1,76 % van het bbp in 2026 per IMF WEO) en het aanhoudende tekort van
+Frankrijk (−4,94 %) bepalen de intracoalitionele rekensom die bepaalt hoe genereus — en hoe
+voorwaardelijk — de junistandpunten van het Parlement zullen zijn. Het primaire afwijkingsrisico
+is een Frans fiscaal of staatsmarkt-signaal (Scenario B, 25–40 %); het staartrisico is een
+externe schok die de agenda volledig verdringt (Scenario C, 10–20 %).
+
+### 2. What we forecast for June
+
+| Thema | Waarschijnlijke juniactie | Betrouwbaarheidsniveau |
+|-------|---------------------------|------------------------|
+| EU-begroting 2027 | Lezing / standpuntbepaling, disciplinegericht | 🟡 Gemiddeld |
+| Oekraïne-financiering en verantwoording | Voortgezette steun, debat over conditionaliteit | 🟢 Gemiddeld–Hoog |
+| Handelsdefensie (Amerikaanse tarieven, Mercosur) | Resoluties, HvJ-bewuste positionering | 🟡 Gemiddeld |
+| DMA-handhaving | Toezichtsdruk op de Commissie | 🟡 Gemiddeld |
+| Hervorming Europese kieswet | Procedurele voortgang | 🟢 Laag–Gemiddeld |
+| AI voor handel | Kaderstelling / eigen-initiatiefspoor | 🟢 Laag–Gemiddeld |
+
+Deze thema's zijn afgeleid uit de pijplijn van A2-gerangschikte aangenomen teksten (41 teksten,
+jaar=2026), omdat de feed met de toekomstige plenaire agenda leeg terugkwam tijdens
+deze uitvoering.
+
+### 3. The three scenarios
+
+- **Scenario A — Gedisciplineerde modale maand (55–70 %).** De gepubliceerde agenda houdt stand;
+  fiscale krapte vormt maar ontspoort de begrotings- en Oekraïnedossiers niet.
+- **Scenario B — Frans fiscaal signaal (25–40 %).** Een beweging in de Franse staatsobligatiespreid
+  of een binnenlandse begrotingsgebeurtenis versterkt het disciplinekader en compliceert
+  de coalitierekensom voor de begroting.
+- **Scenario C — Externe schok (10–20 %).** Een militaire escalatie, een nieuwe ronde
+  Amerikaanse tarieven of een HvJ Mercosur-ontwikkeling verdringt de geplande agenda.
+
+De scenario's vormen een waarschijnlijkheidsstroom, geen eenmalige uitkomst: de maand kan
+migreren A→B bij een fiscale aanleiding of A→C bij een externe schok, en kan herstellen.
+
+### 4. Why this matters
+
+De junizitting bevindt zich op het **economisch-politieke nexus**: dezelfde begrotingsbeperking
+die de begroting 2027 disciplineert, bepaalt ook hoeveel steun aan Oekraïne het Parlement
+zal garanderen en hoe resoluut het handelsdefensie ondersteunt. Juridische aanleidingen
+(de HvJ Mercosur-kalender) zijn de meest waarschijnlijke externe katalysatoren. Dit is
+een maand waar macrofiscale realiteit, niet nieuwe wetgevende initiatieven, de dominante variabele is.
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| Economie | Bbp-groei 2026 | Inflatie 2026 | Begrotingssaldo 2026 (% bbp) |
+|----------|----------------|---------------|-------------------------------|
+| Duitsland | 0,79 % | 2,65 % | −1,76 % |
+| Frankrijk | 0,86 % | 1,84 % | −4,94 % |
+| Italië | 0,52 % | 2,64 % | −2,82 % |
+
+De Duits-Franse begrotingsdivergentie is de enkelvoudig belangrijkste cijferreeks voor
+de junirekensom: ze verklaart waarom het disciplinekader traction heeft en waarom
+Franse blootstelling het voornaamste afwijkingsrisico is.
+
+### 6. Key risks
+
+1. **Fiscale krapte die de begroting 2027 kaapt** — hoogste gecombineerde
+   kans × impact.
+2. **Externe schok die de agenda verdringt** — hoge impact, gemiddelde kans.
+3. **Inferentiële coalitiefout** — de junirekensom voor coalitievorming is gemodelleerd,
+   niet geobserveerd (er bestaan nog geen per-EP-lid-junimoties); dienovereenkomstig gebandbreed.
+
+### 7. Confidence and caveats
+
+Het algehele betrouwbaarheidsniveau is 🟡 **MEDIUM**, begrensd door twee databeperkingen: de lege
+toekomstige plenaire feed (modale agenda afgeleid van aangenomen teksten) en het inferentiële
+karakter van de coalitierekensom. Geen van de beperkingen raakt aan de substantiële brongraad —
+de analyse rust op A2-gerangschikte aangenomen teksten en A1-gerangschikte IMF-macrodata.
+De uitvoering wordt geleverd als `degraded-feeds`, niet als `minimal`, omdat het herstelpad
+de bronkwaliteit behield.
+
+### 8. What would change our view
+
+- Een gepubliceerde juniagenda (zou de modale prognose naar 🟢 HOOG tillen).
+- Een Franse staatsobligatiespreid-beweging buiten het triggerpunt (zou Scenario B verhogen).
+- Een Amerikaanse tariefaankondiging of een HvJ Mercosur-datum (zou Scenario C verhogen).
+- Een vertraging van de begrotingslezing aan de Raadskant (zou tijdsrisico T2 verhogen).
+
+### 9. Reader guidance
+
+- **Institutionele lezers:** plan voor Scenario A; bereid noodplannen voor B voor.
+- **Marktlezers:** Scenario B is het bewakingsgeval — volg de Franse spreads.
+- **Beleidsmakers:** Scenario C heeft een lage kans maar herstructureert de agenda.
+
+### 10. Provenance
+
+Opgebouwd uit `data/adopted-texts-2026.json` (EP Open Data Portal) en
+`cache/imf/weo-decoded.json` (IMF WEO SDMX 3.0). Volledige methodologie en
+zelfkritiek in `intelligence/methodology-reflection.md`; volledigheidspoort via
+`npm run validate-analysis`.
+
+### 11. Indicator dashboard (June lead-up)
+
+| Indicator | Richting die het modale bevestigt | Beoordelingspunt |
+|-----------|-----------------------------------|------------------|
+| Definitieve juniagenda gepubliceerd | Komt overeen met afgeleide thema's | TW-7 |
+| Raadsplaats voor begrotingslezing 2027 | Op de agenda, geen vertraging | TW-14 |
+| Franse 10-jaars spread vs. Bund | Stabiel / verkrappend | Doorlopend |
+| Amerikaanse handelshouding | Geen nieuwe tariefdronde | Doorlopend |
+| HvJ Mercosur-kalender | Geen nabije datum | Variabel |
+| Frontlinie- / escalatiesignalen | Rustig | Doorlopend |
+
+Een schoon dashboard bij TW-7 consolideert de prognose richting Scenario A; elke rode
+indicator verschuift kansgewicht richting B (fiscaal) of C (extern).
+
+### 12. Editorial framing guidance
+
+Het Stage D-artikel moet beginnen met het fiscale perspectief, elke begrotings- of
+Oekraïneclaim koppelen aan het relevante IMF-cijfer en handelsdefensie-items presenteren met
+attributie in plaats van goedkeuring. Geen enkel kader — begrotingsdiscipline,
+solidariteit, geopolitieke vastberadenheid, soevereiniteit of technocratisch proces — mag
+het artikel onbestreden domineren, ook niet als een schok één kader dominant maakt in
+de nieuwscyclus. Deze balanceregel is het redactionele invariant voor alle 14 taalversies.
+
+### 13. Sourcing transparency
+
+Deze briefing doet geen bewering die niet terug te voeren is op een gecentraliseerd artefact.
+De toekomstige agenda-inferentie is expliciet gelabeld als een proxy (aangenomen teksten →
+toekomstige intentie), en elk macrocijfer draagt zijn IMF WEO september 2025 vintage.
+Lezers die de volledige redeneerketens nodig hebben, dienen
+`intelligence/methodology-reflection.md` te raadplegen voor het SAT-logboek en de zelfkritiek.
+
+### 14. One-line summary
+
+Een begrotingsdisciplinerende juni, modaal stabiel maar met een levendig Frans-fiscaal
+afwijkingsrisico en een niet-nul externe schoktail — geprognosticeerd bij 🟡 MEDIUM betrouwbaarheidsniveau
+op een gedegradeerde maar herstelde databasis.
+
+---
+
+*Deze briefing is de redactionele ruggengraat voor de Stage D-artikelversie. Ze integreert
+`intelligence/synthesis-summary.md`, `intelligence/scenario-forecast.md`,
+`intelligence/economic-context.md` en `intelligence/forward-projection.md`.*
+
+### Source reliability (Admiralty)
+
+| Bron | Admiraliteitsklasse | Betrouwbaarheid |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | Volledig betrouwbaar / bevestigd |
+| EP aangenomen teksten-feed (jaar=2026) | A2 | Betrouwbaar / waarschijnlijk waar |
+| EP toekomstige feeds (gedegradeerd tijdens deze uitvoering) | C4 | Vrij betrouwbaar / twijfelachtig |
+
+### Executive Brief No
+
+*Kjøredato: 2026-05-31 · Artikkeltype: `month-ahead` · Datamodus: `degraded-feeds`
+· Samlet konfidensnivå: 🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+Juni 2026 er, i henhold til den modale prognosen, en **måned preget av budsjettdisiplin** for
+Europaparlamentet. Budsjettbehandlingen for 2027, den fortsatte Ukraine-finansieringen og
+ansvarliggjøringen, samt en klynge av handelsforsvarssaker, avgjøres alle
+gjennom linsen av begrensede europeiske offentlige finanser. Tysklands forbedrede
+finanspolitiske kurs (offentlig underskudd −1,76 % av BNP i 2026 per IMF WEO) og
+Frankrikes vedvarende underskudd (−4,94 %) danner rammen for den intrakoalisjonsaritmektikken
+som avgjør hvor generøse — og hvor betingede — parlamentets junipolitiske holdninger
+vil være. Den primære avvikningsrisikoen er et fransk finanspolitisk eller
+statsobligasjonsmarkeds-signal (Scenario B, 25–40 %); halerisikoen er et eksternt sjokk
+som fullstendig fortrenger dagsordenen (Scenario C, 10–20 %).
+
+### 2. What we forecast for June
+
+| Tema | Sannsynlig junihandling | Konfidensnivå |
+|------|-------------------------|---------------|
+| EUs budsjett 2027 | Behandling / holdningsformulering, disiplintiltet | 🟡 Medium |
+| Ukraine-finansiering og ansvarliggjøring | Fortsatt støtte, debatt om betingelser | 🟢 Med–Høy |
+| Handelsforsvar (amerikanske tollsatser, Mercosur) | Resolusjoner, CJEU-bevisst posisjonering | 🟡 Medium |
+| DMA-håndhevelse | Tilsynspress på Kommisjonen | 🟡 Medium |
+| Reform av den europeiske valgloven | Prosedyremessig progresjon | 🟢 Lav–Med |
+| KI for handel | Innramming / eget initiativspor | 🟢 Lav–Med |
+
+Disse temaene er avledet fra rørledningen for vedtatte tekster av A2-klasse (41 tekster,
+år=2026), ettersom strømmen med den fremtidige plenardagsordenen returnerte tom under
+denne kjøringen.
+
+### 3. The three scenarios
+
+- **Scenario A — Disiplinert modal måned (55–70 %).** Den publiserte dagsordenen holder;
+  finansiell knapphet former men avsporinger ikke budsjett- og Ukrainasakene.
+- **Scenario B — Fransk finanssignal (25–40 %).** Et franskt statsrisiko-spreadbevegelse
+  eller en innenlandsk finanspolitisk hendelse forsterker disiplinrammen og kompliserer
+  koalisjonsaritmettikken vedrørende budsjettet.
+- **Scenario C — Eksternt sjokk (10–20 %).** En militær eskalering, en ny amerikansk
+  tollrunde eller en CJEU Mercosur-hendelse fortrenger den planlagte dagsordenen.
+
+Scenariene utgjør en sannsynlighets*flyt*, ikke et engangstrekk: måneden kan
+migrere A→B ved en finanspolitisk utløser eller A→C ved et eksternt sjokk, og kan gjenopprettes.
+
+### 4. Why this matters
+
+Junisesjonen befinner seg ved det **økonomi-politiske nexuset**: den samme finanspolitiske
+begrensningen som disiplinerer 2027-budsjettet, betinger også hvor mye Ukraine-støtte
+parlamentet vil garantere og hvor bestemt det støtter handelsforsvar. Juridiske
+utløsere (CJEU Mercosur-kalenderen) er de mest sannsynlige eksterne katalysatorene. Det er
+en måned der makrofinansielle realiteter, ikke nye lovgivningsinitiativ, er den dominerende variabelen.
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| Økonomi | BNP-vekst 2026 | Inflasjon 2026 | Finansiell saldo 2026 (% av BNP) |
+|---------|----------------|----------------|-----------------------------------|
+| Tyskland | 0,79 % | 2,65 % | −1,76 % |
+| Frankrike | 0,86 % | 1,84 % | −4,94 % |
+| Italia | 0,52 % | 2,64 % | −2,82 % |
+
+Den tysk-franske finanspolitiske divergensen er det enkelt viktigste tallsettet for
+juniaritmettikken: det forklarer hvorfor disiplinrammen har gjennomslag og hvorfor
+fransk eksponering er den primære avvikningsrisikoen.
+
+### 6. Key risks
+
+1. **Finansiell knapphet som fanger 2027-budsjettet** — høyest kombinert
+   sannsynlighet × konsekvens.
+2. **Eksternt sjokk som fortrenger dagsordenen** — høy konsekvens, middels sannsynlighet.
+3. **Inferensiell koalisjonsfeil** — junikoalisjonsaritmettikken er modellert,
+   ikke observert (ingen per-MEP-stemmer for juni eksisterer ennå); båndbreddet deretter.
+
+### 7. Confidence and caveats
+
+Det overordnede konfidensnivået er 🟡 **MEDIUM**, begrenset av to databegrensninger: den tomme
+fremtidige plenumstrømmen (modal dagsorden utledet fra vedtatte tekster) og den inferensielle
+karakteren til koalisjonsaritmettikken. Ingen av begrensningene berører den substantive
+kildergraden — analysen hviler på A2-klassifiserte vedtatte tekster og A1-klassifiserte IMF
+makrodata. Kjøringen leveres som `degraded-feeds`, ikke `minimal`, fordi gjenopprettingsstien
+bevarte kildekvaliteten.
+
+### 8. What would change our view
+
+- En publisert junidagsorden (ville løfte den modale prognosen mot 🟢 HØY).
+- Et franskt statsrisiko-spreadbevegelse utover utløserpunktet (ville heve Scenario B).
+- En amerikansk tollkunngjøring eller en CJEU Mercosur-dato (ville heve Scenario C).
+- En forsinkelse av budsjettbehandlingen på rådssiden (ville heve tidsrisiko T2).
+
+### 9. Reader guidance
+
+- **Institusjonelle lesere:** planlegg for Scenario A; forhåndsstadier beredskap for B.
+- **Markedslesere:** Scenario B er overvåkingssaken — følg franske spreads.
+- **Politikklesere:** Scenario C har lav sannsynlighet men er dagsordensomstrukturerende.
+
+### 10. Provenance
+
+Bygget fra `data/adopted-texts-2026.json` (EP Open Data Portal) og
+`cache/imf/weo-decoded.json` (IMF WEO SDMX 3.0). Fullstendig metodikk og
+selvkritikk i `intelligence/methodology-reflection.md`; fullstendighetsport via
+`npm run validate-analysis`.
+
+### 11. Indicator dashboard (June lead-up)
+
+| Indikator | Retning som bekrefter modal | Gjennomgangspunkt |
+|-----------|------------------------------|-------------------|
+| Endelig junidagsorden publisert | Samsvarer med utledede temaer | TW-7 |
+| Rådets budsjettbehandlingsplass for 2027 | I kalenderen, ingen glidning | TW-14 |
+| Franske 10-årige spread vs Bund | Stabil / avtagende | Løpende |
+| Amerikansk handelsposisjon | Ingen ny tollrunde | Løpende |
+| CJEU Mercosur-kalender | Ingen nær dato | Variabel |
+| Frontlinje- / eskaleringssignaler | Stille | Løpende |
+
+Et rent dashboard ved TW-7 konsoliderer prognosen mot Scenario A; enhver rød
+indikator forskyver sannsynlighetsmasse mot B (finanspolitisk) eller C (ekstern).
+
+### 12. Editorial framing guidance
+
+Stage D-artikkelen bør lede med den finanspolitiske linsen, pare hvert budsjett- eller
+Ukrainakrav med det relevante IMF-tallet og presentere handelsforsvarspunkter med
+attribusjon fremfor godkjenning. Ingen enkelt ramme — finanspolitisk disiplin,
+solidaritet, geopolitisk besluttsomhet, suverenitet eller teknokratisk prosess — kan
+besette artikkelen ubestridt, selv om et sjokk gjør én ramme dominerende i nyhetssyklusen.
+Denne balanseregelen er den redaksjonelle invarianten for alle 14 språkversioner.
+
+### 13. Sourcing transparency
+
+Dette sammendraget fremsetter ingen påstand som ikke kan spores tilbake til et persistert artefakt.
+Dagsordensinfekonteksten er eksplisitt merket som en stedfortræder (vedtatte tekster →
+fremtidig hensikt), og hvert makrotal bærer sitt IMF WEO Sept-2025-vintage. Lesere
+som trenger den fulle resonanskjeden, bør konsultere
+`intelligence/methodology-reflection.md` for SAT-loggen og selvkritikken.
+
+### 14. One-line summary
+
+En finanspolitisk disiplinert juni, modalt stabil men med en levende fransk-finanspolitisk
+avvikningsrisiko og en ikke-null ekstern sjokkhale — prognostisert ved 🟡 MEDIUM konfidensnivå på
+et degradert-men-gjenopprettet datagrunnlag.
+
+---
+
+*Dette sammendraget er den redaksjonelle ryggraden for Stage D-artikkelversionen. Det integrerer
+`intelligence/synthesis-summary.md`, `intelligence/scenario-forecast.md`,
+`intelligence/economic-context.md` og `intelligence/forward-projection.md`.*
+
+### Source reliability (Admiralty)
+
+| Kilde | Admiralty-klasse | Pålitelighet |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | Fullstendig pålitelig / bekreftet |
+| EP vedtatte tekster-strøm (år=2026) | A2 | Pålitelig / sannsynligvis sann |
+| EP fremtidige strømmer (degraderte denne kjøringen) | C4 | Rimelig pålitelig / tvilsom |
+
+### Executive Brief Sv
+
+*Körningsdatum: 2026-05-31 · Artikeltyp: `month-ahead` · Dataläge: `degraded-feeds`
+· Övergripande konfidensgrad: 🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+Juni 2026 är, enligt den modala prognosen, en **månad präglad av budgetdisciplin** för
+Europaparlamentet. Budgetläsningen för 2027, den fortsatta Ukraine-finansieringen och
+ansvarsskyldigheten, samt ett kluster av handelsförsvarsfiler avgörs samtliga
+genom linsen av begränsade europeiska offentliga finanser. Tysklands förbättrade
+finanspolitiska bana (allmänt underskott −1,76 % av BNP 2026 per IMF WEO) och
+Frankrikes ihållande underskott (−4,94 %) ramar in den intrakoalitionella aritmetik
+som avgör hur generösa — och hur villkorliga — parlamentets junipolitiska ställningstaganden
+kommer att vara. Den primära avvikelsesrisken är en fransk fiskal- eller
+statsmarknadssignal (Scenario B, 25–40 %); svansrisken är en extern chock som helt
+förskjuter dagordningen (Scenario C, 10–20 %).
+
+### 2. What we forecast for June
+
+| Tema | Trolig juniåtgärd | Konfidensgrad |
+|------|-------------------|---------------|
+| EU:s budget 2027 | Läsning / ställningstagande, disciplintiltat | 🟡 Medium |
+| Ukraine-finansiering och ansvarsskyldighet | Fortsatt stöd, debatt om villkorlighet | 🟢 Med–Hög |
+| Handelsskydd (amerikanska tullar, Mercosur) | Resolutioner, CJEU-medveten positionering | 🟡 Medium |
+| DMA-efterlevnad | Tillsynstryck på kommissionen | 🟡 Medium |
+| Reform av den europeiska vallagen | Procedurmässig progression | 🟢 Låg–Med |
+| AI för handel | Inramning / initiativspår | 🟢 Låg–Med |
+
+Dessa teman är härledda från pipelinen för antagna texter av klass A2 (41 texter,
+år=2026), eftersom flödet med den framtida plenaragordningen returnerade tomt under
+denna körning.
+
+### 3. The three scenarios
+
+- **Scenario A — Disciplinerad modal månad (55–70 %).** Den publicerade dagordningen håller;
+  budgetnöden formar men spårar inte ur budget- och Ukrainafilerna.
+- **Scenario B — Franskt finanssignal (25–40 %).** Ett franskt statsrisk-spreads-rörande
+  eller en inhemsk finanspolitisk händelse förstärker disciplinramen och komplicerar
+  koalitionsaritmetiken kring budgeten.
+- **Scenario C — Extern chock (10–20 %).** En militär eskalering, en ny amerikansk
+  tullrunda eller en CJEU Mercosur-händelse förskjuter den planerade dagordningen.
+
+Scenarierna utgör ett sannolikhets*flöde*, inte ett engångsdrag: månaden kan
+migrera A→B vid en finanspolitisk utlösare eller A→C vid en extern chock, och kan återhämta sig.
+
+### 4. Why this matters
+
+Junisessionen befinner sig vid det **ekonomisk-politiska nexuset**: samma finanspolitiska
+begränsning som disciplinerar 2027 års budget villkorar också hur mycket Ukrainastöd
+parlamentet kommer att garantera och hur bestämt det stöder handelsskyddet. Juridiska
+utlösare (CJEU Mercosur-kalendern) är de mest sannolika externa katalysatorerna. Det är
+en månad där makrofiskal verklighet, inte nya lagstiftningsinitiativ, är den dominerande variabeln.
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| Ekonomi | BNP-tillväxt 2026 | Inflation 2026 | Finansiellt saldo 2026 (% av BNP) |
+|---------|--------------------|----------------|-------------------------------------|
+| Tyskland | 0,79 % | 2,65 % | −1,76 % |
+| Frankrike | 0,86 % | 1,84 % | −4,94 % |
+| Italien | 0,52 % | 2,64 % | −2,82 % |
+
+Den tyska-franska finanspolitiska divergensen är den enskilt viktigaste siffermängden för
+juniaritmetiken: den förklarar varför disciplinramen har tyngd och varför fransk exponering
+är den huvudsakliga avvikelserisken.
+
+### 6. Key risks
+
+1. **Budgetnödens kapning av 2027 års budget** — högst kombinerad
+   sannolikhet × påverkan.
+2. **Extern chock som förskjuter dagordningen** — hög påverkan, medelhög sannolikhet.
+3. **Inferentiellt koalitionsfel** — junimånadens koalitionsaritmetik är modellerad,
+   inte observerad (inga per-ledamots-omröstningar för juni finns ännu); bandad därefter.
+
+### 7. Confidence and caveats
+
+Den övergripande konfidensgraden är 🟡 **MEDIUM**, begränsad av två databegränsningar: det tomma
+framtida plenarflödet (modal dagordning härledd från antagna texter) och den inferentiella
+karaktären hos koalitionsaritmetiken. Ingen av begränsningarna rör den substantiva
+källgraden — analysen vilar på antagna texter av klass A2 och IMF makrodata av klass A1.
+Körningen levereras som `degraded-feeds`, inte `minimal`, eftersom återhämtningssökvägen
+bevarade källkvaliteten.
+
+### 8. What would change our view
+
+- En publicerad junidagordning (skulle lyfta den modala prognosen mot 🟢 HÖG).
+- Ett franskt statsrisk-spreads-rörande bortom utlösarpunkten (skulle höja Scenario B).
+- Ett amerikanskt tulltillkännagivande eller ett CJEU Mercosur-datum (skulle höja Scenario C).
+- En försening av budgetläsningen på rådssidan (skulle höja tidsrisk T2).
+
+### 9. Reader guidance
+
+- **Institutionella läsare:** planera för Scenario A; förstadieplanera beredskap för B.
+- **Marknadsläsare:** Scenario B är bevakningsfallet — följ franska spreads.
+- **Politikläsare:** Scenario C har låg sannolikhet men är dagordningsomstrukturerande.
+
+### 10. Provenance
+
+Byggt från `data/adopted-texts-2026.json` (EP Open Data Portal) och
+`cache/imf/weo-decoded.json` (IMF WEO SDMX 3.0). Fullständig metodik och
+självkritik i `intelligence/methodology-reflection.md`; fullständighetsport via
+`npm run validate-analysis`.
+
+### 11. Indicator dashboard (June lead-up)
+
+| Indikator | Riktning som bekräftar modal | Granskningspunkt |
+|-----------|------------------------------|-----------------|
+| Slutgiltig junidagordning publicerad | Matchar härledda teman | TW-7 |
+| Rådets budgetläsningsplats för 2027 | På kalendern, ingen glidning | TW-14 |
+| Franska 10-åriga spread vs Bund | Stabil / minskande | Löpande |
+| Amerikansk handelsposition | Ingen ny tullrunda | Löpande |
+| CJEU Mercosur-kalender | Inget nära datum | Variabel |
+| Frontlinje- / eskaleringssignaler | Tyst | Löpande |
+
+En ren panel vid TW-7 konsoliderar prognosen mot Scenario A; varje röd
+indikator förskjuter sannolikhetsmassa mot B (finanspolitisk) eller C (extern).
+
+### 12. Editorial framing guidance
+
+Stage D-artikeln bör ledas med den finanspolitiska linsen, para varje budget- eller
+Ukrainakrav med den relevanta IMF-siffran och presentera handelsförsvarspunkter med
+erkännande snarare än billigande. Ingen enskild ram — finanspolitisk disciplin,
+solidaritet, geopolitisk beslutsamhet, suveränitet eller teknokratisk process — får
+inta artikeln oobestridd, även om en chock gör en ram dominerande i nyhetscykeln.
+Denna balansregel är den redaktionella invarianten för alla 14 språkversioner.
+
+### 13. Sourcing transparency
+
+Denna sammanfattning gör inga påståenden som inte kan spåras till ett persisterande
+artefakt. Dagordningsinferensen är uttryckligen märkt som ett ombud (antagna texter →
+framtida avsikt), och varje makrosiffra bär sitt IMF WEO Sept-2025 årgångsmärke.
+Läsare som behöver den fullständiga resonanskedjan bör konsultera
+`intelligence/methodology-reflection.md` för SAT-loggen och självkritiken.
+
+### 14. One-line summary
+
+En finanspolitiskt disciplinerad juni, modalt stabil men med en levande fransk-fiskal
+avvikelserisk och en icke-noll extern chocksvans — prognostiserad vid 🟡 MEDIUM konfidensgrad
+på en degraderad-men-återhämtad datafoundation.
+
+---
+
+*Denna sammanfattning är den redaktionella ryggraden för Stage D-artikelversionen. Den integrerar
+`intelligence/synthesis-summary.md`, `intelligence/scenario-forecast.md`,
+`intelligence/economic-context.md` och `intelligence/forward-projection.md`.*
+
+### Source reliability (Admiralty)
+
+| Källa | Admiralty-klass | Tillförlitlighet |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | Fullständigt tillförlitlig / bekräftad |
+| EP antagna texter-flöde (år=2026) | A2 | Tillförlitlig / troligen sann |
+| EP framtida flöden (degraderade denna körning) | C4 | Ganska tillförlitlig / tveksam |
+
+### Executive Brief Zh
+
+*运行日期：2026-05-31 · 文章类型：`month-ahead` · 数据模式：`degraded-feeds`
+· 总体信心水平：🟡 MEDIUM*
+
+---
+
+### 1. Bottom line up front (BLUF)
+
+根据最可能的预测，2026年6月将是欧洲议会**财政纪律之月**。
+2027年预算审读、持续的乌克兰资金援助与问责机制，以及一系列贸易防御文件，均须在受约束的欧洲公共财政框架内得到解决。德国改善的财政轨迹（IMF WEO数据显示2026年一般政府赤字占GDP −1.76%）和法国持续的赤字（−4.94%）构成了联盟内部算术的框架，这将决定议会六月立场的慷慨程度及条件性。主要偏离风险是法国财政或主权市场信号（情景B，25–40%）；尾部风险是完全取代既定议程的外部冲击（情景C，10–20%）。
+
+### 2. What we forecast for June
+
+| 主题 | 六月可能行动 | 信心水平 |
+|------|------------|---------|
+| EU预算2027 | 审读/立场表述，偏重纪律 | 🟡 中等 |
+| 乌克兰资金援助与问责 | 持续支持，条件性辩论 | 🟢 中等–高 |
+| 贸易防御（美国关税、南方共同市场） | 决议，CJEU意识下的立场 | 🟡 中等 |
+| DMA执法 | 对欧盟委员会的监督压力 | 🟡 中等 |
+| 欧洲选举法改革 | 程序推进 | 🟢 低–中等 |
+| 贸易人工智能 | 框架构建/自主倡议轨道 | 🟢 低–中等 |
+
+这些主题来源于A2级已通过文本的管道数据（41份文本，年份=2026），因为本次运行中前瞻性全体会议议程动态返回了空结果。
+
+### 3. The three scenarios
+
+- **情景A — 有纪律的最可能月份（55–70%）。** 已公布议程保持不变；
+  财政紧缺形塑但不偏转预算和乌克兰文件。
+- **情景B — 法国财政信号（25–40%）。** 法国主权利差变动或国内财政事件强化纪律框架，
+  使预算联盟算术复杂化。
+- **情景C — 外部冲击（10–20%）。** 军事升级、新一轮美国关税或CJEU Mercosur进展
+  取代计划中的议程。
+
+情景构成概率*流*，而非一次性抽取：该月可能在财政触发因素下从A→B，在外部冲击下从A→C，并可能恢复。
+
+### 4. Why this matters
+
+六月会议恰好位于**经济–政治节点**：约束2027年预算的相同财政限制，也决定了议会将为乌克兰提供多少支持，以及将以多大力度支持贸易防御。法律触发因素（CJEU Mercosur日历）是最可能的外部催化剂。这是宏观财政现实而非新立法倡议成为主导变量的一个月。
+
+### 5. Economic context (IMF WEO, Sept-2025 vintage)
+
+| 经济体 | 2026年GDP增长 | 2026年通胀 | 2026年财政收支（%GDP） |
+|--------|-------------|----------|----------------------|
+| 德国 | 0.79% | 2.65% | −1.76% |
+| 法国 | 0.86% | 1.84% | −4.94% |
+| 意大利 | 0.52% | 2.64% | −2.82% |
+
+德法财政分歧是六月算术中最重要的数据集：它解释了为何纪律框架具有吸引力，以及为何法国的风险敞口是主要偏离风险。
+
+### 6. Key risks
+
+1. **财政紧缺对2027年预算的主导** — 最高的综合概率×影响力。
+2. **取代议程的外部冲击** — 高影响力，中等概率。
+3. **推断性联盟误差** — 六月联盟算术是经过建模的，而非直接观察到的
+   （尚无六月份MEP个人投票记录）；据此进行了带宽处理。
+
+### 7. Confidence and caveats
+
+总体信心水平为 🟡 **MEDIUM**，受两项数据限制约束：空的前瞻性全体会议动态（从已通过文本推断的最可能议程）以及联盟算术的推断性质。这两项限制均未触及实质性来源级别——分析基于A2级已通过文本和A1级IMF宏观数据。由于恢复路径保留了来源质量，本次运行以 `degraded-feeds` 而非 `minimal` 状态交付。
+
+### 8. What would change our view
+
+- 发布六月议程（将把最可能预测推高至 🟢 高）。
+- 法国主权利差超出触发点的变动（将提升情景B）。
+- 美国关税公告或CJEU Mercosur日期（将提升情景C）。
+- 理事会方面预算审读延迟（将提升时间风险T2）。
+
+### 9. Reader guidance
+
+- **机构读者：** 为情景A制定计划；预先准备情景B的应急方案。
+- **市场读者：** 情景B是需关注的情况——跟踪法国利差。
+- **政策读者：** 情景C概率较低，但会重塑议程。
+
+### 10. Provenance
+
+基于 `data/adopted-texts-2026.json`（EP开放数据门户）和
+`cache/imf/weo-decoded.json`（IMF WEO SDMX 3.0）构建。完整方法论和
+自我批评见 `intelligence/methodology-reflection.md`；完整性检验通过
+`npm run validate-analysis`。
+
+### 11. Indicator dashboard (June lead-up)
+
+| 指标 | 确认最可能情景的方向 | 审查时间点 |
+|------|-------------------|----------|
+| 最终六月议程发布 | 与推断主题一致 | TW-7 |
+| 理事会2027年预算审读位次 | 在日历上，无推迟 | TW-14 |
+| 法国10年利差vs德国国债 | 稳定/收窄 | 持续 |
+| 美国贸易立场 | 无新关税轮次 | 持续 |
+| CJEU Mercosur日历 | 无近期日期 | 可变 |
+| 前线/升级信号 | 平静 | 持续 |
+
+TW-7时仪表板数据清晰则将预测向情景A收敛；任何红色指标都将概率质量向B（财政）或C（外部）转移。
+
+### 12. Editorial framing guidance
+
+D阶段文章应以财政视角为引领，将每项预算或乌克兰主张与相关IMF数据相配对，以归因而非认可的方式呈现贸易防御要点。没有任何单一框架——财政纪律、团结、地缘政治决心、主权或技术官僚程序——可以不受质疑地占据文章，即使某次冲击使某一框架在新闻周期中占据主导地位也不例外。这一平衡规则是所有14种语言版本的编辑不变量。
+
+### 13. Sourcing transparency
+
+本简报中不包含任何无法追溯至持久化产出物的主张。前瞻性议程推断被明确标注为代理指标（已通过文本→前瞻意图），每项宏观数据均带有其IMF WEO 2025年9月数据期标注。需要完整推理链的读者请参阅 `intelligence/methodology-reflection.md` 中的SAT日志和自我批评。
+
+### 14. One-line summary
+
+财政纪律型六月，最可能情景下稳定，但存在活跃的法国财政偏离风险和非零外部冲击尾部——在受损但已恢复的数据基础上以 🟡 MEDIUM 信心水平进行预测。
+
+---
+
+*本简报是D阶段文章版本的编辑支柱，整合了 `intelligence/synthesis-summary.md`、`intelligence/scenario-forecast.md`、`intelligence/economic-context.md` 和 `intelligence/forward-projection.md`。*
+
+### Source reliability (Admiralty)
+
+| 来源 | 海军情报等级 | 可靠性 |
+| --- | --- | --- |
+| IMF WEO (SDMX 3.0) | A1 | 完全可靠 / 已确认 |
+| EP已通过文本动态（年份=2026） | A2 | 可靠 / 可能真实 |
+| EP前瞻性动态（本次运行中受损） | C4 | 相当可靠 / 存疑 |
+
 ### Economic Context.Fallback
 
 *Contingency economic-context artifact documenting the fallback data path and a
@@ -3415,6 +5364,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
 | section-supplementary-intelligence | [data-availability-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/data-availability-assessment.md) | `data-availability-assessment.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/executive-brief_zh.md) | `executive-brief_zh.md` |
 | section-supplementary-intelligence | [economic-context.fallback](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/intelligence/economic-context.fallback.md) | `intelligence/economic-context.fallback.md` |
 | section-supplementary-intelligence | [procedures-proxy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-31/month-ahead/intelligence/procedures-proxy.md) | `intelligence/procedures-proxy.md` |
 
