@@ -409,13 +409,30 @@ while IFS= read -r file; do
           printf '%s\n' "$file" >> "$disallowed_changed"
           ;;
         *)
-          printf '%s\n' "$file" >> "$eligible_changed"
-          ;;
-      esac
-      ;;
-    *)
-      printf '%s\n' "$file" >> "$disallowed_changed"
-      ;;
+         # Translate workflows never produce HTML — they only create
+         # per-language Markdown briefs.  If `npm run build` updated the
+         # SEO resolver, pre-existing HTML files in news/ will show as
+         # modified in the workspace but must NOT be staged here.
+         # Regression: PR #2290 shipped 87 unrelated HTML files because
+         # the translate-briefs PAT fallback staged every dirty news/* file.
+         if [ "$is_translate_slug" = true ]; then
+           case "$file" in
+             news/*.html|news/**/*.html)
+               printf '%s\n' "$file" >> "$disallowed_changed"
+               ;;
+             *)
+               printf '%s\n' "$file" >> "$eligible_changed"
+               ;;
+           esac
+         else
+           printf '%s\n' "$file" >> "$eligible_changed"
+         fi
+         ;;
+     esac
+     ;;
+   *)
+     printf '%s\n' "$file" >> "$disallowed_changed"
+     ;;
   esac
 done < "$all_changed"
 
