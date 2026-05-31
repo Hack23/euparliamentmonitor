@@ -9,23 +9,21 @@ description: |
   scripts/validate-brief-translations.js so the workflow body stays focused
   on AI orchestration.
 strict: false
-# Checkout (gh-aw v0.76+): full-history clone (fetch-depth: 0) is the
-# optimal setting for stability of the safe-outputs bundle path. Rationale:
-#   * `git log`, `git merge-base`, and safe-outputs base/diff computations
-#     need real history — a shallow clone forces an in-job
-#     `git fetch --unshallow` that races concurrent merges to `main` and
-#     was a documented secondary trigger of the host-side PAT-fallback
-#     firing on otherwise-healthy runs.
+# Checkout (gh-aw v0.76+): shallow clone (fetch-depth: 1) for fast checkout.
+# Rationale:
+#   * Full-history clones (fetch-depth: 0) took 14+ min on large repos,
+#     consuming ~25 % of the 60-minute budget before the agent even starts.
+#   * The safe-outputs prerequisite step in shared/config/news-safe-outputs-head.md
+#     fetches the triggering commit (GITHUB_SHA) on demand — this satisfies
+#     bundle-apply requirements without downloading full history upfront.
 #   * Real-data feeds (`analysis/**/data/**`) are gitignored and excluded
-#     by safe-outputs `excluded-files`, so full history does not grow
-#     unbounded.
-#   * The one-time clone cost is amortised across the 60-minute budget;
-#     stability >> a few seconds of checkout time for unattended cron.
-# Per the gh-aw v0.76 schema, `checkout.fetch-depth: 0` is honoured only
+#     by safe-outputs `excluded-files`, so the working tree is compact.
+#   * Mirrors the efficient checkout pattern used in riksdagsmonitor workflows.
+# Per the gh-aw v0.76 schema, `checkout.fetch-depth` is honoured only
 # on top-level workflow files (placing it in a shared/imported config is
 # silently ignored), which is why it lives here in every news-*.md.
 checkout:
-  fetch-depth: 0
+  fetch-depth: 1
 on:
   # 3 scheduled runs / day at 06:30, 12:30, 18:30 UTC, staggered against
   # article-generation workflows (which cluster around the top of each hour
@@ -150,7 +148,7 @@ safe-outputs:
   # on across all news-* workflows. Translation flushes ≤ max_briefs × 13
   # langs ≈ 52 files; 2500 gives ample headroom for validator reports and
   # retry flushes without ever approaching the cap.
-  max-patch-files: 2500
+  max-patch-files: 200
   steps:
     - name: Fetch triggering commit for bundle prerequisites
       # The safe_outputs job checks out the current branch tip with

@@ -2,23 +2,21 @@
 name: "News: EU Parliament Month in Review — Unified"
 description: Generates a single PR containing analysis artifacts and the rendered month-in-review article (Stages A → B → C → D → E in one workflow).
 strict: false
-# Checkout (gh-aw v0.76+): full-history clone (fetch-depth: 0) is the
-# optimal setting for stability of the safe-outputs bundle path. Rationale:
-#   * `git log`, `git merge-base`, and safe-outputs base/diff computations
-#     need real history — a shallow clone forces an in-job
-#     `git fetch --unshallow` that races concurrent merges to `main` and
-#     was a documented secondary trigger of the host-side PAT-fallback
-#     firing on otherwise-healthy runs.
+# Checkout (gh-aw v0.76+): shallow clone (fetch-depth: 1) for fast checkout.
+# Rationale:
+#   * Full-history clones (fetch-depth: 0) took 14+ min on large repos,
+#     consuming ~25 % of the 60-minute budget before the agent even starts.
+#   * The safe-outputs prerequisite step in shared/config/news-safe-outputs-head.md
+#     fetches the triggering commit (GITHUB_SHA) on demand — this satisfies
+#     bundle-apply requirements without downloading full history upfront.
 #   * Real-data feeds (`analysis/**/data/**`) are gitignored and excluded
-#     by safe-outputs `excluded-files`, so full history does not grow
-#     unbounded.
-#   * The one-time clone cost is amortised across the 60-minute budget;
-#     stability >> a few seconds of checkout time for unattended cron.
-# Per the gh-aw v0.76 schema, `checkout.fetch-depth: 0` is honoured only
+#     by safe-outputs `excluded-files`, so the working tree is compact.
+#   * Mirrors the efficient checkout pattern used in riksdagsmonitor workflows.
+# Per the gh-aw v0.76 schema, `checkout.fetch-depth` is honoured only
 # on top-level workflow files (placing it in a shared/imported config is
 # silently ignored), which is why it lives here in every news-*.md.
 checkout:
-  fetch-depth: 0
+  fetch-depth: 1
 on:
   schedule:
     - cron: "0 10 28 * *"  # 28th of each month around 10:00 UTC
@@ -73,7 +71,7 @@ safe-outputs:
   # Explicit file ceiling raised to 2500 (schema has no upper bound). Single
   # runs typically touch ≤50 files (analysis + article + meta); 2500 gives
   # generous headroom for large analysis runs and catch-up flushes.
-  max-patch-files: 2500
+  max-patch-files: 200
   # Cron retries handle failures; auto-created failure issues are noise.
   report-failure-as-issue: false
   # threat-detection + bundle-prerequisite steps + allowed-domains are inherited

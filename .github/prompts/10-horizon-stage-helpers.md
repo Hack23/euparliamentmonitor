@@ -122,11 +122,13 @@ overlay gate:
 Identical to existing horizons:
 
 ```bash
-npm run generate-article -- --run "$ANALYSIS_DIR" --type "$SLUG"
+npm run generate-article -- --run "$ANALYSIS_DIR"
 ```
 
-The aggregator picks up the new artifact-order sections (`forward-projection`,
-`electoral-arc`) automatically — no aggregator-side opt-in is required.
+The aggregator resolves the article type from `manifest.json` (`articleType`
+field written during Stage B) — no `--type` flag exists. The aggregator picks
+up the new artifact-order sections (`forward-projection`, `electoral-arc`)
+automatically — no aggregator-side opt-in is required.
 
 ## 7 · Stage-E Single PR
 
