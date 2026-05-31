@@ -174,6 +174,20 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
     );
   });
 
+  // Regression: PR #2290 shipped 87 unrelated HTML files because the
+  // translate-briefs PAT fallback staged every dirty `news/*` file —
+  // including pre-existing HTML files whose meta descriptions changed
+  // after `npm run build` recompiled the SEO resolver. The translate
+  // workflow never produces HTML, so news/*.html must be disallowed.
+  it('excludes news/*.html from eligible files when slug is translate-briefs', () => {
+    const script = fs.readFileSync(SCRIPT, 'utf8');
+    // The script must contain a translate-specific HTML exclusion guard
+    // that routes news/*.html and news/**/*.html to $disallowed_changed.
+    expect(script).toMatch(/is_translate_slug.*true/);
+    expect(script).toMatch(/news\/\*\.html\|news\/\*\*\/\*\.html/);
+    expect(script).toMatch(/disallowed_changed/);
+  });
+
   // Regression: run #26015261142 (news-committee-reports 2026-05-18) — the
   // safe_outputs job reported job-level success because creating the
   // fallback review issue succeeded, but its internal create_pull_request

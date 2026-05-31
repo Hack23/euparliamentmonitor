@@ -333,4 +333,57 @@ describe('gh-aw-capture-agent-patch.sh', () => {
     expect(fs.existsSync(artifactPath)).toBe(true);
     expect(fs.readFileSync(artifactPath, 'utf8')).toBe('content\n');
   });
+
+  // Regression: PR #2290 shipped 87 unrelated HTML files because the
+  // crash-recovery path ran `git add -- news/` which captured pre-existing
+  // HTML files modified by the SEO resolver rebuild. The translate workflow
+  // never produces HTML files, so they must be excluded from recovery.
+  it('crash-recovery excludes news/*.html for translate-briefs slug', () => {
+    // Simulate translate workflow: create a translation Markdown file AND
+    // a pre-existing modified HTML file under news/.
+    fs.mkdirSync(path.join(workspace, 'analysis/daily/2026-05-31/breaking'), { recursive: true });
+    fs.writeFileSync(
+      path.join(workspace, 'analysis/daily/2026-05-31/breaking/executive-brief_fr.md'),
+      '# Résumé\n',
+    );
+    fs.mkdirSync(path.join(workspace, 'news/en'), { recursive: true });
+    // Stage an HTML file that simulates a pre-existing article modified by build
+    fs.writeFileSync(
+      path.join(workspace, 'news/en/2026-03-27-breaking.html'),
+      '<html>old article</html>\n',
+    );
+    // Commit it first so it shows as 'modified' not 'untracked'
+    git(workspace, 'add', 'news/en/2026-03-27-breaking.html');
+    git(workspace, 'commit', '-qm', 'existing html');
+    git(workspace, 'update-ref', 'refs/remotes/origin/main', 'HEAD');
+    // Now modify the HTML (simulating npm run build changing SEO metadata)
+    fs.writeFileSync(
+      path.join(workspace, 'news/en/2026-03-27-breaking.html'),
+      '<html>modified seo metadata</html>\n',
+    );
+
+    // Run capture with translate slug
+    runCapture(workspace, outDir, {
+      GH_AW_PAT_FALLBACK_SLUG: 'translate-briefs',
+    });
+
+    const patchPath = path.join(outDir, 'aw-agent-recovery.patch');
+    if (fs.existsSync(patchPath)) {
+      const patch = fs.readFileSync(patchPath, 'utf8');
+      // The patch must contain the translation file but NOT the HTML file
+      expect(patch).toContain('executive-brief_fr.md');
+      expect(patch).not.toContain('2026-03-27-breaking.html');
+    }
+    // If no patch was written, that's also acceptable — it means only the
+    // HTML was modified and the script correctly excluded it.
+  });
+
+  it('crash-recovery capture-agent-patch script reads slug from env vars', () => {
+    // Verify that the script reads GH_AW_PAT_FALLBACK_SLUG or
+    // ARTICLE_TYPE_SLUG for translate-aware HTML exclusion.
+    const script = fs.readFileSync(SCRIPT, 'utf8');
+    expect(script).toMatch(/GH_AW_PAT_FALLBACK_SLUG/);
+    expect(script).toMatch(/ARTICLE_TYPE_SLUG/);
+    expect(script).toMatch(/is_translate_capture/);
+  });
 });

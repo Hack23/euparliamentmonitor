@@ -206,9 +206,9 @@ steps:
     run: |
       npm ci --prefer-offline --no-audit
 
-  - name: Build TypeScript (required for shared MCP client)
+  - name: Compile TypeScript (skip prebuild — translate never touches HTML)
     run: |
-      npm run build
+      npx tsc
 
   # Run discovery BEFORE the agent starts so the LLM never spends time on
   # filesystem scans. The queue is a small, deterministic JSON file that
@@ -376,7 +376,8 @@ engine:
 | Read any artifact in `analysis/daily/**/` for terminology context | Edit `news/**/*.html`, `.github/**`, `src/**`, `scripts/**`, `package.json` |
 | Read `/tmp/gh-aw/discovery/queue.json` | Read other unrelated repository files |
 | Run `node scripts/validate-brief-translations.js --paths …` to self-check | Use `sed`/`awk`/regex/`tr` to translate narrative content |
-| Call `safeoutputs___create_pull_request` after each fully-translated brief | Call `safeoutputs___create_pull_request` with zero translations produced (no files on disk) |
+| Call `safeoutputs___create_pull_request` after each fully-translated brief | Run `npm run generate-article` or any HTML-producing command |
+| Emergency partial flush when wall-clock budget is exhausted (≥ 40 min elapsed OR ≤ 20 min remaining) — see § Step 4 | Call `safeoutputs___create_pull_request` with zero translations produced (no files on disk) |
 | Emergency partial flush when wall-clock budget is exhausted (≥ 40 min elapsed OR ≤ 20 min remaining) — see § Step 4 | Silently let the engine time out / terminate without flushing any progress |
 
 > **Why a flush-before-timeout safety net matters**: the safe-outputs
@@ -798,7 +799,8 @@ Hard rules — keep tight. Full file-authoring priority lives in `shared/prompts
 - **Every PR must contain at least one `executive-brief_<lang>.md`.** The Step 0 run marker alone is not a translation. Partial-brief flushes ARE allowed and ARE encouraged by Step 4's emergency safety net (≥ 1 translation file on disk).
 - **Flush before the cap.** Step 4's wall-clock guard fires at ≥ 40 elapsed min / ≤ 20 remaining (60-min cap). When it does, call `safeoutputs___create_pull_request` immediately — even mid-brief — and end the run. A partial-progress PR is always better than a zero-PR timeout.
 - **Drain the backlog.** `fresh-then-backlog` discovery guarantees slot 0 is the newest brief; slots 1+ are the long tail. Translate them with the same rigour — date age is not a skip reason.
-- **PR scope is `analysis/daily/**` only.** `news/**`, `src/**`, `scripts/**`, `.github/**` are blocked by `excluded-files`; do not work around it.
+- **PR scope is `analysis/daily/**` and `analysis/translation-runs/**` only.** `news/**`, `src/**`, `scripts/**`, `.github/**` are blocked by `excluded-files`; do not work around it.
+- **Never generate, regenerate, or modify HTML files.** This workflow produces only `executive-brief_<lang>.md` translation files. Running `npm run generate-article`, `npm run generate-article:all`, or any command that creates/modifies `news/**/*.html` is strictly forbidden. HTML rendering is the exclusive responsibility of article workflows (Stage D).
 
 ## 🛡️ MCP / Engine Notes
 

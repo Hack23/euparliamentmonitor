@@ -503,6 +503,30 @@ describe('news-translate workflow contract', () => {
       postSteps.match(/^\s*-\s+name:\s+Capture agent recovery patch/gm) ?? [],
     ).toHaveLength(0);
   });
+
+  // Regression: PR #2290 shipped 87 unrelated HTML files because the
+  // translate workflow's PAT fallback did not exclude news/*.html.
+  // The translate workflow must explicitly forbid HTML generation.
+  it('forbids HTML generation and generate-article in the bounded scope and Never sections', () => {
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    // Bounded scope table must forbid generate-article
+    expect(workflow).toMatch(/generate-article/);
+    // Never section must ban HTML generation
+    expect(workflow).toMatch(/Never generate.*regenerate.*modify HTML/i);
+    // news/** must be in excluded-files
+    expect(workflow).toMatch(/excluded-files:[\s\S]*?"news\/\*\*"/);
+  });
+
+  // Root cause: `npm run build` triggers `prebuild` which runs news-indexes.js,
+  // backfilling SEO metadata on ALL existing HTML files. The translate workflow
+  // only needs `tsc` for the MCP client — it must skip prebuild entirely.
+  it('uses npx tsc instead of npm run build to avoid prebuild SEO backfill', () => {
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    // Must use npx tsc (direct compilation, no prebuild hook)
+    expect(workflow).toContain('npx tsc');
+    // Must NOT use npm run build (which triggers prebuild → news-indexes → SEO backfill on ALL HTML)
+    expect(workflow).not.toMatch(/npm run build\b/);
+  });
 });
 
 describe('translation pipeline foundation', () => {

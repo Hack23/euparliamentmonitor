@@ -114,13 +114,34 @@ if [ -z "$candidate" ]; then
   # "agent recovery" would be misleading.
   recovery_globs="analysis/daily/ news/"
 
+  # Translate workflows never produce HTML files — they only create
+  # per-language Markdown executive briefs. If `npm run build` updated the
+  # SEO metadata resolver, pre-existing HTML files under news/ will appear
+  # modified in the workspace but must NOT be captured as agent artifacts.
+  # Regression: PR #2290 shipped 87 unrelated HTML files via this path.
+  _slug="${GH_AW_PAT_FALLBACK_SLUG:-${ARTICLE_TYPE_SLUG:-}}"
+  is_translate_capture=false
+  case "$_slug" in
+   translate-briefs|translate) is_translate_capture=true ;;
+  esac
+
   # Stage ONLY the recovery globs (never `git add .` — that would catch any
   # incidental dirty file in the workspace). `git add` silently no-ops on
   # missing paths via 2>/dev/null, and recursively adds untracked files
   # under tracked directories — exactly what we need.
   for prefix in $recovery_globs; do
-    git add -- "$prefix" 2>/dev/null || true
+   git add -- "$prefix" 2>/dev/null || true
   done
+
+  # For translate workflows, unstage any HTML files that were captured
+  # under news/ — they are stale pre-existing articles, not agent output.
+  if [ "$is_translate_capture" = true ]; then
+   html_unstaged=$(git diff --cached --name-only -- 'news/*.html' 'news/**/*.html' 2>/dev/null | wc -l)
+   if [ "$html_unstaged" -gt 0 ]; then
+     log "translate workflow: unstaging $html_unstaged pre-existing HTML file(s) from news/"
+     git reset -q -- 'news/*.html' 'news/**/*.html' 2>/dev/null || true
+   fi
+  fi
 
   # Detect whether anything actually got staged. `git diff --cached --quiet`
   # exits 0 when there is NO staged diff, non-zero otherwise. We invert.

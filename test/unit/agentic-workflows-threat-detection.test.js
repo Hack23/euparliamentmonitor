@@ -850,4 +850,16 @@ describe('agentic workflow threat detection policy', () => {
       );
     }
   });
+
+  // Regression: PR #2290 shipped 87 unrelated HTML files because the
+  // article generation pipeline was not restricted to the current run's
+  // output. The unified stages Never section must explicitly ban
+  // regenerating HTML from previous dates.
+  it('shared/prompts/news-unified-stages.md bans regenerating HTML from previous dates', () => {
+    const stagesPath = path.join(WORKFLOWS_DIR, 'shared/prompts/news-unified-stages.md');
+    const stages = fs.readFileSync(stagesPath, 'utf8');
+    expect(stages).toContain('Never regenerate HTML files from previous dates');
+    expect(stages).toContain('Never pass `--all`');
+    expect(stages).toContain('Never run `git add news/`');
+  });
 });
