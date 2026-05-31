@@ -1,0 +1,66 @@
+{
+  "articleType": "election-cycle",
+  "dataMode": "degraded-feeds",
+  "reportingWindow": {
+    "dateFrom": "2026-05-01",
+    "dateTo": "2026-05-31"
+  },
+  "generatedAt": "2026-05-31T00:00:00Z",
+  "history": [
+    {
+      "runId": "election-cycle-run290-1780240285",
+      "timestamp": "2026-05-31T00:00:00Z",
+      "articlesWritten": 28,
+      "totalLines": 1731
+    }
+  ],
+  "pass1": {
+    "startedAt": "2026-05-31T00:00:00Z",
+    "endedAt": "2026-05-31T00:18:00Z",
+    "artifactsWritten": 28
+  },
+  "pass2": {
+    "startedAt": "2026-05-31T00:18:00Z",
+    "endedAt": "2026-05-31T00:22:00Z",
+    "rewriteCount": 28
+  },
+  "files": {
+    "root": [],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/forward-projection.md",
+      "intelligence/threat-model.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/economic-context.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/term-arc.md",
+      "intelligence/seat-projection.md",
+      "intelligence/mandate-fulfilment-scorecard.md",
+      "intelligence/presidency-trio-context.md",
+      "intelligence/commission-wp-alignment.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md",
+      "extended/forward-indicators.md",
+      "extended/comparative-international.md",
+      "extended/historical-parallels.md"
+    ]
+  }
+}

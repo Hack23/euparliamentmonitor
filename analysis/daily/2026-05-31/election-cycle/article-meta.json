@@ -1,0 +1,40 @@
+{
+  "date": "2026-05-31",
+  "articleType": "election-cycle",
+  "runId": "election-cycle",
+  "gateResult": "PENDING",
+  "slug": "2026-05-31-election-cycle",
+  "articlePath": "analysis/daily/2026-05-31/election-cycle/article.md",
+  "topFinding": "At the EP10 term midpoint (term-progress index ≈ 38%), the European Parliament governs from structural strength but campaigns from defensive weakness.",
+  "keyTakeaways": [
+    "**One-line read:** govern from strength, campaign from weakness — platform holds, cushion shrinks.",
+    "**Decisive risk:** right-of-centre corridor hardening (WEP: Roughly Even), not majority loss.",
+    "**Banked vs at-risk:** institutional competence banked; migration/social terrain ceded.",
+    "**Confidence:** 🟡 MEDIUM overall; 🟢 HIGH on gap-signature and IMF data."
+  ],
+  "topRisks": [
+    "**Top risk:** a structural (not ad-hoc) right-of-centre majority on migration — WEP: Likely.",
+    "**Slow risk:** further far-right gains in 2029 plus fiscal-shock erosion of the centre-left.",
+    "**Backstop:** the platform's 35-seat institutional cushion holds majority loss to WEP: Unlikely.",
+    "**Confidence:** 🟡 MEDIUM — probabilities inferred under degraded feeds (Admiralty B–C on coalition items)."
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**Who holds the pen:** the EPP–S&D–Renew platform, 396 seats, 35 above majority.",
+    "**What can flip:** migration and deregulation files, where EPP can reach right to ECR/PfE.",
+    "**What to watch:** Renew's 76-seat swing and the Electoral Act reform that rewrites the 2029 rulebook.",
+    "**Confidence:** 🟡 MEDIUM — feed degradation forces reliance on adopted-texts and composition statistics rather than live roll-call data."
+  ],
+  "macroContext": "Source grade A2 (IMF WEO, live SDMX retrieval).",
+  "sources": [
+    "classification/actor-mapping.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
