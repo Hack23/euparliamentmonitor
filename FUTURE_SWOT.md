@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.1-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last Updated:**
+**📋 Document Owner:** CEO | **📄 Version:** 4.1 | **📅 Last Updated:**
 2026-05-31 (UTC) | **🚀 Release:** v1.0.1  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
@@ -671,6 +671,79 @@ mindmap
       AGI disruption
       EP API changes
 ```
+
+---
+
+## 🕵️ Political Intelligence Capability SWOT (2026 → 2037)
+
+The SWOT above assesses the **platform and business**. This focused quadrant
+assesses the **intelligence capability itself** — the analytic moat — through the
+eyes of a high-level OSINT / INTOP operative. It maps directly to the capability
+roadmap in
+[FUTURE_MINDMAP.md](FUTURE_MINDMAP.md#-political-intelligence-capability-roadmap--ai-driven-osint-tradecraft-2026--2037)
+and answers the strategic question: *is the intelligence advantage defensible, and
+where is it exposed?*
+
+| 💪 Capability Strengths | ⚠️ Capability Weaknesses |
+| ----------------------- | ------------------------ |
+| Codified tradecraft (ICD 203, Admiralty, Kent/WEP, ACH, 5-framework threat model) already operationalised in 51 templates | No front-of-cycle **collection management / PIR** today — collection is opportunistic |
+| Structural neutrality and PUBLIC-only boundary that competitors cannot easily copy | No formal **Indications and Warning** system — analysis is retrospective, not early |
+| Full provenance / evidence-chain discipline per claim | Spoken record (debate) and integrity registers not yet ingested |
+| Human-accountability gate baked into every artifact | Forecasts not yet **calibration-scored**, so the track record is unproven |
+| Model-agnostic via Bedrock — analytic doctrine survives model churn | Adversarial review (red-team / devil's advocate) is manual, not systematic |
+
+| 🚀 Capability Opportunities | 🔻 Capability Threats |
+| --------------------------- | --------------------- |
+| **I&W system** makes the platform *early*, not just accurate — a category-defining product | **Model political-lean drift** could silently erode neutrality — the existential risk |
+| **Counter-FIMI / DISARM** layer positions the platform as a democratic-integrity utility | **Data poisoning** of OSINT inputs to manufacture false signals |
+| **Integrity / conflict-of-interest** analytics on PUBLIC declarations — high public value | **Prompt injection** via ingested documents to subvert analysis |
+| **Cross-parliament** comparative intelligence (national + EP) widens the moat | **Synthetic media** contaminating the verbatim-speech source |
+| **Knowledge-graph link analysis** enables multi-hop influence tracing no rival offers | **Weaponisation / misuse** of outputs for partisan targeting (mitigated by neutrality guardrails) |
+| Calibration ledger turns forecast accuracy into a **measurable reputation asset** | **Over-automation** eroding the human-accountability gate under cost pressure |
+
+```mermaid
+mindmap
+  root((Political Intelligence Capability SWOT))
+    Capability Strengths
+      Codified Tradecraft in Templates
+      Structural Neutrality Moat
+      Provenance and Evidence Chains
+      Human Accountability Gate
+      Model Agnostic Doctrine
+    Capability Weaknesses
+      No Collection Management PIR
+      No Formal Warning System
+      Speech and Registers Not Ingested
+      Forecasts Not Calibrated
+      Manual Adversarial Review
+    Capability Opportunities
+      Indications and Warning Product
+      Counter FIMI Integrity Utility
+      Conflict of Interest Analytics
+      Cross Parliament Comparison
+      Knowledge Graph Link Analysis
+      Calibration Reputation Asset
+    Capability Threats
+      Model Political Lean Drift
+      OSINT Data Poisoning
+      Prompt Injection via Documents
+      Synthetic Media Contamination
+      Misuse for Partisan Targeting
+      Over Automation of the Gate
+```
+
+### Strategic Reading
+
+The intelligence moat is **strong on doctrine and neutrality** but **thin on the
+front and back of the cycle** — direction (PIR) and calibration (feedback). The
+highest-leverage investment is therefore not more analysis templates but the
+**Indications and Warning** system plus a **forecast-calibration ledger**: together
+they convert a high-quality *retrospective* analysis library into an *early,
+self-scoring* intelligence service. The dominant threat is **silent neutrality
+erosion** — which is why **model-neutrality assurance** (continuous political-lean
+auditing) is treated as a first-class control in
+[FUTURE_SECURITY_ARCHITECTURE.md](FUTURE_SECURITY_ARCHITECTURE.md), not an
+afterthought.
 
 ---
 

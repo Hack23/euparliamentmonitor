@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.1-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last Updated:**
+**📋 Document Owner:** CEO | **📄 Version:** 4.1 | **📅 Last Updated:**
 2026-05-31 (UTC) | **🚀 Release:** v1.0.1  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
@@ -615,6 +615,120 @@ The AWS-native evolution strengthens, rather than dilutes, ISMS posture:
 | Continuous monitoring | CloudWatch, X-Ray, GuardDuty, Security Hub | NIST DE.CM; CIS 8 |
 | Supply-chain integrity | SLSA 3, CodeQL, OpenSSF Scorecard, Inspector | ISO 27001 A.8.28; NIST PR.PS |
 | Resilience & recovery | Multi-AZ/Region, S3 CRR, PITR, DR game-days | ISO 27001 A.5.30; NIST RC.RP |
+
+---
+
+## 🕵️ Intelligence Capability Architecture (2026 → 2037)
+
+The architecture above describes the **platform**. This section describes the
+**intelligence capability** the platform exists to deliver — mapped onto the same
+AWS-native serverless substrate so the vision stays buildable. The organising
+principle is the classic **OSINT intelligence cycle** — *direction → collection →
+processing → analysis → production → dissemination → feedback* — specialised for
+European parliamentary politics and compressed by AI at every stage. The durable
+moat is **analytic quality, neutrality, and provenance**, never raw infrastructure.
+The full conceptual catalogue lives in
+[FUTURE_MINDMAP.md](FUTURE_MINDMAP.md#-political-intelligence-capability-roadmap--ai-driven-osint-tradecraft-2026--2037);
+this section is its architectural realisation.
+
+> **Guardrail invariant (AI Policy):** every capability below is *AI-proposes,
+> human-approves*. There is **no autonomous publication of an intelligence
+> assessment**, no profiling beyond public parliamentary roles, and no data outside
+> the PUBLIC open-data boundary.
+
+### Intelligence-Cycle Reference Pipeline (v3.0+)
+
+```mermaid
+flowchart LR
+    subgraph DIR["Direction"]
+        pir["PIR and Collection Plan (DynamoDB)"]
+        iw["Indications and Warning Watchlist"]
+    end
+    subgraph COL["Collection"]
+        epmcp["EP MCP Harvester (Lambda)"]
+        doceo["DOCEO Roll-Call Capture"]
+        ext["Council OECD Eurostat UN Pull"]
+        asr["Debate ASR (Transcribe)"]
+    end
+    subgraph PROC["Processing"]
+        entity["Entity Resolution (Comprehend)"]
+        kgraph["Knowledge Graph (Neptune)"]
+        embed["Embeddings + Vector Index (OpenSearch)"]
+    end
+    subgraph ANA["Analysis"]
+        ach["Multi-Agent ACH (Bedrock Agents)"]
+        forecast["Forecast Models (SageMaker)"]
+        fimi["Counter-FIMI Detection"]
+        redteam["Red-Team / Devils Advocate Agent"]
+    end
+    subgraph PROD["Production"]
+        grade["Source Grading + WEP Calibration"]
+        c2pa["Content Authenticity Signing (C2PA)"]
+        brief["BLUF Briefs + Dashboards"]
+    end
+    subgraph DISS["Dissemination and Feedback"]
+        edge["Static Edge + API + Alerts"]
+        human["Human Accountability Gate"]
+    end
+    pir --> epmcp
+    iw --> doceo
+    epmcp --> entity
+    doceo --> entity
+    ext --> entity
+    asr --> entity
+    entity --> kgraph
+    entity --> embed
+    kgraph --> ach
+    embed --> ach
+    ach --> forecast
+    ach --> fimi
+    ach --> redteam
+    forecast --> grade
+    fimi --> grade
+    redteam --> grade
+    grade --> c2pa
+    c2pa --> brief
+    brief --> human
+    human --> edge
+    edge -.feedback.-> pir
+```
+
+### Capability → AWS Service → Horizon → Operative Benefit
+
+Each capability is anchored to an existing house methodology and a governing
+control, so "visionary" never means "ungoverned".
+
+| Intelligence Capability | Primary AWS Service(s) | Feasibility / Horizon | Operative Benefit (Why) |
+| ----------------------- | ---------------------- | --------------------- | ----------------------- |
+| **Collection management + PIR** | DynamoDB plan store, EventBridge tasking, Lambda collectors | 🟢 v2.0 pilot → 🔵 v3.0 | Collect against requirements, not opportunistically; auditable coverage and gap tracking |
+| **Indications and Warning (I&W)** | Kinesis + Lambda detectors, DynamoDB watchlist, SNS alerts | 🔵 v3.0 (2028) | Be *early and calibrated* on coalition collapse, whip rebellions, rushed trilogues |
+| **Political knowledge graph + link analysis** | Amazon Neptune Serverless | 🔵 v3.0 | Multi-hop influence tracing across MEP↔group↔committee↔dossier↔lobby |
+| **Roll-call + behavioural analytics** | Aurora Serverless v2, SageMaker | 🟢 v2.0 → 🔵 v3.0 | All-MEP scorecards, defection detection, cohesion indices |
+| **Predictive coalition / passage models** | SageMaker, Bedrock | 🔵 v3.0 (2028–30) | WEP-banded outcome forecasting with competing hypotheses |
+| **Counter-FIMI / DISARM framing** | Comprehend, Bedrock Agents, OpenSearch | ⚪ v3.2 (2031+) | Detect coordinated narrative manipulation around EP activity — defensive only |
+| **Integrity / conflict-of-interest analytics** | Aurora, Neptune, Bedrock | 🔵 v3.1 (2029) | Surface lobby-to-vote and revolving-door patterns from PUBLIC declarations |
+| **Verbatim speech intelligence** | Amazon Transcribe, Comprehend, Translate | 🔵 v3.1 (2029) | Convert 24-language debate oratory into stance / framing-drift signals |
+| **Multi-agent ACH + red-teaming** | Bedrock Agents + Guardrails, Step Functions | 🔵 v3.0 | Structured competitive analysis catches overconfidence before publication |
+| **Content authenticity (C2PA)** | KMS signing, S3, CloudFront | ⚪ v3.2 (2031+) | Readers can verify what the platform actually said; anti-poisoning |
+| **Model-neutrality assurance** | Bedrock model eval, SageMaker Clarify | ⚪ continuous | Audit political lean; benchmark sovereign / EU models; keep AI from meaning biased |
+| **Natural-language intelligence query** | AppSync, Bedrock KB, OpenSearch | 🔵 v3.0 | Analysts ask the corpus in natural language with cited evidence |
+
+### Architectural Principles for the Intelligence Layer
+
+1. **Provenance is a first-class asset.** Every claim carries an evidence chain
+   from primary EP source to published sentence; Neptune stores the graph, S3 +
+   CloudTrail store the immutable manifest, and v3.2 signs outputs with C2PA
+   content credentials.
+2. **The static edge stays the public front door.** Even the deepest dynamic
+   intelligence is baked or cached to static HTML/JSON for citizens; dynamic query
+   and alerting are layered behind Cognito for journalists and researchers.
+3. **Determinism for trust, AI for scale.** The deterministic aggregator renders
+   neutral output; AI proposes hypotheses, gradings, and forecasts that a human
+   adjudicates. No model is a single authority — red-team and devil's-advocate
+   agents are wired into the Step Functions analysis graph.
+4. **Graceful degradation to descriptive truth.** If predictive or counter-FIMI
+   layers are unavailable, the platform degrades to sourced, descriptive
+   reporting — never to unsourced speculation.
 
 ---
 

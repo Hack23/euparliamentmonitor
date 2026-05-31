@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.1-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last
+**📋 Document Owner:** CEO | **📄 Version:** 4.1 | **📅 Last
 Updated:** 2026-05-31 (UTC) | **🚀 Release:** v1.0.1  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
@@ -667,6 +667,105 @@ stateDiagram-v2
 | **Security States** | CI scan gates | CI scan gates | GuardDuty/Security Hub detect→respond |
 | **Predictive States** | None | None | Predictive cache warming, anomaly forecast |
 | **Public Front Door** | Static (S3+CloudFront) | Static (S3+CloudFront) | Static edge + dynamic behind it |
+
+---
+
+## 🕵️ Intelligence Capability State Machines (2026 → 2037)
+
+The state machines above govern build, ingest, auth, graph, cache and security.
+These add the **intelligence-product lifecycles** required by the OSINT capability
+roadmap — the behaviour of an **indicator/warning**, a **forecast**, and a
+**competing-hypothesis assessment** as they move from raw signal to human-approved,
+calibrated intelligence. Each lifecycle bakes in the AI-Policy gate: **no state
+reaches "Published" without human confirmation.**
+
+### v3.0+ — Indications and Warning Indicator Lifecycle
+
+```mermaid
+stateDiagram-v2
+    [*] --> Watching: Indicator Registered
+
+    Watching --> Scoring: Scheduled Tick
+    Scoring --> Watching: Within Baseline
+    Scoring --> Elevated: Deviation Above Threshold
+
+    Elevated --> Watching: Reverts to Baseline
+    Elevated --> WarningDrafted: Tripwire Sustained
+
+    WarningDrafted --> HumanReview: Attach WEP Band and Evidence
+    HumanReview --> Suppressed: Rejected as False Alarm
+    HumanReview --> WarningRaised: Confirmed
+
+    WarningRaised --> Disseminated: Brief and Alert Emitted
+    Disseminated --> Resolved: Event Occurs or Window Closes
+    Suppressed --> Watching: Resume Monitoring
+    Resolved --> Calibrated: Score Hit or Miss
+    Calibrated --> Watching: Update Baseline
+
+    note right of HumanReview
+        AI Policy gate. No warning is
+        disseminated without a human
+        confirming the signal.
+    end note
+```
+
+### v3.0+ — Forecast Lifecycle (Estimate to Calibration)
+
+```mermaid
+stateDiagram-v2
+    [*] --> Requested: Estimative Question Posed
+
+    Requested --> HypothesesGenerated: Minimum Two Competing Hypotheses
+    HypothesesGenerated --> EvidenceMapped: Cite PUBLIC Sources
+    EvidenceMapped --> RedTeamed: Devils Advocate Pass
+
+    RedTeamed --> Adjudicated: Human Resolves Splits
+    RedTeamed --> EvidenceMapped: Reopen on New Evidence
+
+    Adjudicated --> Estimated: WEP Band and Confidence Set
+    Estimated --> Published: Human Signoff
+    Estimated --> Withheld: Confidence Too Low
+
+    Published --> AwaitingOutcome: Track Until Event
+    Withheld --> EvidenceMapped: Gather More Evidence
+    AwaitingOutcome --> Resolved: Outcome Known
+    Resolved --> Calibrated: Brier Score Recorded
+    Calibrated --> [*]: Feeds Analytic Track Record
+
+    note right of Estimated
+        Never a bare point estimate.
+        Competing hypotheses and
+        confidence travel with it.
+    end note
+```
+
+### v3.0+ — Competing-Hypothesis (ACH) Assessment State Machine
+
+```mermaid
+stateDiagram-v2
+    [*] --> Framing: Define Question and Boundary
+
+    Framing --> Hypotheses: Enumerate Mutually Exclusive Options
+    Hypotheses --> EvidenceWeighing: Build ACH Matrix
+    EvidenceWeighing --> AssumptionsChecked: Key Assumptions Check
+
+    AssumptionsChecked --> Diagnostic: Identify Most Diagnostic Evidence
+    Diagnostic --> Consistent: Leading Hypothesis Holds
+    Diagnostic --> Inconsistent: Disconfirming Evidence Found
+
+    Inconsistent --> Hypotheses: Revise or Add Hypotheses
+    Consistent --> DissentRecorded: Preserve Minority View
+    DissentRecorded --> HumanAdjudicated: Analyst Decides
+
+    HumanAdjudicated --> Assessed: Confidence and Sources Attached
+    Assessed --> [*]: Hand to Production
+
+    note right of DissentRecorded
+        Minority hypotheses are never
+        discarded. Dissent is part of
+        the auditable record.
+    end note
+```
 
 ---
 

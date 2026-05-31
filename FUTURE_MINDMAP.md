@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-5.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-5.2-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 5.0 | **📅 Last
+**📋 Document Owner:** CEO | **📄 Version:** 5.2 | **📅 Last
 Updated:** 2026-05-31 (UTC) | **🚀 Release:** v1.0.1  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
@@ -141,6 +141,18 @@ This document maps the **conceptual evolution** of EU Parliament Monitor across
 >    maps **every** [SWOT.md](SWOT.md) weakness (W1–W19) and opportunity (O1–O17) to
 >    a concrete future-state resolution, horizon, and owning capability — so no
 >    improvement area is left unaddressed.
+
+> **📌 v5.2 focus — political-intelligence depth to 2037.** Where the agentic
+> section describes the *machinery*, the new
+> [🕵️ Political Intelligence Capability Roadmap](#-political-intelligence-capability-roadmap--ai-driven-osint-tradecraft-2026--2037)
+> describes the *analytic substance* — the OSINT tradecraft and political-
+> intelligence capabilities that are the platform's durable moat. It gives every
+> intelligence product (MEP/actor intelligence, coalition and legislative
+> forecasting, causal political analytics, OSINT source verification, counter-
+> disinformation integrity, electoral and democratic intelligence) an explicit
+> AI-advancement trajectory to 2037 with a feasibility band, an anchoring house
+> methodology, and a governing control — all inside the PUBLIC-data, neutrality, and
+> GDPR boundaries.
 
 ### Three-Horizon Comparison
 
@@ -1007,6 +1019,629 @@ mindmap
 
 ---
 
+## 🕵️ Political Intelligence Capability Roadmap — AI-Driven OSINT Tradecraft (2026 → 2037)
+
+The previous section described the **agentic machinery** (the *how* — a fleet of
+cooperating Bedrock Agents). This section describes the **analytic substance** (the
+*what* — the political-intelligence and OSINT tradecraft capabilities that are the
+platform's durable moat). The thesis of the whole vision is unchanged: the
+defensible advantage is not the infrastructure, it is the **highest-quality,
+neutral, evidence-cited political intelligence in Europe**. Everything below
+deepens that moat with AI while staying inside the non-negotiable boundaries —
+**PUBLIC open data only, public parliamentary roles only, no psychographic
+profiling, competing hypotheses always, confidence levels always, human
+accountability always**.
+
+Each capability is anchored to an existing house methodology so the vision is
+*buildable*, not science fiction. The analytic doctrine is already written down in
+[`analysis/methodologies/`](analysis/methodologies/) — ICD 203 estimative
+language, Admiralty source grading, Kent/WEP probability bands, Analysis of
+Competing Hypotheses (ACH), the catalogue of Structured Analytic Techniques
+(SATs), the 5-framework political-threat methodology (Political Threat Landscape
+6D + Attack Trees + Kill Chain + Diamond Model + ICO Profiling, with **STRIDE
+explicitly rejected for political analysis**), and the synthesis / strategic-
+extensions / electoral-domain methodologies. The AI roadmap *scales and sharpens*
+that doctrine; it never replaces the human-accountable analytic judgement at its
+core.
+
+> **Feasibility legend** (identical to the agentic section): 🟢 **Realistic now /
+> ≤ 18 months** — buildable on shipping models and the v2.0 static substrate or
+> early Bedrock; 🔵 **Emerging / 2–4 years** — depends on the next 2–3 annual model
+> upgrades, managed-agent maturity, and the v3.x serverless core; ⚪ **Aspirational
+> / 5+ years** — contingent on pre-AGI causal reasoning and sovereign-AI
+> availability. **Every band keeps the AI Policy invariant: AI proposes evidence
+> and hypotheses, a human approves, no autonomous publication of an intelligence
+> assessment.**
+
+### The Political Intelligence Capability Stack
+
+The platform implements a full **OSINT intelligence cycle** — collection,
+processing, analysis, production, and feedback — specialised for European
+parliamentary politics. AI compresses the cycle time and widens coverage at every
+layer while tradecraft governance holds the quality line.
+
+```mermaid
+mindmap
+  root((Political Intelligence Capability Stack))
+    Collection Tradecraft
+      EP MCP Full Spectrum Harvest
+      DOCEO Real Time Roll Call Capture
+      Council and Commission Triangulation
+      Eurostat OECD UN Context Pull
+      National Parliament Onboarding
+      Transparency Register Lobby Mapping
+    Processing and Entity Layer
+      Unified Actor Resolution
+      MEP Party Group Country Linking
+      Knowledge Graph Construction
+      Multilingual Document Normalization
+      Temporal Versioning of Positions
+    Analytic Tradecraft
+      Analysis of Competing Hypotheses
+      Structured Analytic Techniques
+      Coalition Mathematics
+      Significance and Risk Scoring
+      Five Framework Political Threat Model
+      Scenario and Wildcard Forecasting
+    Production and Estimative Language
+      ICD 203 Confidence Calibration
+      Admiralty Source Grading
+      Kent and WEP Probability Bands
+      BLUF Executive Briefs
+      Cited Evidence Chains
+    Tradecraft Governance
+      Political Neutrality Guardrail
+      GDPR Public Roles Only
+      Competing Hypotheses Mandatory
+      Methodology Reflection Audit
+      Human Accountable Sign Off
+```
+
+### Analytic Tradecraft Evolution by Horizon
+
+```mermaid
+mindmap
+  root((Analytic Tradecraft Evolution))
+    v2.0 Enhanced Static 2026 to 2027
+      Deeper Confidence Calibration
+      Source Reliability Grading at Build Time
+      Coalition Math and Cohesion Indices
+      Actor and Entity Mapping
+      Electoral Retrospective and Forecast
+    v3.0 Serverless Foundation 2028
+      Always On Verification Agents
+      Real Time Coalition Drift Alerts
+      Knowledge Graph Backed Citations
+      Natural Language Intelligence Query
+      Multi Agent ACH at Scale
+    v3.1 Intelligence Operations 2029
+      Cross Parliament Comparative Analysis
+      Lobby and Influence Network Mapping
+      Legislative Outcome Probability Models
+      Analyst Workbench for Journalists
+    v3.2 and Beyond 2030 Plus
+      Causal Inference on Voting Behaviour
+      Predictive Mandate Fulfilment Scoring
+      Counter Disinformation Integrity Layer
+      Sovereign Model Neutrality Assurance
+```
+
+### MEP and Actor Intelligence
+
+Public-role behavioural intelligence on individual MEPs, national delegations, and
+political groups — strictly bounded to parliamentary activity. **No private life,
+no protected characteristics, no psychographic targeting.** The AI advance is
+breadth (all ~720 MEPs continuously scored), depth (multi-dimensional influence
+modelling), and earliness (drift detected before it becomes a defection).
+
+```mermaid
+mindmap
+  root((MEP and Actor Intelligence))
+    Continuous Scorecards
+      Participation and Attendance
+      Group Loyalty and Defection Rate
+      Rapporteur and Shadow Workload
+      Question and Amendment Output
+      Cross Party Collaboration Index
+    Influence Network Modelling
+      Committee Co Membership Graph
+      Co Sponsorship Networks
+      Vote Similarity Clustering
+      Broker and Bridge Identification
+      Centrality and Power Ranking
+    Behavioural Drift Detection
+      Voting Pattern Change Alerts
+      Abstention Spike Signals
+      Cross Group Movement Watch
+      Early Defection Indicators
+    Delegation and Group Dynamics
+      National Delegation Cohesion
+      Intra Group Faction Mapping
+      Leadership Influence Patterns
+      Whip Effectiveness Estimation
+    Boundary Guardrails
+      Public Roles Only
+      No Protected Characteristics
+      No Private Life Inference
+      Evidence Linked to Roll Calls
+```
+
+### Coalition and Legislative Forecasting
+
+The flagship analytic product: turning roll-call history and committee dynamics
+into **probabilistic, WEP-banded forecasts** of how coalitions form and whether
+legislation passes — always with competing hypotheses and explicit uncertainty.
+
+```mermaid
+mindmap
+  root((Coalition and Legislative Forecasting))
+    Coalition Mathematics
+      Effective Number of Groups
+      Grand Coalition Viability
+      Minimal Winning Coalition Search
+      Swing Group Identification
+      Fragmentation Index Tracking
+    Vote Outcome Probability
+      Passage Likelihood Estimation
+      Amendment Adoption Modelling
+      Trilogue Outcome Scenarios
+      Threshold and Quorum Risk
+    Drift and Early Warning
+      Coalition Fracture Signals
+      Cohesion Decline Alerts
+      Realignment Detection
+      Stress Indicator Dashboards
+    Scenario and Wildcard Layer
+      Best Base Worst Scenarios
+      Black Swan and Wildcard Catalogue
+      Historical Baseline Comparison
+      Counterfactual What If Branches
+    Estimative Discipline
+      Kent and WEP Probability Bands
+      Competing Hypotheses Required
+      Confidence and Source Grade
+      No False Determinism Claim
+```
+
+### Predictive and Causal Political Analytics — Horizon Table
+
+The frontier capability: moving from *describing* what happened to *estimating*
+why and what is likely next. Causal claims carry the highest tradecraft burden, so
+every row stays WEP-banded and human-reviewed.
+
+| Capability | Feasibility | Horizon | Anchoring Methodology | Governing Control |
+| ---------- | ----------- | ------- | --------------------- | ----------------- |
+| All-MEP continuous scorecards | 🟢 Realistic | v2.0 (2026–27) | per-document + voting-patterns | Public roles only; build-time determinism |
+| Coalition-mathematics + cohesion indices | 🟢 Realistic | v2.0 | coalition-dynamics methodology | Cited roll-call evidence |
+| WEP-banded passage-probability models | 🔵 Emerging | v3.0 (2028) | political-risk + forward-projection | No determinism claim; competing hypotheses |
+| Real-time coalition-drift early warning | 🔵 Emerging | v3.0/v3.1 | DOCEO live votes + anomaly detection | Human-confirmed alerts before publication |
+| Lobby / influence-network mapping | 🔵 Emerging | v3.1 (2029) | stakeholder-map + actor-mapping | Transparency Register PUBLIC data only |
+| Cross-parliament comparative intelligence | 🔵 Emerging | v3.1 | electoral-domain + entity resolution | Per-jurisdiction source registry |
+| Causal inference on voting behaviour | ⚪ Aspirational | v3.2+ (2030+) | political-risk + ACH | WEP-banded; no individual-prediction claim |
+| Predictive mandate-fulfilment scoring | ⚪ Aspirational | 2031+ | synthesis + historical-baseline | Group-level only; human accountability |
+| Pre-AGI autonomous assessment drafting | ⚪ Aspirational | 2035+ | ai-driven-analysis-guide | **Human approves every published estimate** |
+
+### OSINT Source and Verification Tradecraft
+
+Quality is a function of **provenance discipline**. As the data surface widens to
+Council, OECD, Eurostat, UN, and national portals, AI verification scales source
+grading, triangulation, and hallucination control so that breadth never dilutes
+trust.
+
+```mermaid
+mindmap
+  root((OSINT Source and Verification Tradecraft))
+    Source Discipline
+      Admiralty Reliability Grading
+      Provenance and Licensing Check
+      PUBLIC Classification Enforcement
+      Human Approved Source Registry
+    Multi Source Triangulation
+      Cross Source Reconciliation
+      Numeric Fact Agreement Check
+      Contradiction Surfacing
+      Single Source Flagging
+    AI Verification Agents
+      Always On Fact Check
+      Hallucination Detection
+      Citation Existence Validation
+      Multi Agent Disagreement Flags
+    Provenance and Audit
+      Evidence Chain Per Claim
+      Data Download Manifest
+      Reproducible Determinism
+      CloudTrail Action Logging
+```
+
+### Counter-Disinformation and Information-Integrity Layer
+
+A politically vital *defensive* capability. The platform never engages in
+influence operations; it **detects and contextualises** narrative manipulation
+around EP activity so citizens can tell sourced fact from spin — a natural
+extension of media-framing analysis.
+
+```mermaid
+mindmap
+  root((Information Integrity Layer))
+    Narrative and Framing Watch
+      Media Framing Deep Dive
+      Cross Outlet Frame Divergence
+      Selective Quotation Detection
+      Manufactured Consensus Signals
+    Manipulation Resilience
+      Synthetic Media Awareness
+      Provenance First Verification
+      Coordinated Amplification Patterns
+      Out of Context Claim Flagging
+    Citizen Facing Context
+      Sourced Fact Versus Spin
+      Neutral Explainer Generation
+      Evidence Linked Corrections
+      Transparency of Method
+    Strict Boundaries
+      Detection Not Influence
+      No Targeting of Individuals
+      No Covert Operations
+      Public Interest Only
+```
+
+### Electoral and Democratic Intelligence
+
+Election-cycle intelligence is the highest-stakes, highest-neutrality product. AI
+extends coverage across cycles (2024 retrospective → 2029 → 2034) and deepens
+voter-segmentation and Spitzenkandidaten analysis — always descriptive and
+neutral, never advocacy.
+
+```mermaid
+mindmap
+  root((Electoral and Democratic Intelligence))
+    Election Cycle Coverage
+      2024 Retrospective Analysis
+      2029 Seat Projection Models
+      2034 Long Horizon Forecast
+      Turnout and Participation Context
+    Composition and Power Shift
+      Group Seat Share Evolution
+      Coalition Formation Scenarios
+      Spitzenkandidaten Dynamics
+      Fragmentation and Polarization Trends
+    Voter Segmentation Context
+      Issue Salience Mapping
+      Regional Pattern Analysis
+      Cross Country Comparison
+      No Individual Voter Profiling
+    Democratic Accountability
+      Mandate Versus Voting Record
+      Promise Tracking Context
+      Representation Gap Analysis
+      Neutral Descriptive Framing
+```
+
+### Collection Management and Priority Intelligence Requirements
+
+Professional intelligence does not collect everything — it collects **against
+requirements**. The missing discipline today is an explicit **Priority
+Intelligence Requirements (PIR)** layer that tasks the agentic collectors,
+declares **named areas of interest** (a contested dossier, a fracturing group, an
+election cycle), measures **collection coverage versus gaps**, and re-tasks when a
+gap is found. This turns the EP MCP harvest from opportunistic scraping into a
+**managed collection plan** with auditable provenance — the front end of the OSINT
+cycle the platform otherwise jumps over.
+
+```mermaid
+mindmap
+  root((Collection Management and PIR))
+    Requirements Definition
+      Standing Intelligence Requirements
+      Event Driven Ad Hoc Requirements
+      Named Areas of Interest
+      Essential Elements of Information
+    Collection Tasking
+      Agentic Collector Assignment
+      Source Prioritization by Reliability
+      Refresh Cadence per Requirement
+      Deduplication and Cost Control
+    Coverage and Gap Tracking
+      Requirement Coverage Scoring
+      Collection Gap Detection
+      Single Source Dependency Flags
+      Stale Requirement Alerts
+    Re Tasking Loop
+      Gap Driven Recollection
+      Requirement Retirement
+      Analyst Feedback Intake
+      Provenance Manifest Update
+```
+
+### Indications and Warning — The Warning Problem
+
+The single largest tradecraft gap for a high-level operative is a formal
+**Indications and Warning (I&W)** system. Drift alerts exist, but there is no
+codified **warning problem**, no **watchlist of indicators**, no **tripwire
+thresholds**, and no **escalation ladder** translating a signal into a graded
+warning a journalist or researcher can act on. I&W is the discipline of being
+**early and calibrated** rather than merely descriptive after the fact — coalition
+collapse, a whip rebellion, a rushed trilogue, an abnormal abstention bloc — each
+expressed as watched indicators with WEP-banded confidence.
+
+```mermaid
+mindmap
+  root((Indications and Warning System))
+    Warning Problems
+      Coalition Collapse Watch
+      Whip Rebellion Watch
+      Rushed Legislation Watch
+      Abstention Bloc Watch
+      Group Realignment Watch
+    Indicator Library
+      Cohesion Decline Indicator
+      Cross Group Vote Migration
+      Attendance Anomaly Indicator
+      Amendment Surge Indicator
+      Rhetoric Escalation Indicator
+    Tripwire Thresholds
+      Calibrated Warning Levels
+      Confidence Banded Triggers
+      False Alarm Suppression
+      Baseline Deviation Scoring
+    Escalation Ladder
+      Watch to Warning Promotion
+      Human Confirmation Gate
+      Graded Notification Output
+      After Action Calibration Review
+```
+
+### Counter-FIMI and Foreign-Influence Tradecraft
+
+Counter-disinformation is named above; the **operative-grade** extension is
+structured **Foreign Information Manipulation and Interference (FIMI)** analysis
+aligned to the EEAS / DISARM framework — tagging adversary **tactics, techniques
+and procedures (TTPs)**, framing incidents with a neutral **ABCDE** actor model,
+and tracing **coordinated inauthentic amplification** of narratives around EP
+activity. This stays strictly **defensive and descriptive** — detection and
+context for citizens, never influence, never attribution beyond the evidence, never
+targeting of individuals.
+
+```mermaid
+mindmap
+  root((Counter FIMI Tradecraft))
+    Incident Framing
+      DISARM TTP Tagging
+      Actor Behaviour Content Model
+      Narrative and Vector Mapping
+      Effect and Reach Estimation
+    Coordination Detection
+      Coordinated Inauthentic Signals
+      Amplification Network Patterns
+      Cross Language Narrative Sync
+      Bot and Sockpuppet Heuristics
+    EP Linkage Analysis
+      Narrative to Dossier Mapping
+      Targeted MEP Role Context
+      Third Country Talking Point Match
+      Timeline Correlation with Votes
+    Defensive Boundaries
+      Detection Not Influence
+      Evidence Bounded Attribution
+      No Individual Targeting
+      Public Interest Context Only
+```
+
+### Integrity, Declarations, and Conflict-of-Interest Analytics
+
+The Qatargate era proved that parliamentary **integrity** is itself an
+intelligence problem. Using only **public** declarations of financial interests,
+the Transparency Register, and roll-call records, AI can surface **lobby-to-vote
+correlations**, **revolving-door** patterns, **third-country influence exposure**,
+and **undeclared-interest anomalies** — every finding sourced, WEP-banded, and
+framed as a question for journalists, never as an accusation.
+
+```mermaid
+mindmap
+  root((Integrity and Conflict of Interest))
+    Declaration Analytics
+      Financial Interest Parsing
+      Outside Activity Mapping
+      Gift and Travel Disclosure Review
+      Declaration Completeness Scoring
+    Lobby to Vote Linkage
+      Register Meeting to Dossier Match
+      Rapporteur Interest Overlap
+      Amendment Sponsor Influence Trace
+      Temporal Proximity Signals
+    Revolving Door Patterns
+      Pre Mandate Affiliation Trace
+      Post Mandate Destination Watch
+      Staff and Advisor Linkage
+      Sector Concentration Mapping
+    Strict Framing
+      Public Declarations Only
+      Question Not Accusation
+      Evidence Linked Findings
+      Human Reviewed Before Release
+```
+
+### Verbatim Speech and Debate Intelligence
+
+Today the platform reads documents and votes; it does not yet **listen**. Verbatim
+**plenary and committee debate** is a rich, under-exploited source. AI
+speech-to-text with speaker diarisation, plus stance, framing, and sentiment NLP
+across all 24 EU languages, converts hours of oratory into structured signals —
+**rhetoric drift**, **position reversals**, **talking-point synchronisation**, and
+**issue-salience shifts** — all linked back to the speaker's public role.
+
+```mermaid
+mindmap
+  root((Verbatim Speech Intelligence))
+    Capture and Transcription
+      Plenary Stream ASR
+      Speaker Diarisation
+      Multilingual Verbatim Alignment
+      Official Record Reconciliation
+    Discourse Analytics
+      Stance and Position Detection
+      Framing and Rhetoric Drift
+      Sentiment and Tone Trends
+      Topic and Issue Salience
+    Cross Reference
+      Speech to Vote Consistency
+      Talking Point Synchronization
+      Position Reversal Detection
+      Group Message Discipline
+    Guardrails
+      Public Debate Record Only
+      Role Bounded Attribution
+      Translation Confidence Flags
+      No Tone Based Profiling
+```
+
+### Analytic Wargaming and Structured Red-Teaming
+
+ACH is in the methodology library; the **adversarial** complement is not. A
+high-level operative expects **structured red-teaming** — Team A versus Team B
+competitive analysis, a standing **devil's advocate** agent, **key-assumptions
+checks**, and **what-if wargaming** that stress-tests every forecast before it
+ships. This is how analytic overconfidence is caught before publication, not after.
+
+```mermaid
+mindmap
+  root((Analytic Wargaming and Red Teaming))
+    Competitive Analysis
+      Team A Team B Hypotheses
+      Standing Devils Advocate Agent
+      Key Assumptions Check
+      Pre Mortem Failure Analysis
+    What If Simulation
+      Coalition Defection Branches
+      Vote Threshold Stress Tests
+      Exogenous Shock Injection
+      Historical Analogue Comparison
+    Overconfidence Control
+      Confidence Deconfliction
+      Dissent Recording
+      Calibration Against Outcomes
+      Forecast Track Record Scoring
+    Discipline
+      Competing Hypotheses Required
+      Documented Reasoning Trail
+      Human Adjudication of Splits
+      No Single Model Authority
+```
+
+### Content Authenticity and Model-Neutrality Assurance
+
+Two emerging **assurance** capabilities protect the moat itself. **Content
+authenticity** signs every published artifact with verifiable provenance (C2PA /
+content credentials) so readers can prove what the platform actually said, and
+hardens the pipeline against synthetic-media poisoning. **Model-neutrality
+assurance** continuously audits the underlying models for **political lean**,
+benchmarks sovereign and EU-hosted models, and red-teams outputs for partisanship —
+the safeguard that keeps "AI-driven" from ever meaning "AI-biased".
+
+```mermaid
+mindmap
+  root((Authenticity and Neutrality Assurance))
+    Content Authenticity
+      Provenance Signed Outputs
+      Content Credentials Standard
+      Tamper Evident Evidence Chains
+      Synthetic Media Resistance
+    Model Neutrality Audit
+      Political Lean Benchmarking
+      Sovereign and EU Model Evaluation
+      Partisan Output Red Teaming
+      Bias Drift Monitoring
+    Continuous Evaluation
+      Annual Model Upgrade Review
+      Competitor Model Benchmarks
+      Regression on Neutrality Suite
+      Guardrail Effectiveness Scoring
+    Governance
+      AI Policy Human Accountability
+      Quantum Safe Crypto Migration
+      AGI Readiness Controls
+      Privacy Enhancing Aggregation
+```
+
+### Political Intelligence Capability Maturity — Year by Year to 2037
+
+This timeline sharpens the thin **Intelligence Capabilities** branch of the
+[2027–2037 visionary mindmap](#-visionary-system-mindmap-2027-2037) into an
+explicit analytic-maturity ladder. Each step is additive and stays human-
+accountable.
+
+```mermaid
+timeline
+    title Political Intelligence Capability Maturity 2026 to 2037
+    2026 : OSINT quality moat : All MEP scorecards : Coalition mathematics : Collection PIR pilot
+    2027 : Confidence calibrated estimates : Electoral retrospective and forecast : Integrity declaration analytics
+    2028 : Always on verification : Knowledge graph citations : NL intelligence query : Indications and Warning system
+    2029 : Cross parliament comparison : Influence network mapping : Drift early warning : Verbatim speech intelligence
+    2030 : Causal inference on votes : Predictive passage models : Analytic wargaming and red teaming
+    2031 to 2033 : Mandate fulfilment scoring : Counter FIMI integrity layer : Content authenticity provenance
+    2034 to 2037 : Pre AGI assisted assessment with human accountability retained : Model neutrality assurance at scale
+```
+
+| Year | AI Capability | Political Intelligence Advance |
+| ---- | ------------- | ------------------------------ |
+| 2026 | 🟢 Build-time analytics | All-MEP scorecards, coalition math, source grading, PIR collection pilot |
+| 2027 | 🟢 Calibrated estimation | ICD 203 confidence bands, electoral forecast depth, integrity / conflict-of-interest analytics |
+| 2028 | 🔵 Verification at scale | Always-on fact-check, knowledge-graph citations, NL query, formal I&W watchlists |
+| 2029 | 🔵 Operations platform | Cross-parliament comparison, influence networks, drift alerts, verbatim speech intelligence |
+| 2030 | 🔵 Predictive modelling | Causal inference, WEP-banded passage probability, analytic wargaming / red-teaming |
+| 2031–2033 | ⚪ Deep analytics | Mandate-fulfilment scoring, counter-FIMI layer (DISARM), content-authenticity provenance |
+| 2034–2037 | ⭐ Pre-AGI assistance | Near-expert assessment drafting + continuous model-neutrality assurance, human accountability retained |
+
+### Ethics, Neutrality, and the Analytic Boundary
+
+The single most important slide in the whole roadmap. Capability without these
+guardrails would betray the mission. They are enforced by Bedrock Guardrails, the
+deterministic aggregator, the tradecraft gates, and — ultimately — a human signer.
+
+```mermaid
+mindmap
+  root((Analytic Ethics and Neutrality Boundary))
+    Always Do
+      Cite Primary EP Evidence
+      State Confidence Level
+      Present Competing Hypotheses
+      Disclose Method and Limitations
+      Correct Errors Promptly
+    Never Do
+      No Partisan Conclusions
+      No Private Life Profiling
+      No Protected Characteristic Inference
+      No Unsourced Speculation
+      No Autonomous Publication
+    Data Boundary
+      PUBLIC Open Data Only
+      Public Parliamentary Roles Only
+      GDPR Data Minimization
+      No Leaked or Embargoed Material
+    Accountability
+      Human Approves Every Estimate
+      Methodology Reflection Recorded
+      Full Audit Trail
+      Reproducible Determinism
+```
+
+> **Coverage verdict for the intelligence-operative role:** every analytic product
+> in the 51-template catalogue — scorecards, coalition dynamics, significance and
+> risk scoring, the 5-framework threat model, scenario and wildcard forecasting,
+> electoral domain, media framing, and synthesis briefs — now has an explicit
+> AI-advancement trajectory to 2037 with a feasibility band, an anchoring
+> methodology, and a governing control. The v5.2 revision closes the remaining
+> tradecraft gaps a senior operative would flag: a managed **collection plan (PIR)**
+> at the front of the cycle, a formal **Indications and Warning** system for being
+> early rather than retrospective, **counter-FIMI / DISARM** incident framing,
+> **integrity and conflict-of-interest** analytics on public declarations,
+> **verbatim speech intelligence**, **analytic wargaming / red-teaming** against
+> overconfidence, and **content-authenticity plus model-neutrality assurance** to
+> protect the moat itself. The moat is **analytic quality**, and AI is the lever
+> that scales it without ever crossing the neutrality or GDPR boundary.
+
+---
+
 ## 📡 Multi-Channel Distribution and Expanded Data Surfaces
 
 Earlier revisions left several [SWOT.md](SWOT.md) opportunities **implicit**. This
@@ -1176,8 +1811,13 @@ already marked *Resolved* in SWOT.md (e.g. **W15**) are noted for completeness.
 | **Next Review** | CEO, Hack23 AB | ⏳ Scheduled | 2026-08-31 |
 
 **Document Status**: ✅ **APPROVED FOR PLANNING**  
-**Document Version**: 5.0 — adds Future AI Agent Capabilities, Multi-Channel
-Distribution and Expanded Data Surfaces, and full SWOT-to-Future traceability
-(every W1–W19 and O1–O17 mapped to a future-state resolution).  
+**Document Version**: 5.2 — adds the Political Intelligence Capability Roadmap
+(AI-driven OSINT tradecraft 2026→2037: MEP/actor intelligence, coalition and
+legislative forecasting, predictive and causal political analytics, OSINT source
+verification, counter-disinformation integrity, electoral and democratic
+intelligence, and the analytic ethics boundary), on top of v5.0's Future AI Agent
+Capabilities, Multi-Channel Distribution and Expanded Data Surfaces, and full
+SWOT-to-Future traceability (every W1–W19 and O1–O17 mapped to a future-state
+resolution).  
 **Next Review**: 2026-08-31 (Quarterly)  
 **Classification**: Public (Open Source European Parliament Monitoring Platform)
