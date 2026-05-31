@@ -1,0 +1,37 @@
+{
+  "date": "2026-05-31",
+  "articleType": "year-ahead",
+  "runId": "year-ahead-run351-1780225227",
+  "gateResult": "GREEN",
+  "slug": "2026-05-31-year-ahead",
+  "articlePath": "analysis/daily/2026-05-31/year-ahead/article.md",
+  "topFinding": "The European Parliament enters 2026→2027 governed by a narrow centrist majority.",
+  "keyTakeaways": [],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [
+    "**Central (von der Leyen) majority:** EPP + S&D + Renew = 396 (55.1%). Default governing axis.",
+    "**Ad hoc right majority:** EPP + ECR + PfE = 348 (48.3%) — short of 361 threshold; needs NI/ESN",
+    "**Progressive bloc:** S&D + Renew + Greens + Left = 310 (43.1%) — a blocking minority, not a majority.",
+    "Fragmentation index 6.59 (effective number of parties) makes single-bloc dominance impossible.",
+    "**EPP group chair & EPP committee chairs** — gatekeepers of the rapporteur allocation on defence,",
+    "**Council Presidency (Cyprus H1-2026 → Ireland H2-2026 → Lithuania H1-2027)** — controls trilogue",
+    "**Commission VP cluster** (competitiveness, clean industrial deal) — frames the regulatory agenda.",
+    "**Budget rapporteurs** — pivotal as the 2027 budget (TA-0112) and MFF mid-term review advance."
+  ],
+  "macroContext": "The following IMF-tracked indicators should be re-checked at each subsequent run.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/legislative-pipeline-forecast.md",
+    "intelligence/parliamentary-calendar-projection.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
