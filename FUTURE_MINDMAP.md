@@ -142,7 +142,7 @@ This document maps the **conceptual evolution** of EU Parliament Monitor across
 >    a concrete future-state resolution, horizon, and owning capability — so no
 >    improvement area is left unaddressed.
 
-> **📌 v5.1 focus — political-intelligence depth to 2037.** Where the agentic
+> **📌 v5.2 focus — political-intelligence depth to 2037.** Where the agentic
 > section describes the *machinery*, the new
 > [🕵️ Political Intelligence Capability Roadmap](#-political-intelligence-capability-roadmap--ai-driven-osint-tradecraft-2026--2037)
 > describes the *analytic substance* — the OSINT tradecraft and political-
@@ -1811,7 +1811,7 @@ already marked *Resolved* in SWOT.md (e.g. **W15**) are noted for completeness.
 | **Next Review** | CEO, Hack23 AB | ⏳ Scheduled | 2026-08-31 |
 
 **Document Status**: ✅ **APPROVED FOR PLANNING**  
-**Document Version**: 5.1 — adds the Political Intelligence Capability Roadmap
+**Document Version**: 5.2 — adds the Political Intelligence Capability Roadmap
 (AI-driven OSINT tradecraft 2026→2037: MEP/actor intelligence, coalition and
 legislative forecasting, predictive and causal political analytics, OSINT source
 verification, counter-disinformation integrity, electoral and democratic

@@ -968,7 +968,7 @@ flowchart LR
 
 ### Indications-and-Warning Continuous Loop
 
-The flagship *new* operating mode: a always-on EventBridge-scheduled loop that
+The flagship *new* operating mode: an always-on EventBridge-scheduled loop that
 turns DOCEO live votes and committee activity into graded warnings — with a
 mandatory human-confirmation gate before any warning is disseminated.
 
