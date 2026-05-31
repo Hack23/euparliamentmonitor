@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.1-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last
+**📋 Document Owner:** CEO | **📄 Version:** 4.1 | **📅 Last
 Updated:** 2026-05-31 (UTC)  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31 | **🏷️ Release:** v1.0.1  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
@@ -457,7 +457,7 @@ response — never an ungrounded opinion.
 
 ```mermaid
 flowchart TD
-    Q([💬 NL Question<br/>"Which groups co-voted most<br/>on energy dossiers in 2028?"]) --> Front[⚡ CloudFront + Cognito Auth]
+    Q([💬 NL Question<br/>Which groups co-voted most<br/>on energy dossiers in 2028?]) --> Front[⚡ CloudFront + Cognito Auth]
 
     Front --> NLU[🧠 Bedrock Agent<br/>Intent + entity extraction<br/>Amazon Comprehend NLP]
 
@@ -567,6 +567,110 @@ flowchart TD
 | **Identity** | None (public static) | None (public static) | Amazon Cognito federated auth |
 | **Delivery** | S3 + CloudFront | S3 + CloudFront | CloudFront edge + serverless APIs |
 | **Observability** | Actions logs | Actions logs + RUM | CloudWatch · X-Ray · CloudTrail |
+
+---
+
+## 🕵️ Intelligence-Cycle Capability Flows (2026 → 2037)
+
+The flows above cover analysis and delivery. These flows add the **missing
+intelligence-cycle stages** — direction (PIR), indications and warning, adversarial
+review, integrity analytics, and counter-FIMI — that turn the platform from an
+analysis pipeline into a full **OSINT observatory**. They are the process view of
+the capability roadmap in
+[FUTURE_MINDMAP.md](FUTURE_MINDMAP.md#-political-intelligence-capability-roadmap--ai-driven-osint-tradecraft-2026--2037).
+Every flow ends at a **human-accountability gate**; none publishes autonomously.
+
+### Collection Management — Priority Intelligence Requirements Flow
+
+```mermaid
+flowchart TD
+    REQ([📋 Intelligence Requirements<br/>standing + event-driven]) --> NAI[🎯 Define Named Areas of Interest<br/>contested dossier, fracturing group, election]
+    NAI --> EEI[🧩 Derive Essential Elements of Information<br/>what must be known to answer]
+    EEI --> TASK[🛰️ Task Agentic Collectors<br/>EP MCP, DOCEO, external, ASR]
+    TASK --> COV{📊 Coverage vs Gap?}
+    COV -->|Gap found| RETASK[🔁 Re-task Collection<br/>add source, widen window]
+    RETASK --> TASK
+    COV -->|Sufficient| MANI[🧾 Provenance Manifest<br/>collection-plan.json]
+    MANI --> HAND([➡️ Hand to Processing + Analysis])
+
+    style REQ fill:#e7f0ff
+    style COV fill:#fff4e1
+    style RETASK fill:#fff9c4
+    style HAND fill:#d4edda
+```
+
+### Indications and Warning — Tripwire Flow
+
+```mermaid
+flowchart TD
+    WATCH([👁️ Watchlist Indicators<br/>cohesion, attendance, abstention, rhetoric]) --> BASE[📈 Compare to Rolling Baseline]
+    BASE --> TRIP{🚨 Tripwire breached?}
+    TRIP -->|No| LOG[🗒️ Log Baseline Drift<br/>suppress false alarms]
+    TRIP -->|Yes| DRAFT[✍️ Draft Warning<br/>WEP band + evidence chain]
+    DRAFT --> HUMAN{🧑‍⚖️ Human confirms?}
+    HUMAN -->|No| LOG
+    HUMAN -->|Yes| EMIT([📣 Graded Warning<br/>brief + alert + dashboard])
+    EMIT --> CAL[🎯 Record for Calibration]
+    LOG --> CAL
+    CAL -.feedback.-> BASE
+
+    style WATCH fill:#e7f0ff
+    style TRIP fill:#fff4e1
+    style HUMAN fill:#fff4e1
+    style DRAFT fill:#fff9c4
+    style EMIT fill:#d4edda
+    style LOG fill:#eceff1
+```
+
+### Multi-Agent ACH and Red-Team Flow
+
+```mermaid
+flowchart TD
+    Q([❓ Estimative Question<br/>will dossier X pass? will coalition hold?]) --> HYP[🧠 Generate Competing Hypotheses<br/>minimum two, mutually exclusive]
+    HYP --> EVID[🔗 Map Evidence to Hypotheses<br/>cited PUBLIC sources only]
+    EVID --> ACH[🔀 ACH Matrix<br/>diagnostic evidence weighting]
+    ACH --> RED[😈 Devil's Advocate Agent<br/>attack the leading hypothesis]
+    RED --> KAC[🧾 Key Assumptions Check<br/>what would falsify this?]
+    KAC --> SPLIT{🤝 Analyst agreement?}
+    SPLIT -->|Dissent| RECORD[📝 Record Dissent<br/>preserve minority view]
+    RECORD --> ADJ[🧑‍⚖️ Human Adjudication]
+    SPLIT -->|Converged| ADJ
+    ADJ --> EST([📊 WEP-Banded Estimate<br/>confidence + evidence chain])
+
+    style Q fill:#e7f0ff
+    style RED fill:#ffe0e0
+    style SPLIT fill:#fff4e1
+    style RECORD fill:#fff9c4
+    style EST fill:#d4edda
+```
+
+### Integrity and Counter-FIMI Detection Flow
+
+```mermaid
+flowchart TD
+    PUB([🗂️ PUBLIC Sources<br/>declarations, register, roll-calls, media]) --> NORM[🧹 Normalize + Entity Resolve]
+    NORM --> INT[🔍 Integrity Analytics<br/>lobby-to-vote, revolving-door overlap]
+    NORM --> FIMI[🛰️ Counter-FIMI Detection<br/>DISARM TTP tagging, coordination signals]
+    INT --> QUEST[❓ Sourced Question<br/>NOT an accusation]
+    FIMI --> CTX[🧭 Neutral Context<br/>sourced fact vs spin]
+    QUEST --> GATE{🧑‍⚖️ Human Review<br/>neutral, sourced, public-role?}
+    CTX --> GATE
+    GATE -->|Needs work| REFINE[🔧 Re-source / Re-frame]
+    REFINE --> GATE
+    GATE -->|Approved| OUT([✅ Published with Evidence Chain])
+
+    style PUB fill:#e7f0ff
+    style FIMI fill:#ffe0e0
+    style INT fill:#ede7f6
+    style GATE fill:#fff4e1
+    style REFINE fill:#fff9c4
+    style OUT fill:#d4edda
+```
+
+> **Boundary reminder.** Integrity findings are **sourced questions for journalistic
+> review**, never adjudicated accusations. Counter-FIMI is **detection and context
+> only** — the platform never conducts influence operations and never targets
+> individuals' private lives.
 
 ---
 

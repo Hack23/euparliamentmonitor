@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.1-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Status-Planning-yellow?style=for-the-badge" alt="Status"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Timeline-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last Updated:** 2026-05-31 (UTC)  
+**📋 Document Owner:** CEO | **📄 Version:** 4.1 | **📅 Last Updated:** 2026-05-31 (UTC)  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-31  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring Platform)
 
@@ -904,6 +904,114 @@ jobs:
 - [ ] Implement automated rollback
 - [ ] Create runbooks for failure scenarios
 - [ ] Document deployment procedures
+
+---
+
+## 🕵️ Political Intelligence Capability Workflows (2026 → 2037)
+
+The phases above harden and accelerate the **current** `gh-aw` newsroom pipeline.
+This section adds the **missing intelligence-cycle workflows** a high-level OSINT /
+INTOP operative would expect — the operational realisation of the capability
+roadmap in
+[FUTURE_MINDMAP.md](FUTURE_MINDMAP.md#-political-intelligence-capability-roadmap--ai-driven-osint-tradecraft-2026--2037)
+and the architecture in
+[FUTURE_ARCHITECTURE.md](FUTURE_ARCHITECTURE.md#-intelligence-capability-architecture-2026--2037).
+Today's pipeline does **collection → analysis → production** in a single session.
+The future workflow set closes the cycle: it adds **direction (PIR)** at the front,
+**indications and warning** as a continuous loop, **adversarial review** before
+production, and a **calibration feedback** arm at the end.
+
+> **AI-Policy invariant for every workflow below:** AI proposes evidence,
+> hypotheses, gradings and forecasts; a **human approves**; there is **no autonomous
+> publication of an intelligence assessment** and **no collection outside the PUBLIC
+> open-data boundary**.
+
+### The Agentic Intelligence Cycle (v3.0+)
+
+```mermaid
+flowchart LR
+    DIR["Direction\nPIR + Watchlist"]
+    COL["Collection\nEP MCP + DOCEO + External + ASR"]
+    PROC["Processing\nEntity Resolution + Knowledge Graph"]
+    ANA["Analysis\nMulti-Agent ACH + Forecast + Counter-FIMI"]
+    RT["Adversarial Review\nRed-Team + Devils Advocate"]
+    PROD["Production\nGrading + WEP + Authenticity Signing"]
+    HUM["Human Accountability Gate"]
+    DIS["Dissemination\nStatic Edge + API + Alerts"]
+    FB["Feedback\nForecast Calibration + Gap Re-Tasking"]
+
+    DIR --> COL --> PROC --> ANA --> RT --> PROD --> HUM --> DIS --> FB
+    FB -.re-task.-> DIR
+
+    style DIR fill:#0d6efd,stroke:#0a58ca,color:#fff
+    style COL fill:#0d6efd,stroke:#0a58ca,color:#fff
+    style PROC fill:#6f42c1,stroke:#59359a,color:#fff
+    style ANA fill:#6f42c1,stroke:#59359a,color:#fff
+    style RT fill:#fd7e14,stroke:#ca6510,color:#fff
+    style PROD fill:#198754,stroke:#146c43,color:#fff
+    style HUM fill:#ffc107,stroke:#cc9a06,color:#000
+    style DIS fill:#198754,stroke:#146c43,color:#fff
+    style FB fill:#ffc107,stroke:#cc9a06,color:#000
+```
+
+### New Intelligence Workflows and Their Rollout
+
+| Workflow | What It Does | Anchoring Methodology | Feasibility / Horizon | Operative Benefit |
+| -------- | ------------ | --------------------- | --------------------- | ----------------- |
+| **PIR collection planner** | Translates standing + ad-hoc requirements into tasked collection; tracks coverage vs gaps | source-triangulation | 🟢 v2.0 pilot → 🔵 v3.0 | Collect against requirements, not opportunistically |
+| **Indications and Warning monitor** | Continuous indicator scoring against tripwires; promotes watch → warning | coalition-dynamics + political-risk | 🔵 v3.0 (2028) | Early, calibrated warning of coalition / discipline breaks |
+| **Multi-agent ACH + red-team** | Competing-hypotheses agents plus a devil's-advocate gate before any estimate ships | osint-tradecraft-standards §4 | 🔵 v3.0 | Catches analytic overconfidence before publication |
+| **Counter-FIMI watch** | Tags DISARM TTPs on coordinated narratives referencing EP activity | political-threat-framework | ⚪ v3.2 (2031+) | Defensive narrative-integrity context for citizens |
+| **Integrity analytics** | Correlates PUBLIC declarations, register meetings, and roll-calls into sourced questions | actor-mapping + stakeholder-map | 🔵 v3.1 (2029) | Surfaces conflict-of-interest leads for journalists |
+| **Verbatim speech ingestion** | ASR + stance/framing NLP over plenary and committee debate | per-document-methodology | 🔵 v3.1 (2029) | Adds the spoken record as a first-class source |
+| **Forecast calibration loop** | Records outcomes vs estimates; scores the analytic track record | forward-projection + confidence-calibration | 🔵 v3.0 | Makes "be early" honest and measurable |
+
+### Indications-and-Warning Continuous Loop
+
+The flagship *new* operating mode: a always-on EventBridge-scheduled loop that
+turns DOCEO live votes and committee activity into graded warnings — with a
+mandatory human-confirmation gate before any warning is disseminated.
+
+```mermaid
+flowchart TD
+    T["EventBridge Tick\nplenary + committee cadence"]
+    ING["Ingest Latest Votes + Activity"]
+    SCORE["Score Indicators vs Baseline"]
+    TRIP{"Tripwire Breached?"}
+    SUPPRESS["Suppress + Log Baseline Drift"]
+    DRAFT["Draft Warning\nWEP band + evidence chain"]
+    GATE{"Human Confirms?"}
+    EMIT["Emit Graded Warning\nbrief + alert + dashboard"]
+    CAL["Record for Calibration"]
+
+    T --> ING --> SCORE --> TRIP
+    TRIP -- No --> SUPPRESS --> CAL
+    TRIP -- Yes --> DRAFT --> GATE
+    GATE -- No --> SUPPRESS
+    GATE -- Yes --> EMIT --> CAL
+    CAL -.feeds.-> SCORE
+
+    style T fill:#0d6efd,stroke:#0a58ca,color:#fff
+    style SCORE fill:#6f42c1,stroke:#59359a,color:#fff
+    style TRIP fill:#fd7e14,stroke:#ca6510,color:#000
+    style DRAFT fill:#fd7e14,stroke:#ca6510,color:#fff
+    style GATE fill:#ffc107,stroke:#cc9a06,color:#000
+    style EMIT fill:#198754,stroke:#146c43,color:#fff
+    style SUPPRESS fill:#6c757d,stroke:#565e64,color:#fff
+    style CAL fill:#ffc107,stroke:#cc9a06,color:#000
+```
+
+### Governance and Phasing
+
+- **v2.0 (2026–27, no servers):** PIR planning and forecast-calibration logging are
+  build-time additions to the existing `gh-aw` runs — a `collection-plan.json` and a
+  `forecast-ledger.json` committed alongside `manifest.json`. No new infrastructure.
+- **v3.0 (2028):** the I&W monitor, multi-agent ACH/red-team, and NL query move
+  behind the serverless core (Step Functions + Bedrock Agents + EventBridge).
+- **v3.1–v3.2 (2029–31+):** integrity analytics, verbatim speech, and counter-FIMI
+  layer in once the knowledge graph and external-source registry are proven.
+- **Throughout:** the deterministic aggregator and the human-accountability gate are
+  never bypassed; every workflow emits a `methodology-reflection` audit artifact.
 
 ---
 
