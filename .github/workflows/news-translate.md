@@ -206,9 +206,9 @@ steps:
     run: |
       npm ci --prefer-offline --no-audit
 
-  - name: Build TypeScript (required for shared MCP client)
+  - name: Compile TypeScript (skip prebuild — translate never touches HTML)
     run: |
-      npm run build
+      npx tsc
 
   # Run discovery BEFORE the agent starts so the LLM never spends time on
   # filesystem scans. The queue is a small, deterministic JSON file that
