@@ -608,7 +608,7 @@ All 15 agentic workflows inherit the **gh-aw 3-layer defense-in-depth trust mode
 
 | Layer | Boundary | EU Parliament Monitor Implementation | Threat Assumption |
 |-------|----------|--------------------------------------|-------------------|
-| 🔒 **Substrate** | VM → kernel → container → network | AWF Squid proxy (6-domain allowlist), Docker `--cap-drop=ALL`, MCP server sandboxing, iptables default-deny | Adversary controls user-level containers |
+| 🔒 **Substrate** | VM → kernel → container → network | AWF Squid proxy (`network.allowed` 30+ entries across GitHub/infra, EU, IMF, World Bank, Hack23 domains), Docker `--cap-drop=ALL`, MCP server sandboxing, iptables default-deny | Adversary controls user-level containers |
 | 📋 **Configuration** | Declarative specs + toolchain | Lock-file compilation (`gh aw compile v0.77.3`), SHA-pinned actions, actionlint/zizmor/poutine scanners, content sanitization, integrity filtering | Misconfiguration, overly permissive specs |
 | 📐 **Plan** | Staged execution + output vetting | SafeOutputs (read-only agent → buffered → vetted PR), Threat Detection pipeline, Secret Redaction (`if: always()`), JSONL audit trail | Incorrect plan, stage bypass attempts |
 
@@ -651,14 +651,16 @@ flowchart LR
 
 ##### 🌐 AWF Network Firewall (Substrate Layer)
 
-| Allowed Endpoint | Purpose | Access Pattern |
-|-----------------|---------|----------------|
-| `api.github.com`, `github.com` | Workflow control, PR creation | HTTPS (authenticated) |
-| `registry.npmjs.org` | npm dependency installation | HTTPS (read-only) |
-| `host.docker.internal:8080` | MCP Gateway (EP/WB/IMF servers) | HTTP (Docker bridge, local-only) |
-| `api.imf.org` | IMF SDMX 3.0 economic data | HTTPS (API key) |
-| LLM API endpoints | AI inference (Copilot/Claude/Codex) | HTTPS (token) |
-| ❌ **All other domains** | **BLOCKED** (default-deny) | iptables DROP |
+| Endpoint Group | Purpose | Access Pattern |
+|----------------|---------|----------------|
+| GitHub + base runtime (`defaults`, `github`, `node`, `docker.io`) | Workflow orchestration, actions, dependency/runtime access | HTTPS |
+| EU data domains (`*.europa.eu`, `ec.europa.eu`, `eur-lex.europa.eu`, `data.ecb.europa.eu`, etc.) | EP/institutional legislative and policy data | HTTPS |
+| IMF domains (`*.imf.org`, including `api.imf.org`) | IMF SDMX 3.0 and IMF data services | HTTPS (API key where required) |
+| World Bank domains (`*.worldbank.org`) | World Bank MCP and economic context datasets | HTTPS |
+| Hack23/platform domains (`*.hack23.com`, `*.euparliamentmonitor.com`, related project domains) | Project-controlled APIs and platform integrations | HTTPS |
+| `host.docker.internal:8080` | MCP Gateway (Docker bridge, local-only) | HTTP (local bridge) |
+| Authoritative source | Full allowlist maintained in `.github/workflows/shared/config/news-common-settings.md` | Version-controlled |
+| ❌ All non-allowlisted domains | Blocked by AWF default-deny policy | iptables DROP |
 
 ##### 🛡️ SafeOutputs Permission Isolation (Plan Layer)
 
@@ -686,7 +688,7 @@ Agent Job (read-only) → Buffered Artifacts → Threat Detection (separate job)
 
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
-| **🌐 Network Isolation** | AWF Squid proxy with 6-domain allowlist, iptables default-deny | Network Security Policy |
+| **🌐 Network Isolation** | AWF Squid proxy with `network.allowed` 30+ domain entries (see `news-common-settings.md`), iptables default-deny | Network Security Policy |
 | **🐳 Container Isolation** | Docker `--cap-drop=ALL`, resource limits, read-only FS | ISO 27001 A.8.31 |
 | **📦 MCP Sandboxing** | Per-server Docker containers, tool allowlisting | Secure Development Policy |
 | **🔐 Compilation Security** | Schema validation, expression safety, SHA pinning | ISO 27001 A.8.25 |

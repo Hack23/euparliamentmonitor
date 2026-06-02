@@ -179,12 +179,15 @@ The gh-aw architecture implements **three nested trust layers** that provide ind
 
 The AWF containerizes the agent, binds it to a Docker network, and uses iptables to redirect HTTP/HTTPS traffic through a Squid proxy container with a configurable domain allowlist.
 
-**EU Parliament Monitor Allowlist**:
-- ✅ `api.github.com`, `github.com` — workflow control, PR creation
-- ✅ `registry.npmjs.org` — dependency installation (npm ecosystem bundle)
+**EU Parliament Monitor Allowlist (primary groups)**:
+- ✅ Base infrastructure: `defaults`, `github`, `node`, `docker.io` family
+- ✅ EU institutional data domains: `*.europa.eu`, `ec.europa.eu`, `eur-lex.europa.eu`, `data.ecb.europa.eu` and related EP sources
+- ✅ IMF domains: `*.imf.org` (including `api.imf.org`)
+- ✅ World Bank domains: `*.worldbank.org`
+- ✅ Project/platform domains: `*.hack23.com`, `*.euparliamentmonitor.com` and related project domains
 - ✅ `host.docker.internal:8080` — MCP Gateway (Docker bridge, local-only)
-- ✅ `api.imf.org` — IMF SDMX 3.0 economic data
 - ✅ LLM API endpoints — Copilot/Claude/Codex AI inference
+- 📍 Full authoritative list: `.github/workflows/shared/config/news-common-settings.md`
 - ❌ **All other outbound connections BLOCKED** (default-deny)
 
 **AWF Architecture**:
@@ -475,7 +478,7 @@ flowchart TB
 |-------|-----------|-------------------|--------------------------------------|
 | 🔒 **Substrate** | GitHub Actions runner (VM, kernel) | Memory corruption, privilege escalation | Ubuntu latest + Docker runtime |
 | 🔒 **Substrate** | Docker container runtime | Process isolation bypass, shared state | `--cap-drop=ALL`, resource limits |
-| 🔒 **Substrate** | AWF network controls (iptables + Squid) | Data exfiltration, unauthorized API calls | 6-domain allowlist, default-deny |
+| 🔒 **Substrate** | AWF network controls (iptables + Squid) | Data exfiltration, unauthorized API calls | `network.allowed` 30+ entries (EU/IMF/WB/Hack23 + infra), default-deny |
 | 🔒 **Substrate** | MCP sandboxing (container isolation) | Container escape, unauthorized tools | EP/WB/IMF each in isolated containers |
 | 📋 **Configuration** | Schema validation + expression allowlist | Invalid configs, unauthorized expressions | `gh aw compile --validate` |
 | 📋 **Configuration** | Action SHA pinning | Supply chain attacks, tag hijacking | All actions pinned to commit SHA |
