@@ -11,15 +11,15 @@
 
 <p align="center">
   <a><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a><img src="https://img.shields.io/badge/Version-2.4-555?style=for-the-badge" alt="Version"/></a>
-  <a><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a><img src="https://img.shields.io/badge/Version-2.5-555?style=for-the-badge" alt="Version"/></a>
+  <a><img src="https://img.shields.io/badge/Effective-2026--06--02-success?style=for-the-badge" alt="Effective Date"/></a>
   <a><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.4 | **📅 Last Updated:**
-2026-05-30 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-30  
+**📋 Document Owner:** CEO | **📄 Version:** 2.5 | **📅 Last Updated:**
+2026-06-02 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-09-02  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -318,10 +318,11 @@ classification ([CLASSIFICATION.md](CLASSIFICATION.md): Public/Medium/Medium).
   - Medium: 4 (T-003, T-007, T-013 P1; T-030 P2)
   - Low-Medium: 10 (Monitored with existing controls)
   - Low: 7 (Managed with existing controls)
-- **Primary Security Focus:** Data integrity, supply chain security, information manipulation, agentic workflow sandboxing
-- **Defense Posture:** Multi-layer defense-in-depth with 30+ security controls
+- **Primary Security Focus:** Data integrity, supply chain security, information manipulation, agentic workflow sandboxing, AI/LLM security governance
+- **Defense Posture:** Multi-layer defense-in-depth with 30+ security controls, gh-aw 3-layer architecture
 - **ENISA Alignment:** 7/7 ENISA TL 2024 threat categories mapped
 - **ATT&CK Coverage:** 18 techniques across 9 tactics
+- **AI Security:** OWASP LLM Top 10 mapped, gh-aw defense-in-depth (Substrate → Configuration → Plan layers)
 
 **System Classification Foundation (from
 [CLASSIFICATION.md](CLASSIFICATION.md)):**
@@ -1733,6 +1734,401 @@ already secured)
 
 ---
 
+## 🤖 AI Security Analysis — OWASP LLM Top 10 Mapping
+
+> _Per [Hack23 AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) and [OWASP LLM Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/OWASP_LLM_Security_Policy.md)_
+
+This section maps the **OWASP Top 10 for LLM Applications 2025** to the EU Parliament Monitor's agentic workflow architecture, documenting implemented controls, residual risk, and planned mitigations.
+
+### 🗺️ AI Threat Landscape Overview
+
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#e8eaf6',
+      'primaryTextColor': '#1a237e',
+      'lineColor': '#3f51b5',
+      'secondaryColor': '#fff3e0',
+      'tertiaryColor': '#e8f5e9'
+    }
+  }
+}%%
+flowchart TD
+    subgraph INPUT_THREATS["🚨 Input Threats"]
+        LLM01[🎯 LLM01 Prompt Injection]
+        LLM07[🔓 LLM07 System Prompt Leakage]
+    end
+
+    subgraph DATA_THREATS["📂 Data Threats"]
+        LLM02[📋 LLM02 Sensitive Info Disclosure]
+        LLM04[☠️ LLM04 Data Poisoning]
+        LLM08[📍 LLM08 Vector and Embedding Weaknesses]
+    end
+
+    subgraph INTEGRATION_THREATS["🔗 Integration Threats"]
+        LLM03[📦 LLM03 Supply Chain Vulnerabilities]
+        LLM05[⚠️ LLM05 Improper Output Handling]
+        LLM06[🤖 LLM06 Excessive Agency]
+    end
+
+    subgraph OPERATIONAL_THREATS["⚡ Operational Threats"]
+        LLM09[❌ LLM09 Misinformation]
+        LLM10[🔌 LLM10 Unbounded Consumption]
+    end
+
+    subgraph GH_AW_CONTROLS["🛡️ gh-aw Defense Controls"]
+        AWF[🔥 Agent Workflow Firewall]
+        SAFE[📦 SafeOutputs Isolation]
+        MCP[🔌 MCP Sandboxing]
+        DETECT[🔍 Threat Detection Pipeline]
+        COMPILE[⚙️ Compilation-Time Security]
+        SANITIZE[🧹 Content Sanitization]
+    end
+
+    LLM01 -.->|mitigated by| AWF
+    LLM01 -.->|mitigated by| COMPILE
+    LLM05 -.->|mitigated by| SANITIZE
+    LLM06 -.->|mitigated by| SAFE
+    LLM06 -.->|mitigated by| MCP
+    LLM03 -.->|mitigated by| COMPILE
+    LLM09 -.->|mitigated by| DETECT
+    LLM02 -.->|mitigated by| SAFE
+    LLM10 -.->|mitigated by| AWF
+
+    style LLM01 fill:#ffcdd2,stroke:#c62828,color:#000
+    style LLM06 fill:#ffcdd2,stroke:#c62828,color:#000
+    style LLM09 fill:#ffe0b2,stroke:#ef6c00,color:#000
+    style LLM03 fill:#fff9c4,stroke:#f9a825,color:#000
+    style LLM05 fill:#fff9c4,stroke:#f9a825,color:#000
+    style AWF fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style SAFE fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style MCP fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style DETECT fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style COMPILE fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style SANITIZE fill:#c8e6c9,stroke:#2e7d32,color:#000
+```
+
+### 📋 OWASP LLM Top 10 — EU Parliament Monitor Control Matrix
+
+| # | OWASP LLM Threat | Risk to Platform | Implemented Controls | gh-aw Layer | Status |
+|---|---|---|---|---|---|
+| 🎯 **LLM01** | **Prompt Injection** | Agent workflow manipulation via crafted EP data | ✅ AWF egress control ✅ Compilation-time validation (actionlint, zizmor, poutine) ✅ Workflow prompt compilation (`.lock.yml`) ✅ Input schema validation | Layer 2 + Layer 3 | 🟢 **Strong** |
+| 📋 **LLM02** | **Sensitive Information Disclosure** | Leaking internal config, API keys in generated content | ✅ SafeOutputs isolation (read-only agent) ✅ Secret scanning in CI ✅ No credentials in workflow outputs ✅ Content sanitization | Layer 1 + Layer 3 | 🟢 **Strong** |
+| 📦 **LLM03** | **Supply Chain Vulnerabilities** | Compromised model providers, malicious MCP servers | ✅ Pinned gh-aw version (`v0.77.3`) ✅ SBOM generation ✅ Dependabot + CodeQL ✅ MCP server allowlisting ✅ `zizmor` + `poutine` static analysis | Layer 2 | 🟢 **Strong** |
+| ☠️ **LLM04** | **Data Poisoning** | Corrupted EP data causing biased news generation | ✅ Official EP Open Data Portal only ✅ Multi-source triangulation ✅ Schema validation ✅ Data freshness checks ✅ Human review pipeline | Layer 3 | 🟡 **Moderate** |
+| ⚠️ **LLM05** | **Improper Output Handling** | Unsafe HTML/Markdown injection in generated articles | ✅ `SafeHtmlString` branded types ✅ Content sanitization (XML/HTML conversion, URI filtering) ✅ @mention neutralization ✅ Bot trigger protection ✅ Control char removal | Layer 3 | 🟢 **Strong** |
+| 🤖 **LLM06** | **Excessive Agency** | Agent performing unauthorized actions (pushing malicious code) | ✅ SafeOutputs (agent = read-only, writes buffered as artifacts) ✅ Separate safe-output jobs with scoped permissions ✅ MCP tool allowlisting ✅ No direct push capability | Layer 1 + Layer 3 | 🟢 **Strong** |
+| 🔓 **LLM07** | **System Prompt Leakage** | Workflow prompts exposed via generated content | ✅ `.lock.yml` compilation separates prompts from runtime ✅ Prompt content not in output artifacts ✅ Error handling prevents prompt echo | Layer 2 | 🟡 **Moderate** |
+| 📍 **LLM08** | **Vector and Embedding Weaknesses** | N/A — no vector DB or RAG in current architecture | ℹ️ Not applicable (static site, no embeddings) | — | ⚪ **N/A** |
+| ❌ **LLM09** | **Misinformation** | AI-generated parliamentary news containing hallucinations | ✅ Multi-source EP data triangulation ✅ Threat detection pipeline (hallucination checks) ✅ Human review gates ✅ AI disclaimer labeling ✅ Source citation requirements | Layer 3 | 🟡 **Moderate** |
+| 🔌 **LLM10** | **Unbounded Consumption** | Runaway workflow costs, API exhaustion | ✅ `timeout-minutes: 60` cap per workflow ✅ AWF egress rate limiting ✅ Workflow concurrency limits ✅ Budget monitoring | Layer 2 | 🟢 **Strong** |
+
+### 🎯 AI Security Risk Heatmap
+
+| Category | LLM Threats | Overall Risk | Controls Active | Residual |
+|---|---|---|---|---|
+| 🚨 **Input** | LLM01, LLM07 | Medium | AWF, Compilation, Lock files | Low |
+| 📂 **Data** | LLM02, LLM04, LLM08 | Low-Medium | SafeOutputs, Schema validation, N/A | Low |
+| 🔗 **Integration** | LLM03, LLM05, LLM06 | Medium | Pinning, Sanitization, SafeOutputs | Low |
+| ⚡ **Operational** | LLM09, LLM10 | Medium | Detection pipeline, Timeouts | Low-Medium |
+
+### 🏛️ Democratic AI-Specific Threats
+
+AI threats with particular relevance to democratic transparency and parliamentary monitoring:
+
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#e3f2fd',
+      'primaryTextColor': '#0d47a1',
+      'lineColor': '#1976d2',
+      'secondaryColor': '#fce4ec',
+      'tertiaryColor': '#f3e5f5'
+    }
+  }
+}%%
+flowchart TD
+    subgraph AI_DEMOCRATIC_THREATS["🏛️ AI Threats to Democracy"]
+        T_DEEPFAKE[🎭 AI-Generated Deepfakes of MEPs]
+        T_DISINFO[📰 AI-Powered Disinformation Campaigns]
+        T_BIAS[⚖️ Algorithmic Bias in Coverage]
+        T_NARRATIVE[🗣️ LLM Manipulation of Political Narratives]
+        T_ASTROTURF[🤖 AI-Powered Astroturfing]
+        T_SUPPRESS[🔇 Algorithmic Suppression of Dissent]
+    end
+
+    subgraph DEMOCRATIC_IMPACTS["🗳️ Impacts on Democracy"]
+        I_TRUST[💔 Erosion of Public Trust]
+        I_PARTICIPATION[📉 Reduced Civic Participation]
+        I_POLARIZATION[⚡ Political Polarization]
+        I_ACCOUNTABILITY[🔍 Weakened Accountability]
+        I_MANIPULATION[🎯 Electoral Manipulation]
+    end
+
+    subgraph EU_DEFENSES["🇪🇺 EU Parliament Monitor Defenses"]
+        D_TRANSPARENCY[📖 Open Source Transparency]
+        D_MULTISOURCE[🔗 Multi-Source Verification]
+        D_MULTILANG[🌍 14-Language Cross-Check]
+        D_HUMAN[👤 Human Editorial Review]
+        D_AUDIT[📋 Full Audit Trail]
+        D_DISCLAIMER[⚠️ AI Content Labeling]
+    end
+
+    T_DEEPFAKE --> I_TRUST
+    T_DISINFO --> I_POLARIZATION
+    T_BIAS --> I_ACCOUNTABILITY
+    T_NARRATIVE --> I_MANIPULATION
+    T_ASTROTURF --> I_PARTICIPATION
+    T_SUPPRESS --> I_ACCOUNTABILITY
+
+    D_TRANSPARENCY -.->|counters| T_DISINFO
+    D_MULTISOURCE -.->|counters| T_DEEPFAKE
+    D_MULTILANG -.->|counters| T_BIAS
+    D_HUMAN -.->|counters| T_NARRATIVE
+    D_AUDIT -.->|counters| T_ASTROTURF
+    D_DISCLAIMER -.->|counters| T_SUPPRESS
+
+    style T_DEEPFAKE fill:#ffcdd2,stroke:#c62828,color:#000
+    style T_DISINFO fill:#ffcdd2,stroke:#c62828,color:#000
+    style T_BIAS fill:#ffe0b2,stroke:#ef6c00,color:#000
+    style T_NARRATIVE fill:#ffe0b2,stroke:#ef6c00,color:#000
+    style T_ASTROTURF fill:#fff9c4,stroke:#f9a825,color:#000
+    style T_SUPPRESS fill:#fff9c4,stroke:#f9a825,color:#000
+    style D_TRANSPARENCY fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style D_MULTISOURCE fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style D_MULTILANG fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style D_HUMAN fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style D_AUDIT fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style D_DISCLAIMER fill:#c8e6c9,stroke:#2e7d32,color:#000
+```
+
+| Democratic AI Threat | OWASP LLM | Attack Vector | Impact on EU Democracy | Mitigation |
+|---|---|---|---|---|
+| 🎭 **AI-Generated Deepfakes** | LLM09 | Synthetic media impersonating MEPs to spread false statements | Voter deception, institutional delegitimization | Multi-source EP data verification, official source anchoring, AI provenance tracking |
+| 📰 **AI Disinformation Campaigns** | LLM09, LLM01 | Coordinated injection of false narratives about EP proceedings | Political polarization, reduced trust in democratic institutions | Multi-language cross-verification, temporal consistency checks, editorial review gates |
+| ⚖️ **Algorithmic Bias** | LLM04, LLM09 | Training data biases amplifying coverage of certain political groups | Unfair representation, democratic imbalance | EP-official data only, balanced coverage monitoring, multi-language parity checks |
+| 🗣️ **Narrative Manipulation** | LLM01, LLM05 | Prompt injection to alter editorial framing of parliamentary votes | Public opinion manipulation, policy misunderstanding | Compiled workflow prompts (`.lock.yml`), output content sanitization, threat detection |
+| 🤖 **AI Astroturfing** | LLM06, LLM10 | Using compromised agents to generate synthetic public commentary | False consensus signals, democratic process subversion | SafeOutputs isolation, no direct citizen interaction, output artifact review |
+| 🔇 **Algorithmic Suppression** | LLM04, LLM06 | Biasing LLM to systematically under-report certain MEP activities | Selective transparency, accountability gaps | Complete EP data coverage requirements, coverage balance monitoring, editorial oversight |
+
+---
+
+## 🛡️ gh-aw Defense-in-Depth Architecture
+
+> _GitHub Agentic Workflows (gh-aw) security architecture as implemented in EU Parliament Monitor (15 agentic workflows, pinned at `v0.77.3`)_
+
+The gh-aw platform provides a **3-layer defense-in-depth architecture** that forms the security foundation for all AI-powered news generation workflows. This section documents the security controls per [gh-aw architecture documentation](https://github.github.com/gh-aw/introduction/architecture/).
+
+### 🏗️ Three-Layer Security Architecture
+
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#e8eaf6',
+      'primaryTextColor': '#1a237e',
+      'lineColor': '#3f51b5',
+      'secondaryColor': '#e8f5e9',
+      'tertiaryColor': '#fff3e0'
+    }
+  }
+}%%
+flowchart TD
+    subgraph LAYER1["🔒 Layer 1: Substrate-Level Trust"]
+        direction LR
+        L1_DOCKER[🐳 Docker Container Isolation]
+        L1_NETWORK[🌐 Network Namespace Separation]
+        L1_IPTABLES[🔥 iptables Egress Filtering]
+        L1_READONLY[📖 Read-Only Repository Access]
+        L1_NOPUSH[🚫 No Direct Push Capability]
+    end
+
+    subgraph LAYER2["⚙️ Layer 2: Configuration-Level Trust"]
+        direction LR
+        L2_LOCK[🔐 Workflow Lock File Compilation]
+        L2_ALLOWLIST[📋 Domain Allowlisting via Squid]
+        L2_TOOLS[🔧 MCP Tool Allowlisting]
+        L2_TIMEOUT[⏰ Timeout Enforcement 60min]
+        L2_PIN[📌 Version Pinning v0.77.3]
+    end
+
+    subgraph LAYER3["📋 Layer 3: Plan-Level Trust"]
+        direction LR
+        L3_SAFE[📦 SafeOutputs Artifact Buffering]
+        L3_DETECT[🔍 Threat Detection Pipeline]
+        L3_SANITIZE[🧹 Content Sanitization]
+        L3_REVIEW[👤 Human Review Gates]
+        L3_SCHEMA[📐 Output Schema Validation]
+    end
+
+    LAYER1 --> LAYER2
+    LAYER2 --> LAYER3
+
+    style LAYER1 fill:#e3f2fd,stroke:#1565c0,color:#000
+    style LAYER2 fill:#e8f5e9,stroke:#2e7d32,color:#000
+    style LAYER3 fill:#fff3e0,stroke:#e65100,color:#000
+    style L1_DOCKER fill:#bbdefb,stroke:#1565c0,color:#000
+    style L1_NETWORK fill:#bbdefb,stroke:#1565c0,color:#000
+    style L1_IPTABLES fill:#bbdefb,stroke:#1565c0,color:#000
+    style L1_READONLY fill:#bbdefb,stroke:#1565c0,color:#000
+    style L1_NOPUSH fill:#bbdefb,stroke:#1565c0,color:#000
+    style L2_LOCK fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style L2_ALLOWLIST fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style L2_TOOLS fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style L2_TIMEOUT fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style L2_PIN fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style L3_SAFE fill:#ffe0b2,stroke:#e65100,color:#000
+    style L3_DETECT fill:#ffe0b2,stroke:#e65100,color:#000
+    style L3_SANITIZE fill:#ffe0b2,stroke:#e65100,color:#000
+    style L3_REVIEW fill:#ffe0b2,stroke:#e65100,color:#000
+    style L3_SCHEMA fill:#ffe0b2,stroke:#e65100,color:#000
+```
+
+### 🔒 Layer 1: Substrate-Level Trust (Platform Enforcement)
+
+Controls enforced by the gh-aw runtime platform — **cannot be bypassed by workflow authors or agents:**
+
+| Control | Mechanism | Security Property | EU Parliament Monitor Application |
+|---|---|---|---|
+| 🐳 **Container Isolation** | Docker container per workflow run | Process isolation, filesystem separation | Each news-generation workflow runs in isolated container |
+| 🌐 **Network Namespace** | Separate network namespace per container | Network isolation from host and other containers | Agent cannot access GitHub internal networks or other runners |
+| 🔥 **iptables Egress** | Kernel-level packet filtering | Prevent unauthorized outbound connections | Only allowlisted EP API endpoints reachable |
+| 📖 **Read-Only Clone** | Repository mounted read-only to agent | Prevent source code tampering | Agent reads prompts and templates but cannot modify them |
+| 🚫 **No Push** | Git push disabled in agent context | Prevent unauthorized code deployment | All output goes through SafeOutputs artifact path |
+| 🔑 **Token Scoping** | Minimal GitHub token permissions | Least privilege access | Agent token has `contents: read` only during generation |
+
+### ⚙️ Layer 2: Configuration-Level Trust (Repository Owner Controls)
+
+Controls configured by the repository maintainer in workflow definitions:
+
+| Control | Mechanism | Security Property | EU Parliament Monitor Application |
+|---|---|---|---|
+| 🔐 **Lock File Compilation** | `.md` → `.lock.yml` compilation via `actionlint` + `zizmor` + `poutine` | Prompt integrity, static analysis | Prevents runtime prompt manipulation; 15 workflows compiled |
+| 📋 **Domain Allowlist** | Squid proxy with explicit domain allowlist (AWF) | Egress filtering, data exfiltration prevention | Only `data.europarl.europa.eu`, `europarl.europa.eu`, `api.imf.org` allowed |
+| 🔧 **MCP Tool Allowlist** | Explicit tool enumeration per MCP server | Capability restriction | Only EP MCP client tools enabled per workflow |
+| ⏰ **Timeout Enforcement** | `timeout-minutes: 60` hard cap | Denial of service prevention | Emergency flush at 40 min elapsed; prevents runaway costs |
+| 📌 **Version Pinning** | `GH_AW_VERSION=v0.77.3` explicit pin | Supply chain integrity | Prevents auto-upgrade to potentially vulnerable versions |
+| 📏 **Patch Size Limit** | `max-patch-size: 10240` KB | Output size control | Prevents exfiltration of large data blobs via patches |
+
+### 📋 Layer 3: Plan-Level Trust (Runtime Verification)
+
+Controls applied during and after workflow execution to validate outputs:
+
+| Control | Mechanism | Security Property | EU Parliament Monitor Application |
+|---|---|---|---|
+| 📦 **SafeOutputs** | Agent writes → artifact buffer → threat detection → separate safe-output job | Permission isolation | Generated articles reviewed before any write permission granted |
+| 🔍 **Threat Detection** | Multi-stage pipeline scanning output artifacts | Malicious content detection | Detects prompt injection attempts, malicious links, script injection |
+| 🧹 **Content Sanitization** | 7-layer sanitization pipeline | Output safety | @mention neutralization, bot trigger protection, XML/HTML conversion, URI filtering, special char handling, content limits, control char removal |
+| 👤 **Human Review** | PAT PR fallback with manual review gates | Human-in-the-loop | Failed safe-outputs trigger PAT-based PR for human review |
+| 📐 **Schema Validation** | Output structure validation against expected schema | Data integrity | Article metadata, frontmatter, and content structure validated |
+
+### 🔥 Agent Workflow Firewall (AWF) Detail
+
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#e8f5e9',
+      'primaryTextColor': '#1b5e20',
+      'lineColor': '#4caf50',
+      'secondaryColor': '#fff3e0',
+      'tertiaryColor': '#fce4ec'
+    }
+  }
+}%%
+flowchart LR
+    subgraph AGENT["🤖 Agent Container"]
+        CODE[📝 Generated Content]
+        API_CALL[🌐 API Requests]
+        TOOL_CALL[🔧 MCP Tool Calls]
+    end
+
+    subgraph AWF_LAYER["🔥 Agent Workflow Firewall"]
+        SQUID[🦑 Squid Proxy]
+        IPTABLES[🔥 iptables Rules]
+        DNS[📡 DNS Filtering]
+    end
+
+    subgraph ALLOWED["✅ Allowed Destinations"]
+        EP_API[🏛️ EP Open Data Portal]
+        EP_DOCS[📄 europarl.europa.eu]
+        IMF_API[💰 IMF SDMX API]
+    end
+
+    subgraph BLOCKED["🚫 Blocked"]
+        MALICIOUS[☠️ C2 Servers]
+        EXFIL[📤 Data Exfiltration]
+        UNAUTH[🔒 Unauthorized APIs]
+    end
+
+    CODE --> SQUID
+    API_CALL --> SQUID
+    TOOL_CALL --> SQUID
+    SQUID --> IPTABLES
+    IPTABLES --> EP_API
+    IPTABLES --> EP_DOCS
+    IPTABLES --> IMF_API
+    IPTABLES -.->|DENY| MALICIOUS
+    IPTABLES -.->|DENY| EXFIL
+    IPTABLES -.->|DENY| UNAUTH
+
+    style SQUID fill:#a5d6a7,stroke:#2e7d32,color:#000
+    style IPTABLES fill:#a5d6a7,stroke:#2e7d32,color:#000
+    style DNS fill:#a5d6a7,stroke:#2e7d32,color:#000
+    style EP_API fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style EP_DOCS fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style IMF_API fill:#c8e6c9,stroke:#2e7d32,color:#000
+    style MALICIOUS fill:#ffcdd2,stroke:#c62828,color:#000
+    style EXFIL fill:#ffcdd2,stroke:#c62828,color:#000
+    style UNAUTH fill:#ffcdd2,stroke:#c62828,color:#000
+```
+
+### 🧹 Content Sanitization Pipeline
+
+The 7-layer sanitization pipeline processes all agent-generated content before it reaches the repository:
+
+| Layer | Sanitization | Threat Mitigated | Implementation |
+|---|---|---|---|
+| 1️⃣ **@Mention Neutralization** | Strip/escape GitHub @mentions | Social engineering, unwanted notifications | Regex replacement in output processing |
+| 2️⃣ **Bot Trigger Protection** | Remove patterns that trigger GitHub bots | Unauthorized automation, workflow recursion | Pattern matching for bot command prefixes |
+| 3️⃣ **XML/HTML Conversion** | Sanitize markup to safe subset | XSS, HTML injection, script execution | `SafeHtmlString` branded types, allowlisted tags |
+| 4️⃣ **URI Filtering** | Validate and sanitize all URLs | Phishing links, malicious redirects, data exfiltration | URL scheme allowlisting (https only), domain validation |
+| 5️⃣ **Special Character Handling** | Escape shell metacharacters, path traversal | Command injection, path traversal | Character class filtering, path canonicalization |
+| 6️⃣ **Content Size Limits** | Enforce maximum content length | Buffer overflow, resource exhaustion | `max-patch-size: 10240` KB enforcement |
+| 7️⃣ **Control Character Removal** | Strip non-printable control characters | Terminal injection, log manipulation | Unicode category filtering |
+
+### ⚙️ Compilation-Time Security
+
+Static analysis tools applied during workflow compilation (`.md` → `.lock.yml`):
+
+| Tool | Purpose | Threats Detected |
+|---|---|---|
+| 🔍 **actionlint** | GitHub Actions workflow linting | Syntax errors, undefined references, type mismatches |
+| 🛡️ **zizmor** | Security-focused Actions analyzer | Token exposure, injection vulnerabilities, permission escalation |
+| 🐻 **poutine** | Supply chain security scanner | Unpinned actions, known-vulnerable dependencies, artifact poisoning |
+| 📐 **Schema Validation** | Workflow structure validation | Invalid configurations, missing required fields |
+
+### 📊 gh-aw Security Effectiveness Matrix
+
+| Attack Scenario | Layer 1 | Layer 2 | Layer 3 | Overall |
+|---|---|---|---|---|
+| 🎯 Prompt injection to exfiltrate secrets | ✅ No secrets in agent scope | ✅ Egress filtering blocks exfil | ✅ Threat detection catches attempts | 🟢 **Blocked** |
+| 📤 Agent pushes malicious code | ✅ No push capability | ✅ Lock file prevents flow change | ✅ SafeOutputs buffers all writes | 🟢 **Blocked** |
+| 🌐 Agent contacts C2 server | ✅ Network namespace isolation | ✅ AWF domain allowlist | ✅ N/A (blocked before Layer 3) | 🟢 **Blocked** |
+| 🔄 Workflow recursion bomb | ✅ Container resource limits | ✅ Timeout enforcement (60 min) | ✅ Concurrency limits | 🟢 **Blocked** |
+| 📝 Inject XSS in generated HTML | ✅ N/A (output path) | ✅ N/A (output path) | ✅ 7-layer sanitization pipeline | 🟢 **Blocked** |
+| 🤖 Agent impersonates maintainer | ✅ Token scoping (read-only) | ✅ No write permissions in agent | ✅ PAT PR fallback requires human | 🟢 **Blocked** |
+| ☠️ Poisoned MCP server response | ✅ Container isolation limits blast | ✅ MCP tool allowlisting | ✅ Output schema validation | 🟡 **Mitigated** |
+| 📊 Hallucinated parliamentary data | ⚪ N/A | ⚪ N/A | ✅ Multi-source triangulation + detection | 🟡 **Mitigated** |
+
+---
+
 ## 🏛️ European Parliament-Specific Threats
 
 ### **🇪🇺 Parliamentary Data Integrity Threats**
@@ -1771,6 +2167,8 @@ flowchart TD
         MISINFO[💭 Misinformation Spread]
         MANIPULATION[🎭 Democratic Process Manipulation]
         TRUST_EROSION[🔍 Public Trust Erosion]
+        AI_DISINFO[🤖 AI-Generated Disinformation]
+        DEEPFAKE[🎬 Synthetic Media Attacks]
     end
 
     subgraph ATTACK_METHODS["⚔️ Attack Methods"]
@@ -1778,6 +2176,8 @@ flowchart TD
         TIMING[⏰ Strategic Timing Exploitation]
         LANG_TARGET[🌍 Language-Specific Targeting]
         SELECTIVE[📊 Selective Data Presentation]
+        PROMPT_INJECT[🎯 Prompt Injection via EP Data]
+        TRAINING_BIAS[📐 Training Data Manipulation]
     end
 
     subgraph PARLIAMENTARY_IMPACTS["🏛️ Parliamentary Impacts"]
@@ -1785,22 +2185,32 @@ flowchart TD
         POLICY_MISUNDERSTANDING[📜 Policy Misunderstanding]
         MEP_REPUTATION[👥 MEP Reputation Damage]
         INSTITUTIONAL_HARM[🏛️ Institutional Trust Damage]
+        ELECTORAL_INTERFERENCE[⚡ Electoral Process Interference]
+        ACCOUNTABILITY_GAP[🔓 Democratic Accountability Gap]
     end
 
     BIAS --> GRADUAL
     MISINFO --> TIMING
     MANIPULATION --> LANG_TARGET
     TRUST_EROSION --> SELECTIVE
+    AI_DISINFO --> PROMPT_INJECT
+    DEEPFAKE --> TRAINING_BIAS
 
     GRADUAL --> VOTER_CONFUSION
     TIMING --> POLICY_MISUNDERSTANDING
     LANG_TARGET --> MEP_REPUTATION
     SELECTIVE --> INSTITUTIONAL_HARM
+    PROMPT_INJECT --> ELECTORAL_INTERFERENCE
+    TRAINING_BIAS --> ACCOUNTABILITY_GAP
 
     style BIAS fill:#ffcdd2,stroke:#c62828,color:#000
     style MISINFO fill:#ffe0b2,stroke:#ef6c00,color:#000
     style MANIPULATION fill:#f3e5f5,stroke:#6a1b9a,color:#000
     style TRUST_EROSION fill:#e3f2fd,stroke:#1565c0,color:#000
+    style AI_DISINFO fill:#ffcdd2,stroke:#c62828,color:#000
+    style DEEPFAKE fill:#ffcdd2,stroke:#c62828,color:#000
+    style ELECTORAL_INTERFERENCE fill:#ffcdd2,stroke:#c62828,color:#000
+    style ACCOUNTABILITY_GAP fill:#ffe0b2,stroke:#ef6c00,color:#000
 ```
 
 ### **🌍 Multi-Language Content Manipulation**
@@ -2560,6 +2970,7 @@ V.Low │            │               │                │ T-015             
 
 | Version | Date       | Author        | Changes                                                                                                                                                                                                                                                       |
 | ------- | ---------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **2.5** | 2026-06-02 | Security Team | AI security analysis: OWASP LLM Top 10 mapping, gh-aw 3-layer defense-in-depth architecture documentation (Substrate/Configuration/Plan layers, AWF, SafeOutputs, MCP sandboxing, content sanitization pipeline, compilation-time security), democratic AI threat scenarios (deepfakes, disinformation, algorithmic bias, narrative manipulation, astroturfing, suppression), enhanced Mermaid diagrams with security control visualization. |
 | **2.4** | 2026-05-30 | Security Team | Deep-review refresh: corrected templating reference (Handlebars → `SafeHtmlString` branded types), aligned delivery model (GitHub Pages → CloudFront/S3 with GitHub Pages fallback), catalogued threat **T-030**, realigned T-028 risk treatment to the current `v0.77.3` gh-aw pin, and refreshed the approval/review cycle to the 2026-05-30 quarterly cadence. |
 | **2.3** | 2026-02-26 | Security Team | Quarterly review: STRIDE-per-element coverage, MITRE ATT&CK mapping, ENISA TL 2024 integration, and quantitative risk treatment plan.                                                                                                                          |
 
@@ -2596,8 +3007,10 @@ requirements (5-strategy integration, ENISA TL 2024, Kill Chain, Quantitative Ri
 | Metric                       | Value                       | Status                                       |
 | ---------------------------- | --------------------------- | -------------------------------------------- |
 | **Total Threats Identified** | 30                          | ✅ Documented (T-001 to T-030)               |
+| **OWASP LLM Top 10**        | 9/10 mapped (LLM08 N/A)    | ✅ Full coverage for applicable threats       |
+| **gh-aw Security Layers**   | 3 layers, 16+ controls     | ✅ Defense-in-depth documented               |
 | **MITRE ATT&CK Coverage**    | 2.3% (18/793 techniques)    | ✅ Appropriate for static site               |
-| **Security Controls**        | 30+                         | ✅ Implemented                               |
+| **Security Controls**        | 40+                         | ✅ Implemented (including gh-aw controls)    |
 | **Defense Layers**           | 8 (Perimeter to Isolation)  | ✅ Complete                                  |
 | **Languages Supported**      | 14 languages                | ✅ Multi-language security                   |
 | **ENISA TL 2024 Coverage**   | 7/7 categories mapped       | ✅ Full alignment                            |
@@ -2605,7 +3018,8 @@ requirements (5-strategy integration, ENISA TL 2024, Kill Chain, Quantitative Ri
 | **Threat Agent Profiles**    | 5 detailed + 1 summary      | ✅ Comprehensive classification              |
 | **Misuse Cases**             | 6 scenarios                 | ✅ Scenario-Centric analysis                 |
 | **Compliance Frameworks**    | 3 (ISO 27001, NIST, CIS)   | ✅ Full mapping                              |
-| **Document Lines**           | 2700+                       | ✅ Comprehensive (matching Hack23 standards) |
+| **Democratic AI Threats**    | 6 scenarios                 | ✅ AI-specific democracy threats mapped       |
+| **Document Lines**           | 2900+                       | ✅ Comprehensive (matching Hack23 standards) |
 | **Maturity Level**           | Level 2 (In Progress)       | 🔄 Advancing to Level 3                      |
 | **P1 Threats**               | 4 (T-003, T-007, T-013, T-029) | ⚠️ Requires action by Q3 2026             |
 | **Risk Distribution**        | 1 High, 4 Medium, 10 Low-Med, 7 Low | ✅ Acceptable risk profile            |
@@ -2627,6 +3041,9 @@ requirements (5-strategy integration, ENISA TL 2024, Kill Chain, Quantitative Ri
 - ✅ 🎯 Multi-Strategy Integration Mindmap
 - ✅ 📚 Architecture Documentation Map (26+ documents)
 - ✅ 🔗 ISMS Policy Links (7 policies referenced)
+- ✅ 🤖 OWASP LLM Top 10 Mapping (9/10 applicable threats addressed)
+- ✅ 🛡️ gh-aw Defense-in-Depth Documentation (3 layers, 16+ controls)
+- ✅ 🏛️ Democratic AI Threat Scenarios (6 AI-specific democracy threats)
 
 **Democratic Transparency Goals:**
 
@@ -2635,17 +3052,22 @@ requirements (5-strategy integration, ENISA TL 2024, Kill Chain, Quantitative Ri
 - ✅ Democratic transparency threat mitigation
 - ✅ Public accountability through open documentation
 - ✅ EU compliance (GDPR, NIS2, CRA)
+- ✅ AI-specific democratic threat scenarios documented
+- ✅ Algorithmic bias and narrative manipulation addressed
 
 **Next Steps:**
 
 1. **Q3 2026:** Implement T-003, T-007, T-013 mitigations (automated fact-checking, API monitoring, cross-reference validation)
 2. **Q3 2026:** Advance to Maturity Level 3 (Democratic Analysis Excellence)
-3. **2026-08-30:** Conduct next quarterly threat model review
-4. **2027-05-30:** Annual comprehensive threat model update
+3. **Q3 2026:** Deploy confidence scoring and automated QA for LLM09 (Misinformation) mitigation
+4. **2026-09-02:** Conduct next quarterly threat model review
+5. **2027-06-02:** Annual comprehensive threat model update
 
 ### 🔗 Related ISMS-PUBLIC Policies
 
 - [Threat Modeling Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md)
+- [AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md)
+- [OWASP LLM Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/OWASP_LLM_Security_Policy.md)
 - [Risk Assessment Methodology](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md)
 - [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)
 - [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)

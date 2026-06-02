@@ -133,7 +133,7 @@ EU Parliament Monitor employs a comprehensive suite of **GitHub Actions workflow
 | 16 | **news-translate-reconciler** | Reconcile missing translation artifacts across 14 languages | Scheduled | Translation consistency |
 | 17 | **MCP Reliability Probe** | Daily EP/IMF/WB MCP health matrix via `npm run mcp:probe` | Daily + manual | Third-party data source assurance |
 
-**🔒 Security Posture:** All 14 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0`), and minimal permissions following least privilege principle. Agentic workflows add a 5-layer security model: AWF Squid firewall allowlist, sandboxed Docker with restricted shell, safe-output constraints (`create-pull-request` with `max-patch-size`), JSONL audit trail, and lock-file compilation.
+**🔒 Security Posture:** All 14 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0`), and minimal permissions following least privilege principle. Agentic workflows implement the [gh-aw 3-layer defense-in-depth trust model](https://github.github.com/gh-aw/introduction/architecture/): **🔒 Substrate** (AWF Squid firewall, Docker isolation, MCP sandboxing), **📋 Configuration** (lock-file compilation, SHA pinning, actionlint/zizmor/poutine scanners, content sanitization, integrity filtering), and **📐 Plan** (SafeOutputs permission isolation, Threat Detection pipeline, Secret Redaction, JSONL audit trail).
 
 ### 🏗️ Pipeline Architecture
 
@@ -447,16 +447,21 @@ gh aw compile
 
 The `compile-agentic-workflows.yml` workflow automates this process (see §11).
 
-#### Security Controls
+#### 🔒 Security Controls (gh-aw Architecture)
+
+> See §1b "gh-aw Security Architecture" below for the full 3-layer trust model, SafeOutputs isolation, and Threat Detection pipeline.
 
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
-| **Input Validation** | MCP data validated via schema before use | ISO 27001 A.14.2.1 |
-| **HTML Sanitization** | Strip scripts, encode entities in generated content | OWASP Top 10 (XSS) |
-| **Empty Top-Level Permissions** | `permissions: {}` — no default permissions | Least privilege |
-| **Scoped Job Permissions** | Write permissions only on agent job | Least privilege |
-| **Concurrency Control** | Single concurrent run per workflow | Resource governance |
-| **PR-Based Output** | All generated content via PR, not direct push | Change review |
+| **🔐 Input Validation** | MCP data validated via TypeScript schemas before use | ISO 27001 A.14.2.1 |
+| **🧹 HTML Sanitization** | Strip scripts, encode entities in generated content | OWASP Top 10 (XSS) |
+| **🔒 Empty Top-Level Permissions** | `permissions: {}` — no default permissions | Least privilege |
+| **🎯 Scoped Job Permissions** | Write permissions only on safe-output jobs (not agent) | Least privilege |
+| **🔄 Concurrency Control** | `gh-aw-${{ github.workflow }}` — single concurrent run | Resource governance |
+| **📝 PR-Based Output** | SafeOutputs subsystem buffers writes, threat-detects, then PRs | Change review |
+| **🌐 Network Isolation** | AWF Squid proxy enforces domain allowlist (default-deny) | Network Security Policy |
+| **🔍 Compilation Security** | actionlint + zizmor + poutine scanners validate `.lock.yml` | NIST CSF PR.AC-4 |
+| **🔑 Secret Redaction** | Unconditional artifact scan before upload (`if: always()`) | Cryptography Policy |
 
 #### ISMS Evidence
 
@@ -595,15 +600,107 @@ graph TD
 
 **Programmatic escape hatch**: `generateArticle()` (called from unit / integration tests for speed) still accepts `langs` and `markdownOnly` directly on the options object — only the **CLI surface area** (and therefore every workflow) is locked down.
 
-#### Security Controls
+#### 🔒 gh-aw Security Architecture (3-Layer Trust Model)
+
+> **Reference**: [GitHub Agentic Workflows Architecture](https://github.github.com/gh-aw/introduction/architecture/) — official specification for AW security layers, trust boundaries, and component isolation.
+
+All 15 agentic workflows inherit the **gh-aw 3-layer defense-in-depth trust model**. Each layer provides independent security guarantees — compromise of any single layer does NOT compromise the system:
+
+| Layer | Boundary | EU Parliament Monitor Implementation | Threat Assumption |
+|-------|----------|--------------------------------------|-------------------|
+| 🔒 **Substrate** | VM → kernel → container → network | AWF Squid proxy (`network.allowed` 30+ entries across GitHub/infra, EU, IMF, World Bank, Hack23 domains), Docker `--cap-drop=ALL`, MCP server sandboxing, iptables default-deny | Adversary controls user-level containers |
+| 📋 **Configuration** | Declarative specs + toolchain | Lock-file compilation (`gh aw compile v0.77.3`), SHA-pinned actions, actionlint/zizmor/poutine scanners, content sanitization, integrity filtering | Misconfiguration, overly permissive specs |
+| 📐 **Plan** | Staged execution + output vetting | SafeOutputs (read-only agent → buffered → vetted PR), Threat Detection pipeline, Secret Redaction (`if: always()`), JSONL audit trail | Incorrect plan, stage bypass attempts |
+
+```mermaid
+flowchart LR
+    subgraph L1["🔒 Substrate (Layer 1)"]
+        AWF["🌐 AWF Firewall<br/>Squid Proxy<br/>Default-Deny Egress"]
+        DOCKER["🐳 Container Isolation<br/>cap-drop=ALL<br/>Resource Limits"]
+        MCP_S["📦 MCP Sandboxing<br/>Per-Server Container<br/>Tool Allowlists"]
+    end
+
+    subgraph L2["📋 Configuration (Layer 2)"]
+        COMPILE["🔐 Lock-File Compilation<br/>Schema + SHA Pin"]
+        SCANNERS["🔍 Security Scanners<br/>actionlint + zizmor + poutine"]
+        SANITIZE["🧹 Content Sanitization<br/>@mention + URI + Unicode"]
+        INTEGRITY["🛡️ Integrity Filtering<br/>Author Trust Levels"]
+    end
+
+    subgraph L3["📐 Plan (Layer 3)"]
+        SAFE["✅ SafeOutputs<br/>Read-Only Agent<br/>Buffered Writes"]
+        THREAT["🧠 Threat Detection<br/>AI + Custom Analysis"]
+        REDACT["🔑 Secret Redaction<br/>Unconditional Scan"]
+        AUDIT["📋 JSONL Audit Trail<br/>90-Day Retention"]
+    end
+
+    L1 --> L2 --> L3
+
+    style AWF fill:#ffe1e1,stroke:#c0392b
+    style DOCKER fill:#ffe1e1,stroke:#c0392b
+    style MCP_S fill:#ffe1e1,stroke:#c0392b
+    style COMPILE fill:#e1f5ff,stroke:#2980b9
+    style SCANNERS fill:#e1f5ff,stroke:#2980b9
+    style SANITIZE fill:#e1f5ff,stroke:#2980b9
+    style INTEGRITY fill:#e1f5ff,stroke:#2980b9
+    style SAFE fill:#e8f5e9,stroke:#1e8449
+    style THREAT fill:#e8f5e9,stroke:#1e8449
+    style REDACT fill:#e8f5e9,stroke:#1e8449
+    style AUDIT fill:#e8f5e9,stroke:#1e8449
+```
+
+##### 🌐 AWF Network Firewall (Substrate Layer)
+
+| Endpoint Group | Purpose | Access Pattern |
+|----------------|---------|----------------|
+| GitHub + base runtime (`defaults`, `github`, `node`, `docker.io`) | Workflow orchestration, actions, dependency/runtime access | HTTPS |
+| EU data domains (`*.europa.eu`, `ec.europa.eu`, `eur-lex.europa.eu`, `data.ecb.europa.eu`, etc.) | EP/institutional legislative and policy data | HTTPS |
+| IMF domains (`*.imf.org`, including `api.imf.org`) | IMF SDMX 3.0 and IMF data services | HTTPS (API key where required) |
+| World Bank domains (`*.worldbank.org`) | World Bank MCP and economic context datasets | HTTPS |
+| Hack23/platform domains (`*.hack23.com`, `*.euparliamentmonitor.com`, related project domains) | Project-controlled APIs and platform integrations | HTTPS |
+| `host.docker.internal:8080` | MCP Gateway (Docker bridge, local-only) | HTTP (local bridge) |
+| Authoritative source | Full allowlist maintained in `.github/workflows/shared/config/news-common-settings.md` | Version-controlled |
+| ❌ All non-allowlisted domains | Blocked by AWF default-deny policy | iptables DROP |
+
+##### 🛡️ SafeOutputs Permission Isolation (Plan Layer)
+
+```
+Agent Job (read-only) → Buffered Artifacts → Threat Detection (separate job) → Safe Output Jobs (write)
+```
+
+- Agent **never** has direct `contents: write` at runtime — writes are buffered as artifacts
+- Separate **Threat Detection job** downloads artifacts and performs AI + custom security analysis
+- Only on "safe" verdict do Safe Output Jobs execute with scoped write permissions
+- Single PR per workflow run enforced by `safe-outputs: create-pull-request: max: 1`
+
+##### 🧹 Content Sanitization (Configuration Layer)
+
+| Mechanism | Protection |
+|-----------|-----------|
+| 🏷️ `@mention` → `` `@mention` `` | Prevents unintended GitHub notifications |
+| 🤖 `fixes #123` → `` `fixes #123` `` | Prevents automatic issue linking/closure |
+| 🔒 `<script>` → `(script)` | Blocks XML/HTML injection vectors |
+| 🌐 `http://evil.com` → `(redacted)` | URI filtering (HTTPS + trusted domains only) |
+| 📏 0.5 MB / 65k lines max | Truncation prevents resource exhaustion |
+| 🔤 Homoglyph normalization | Prevents visual spoofing attacks |
+
+##### 📊 Security Controls Summary
 
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
-| **MCP Data Source** | European Parliament MCP Server (live data) | ISO 27001 A.14.2.1 |
-| **Content Integrity** | Quality validation, synthetic ID detection | Data integrity |
-| **Safe Outputs** | gh-aw safe-outputs for PR creation | Least privilege |
-| **Concurrency** | Shared concurrency group prevents conflicts | Resource management |
-| **Network Allowlist** | Explicit domain allowlisting via gh-aw | Network security |
+| **🌐 Network Isolation** | AWF Squid proxy with `network.allowed` 30+ domain entries (see `news-common-settings.md`), iptables default-deny | Network Security Policy |
+| **🐳 Container Isolation** | Docker `--cap-drop=ALL`, resource limits, read-only FS | ISO 27001 A.8.31 |
+| **📦 MCP Sandboxing** | Per-server Docker containers, tool allowlisting | Secure Development Policy |
+| **🔐 Compilation Security** | Schema validation, expression safety, SHA pinning | ISO 27001 A.8.25 |
+| **🔍 Security Scanners** | actionlint + zizmor + poutine at compile time | NIST CSF PR.AC-4 |
+| **🧹 Input Sanitization** | @mention neutralization, URI filtering, content limits | OWASP Top 10 (XSS/Injection) |
+| **🛡️ Integrity Filtering** | Author trust levels (min-integrity: approved) | Data integrity |
+| **✅ SafeOutputs** | Permission separation — read-only agent, buffered writes | Least privilege |
+| **🧠 Threat Detection** | AI-powered analysis of agent outputs before write | ISO 27001 A.12.6 |
+| **🔑 Secret Redaction** | Unconditional artifact scan (`if: always()`) | Cryptography Policy |
+| **📋 Audit Trail** | JSONL logging, 90-day retention, `gh aw logs/audit` | ISO 27001 A.12.4 |
+| **👁️ Human Review** | Mandatory PR approval before merge | Change management |
+| **🔄 Concurrency** | `gh-aw-${{ github.workflow }}` prevents parallel conflicts | Resource governance |
 
 #### Enhanced Analysis Features (v2)
 

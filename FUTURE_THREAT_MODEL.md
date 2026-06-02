@@ -11,9 +11,9 @@
 
 <p align="center">
   <a><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a><img src="https://img.shields.io/badge/Version-3.1-555?style=for-the-badge" alt="Version"/></a>
+  <a><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
   <a><img src="https://img.shields.io/badge/Horizon-2026--2037-blue?style=for-the-badge" alt="Timeline"/></a>
-  <a><img src="https://img.shields.io/badge/Effective-2026--05--31-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a><img src="https://img.shields.io/badge/Effective-2026--06--02-success?style=for-the-badge" alt="Effective Date"/></a>
   <a><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
@@ -309,6 +309,170 @@ flowchart LR
 | **Supply Chain via Federation Partner** | Compromised national parliament data source injecting malicious data | Tampering | [T1195.002](https://attack.mitre.org/techniques/T1195/002/) | Low | Critical | Source validation, data integrity checks, anomaly detection |
 | **DNS Hijacking of Federation Endpoints** | Redirecting federation traffic to attacker-controlled servers | Spoofing | [T1584.002](https://attack.mitre.org/techniques/T1584/002/) | Low | High | Certificate pinning, DNSSEC, mutual TLS |
 
+### **🗳️ FT-010: Democratic Process & Electoral Security Threats**
+
+**Applies to:** v2.0+ (Electoral and Democratic Intelligence capabilities — per [FUTURE_MINDMAP.md](FUTURE_MINDMAP.md) Electoral Intelligence, seat-projection models, 2029/2034 election-cycle coverage). This category addresses threats to the platform's role as a **trusted democratic transparency infrastructure** — distinct from software-security threats, these target the platform's societal mission.
+
+| Threat | Description | STRIDE | MITRE ATT&CK | Likelihood | Impact | Mitigation Strategy |
+|---|---|---|---|---|---|---|
+| **🗳️ Election-Period Targeted Manipulation** | Coordinated attacks timed to EU election windows (2029, 2034) to inject biased content during peak public attention | Tampering | [T1565](https://attack.mitre.org/techniques/T1565/) · [T1583](https://attack.mitre.org/techniques/T1583/) | High | Critical | Election security protocols, enhanced monitoring windows, manual review override, pre-election content freeze options |
+| **📊 Seat-Projection Model Poisoning** | Manipulated input data or model parameters bias seat-projection forecasts to influence expectations or demoralize voters | Tampering | ATLAS AML.T0020 | Medium | High | WEP-banded confidence, no determinism claims, pre-registered methodology, independent validation, human sign-off |
+| **🏛️ Democratic Institution Delegitimization** | Platform output selectively weaponized to erode trust in EU Parliament or specific democratic processes | Spoofing | [T1583](https://attack.mitre.org/techniques/T1583/) | Medium | High | Context-preserving summaries, C2PA content authenticity, canonical URLs, correction channel, balanced framing |
+| **🎯 Voter Suppression via Misinformation** | Crafted content discouraging voter turnout by presenting misleading parliamentary data (e.g., "your vote doesn't matter" narratives) | Tampering | [T1565](https://attack.mitre.org/techniques/T1565/) | Medium | Critical | Neutral descriptive framing, no advocacy, turnout context always paired with participation data, editorial review |
+| **📉 Mandate-Tracking Manipulation** | Distorted promise-tracking or mandate-vs-voting-record analysis used to unfairly target specific MEPs or parties | Repudiation | [T1565](https://attack.mitre.org/techniques/T1565/) | Medium | High | Question-not-accusation framing, sourced evidence chains, human editorial review, balanced coverage metrics |
+| **⚖️ Selective Transparency Weaponization** | Adversary exploits platform's open data to construct misleading narratives by cherry-picking parliamentary data out of context | Spoofing | [T1583](https://attack.mitre.org/techniques/T1583/) | High | Medium | Context-rich presentations, canonical citations, watermarking, proactive narrative monitoring |
+
+**Democratic Protection Invariant:** The platform serves **all citizens equally** — it is descriptive, not prescriptive; neutral, not partisan. Every electoral-intelligence output must preserve the citizen's right to form their own judgment. Controls protect against both **external attacks on democratic content** and **internal drift toward partisan framing**.
+
+```mermaid
+flowchart TD
+    subgraph "🗳️ Democratic Threat Kill Chain"
+        direction TB
+        DT1[🎯 Adversary identifies<br/>election window] --> DT2[📡 Crafts manipulated<br/>input data]
+        DT2 --> DT3[🤖 Exploits AI pipeline<br/>for biased output]
+        DT3 --> DT4[📢 Amplifies via<br/>platform channels]
+        DT4 --> DT5[🗳️ Impacts voter<br/>perception/turnout]
+    end
+
+    subgraph "🛡️ Democratic Defense Layers"
+        direction TB
+        DD1[🔍 Election monitoring<br/>protocols activated] --> DD2[🧪 Enhanced input<br/>validation and review]
+        DD2 --> DD3[⚖️ Neutrality checks<br/>and WEP banding]
+        DD3 --> DD4[👤 Human editorial<br/>gate before publish]
+        DD4 --> DD5[📋 Post-publication<br/>corrections channel]
+    end
+
+    DT1 -.->|"Detected by"| DD1
+    DT2 -.->|"Blocked by"| DD2
+    DT3 -.->|"Caught by"| DD3
+    DT4 -.->|"Requires"| DD4
+    DT5 -.->|"Mitigated by"| DD5
+
+    style DT1 fill:#ffe1e1
+    style DT5 fill:#ff6b6b,color:#fff
+    style DD1 fill:#e8f5e9
+    style DD5 fill:#c8e6c9
+```
+
+### **🕵️‍♂️ FT-011: Counter-FIMI & Foreign Influence Operation Threats**
+
+**Applies to:** v2.0+ (Counter-Disinformation & Information-Integrity Layer, Counter-FIMI tradecraft — per [FUTURE_MINDMAP.md](FUTURE_MINDMAP.md) DISARM TTP tagging, coordinated inauthentic behavior detection, narrative-to-dossier mapping). These threats target the platform's **defensive detection capabilities** — adversaries who discover they are being monitored may attempt to blind, discredit, or weaponize the detection layer itself.
+
+| Threat | Description | STRIDE | MITRE ATT&CK | Likelihood | Impact | Mitigation Strategy |
+|---|---|---|---|---|---|---|
+| **🔇 Detection-Layer Blinding** | Adversary identifies FIMI-detection heuristics and adapts operations to evade detection (counter-counter-intelligence) | Defense Evasion | [T1562](https://attack.mitre.org/techniques/T1562/) · ATLAS AML.T0043 | High | High | Layered detection heuristics, red-team exercises, regularly updated detection models, behavioral (not keyword) analysis |
+| **🎭 False-Flag FIMI Attribution** | Adversary frames a third party by mimicking their TTP signature in detected influence operations | Spoofing | [T1583](https://attack.mitre.org/techniques/T1583/) | Medium | Critical | Evidence-bounded attribution, DISARM discipline, no attribution beyond sourced facts, dual-analyst review |
+| **📰 Detection Weaponization** | Adversary deliberately triggers FIMI alerts to discredit the detection system or target specific actors with false positives | Tampering | [T1565](https://attack.mitre.org/techniques/T1565/) | Medium | High | High-confidence threshold before publication, human adjudication, false-positive rate monitoring, correction process |
+| **🤖 Coordinated Amplification at Scale** | AI-powered bot networks operating at volumes that overwhelm detection capacity (narrative flooding) | Denial of Service | [T1499](https://attack.mitre.org/techniques/T1499/) · [T1583](https://attack.mitre.org/techniques/T1583/) | Medium | Medium | Scalable detection infrastructure, volumetric anomaly detection, rate limiting, progressive analysis |
+| **🔄 Narrative Laundering via Proxies** | Adversary uses legitimate media, academia, or NGOs to launder manipulated narratives before they reach EP-related discourse | Spoofing | [T1583.001](https://attack.mitre.org/techniques/T1583/001/) | High | High | Multi-hop provenance tracing, original-source triangulation, temporal correlation analysis, independent-source requirement |
+| **⚠️ Chilling Effect on Legitimate Discourse** | Over-sensitive detection labels legitimate political debate or dissent as "coordinated inauthentic behavior" | Repudiation | N/A | Medium | High | Strict "detection not influence" boundary, no individual targeting, public-interest-only scope, external oversight |
+| **🌐 Cross-Language Coordination Evasion** | FIMI campaigns fragment narratives across EU languages to avoid cross-language pattern detection | Defense Evasion | [T1027](https://attack.mitre.org/techniques/T1027/) | Medium | Medium | 24-language NLP coverage, cross-language semantic similarity, narrative-cluster analysis, temporal alignment |
+
+**FIMI Defense Doctrine:** Detection is strictly **defensive and descriptive** — the platform **detects and contextualises** but never influences, never attributes beyond evidence, and never targets individuals. The DISARM framework provides structured TTP vocabulary; the ABCDE (Actor-Behaviour-Content-Degree-Effect) model ensures neutral incident framing.
+
+```mermaid
+flowchart LR
+    subgraph "🕵️ FIMI Kill Chain (Adversary)"
+        direction TB
+        F1[🎯 Objective Selection<br/>Target EP dossier] --> F2[🤖 Infrastructure<br/>Bot network setup]
+        F2 --> F3[📝 Content Creation<br/>Narrative crafting]
+        F3 --> F4[📡 Amplification<br/>Cross-platform spread]
+        F4 --> F5[🎭 Legitimation<br/>Proxy laundering]
+        F5 --> F6[💥 Effect<br/>Public opinion shift]
+    end
+
+    subgraph "🛡️ Platform Detection Layers"
+        direction TB
+        D1[📊 Behavioral Anomaly<br/>Detection] --> D2[🌐 Cross-Language<br/>Narrative Clustering]
+        D2 --> D3[🔗 Source Provenance<br/>Triangulation]
+        D3 --> D4[🏷️ DISARM TTP<br/>Classification]
+        D4 --> D5[👤 Human Analyst<br/>Adjudication]
+        D5 --> D6[📋 Citizen Context<br/>Publication]
+    end
+
+    F2 -.->|"Detected by"| D1
+    F3 -.->|"Clustered by"| D2
+    F5 -.->|"Traced by"| D3
+    F4 -.->|"Classified by"| D4
+
+    style F1 fill:#ffe1e1
+    style F6 fill:#ff6b6b,color:#fff
+    style D1 fill:#e8f5e9
+    style D6 fill:#c8e6c9
+```
+
+### **⚖️ FT-012: Integrity Analytics & Conflict-of-Interest Threats**
+
+**Applies to:** v3.0+ (Integrity, Declarations, and Conflict-of-Interest Analytics — per [FUTURE_MINDMAP.md](FUTURE_MINDMAP.md) lobby-to-vote correlation, revolving-door patterns, declaration completeness scoring). These threats arise from the platform's capability to surface **public-interest integrity questions** about MEPs — a capability that creates unique legal, reputational, and adversarial risks.
+
+| Threat | Description | STRIDE | MITRE ATT&CK | Likelihood | Impact | Mitigation Strategy |
+|---|---|---|---|---|---|---|
+| **⚖️ Defamation via False Correlation** | Lobby-to-vote or revolving-door analytics produce a statistical correlation that is presented (or perceived) as causal — harming a public figure's reputation | Repudiation | N/A | Medium | Critical | Question-not-accusation framing, evidence-chain requirement, human legal/editorial review, confidence banding, dual-analyst sign-off |
+| **🎯 Targeted Integrity-Score Manipulation** | Adversary manipulates public declarations or Transparency Register entries to artificially inflate/deflate an MEP's integrity indicators | Tampering | [T1565](https://attack.mitre.org/techniques/T1565/) | Low | High | Multi-source triangulation, temporal anomaly detection, declaration-change audit, human review before publishing integrity findings |
+| **🔒 Strategic Litigation Against Public Participation (SLAPP)** | Litigious actors use legal threats to suppress legitimate public-interest integrity findings | N/A (legal) | N/A | Medium | High | Anti-SLAPP legal preparedness, EU Anti-SLAPP Directive alignment, evidence preservation, publisher's insurance, legal review workflow |
+| **📊 Declaration Data Quality Exploitation** | Incomplete or inconsistent MEP declarations exploited to produce misleading completeness scores | Tampering | [T1565](https://attack.mitre.org/techniques/T1565/) | Medium | Medium | Acknowledge data-quality limitations, score methodology transparency, "data gap" versus "non-disclosure" distinction |
+| **🔄 Revolving-Door False Positive** | Career-transition detection incorrectly flags legitimate employment changes as corruption indicators | Repudiation | N/A | Medium | High | Strict public-data-only boundary, contextual framing, human expert review, correction mechanism, no accusatory language |
+| **🕸️ Lobby Network Evasion** | Lobbying actors restructure influence pathways to avoid detection by the platform's register-meeting-to-dossier matching | Defense Evasion | [T1036](https://attack.mitre.org/techniques/T1036/) | High | Medium | Multi-signal correlation, temporal proximity analysis, behavioral patterns beyond direct meetings, continuous methodology adaptation |
+
+**Integrity Analytics Invariant:** Every finding uses **public declarations only**, is framed as a **question not an accusation**, requires **evidence-linked sourcing**, and undergoes **human review before release**. The platform explicitly adopts a **journalist privilege framing** — surfacing matters of public interest for further investigation, not rendering verdicts.
+
+### **⚙️ FT-013: CI/CD Agentic Workflow & Supply Chain Threats**
+
+**Applies to:** Current v1.0.x → v2.0+ (GitHub Actions, gh-aw agentic workflows, PAT credential management, safe-outputs pipeline, multi-workflow orchestration — per [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md)). These threats target the **build and deployment pipeline** that produces all platform artifacts.
+
+| Threat | Description | STRIDE | MITRE ATT&CK | Likelihood | Impact | Mitigation Strategy |
+|---|---|---|---|---|---|---|
+| **🔑 PAT / Credential Exposure in Workflows** | Personal Access Tokens or MCP secrets exposed via workflow logs, environment leakage, or compromised action steps | Credential Access | [T1552.001](https://attack.mitre.org/techniques/T1552/001/) | Medium | Critical | Secret scanning, audit-logged credential access, short-lived tokens, environment isolation, masked outputs |
+| **📦 gh-aw Agent Prompt Injection** | Adversarial content in PR descriptions, issue bodies, or fetched data injects instructions into agentic workflow prompts | Tampering | ATLAS AML.T0051 · [T1059](https://attack.mitre.org/techniques/T1059/) | Medium | High | Prompt boundary enforcement, input sanitization, scoped agent permissions, safe-output validation |
+| **🔄 Workflow Dispatch Manipulation** | Unauthorized or manipulated workflow_dispatch triggers cause unintended builds, deployments, or data processing | Elevation of Privilege | [T1078](https://attack.mitre.org/techniques/T1078/) | Low | High | Branch protection, actor validation, required approvals for sensitive dispatches, audit logging |
+| **📋 Safe-Outputs Pipeline Bypass** | Adversary crafts PR content that passes safe-output validation but contains malicious artifacts (HTML injection, XSS payloads) | Tampering | [T1195](https://attack.mitre.org/techniques/T1195/) | Low | High | Multi-layer validation, schema enforcement, CSP headers in output, deterministic template rendering |
+| **🕐 Workflow Timeout Exploitation** | Adversary triggers long-running operations that exhaust the 60-min gh-aw timeout, causing incomplete state or race conditions | Denial of Service | [T1499](https://attack.mitre.org/techniques/T1499/) | Medium | Medium | Emergency-flush thresholds (40 min), graceful degradation, idempotent operations, state checkpointing |
+| **🔗 Action Supply Chain Compromise** | Compromised GitHub Action (tag-jacking or dependency confusion) injects malicious steps into CI pipeline | Tampering | [T1195.001](https://attack.mitre.org/techniques/T1195/001/) | Low | Critical | SHA-pinned actions, Scorecard monitoring, action audit, minimal action surface, Dependabot for actions |
+| **📤 Artifact Integrity Tampering** | Build artifacts (HTML, JSON, RSS) modified between generation and S3 deployment | Tampering | [T1565](https://attack.mitre.org/techniques/T1565/) | Low | High | SLSA provenance, checksum verification, signed commits, deployment integrity checks |
+
+```mermaid
+flowchart TD
+    subgraph "⚙️ CI/CD Attack Surface"
+        direction TB
+        W1[📝 PR / Issue Content] --> W2[🤖 gh-aw Agent<br/>Prompt Processing]
+        W2 --> W3[🔧 Build and<br/>Validation Steps]
+        W3 --> W4[📦 Artifact<br/>Generation]
+        W4 --> W5[🚀 S3 Deployment<br/>via Safe Outputs]
+    end
+
+    subgraph "🛡️ Pipeline Security Controls"
+        direction TB
+        P1[🔒 Secret scanning<br/>and masked outputs] --> P2[🧹 Input sanitization<br/>and prompt boundaries]
+        P2 --> P3[📌 SHA-pinned actions<br/>and SLSA provenance]
+        P3 --> P4[✅ Multi-layer<br/>validation gates]
+        P4 --> P5[🔐 Checksum verify<br/>and signed deploy]
+    end
+
+    W1 -.->|"Sanitized by"| P2
+    W2 -.->|"Secured by"| P1
+    W3 -.->|"Pinned by"| P3
+    W4 -.->|"Validated by"| P4
+    W5 -.->|"Verified by"| P5
+
+    style W1 fill:#fff4e1
+    style W5 fill:#ffe1e1
+    style P1 fill:#e8f5e9
+    style P5 fill:#c8e6c9
+```
+
+### **🌍 FT-014: Platform Accessibility & Censorship Resistance Threats**
+
+**Applies to:** v2.0+ (multi-language, multi-channel delivery, global accessibility of democratic transparency content). These threats target the platform's **availability as a democratic public good** — particularly relevant given that EU Parliament monitoring content may be politically sensitive in certain jurisdictions.
+
+| Threat | Description | STRIDE | MITRE ATT&CK | Likelihood | Impact | Mitigation Strategy |
+|---|---|---|---|---|---|---|
+| **🚫 State-Level Content Blocking** | Authoritarian regimes block access to the platform's CloudFront distribution to suppress EU transparency content | Denial of Service | [T1498](https://attack.mitre.org/techniques/T1498/) | Medium | Medium | Multi-CDN distribution, alternative domain strategies, Tor/IPFS mirrors (10-year), content caching in federated nodes |
+| **🔍 Metadata Surveillance of Consumers** | State actors monitor who accesses EU Parliament transparency content to identify dissidents or journalists | Information Disclosure | [T1040](https://attack.mitre.org/techniques/T1040/) | Medium | High | Privacy-respecting analytics (no PII), no user tracking, HTTPS-only, no access logs shared, privacy-by-design |
+| **📵 Selective Channel Disruption** | Targeted blocking of specific distribution channels (ActivityPub/Mastodon blocked, RSS allowed) to fragment access | Denial of Service | [T1498](https://attack.mitre.org/techniques/T1498/) | Low | Medium | Channel diversity, cross-channel content parity, offline-capable PWA, downloadable archives |
+| **🗣️ Language-Specific Content Suppression** | Attacks targeting specific language variants (e.g., suppressing content in languages of EU-critical states) | Denial of Service | [T1491](https://attack.mitre.org/techniques/T1491/) | Low | Medium | Equal treatment across 14+ languages, language-parity monitoring, multi-origin serving |
+| **♿ Accessibility Degradation Attack** | Adversary targets accessibility features (screen readers, ARIA, keyboard nav) to exclude users with disabilities from democratic content | Tampering | [T1491](https://attack.mitre.org/techniques/T1491/) | Low | Medium | Automated accessibility testing (WCAG 2.1 AA), integrity monitoring of a11y attributes, deterministic template rendering |
+| **🔗 Link Rot & Reference Decay** | Systematic degradation of source citations and evidence links, undermining provenance verification | Tampering | [T1565](https://attack.mitre.org/techniques/T1565/) | Medium | Medium | Citation archival (Wayback Machine integration), local source caching, broken-link monitoring, evidence manifest |
+
 ### **☁️ FT-008: AWS Serverless Platform / Cloud-Native Threats**
 
 **Applies to:** v3.0+ (Amazon S3/CloudFront, API Gateway/AppSync, Lambda/Step Functions, DynamoDB/Aurora/OpenSearch/Neptune, Cognito, KMS, EventBridge/Kinesis — the all-in-AWS substrate from [FUTURE_ARCHITECTURE.md](FUTURE_ARCHITECTURE.md))
@@ -367,10 +531,10 @@ why **model-neutrality assurance** is elevated to a first-class control in
 | **Execution** | ✅ GitHub Actions | 🔮 Agent hijacking, guardrail bypass | 🔮 GraphQL injection, serverless event-injection | 🔮 Cross-parliament code execution |
 | **Persistence** | ✅ Repository compromise | 🔮 Poisoned agent memory/RAG corpus | 🔮 Account/session persistence, backdoored IaC | 🔮 Federation trust abuse |
 | **Privilege Escalation** | ✅ Token scope abuse | 🔮 Excessive agency / over-privileged agents | 🔮 IAM/OAuth scope escalation, IMDS abuse | 🔮 Cross-jurisdiction privilege |
-| **Defense Evasion** | ✅ SHA pinning bypass | 🔮 Guardrail evasion, inter-agent cascade | 🔮 WAF bypass, event spoofing | 🔮 Cross-border evasion |
-| **Credential Access** | ✅ Secret exposure | 🔮 Tool/API key extraction via agents | 🔮 KMS/Cognito token theft, IMDS creds | 🔮 mTLS certificate theft |
-| **Collection** | ✅ EP data access | 🔮 RAG/training-data extraction | 🔮 Data-store scraping, graph harvest | 🔮 Cross-parliament data harvest |
-| **Impact** | ✅ Content manipulation | 🔮 Autonomous biased publication | 🔮 Knowledge-graph poisoning, denial-of-wallet | 🔮 Democratic process manipulation |
+| **Defense Evasion** | ✅ SHA pinning bypass | 🔮 Guardrail evasion, inter-agent cascade, FIMI detection blinding | 🔮 WAF bypass, event spoofing, lobby network evasion | 🔮 Cross-border evasion, cross-language FIMI fragmentation |
+| **Credential Access** | ✅ Secret exposure | 🔮 Tool/API key extraction via agents, PAT workflow leakage | 🔮 KMS/Cognito token theft, IMDS creds | 🔮 mTLS certificate theft |
+| **Collection** | ✅ EP data access | 🔮 RAG/training-data extraction | 🔮 Data-store scraping, graph harvest, integrity declaration mining | 🔮 Cross-parliament data harvest |
+| **Impact** | ✅ Content manipulation | 🔮 Autonomous biased publication, election-period manipulation | 🔮 Knowledge-graph poisoning, denial-of-wallet, false FIMI attribution | 🔮 Democratic process manipulation, censorship |
 
 ### **🌳 Future Attack Trees**
 
@@ -381,6 +545,8 @@ graph TD
     ROOT --> DIST[📡 Distribution Attack]
     ROOT --> DATA[🌍 Data-Surface/Graph Attack]
     ROOT --> SOCIAL[👥 Social Engineering]
+    ROOT --> DEMO[🗳️ Democratic Process Attack]
+    ROOT --> CICD[⚙️ CI/CD Pipeline Attack]
 
     AI --> AI1[Prompt Injection<br/>via EP Data]
     AI --> AI2[Agent Hijacking /<br/>Excessive Agency]
@@ -403,12 +569,73 @@ graph TD
     SOCIAL --> SOC1[Coordinated<br/>Inauthentic Behavior]
     SOCIAL --> SOC2[Insider<br/>Threat]
 
+    DEMO --> DEMO1[Election-Period<br/>Manipulation]
+    DEMO --> DEMO2[FIMI / Foreign<br/>Influence Ops]
+    DEMO --> DEMO3[Integrity Analytics<br/>Weaponization]
+    DEMO --> DEMO4[Censorship /<br/>Content Blocking]
+    DEMO --> DEMO5[Selective Transparency<br/>Weaponization]
+
+    CICD --> CICD1[Action Supply<br/>Chain Compromise]
+    CICD --> CICD2[PAT / Secret<br/>Exfiltration]
+    CICD --> CICD3[gh-aw Prompt<br/>Injection]
+    CICD --> CICD4[Safe-Output<br/>Bypass]
+
     style ROOT fill:#ff6b6b,color:#fff
     style AI fill:#fff4e1
     style API fill:#e1f5ff
     style DIST fill:#e8f5e9
     style DATA fill:#f3e5f5
     style SOCIAL fill:#ffe1e1
+    style DEMO fill:#e1f0ff
+    style CICD fill:#fff8e1
+```
+
+### **🛡️ Defense-in-Depth Architecture**
+
+```mermaid
+flowchart TB
+    subgraph "Layer 1: Perimeter and Distribution"
+        direction LR
+        L1A[🌐 CloudFront WAF<br/>Rate limiting DDoS] --- L1B[📡 Feed signing<br/>HTTP signatures] --- L1C[🔐 Multi-CDN<br/>Censorship resistance]
+    end
+
+    subgraph "Layer 2: Identity and Access"
+        direction LR
+        L2A[🔑 Cognito federated auth<br/>OAuth2 / OIDC] --- L2B[🏷️ Per-agent IAM<br/>Least privilege] --- L2C[🔒 Secret scanning<br/>Masked outputs]
+    end
+
+    subgraph "Layer 3: AI and Content Integrity"
+        direction LR
+        L3A[🤖 Bedrock Guardrails<br/>Neutrality / PII filter] --- L3B[⚖️ Neutrality regression<br/>Political lean checks] --- L3C[📋 C2PA provenance<br/>Content authenticity]
+    end
+
+    subgraph "Layer 4: Democratic Protection"
+        direction LR
+        L4A[🗳️ Election protocols<br/>Enhanced monitoring] --- L4B[🕵️ FIMI detection<br/>DISARM framework] --- L4C[👥 Dual-analyst review<br/>Human accountability]
+    end
+
+    subgraph "Layer 5: Data and Pipeline"
+        direction LR
+        L5A[📌 SHA-pinned actions<br/>SLSA provenance] --- L5B[🌍 Source registry<br/>Admiralty grading] --- L5C[🧪 Graph integrity<br/>Anomaly detection]
+    end
+
+    subgraph "Layer 6: Audit and Response"
+        direction LR
+        L6A[📊 CloudTrail logging<br/>Immutable audit] --- L6B[🚨 SIEM alerts<br/>Anomaly response] --- L6C[📋 Correction channel<br/>Evidence preservation]
+    end
+
+    L1A --> L2A
+    L2A --> L3A
+    L3A --> L4A
+    L4A --> L5A
+    L5A --> L6A
+
+    style L1A fill:#e1f5ff
+    style L2A fill:#e8f5e9
+    style L3A fill:#fff4e1
+    style L4A fill:#e1f0ff
+    style L5A fill:#f3e5f5
+    style L6A fill:#ffe1e1
 ```
 
 ---
@@ -425,6 +652,10 @@ graph TD
 | **👤 Malicious Insiders** | Low | Medium | Medium | High | Expanded team, federation partners, agent tool scopes |
 | **🔧 Accidental Insiders** | Medium | High | High | High | Agentic complexity increases error probability |
 | **🤖 AI-Powered Attackers** | Low | High | High | Critical | Automated adversarial content + agent-targeting attacks |
+| **🏴 Foreign Information Operators** | Medium | High | High | Critical | FIMI campaigns, coordinated inauthentic behavior, narrative laundering |
+| **⚖️ Litigious Actors (SLAPP)** | Low | Medium | High | High | Strategic litigation to suppress public-interest transparency findings |
+| **🏢 Corporate Lobby Networks** | Low | Medium | Medium | High | Evasion of lobby-to-vote detection, declaration manipulation |
+| **🌐 Authoritarian State Censors** | Low | Low | Medium | Medium | Content blocking, metadata surveillance, platform suppression |
 
 ### **🎯 Future Threat Agent Capabilities**
 
@@ -477,6 +708,11 @@ quadrantChart
     "🌍 Source Onboarding": [0.55, 0.66]
     "👥 Content Abuse": [0.70, 0.45]
     "🌍 Federation Abuse": [0.30, 0.65]
+    "🗳️ Election Manipulation": [0.65, 0.92]
+    "🕵️ FIMI Detection Blind": [0.65, 0.78]
+    "⚖️ Defamation Risk": [0.55, 0.85]
+    "🔑 Credential Exposure": [0.55, 0.82]
+    "🚫 Content Blocking": [0.50, 0.48]
 ```
 
 ### **📈 Quantitative Risk Scoring (Future Threats)**
@@ -506,15 +742,32 @@ quadrantChart
 | FT-008a | IAM Misconfiguration / Over-Privilege | 3 | 4 | 12 | 🔴 High |
 | FT-008b | Data-Store Exposure | 2 | 5 | 10 | 🔴 High |
 | FT-008c | Denial-of-Wallet | 3 | 3 | 9 | 🟡 Medium |
+| FT-010a | Election-Period Targeted Manipulation | 4 | 5 | 20 | 🔴 Critical |
+| FT-010b | Seat-Projection Model Poisoning | 3 | 4 | 12 | 🔴 High |
+| FT-010c | Democratic Institution Delegitimization | 3 | 4 | 12 | 🔴 High |
+| FT-010d | Voter Suppression via Misinformation | 3 | 5 | 15 | 🔴 Critical |
+| FT-010e | Selective Transparency Weaponization | 4 | 3 | 12 | 🔴 High |
+| FT-011a | Detection-Layer Blinding | 4 | 4 | 16 | 🔴 Critical |
+| FT-011b | False-Flag FIMI Attribution | 3 | 5 | 15 | 🔴 Critical |
+| FT-011c | Detection Weaponization (False Positives) | 3 | 4 | 12 | 🔴 High |
+| FT-011d | Narrative Laundering via Proxies | 4 | 4 | 16 | 🔴 Critical |
+| FT-012a | Defamation via False Correlation | 3 | 5 | 15 | 🔴 Critical |
+| FT-012b | SLAPP Litigation | 3 | 4 | 12 | 🔴 High |
+| FT-012c | Lobby Network Evasion | 4 | 3 | 12 | 🔴 High |
+| FT-013a | PAT / Credential Exposure | 3 | 5 | 15 | 🔴 Critical |
+| FT-013b | gh-aw Agent Prompt Injection | 3 | 4 | 12 | 🔴 High |
+| FT-013c | Action Supply Chain Compromise | 2 | 5 | 10 | 🔴 High |
+| FT-014a | State-Level Content Blocking | 3 | 3 | 9 | 🟡 Medium |
+| FT-014b | Metadata Surveillance of Consumers | 3 | 4 | 12 | 🔴 High |
 
 ### **📈 Threat Evolution Timeline**
 
 | Horizon | New Attack Surface | Threat Count Increase | Key New Controls Required |
 |---|---|---|---|
-| **Current v1.0.x** | Static site + EP/WB/IMF MCP | 20 threats (baseline) | Schema validation, CSP, SAST |
-| **v2.0 Enhanced Static** | + verification agents, multi-channel distribution | +10-14 threats (agent/distribution) | Bedrock Guardrails, feed signing, double opt-in, content moderation |
-| **v3.0+ AWS Serverless** | + multi-agent fleet, API/Cognito, DynamoDB/Aurora/OpenSearch/Neptune, expanded sources | +12-16 threats (agent-orchestration/cloud/graph) | Least-privilege agent IAM, source registry, KG integrity, WAF, IMDSv2, KMS |
-| **10-Year Lookahead** | + cross-parliament federation, self-healing ops | +6-10 threats (federation/auto-ops) | Mutual TLS, data reconciliation, auto-bump smoke tests, jurisdiction management |
+| **Current v1.0.x** | Static site + EP/WB/IMF MCP + CI/CD pipeline | 20 threats (baseline) + 7 CI/CD (FT-013) | Schema validation, CSP, SAST, SHA-pinned actions, secret scanning |
+| **v2.0 Enhanced Static** | + verification agents, multi-channel distribution, election intelligence, FIMI detection | +10-14 threats (agent/distribution) + 12 democratic (FT-010/011/012) | Bedrock Guardrails, feed signing, election protocols, FIMI detection layer, dual-analyst review |
+| **v3.0+ AWS Serverless** | + multi-agent fleet, API/Cognito, DynamoDB/Aurora/OpenSearch/Neptune, integrity analytics | +12-16 threats (agent-orchestration/cloud/graph) + integrity risks | Least-privilege agent IAM, source registry, KG integrity, WAF, anti-SLAPP, C2PA signing |
+| **10-Year Lookahead** | + cross-parliament federation, self-healing ops, censorship resistance | +6-10 threats (federation/auto-ops) + 6 accessibility (FT-014) | Mutual TLS, data reconciliation, multi-CDN, IPFS/Tor, jurisdiction management |
 
 ---
 
@@ -576,6 +829,50 @@ quadrantChart
 
 **Mitigation:** Human-approved source registry with Admiralty grading and licensing checks, deterministic entity-resolution rules with confidence thresholds and human adjudication, Neptune write-path validation, signed ingest, and periodic graph-integrity audits with cited evidence chains.
 
+#### **Misuse Case 5: Election-Period Democratic Manipulation (FT-010)**
+
+**Scenario:** During the 2029 EU Parliament election campaign, a state-linked actor identifies the platform's seat-projection models as influential among journalists and policy analysts. They execute a multi-vector campaign: (1) manipulate public EP data to bias seat projections, (2) craft misleading excerpts from platform outputs for social media amplification, and (3) time a DDoS attack on the platform during the final 72 hours before voting to prevent access to accurate transparency data.
+
+**Attack Path:**
+1. Adversary submits crafted amendments to EP documents designed to skew statistical models
+2. Parallel social media campaign amplifies out-of-context platform excerpts with partisan framing
+3. 72 hours before election, volumetric attack targets CloudFront distribution
+4. Citizens lose access to neutral parliamentary intelligence during critical decision window
+
+**Impact:** Critical — Direct interference with democratic process at EU scale, platform used as both weapon and target
+
+**Mitigation:** Election security protocols (enhanced monitoring 30 days before elections, pre-election methodology freeze, manual override capability), multi-CDN redundancy, offline-capable archives, C2PA content authenticity signing, proactive narrative monitoring, coordination with EU election integrity mechanisms
+
+#### **Misuse Case 6: Counter-FIMI Detection Weaponization (FT-011)**
+
+**Scenario:** An adversary who is aware that the platform detects coordinated inauthentic behavior (CIB) deliberately manufactures false CIB signals that frame a legitimate political party or MEP. The platform's FIMI detection layer flags the manufactured activity, and the adversary then publicizes the platform's own alert as "proof" of wrongdoing — weaponizing the detection system against its intended beneficiaries.
+
+**Attack Path:**
+1. Adversary studies the platform's published detection methodology (transparent by design)
+2. Creates synthetic bot activity mimicking the TTP signature of the target's supporters
+3. Platform's behavioral anomaly detection generates a high-confidence CIB alert
+4. Adversary leaks the alert to media as evidence of the target's "coordinated manipulation"
+5. Target is falsely accused using the platform's own credibility as evidence
+
+**Impact:** Critical — Platform's democratic protection mission is inverted into a weapon; erosion of institutional trust
+
+**Mitigation:** Evidence-bounded attribution (never attribute beyond sourced facts), mandatory dual-analyst human adjudication before any CIB finding is published, high false-positive awareness, "question not accusation" framing, detection methodology diversity (behavioral + structural + temporal), external oversight board for contested findings
+
+#### **Misuse Case 7: CI/CD Pipeline Supply Chain Attack (FT-013)**
+
+**Scenario:** An attacker compromises a popular GitHub Action used in the safe-outputs pipeline by pushing a malicious update under a legitimate-looking version tag (tag-jacking). The compromised action exfiltrates MCP API keys during the build process, then uses them to inject subtly biased content into generated articles before they pass validation.
+
+**Attack Path:**
+1. Attacker identifies a widely-used Action in the workflow dependency chain
+2. Pushes a malicious commit and moves an existing tag to point to it
+3. Next workflow run executes the compromised Action with repository secrets in scope
+4. Secrets exfiltrated; biased content injected into safe-outputs before validation
+5. Manipulated articles pass template validation (structurally valid but semantically biased)
+
+**Impact:** High — Silent content manipulation via trusted CI/CD infrastructure, credential compromise enabling persistent access
+
+**Mitigation:** SHA-pinned actions (not tag-based), Dependabot for actions ecosystem, minimal secret scope per workflow step, safe-outputs semantic validation (not just structural), SLSA provenance for all artifacts, Scorecard monitoring of action dependencies
+
 ### **🤔 What-If Analysis**
 
 | What-If Scenario | Probability | Impact | Response Strategy |
@@ -588,6 +885,12 @@ quadrantChart
 | **What if a federation partner is compromised?** | Low | High | Mutual TLS revocation, data quarantine, partner isolation |
 | **What if coordinated attack targets during EU elections?** | Medium | Critical | Election security protocols, enhanced monitoring, manual override |
 | **What if a denial-of-wallet attack targets serverless endpoints?** | Medium | Medium | Edge caching, concurrency caps, AWS Budgets alarms, WAF rate limiting |
+| **What if a SLAPP lawsuit targets integrity analytics findings?** | Medium | High | Anti-SLAPP legal preparedness, EU directive compliance, evidence preservation, publisher's insurance |
+| **What if a state actor blocks the platform in their jurisdiction?** | Medium | Medium | Multi-CDN, alternative domains, IPFS/Tor mirrors, offline archives, federated caching |
+| **What if the FIMI detection layer produces a high-profile false positive?** | Medium | Critical | Dual-analyst review, retraction/correction process, external oversight board, false-positive rate SLA |
+| **What if a lobby network successfully evades detection for years?** | Medium | High | Methodology evolution, external audit, multi-signal correlation, tip-line for investigative journalists |
+| **What if a compromised GitHub Action exfiltrates repository secrets?** | Low | Critical | SHA-pinned actions, minimal secret scope, SLSA provenance, Scorecard monitoring, incident response plan |
+| **What if adversarial MEPs request GDPR deletion of legitimate public-interest data?** | Medium | High | Public-interest exemption analysis, legal counsel workflow, data-retention justification documentation |
 
 ---
 
@@ -605,6 +908,31 @@ quadrantChart
 | **AI Bias Detection** | Automated political neutrality checking across 14 languages | P2 | Q4 2026 | Tampering |
 | **Feed Signing & Canonical URLs** | Integrity for RSS/Atom/JSON + ActivityPub HTTP-signature verification | P2 | Q4 2026 | Tampering, Spoofing |
 | **Newsletter Double Opt-In + KMS** | Subscriber consent, encrypted list, unsubscribe integrity | P1 | Q4 2026 | Information Disclosure |
+
+### **v2.0+: Democratic Protection & Election Security Controls**
+
+| Control | Purpose | Priority | Timeline | Threat Category |
+|---|---|---|---|---|
+| **🗳️ Election Security Protocol** | Enhanced monitoring, methodology freeze, and manual override capability during EU election windows (30 days before → 7 days after) | P1 | Q4 2026 | FT-010 |
+| **⚖️ Neutrality Regression Suite** | Automated tests verifying political balance across all generated content; blocks publish on drift detection | P1 | Q3 2026 | FT-010, FT-009 |
+| **📋 C2PA Content Authenticity** | Cryptographic content provenance signing for all published analysis to prevent out-of-context weaponization | P2 | Q1 2027 | FT-010, FT-011 |
+| **🔍 FIMI Detection Layer** | Behavioral anomaly detection, cross-language narrative clustering, and DISARM TTP classification for coordinated inauthentic behavior | P2 | Q2 2027 | FT-011 |
+| **👥 Dual-Analyst Adjudication** | Mandatory two-analyst human review for all counter-FIMI findings and integrity analytics before publication | P1 | Q1 2027 | FT-011, FT-012 |
+| **⚖️ Anti-SLAPP Legal Preparedness** | Legal review workflow, evidence preservation, publisher's insurance, EU Anti-SLAPP Directive compliance | P2 | Q2 2027 | FT-012 |
+| **🔐 Question-Not-Accusation Framework** | Enforceable editorial standard ensuring all integrity findings are framed as sourced questions, never verdicts | P1 | Q3 2026 | FT-012, FT-009 |
+| **🌐 Multi-CDN Censorship Resistance** | Alternative distribution paths, offline-capable archives, and channel diversity for democratic content availability | P3 | Q1 2028 | FT-014 |
+| **🕵️ Privacy-by-Design Analytics** | No PII collection, no user tracking, no access logs shared — protecting consumers of democratic transparency content | P1 | Q3 2026 | FT-014 |
+
+### **v1.0.x → v2.0: CI/CD & Agentic Workflow Security Controls**
+
+| Control | Purpose | Priority | Timeline | Threat Category |
+|---|---|---|---|---|
+| **📌 SHA-Pinned Actions** | All GitHub Actions referenced by full SHA, never mutable tags; Dependabot for action updates | P1 | Q3 2026 | FT-013 |
+| **🔒 Secret Scope Minimization** | Each workflow step receives only the secrets it requires; environment isolation between steps | P1 | Q3 2026 | FT-013 |
+| **🧹 Prompt Boundary Enforcement** | gh-aw agent inputs sanitized; user-controlled content (PR bodies, issues) cannot inject workflow instructions | P1 | Q3 2026 | FT-013 |
+| **📋 Safe-Output Semantic Validation** | Beyond structural validation — semantic checks for political neutrality and content integrity in pipeline outputs | P2 | Q4 2026 | FT-013 |
+| **🕐 Emergency-Flush & Graceful Degradation** | Idempotent operations with state checkpointing; 40-min emergency flush prevents incomplete states from timeouts | P1 | Current | FT-013 |
+| **📊 SLSA Provenance** | Build provenance attestation for all generated artifacts (HTML, JSON, RSS) with integrity verification at deploy | P2 | Q1 2027 | FT-013 |
 
 ### **v3.0+: Agentic, API & Cloud Security**
 
@@ -677,6 +1005,11 @@ The following developments should trigger a threat model update:
 | **National parliament or institutional data source added** | Expand threat model scope + source registry review | 🟡 Medium |
 | **Managed foundation-model provider breach or incident** | Review AI pipeline + Guardrail controls | 🔴 High |
 | **Federation partner security incident** | Activate partner isolation protocols | 🔴 High |
+| **FIMI campaign targeting EP discourse detected** | Activate counter-FIMI detection layer, escalate to dual-analyst review | 🔴 High |
+| **Anti-SLAPP / legal challenge received** | Activate legal preparedness workflow, evidence preservation | 🔴 High |
+| **Lobby network evasion pattern identified** | Update integrity analytics methodology, add new detection signals | 🟡 Medium |
+| **State-level censorship of platform content detected** | Activate censorship resistance protocols, alternative distribution | 🟡 Medium |
+| **CI/CD credential leak or action compromise** | Immediate secret rotation, pipeline integrity audit, incident response | 🔴 High |
 
 ### **📅 Future Assessment Lifecycle**
 
@@ -713,6 +1046,8 @@ The following developments should trigger a threat model update:
 | **FUTURE_ARCHITECTURE.md** | Three-horizon AWS-native architectural evolution | [FUTURE_ARCHITECTURE.md](FUTURE_ARCHITECTURE.md) |
 | **FUTURE_MINDMAP.md** | v5.0 future scenarios + SWOT-to-future traceability | [FUTURE_MINDMAP.md](FUTURE_MINDMAP.md) |
 | **FUTURE_DATA_MODEL.md** | AWS-native serverless + knowledge-graph data model | [FUTURE_DATA_MODEL.md](FUTURE_DATA_MODEL.md) |
+| **FUTURE_WORKFLOWS.md** | CI/CD workflow evolution + agentic pipeline security | [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) |
+| **FUTURE_SWOT.md** | Strategic threats/weaknesses including democratic risks | [FUTURE_SWOT.md](FUTURE_SWOT.md) |
 | **Hack23 ISMS - Threat Modeling** | Policy framework | [Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) |
 | **Hack23 ISMS - Secure Development** | Secure SDLC requirements | [Secure_Development_Policy.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) |
 | **Hack23 ISMS - Vulnerability Management** | Vulnerability lifecycle | [Vulnerability_Management.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) |
@@ -724,9 +1059,9 @@ The following developments should trigger a threat model update:
 
 | Role                   | Name          | Date       | Signature |
 | ---------------------- | ------------- | ---------- | --------- |
-| **Security Architect** | Security Team | 2026-05-31 | Approved  |
-| **Product Owner**      | Product Team  | 2026-05-31 | Approved  |
-| **CEO / CISO**         | CEO           | 2026-05-31 | Approved  |
+| **Security Architect** | Security Team | 2026-06-02 | Approved  |
+| **Product Owner**      | Product Team  | 2026-06-02 | Approved  |
+| **CEO / CISO**         | CEO           | 2026-06-02 | Approved  |
 
 ---
 
@@ -740,4 +1075,4 @@ The following developments should trigger a threat model update:
 
 ---
 
-_This future threat model anticipates the evolving threat landscape for the EU Parliament Monitor as it advances across three horizons — from today's static site generator (v1.0.x), through an enhanced static intelligence platform (v2.0), to a fully AWS-native serverless intelligence platform (v3.0+) with an autonomous multi-agent OSINT newsroom, multi-channel distribution, and an expanded data-surface knowledge graph, looking ahead to 2037. It demonstrates Hack23 AB's commitment to proactive, governed security — where AI proposes and a human approves, with no autonomous production deploy — through forward-looking threat analysis aligned with the [Hack23 ISMS Threat Modeling Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md)._
+_This future threat model anticipates the evolving threat landscape for the EU Parliament Monitor as it advances across three horizons — from today's static site generator (v1.0.x), through an enhanced static intelligence platform (v2.0), to a fully AWS-native serverless intelligence platform (v3.0+) with an autonomous multi-agent OSINT newsroom, multi-channel distribution, and an expanded data-surface knowledge graph, looking ahead to 2037. Version 4.0 expands coverage to include **democratic process protection** (FT-010), **counter-FIMI and foreign influence operations** (FT-011), **integrity analytics and conflict-of-interest risks** (FT-012), **CI/CD agentic workflow supply chain threats** (FT-013), and **platform accessibility and censorship resistance** (FT-014) — reflecting the platform's evolving role as a **trusted democratic transparency infrastructure**. It demonstrates Hack23 AB's commitment to proactive, governed security — where AI proposes and a human approves, with no autonomous production deploy — through forward-looking threat analysis aligned with the [Hack23 ISMS Threat Modeling Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md)._
