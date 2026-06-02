@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/283cf143f833c0dd9635bdf1427cbf3ce0b3413c",
-        "commitHash": "283cf143f833c0dd9635bdf1427cbf3ce0b3413c",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26717342526"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/2c60e154427a8760002e0ad1d84d945efec5cc0f",
+        "commitHash": "2c60e154427a8760002e0ad1d84d945efec5cc0f",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26843670563"
       },
       "gitCommit": {
-        "shortHash": "283cf143f8",
-        "hash": "283cf143f833c0dd9635bdf1427cbf3ce0b3413c",
-        "subject": "chore(articles): regenerate all article.md and 14-language HTML output",
-        "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/26717097369\n",
+        "shortHash": "2c60e15442",
+        "hash": "2c60e154427a8760002e0ad1d84d945efec5cc0f",
+        "subject": "chore: recompile agentic workflow lock files",
+        "body": "chore: recompile agentic workflow lock files\n",
         "author": {
           "name": "github-actions[bot]",
           "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1780242774000
+          "time": 1780429148000
         },
         "committer": {
           "name": "github-actions[bot]",
           "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1780242774000
+          "time": 1780429148000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/283cf143f833c0dd9635bdf1427cbf3ce0b3413c",
-            "commitHash": "283cf143f833c0dd9635bdf1427cbf3ce0b3413c",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26717342526"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/2c60e154427a8760002e0ad1d84d945efec5cc0f",
+            "commitHash": "2c60e154427a8760002e0ad1d84d945efec5cc0f",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/26843670563"
           },
           "gitCommit": {
-            "shortHash": "283cf143f8",
-            "hash": "283cf143f833c0dd9635bdf1427cbf3ce0b3413c",
-            "subject": "chore(articles): regenerate all article.md and 14-language HTML output",
-            "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/26717097369\n",
+            "shortHash": "2c60e15442",
+            "hash": "2c60e154427a8760002e0ad1d84d945efec5cc0f",
+            "subject": "chore: recompile agentic workflow lock files",
+            "body": "chore: recompile agentic workflow lock files\n",
             "author": {
               "name": "github-actions[bot]",
               "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1780242774000
+              "time": 1780429148000
             },
             "committer": {
               "name": "github-actions[bot]",
               "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1780242774000
+              "time": 1780429148000
             },
             "branch": "main"
           },
@@ -148,12 +148,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1570,
+                      "duration": 1599,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-31T16:07:54.594Z",
+                      "startTime": "2026-06-02T19:51:29.626Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -182,12 +182,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1321,
+                      "duration": 1295,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-31T16:07:54.719Z",
+                      "startTime": "2026-06-02T19:51:29.736Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -216,12 +216,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1304,
+                      "duration": 1181,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-31T16:07:54.649Z",
+                      "startTime": "2026-06-02T19:51:29.725Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -250,12 +250,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 945,
+                      "duration": 1003,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-31T16:07:56.217Z",
+                      "startTime": "2026-06-02T19:51:31.175Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -283,64 +283,18 @@
                     {
                       "workerIndex": 1,
                       "parallelIndex": 1,
-                      "status": "timedOut",
-                      "duration": 37238,
-                      "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                      },
-                      "errors": [
-                        {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
-                          "location": {
-                            "file": "/__w/euparliamentmonitor/euparliamentmonitor/e2e/tests/homepage.spec.js",
-                            "column": 16,
-                            "line": 82
-                          },
-                          "message": "Error: page.goto: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/\", waiting until \"load\"\u001b[22m\n\n\n  80 |\n  81 |   test('should have proper HTML structure', async ({ page }) => {\n> 82 |     await page.goto('/');\n     |                ^\n  83 |\n  84 |     // Verify DOCTYPE and HTML element\n  85 |     const htmlElement = page.locator('html');\n    at /__w/euparliamentmonitor/euparliamentmonitor/e2e/tests/homepage.spec.js:82:16"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-05-31T16:07:56.238Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-have-proper-HTML-structure-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-have-proper-HTML-structure-chromium/error-context.md"
-                        }
-                      ]
-                    },
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1003,
+                      "duration": 1148,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-05-31T16:08:34.025Z",
+                      "retry": 0,
+                      "startTime": "2026-06-02T19:51:31.303Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-have-proper-HTML-structure-chromium-retry1/trace.zip"
-                        }
-                      ]
+                      "attachments": []
                     }
                   ],
-                  "status": "flaky"
+                  "status": "expected"
                 }
               ],
               "id": "2911e419fbc39a4e7680-c7724d6b53e7f0703f85",
@@ -364,12 +318,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 834,
+                      "duration": 964,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-31T16:07:56.495Z",
+                      "startTime": "2026-06-02T19:51:31.597Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -389,11 +343,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-31T16:07:52.931Z",
-    "duration": 42295.63,
-    "expected": 5,
+    "startTime": "2026-06-02T19:51:28.028Z",
+    "duration": 4627.468000000001,
+    "expected": 6,
     "skipped": 0,
     "unexpected": 0,
-    "flaky": 1
+    "flaky": 0
   }
 }
