@@ -153,195 +153,349 @@ Per
 
 ---
 
-## 🧱 gh-aw 5-Layer Security Model
+## 🧱 gh-aw Defense-in-Depth Security Architecture
 
-The EU Parliament Monitor implements **GitHub Agentic Workflows (gh-aw)** with a comprehensive 5-layer defense-in-depth security model. This architecture ensures that AI-driven news generation operates within strict security boundaries while maintaining deterministic, auditable, and tamper-evident execution.
+> **Reference**: [GitHub Agentic Workflows Architecture](https://github.github.com/gh-aw/introduction/architecture/) — the official specification for AW security layers, trust boundaries, and component isolation.
 
-### Layer 1: AWF Squid Egress Firewall
+The EU Parliament Monitor implements **GitHub Agentic Workflows (gh-aw v0.77.3)** with a comprehensive defense-in-depth security architecture aligned to the official [gh-aw 3-layer trust model](https://github.github.com/gh-aw/introduction/architecture/). This architecture ensures that AI-driven news generation operates within strict security boundaries — even if a compromised agent executes arbitrary code within its container, the layered isolation prevents unauthorized access or data exfiltration.
 
-**Purpose**: Default-deny network access with allowlist-only egress control.
+### 🏗️ gh-aw Trust Model Overview
 
-**Implementation**: Squid proxy enforces allowlist for all outbound network traffic from agentic workflow containers:
+The gh-aw architecture implements **three nested trust layers** that provide independent, composable security guarantees:
 
-**Allowed Endpoints**:
-- ✅ **GitHub API**: `api.github.com`, `github.com` (workflow control, PR creation)
-- ✅ **npm Registry**: `registry.npmjs.org` (dependency installation)
-- ✅ **European Parliament MCP Gateway**: `host.docker.internal:8080/mcp/european-parliament` (Docker bridge, local-only — gh-aw v0.69.0+ canonical port)
-- ✅ **World Bank MCP**: World Bank data integration
-- ✅ **IMF Data Services**: `dataservices.imf.org/REST/SDMX_3.0/` (economic context data)
-- ✅ **LLM APIs**: Copilot API, Claude API, Codex API (AI inference)
+| Layer | Trust Boundary | Enforcement | Threat Assumption |
+|-------|---------------|-------------|-------------------|
+| **🔒 Layer 1: Substrate** | Hardware → kernel → container runtime | GitHub Actions VM, Docker, iptables, MCP Gateway | Adversary fully controls user-level containers |
+| **📋 Layer 2: Configuration** | Declarative specifications + toolchain | Schema validation, SHA pinning, security scanners | Misconfiguration, overly permissive specs |
+| **📐 Layer 3: Plan** | Staged execution + output vetting | SafeOutputs, Threat Detection, stage boundaries | Incorrect plan construction, stage bypass |
 
-**Default Behavior**: All other outbound connections are **blocked** (default-deny).
+**Adversary Model**: An adversary that may compromise untrusted user-level components (containers) and cause them to behave arbitrarily within granted privileges. The adversary may attempt to access other components' state, communicate over unintended channels, abuse legitimate channels for unintended actions, or confuse control logic.
 
-**Security Benefits**:
-- Prevents data exfiltration
-- Blocks command-and-control channels
-- Mitigates supply chain compromise (no arbitrary package downloads)
-- Enforces principle of least privilege at network layer
+### 🔒 Layer 1: Substrate-Level Trust (Runtime Isolation)
 
-### Layer 2: Sandboxed Docker Runner
+**Purpose**: Memory isolation, CPU/resource isolation, kernel-enforced communication boundaries — guarantees that hold even if an untrusted component is fully compromised.
 
-**Purpose**: Restricted shell execution environment with pattern-based exploit prevention.
+#### 🌐 Agent Workflow Firewall (AWF)
 
-**Security Controls**:
+The AWF containerizes the agent, binds it to a Docker network, and uses iptables to redirect HTTP/HTTPS traffic through a Squid proxy container with a configurable domain allowlist.
 
-1. **Blocked Shell Patterns** (prompt injection defense):
-   - ❌ Nested `$()` inside `$(( ))` arithmetic expansion
-   - ❌ `${VAR:-$(cmd)}` default-with-fallback command substitution
-   - ❌ Complex variable indirection chains
+**EU Parliament Monitor Allowlist**:
+- ✅ `api.github.com`, `github.com` — workflow control, PR creation
+- ✅ `registry.npmjs.org` — dependency installation (npm ecosystem bundle)
+- ✅ `host.docker.internal:8080` — MCP Gateway (Docker bridge, local-only)
+- ✅ `api.imf.org` — IMF SDMX 3.0 economic data
+- ✅ LLM API endpoints — Copilot/Claude/Codex AI inference
+- ❌ **All other outbound connections BLOCKED** (default-deny)
 
-2. **Schema-Enforced Tool Calls**:
-   - Every bash tool invocation requires explicit `command` + `description` fields
-   - Tool schema validation prevents obfuscated command injection
-   - TypeScript type safety enforced at compile time
+**AWF Architecture**:
+1. Isolated network namespace with Squid proxy enforcing `network.allowed` list
+2. Agent container egresses **only** through Squid — no direct internet access
+3. `host.docker.internal` routes to MCP Gateway (Docker host alias)
+4. AWF drops iptables capabilities before launching the agent
+5. Chroot mode provides controlled access to host-installed binaries (Node.js 26, npm) via read-only mounts
 
-3. **Container Isolation**:
-   - Read-only file system for system directories
-   - No privileged escalation (`--cap-drop=ALL`)
-   - Resource limits (CPU, memory) enforced by Docker
+**Security Guarantees**:
+- 🛡️ Prevents data exfiltration to unauthorized domains
+- 🛡️ Blocks command-and-control channels
+- 🛡️ Mitigates supply chain compromise (no arbitrary package downloads)
+- 🛡️ All network requests logged in firewall logs (artifact-preserved)
 
-**ISMS Alignment**: [Secure Development Policy § Shell Security](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
+#### 🐳 MCP Server Sandboxing
 
-### Layer 3: Safe-Outputs Constraints
+MCP servers execute within **isolated Docker containers**, enforcing substrate-level separation between the agent and each server instance:
 
-**Purpose**: Limit blast radius of AI-generated content changes through size and review controls.
+- **Container Isolation**: Each MCP server runs in its own Docker container with no shared state
+- **Network Controls**: Per-container domain allowlists enforced via Squid proxy
+- **Tool Allowlisting**: Explicit `allowed:` lists restrict available operations (unlisted tools blocked)
+- **Secret Injection**: Secrets passed via environment variables, never in configuration files
+- **MCP Gateway**: `gh-aw-mcpg` container publishes host port 80 → container port 8000, spawns isolated MCP server containers via Docker socket
 
-**Implementation**:
+#### 🛡️ Container Runtime Security
 
-- **`create-pull-request` Safe-Output Limits**:
-  - Default max patch size: **1024 KB** (enforced for most workflows)
-  - Extended limit for `news-translate.md`: **10240 KB** (14-language fan-out requires larger patches)
-  - Single PR per workflow run (enforced by gh-aw framework)
+- Read-only file system for system directories
+- No privileged escalation (`--cap-drop=ALL`)
+- Resource limits (CPU, memory) enforced by Docker
+- Process isolation via Linux namespaces (PID, network, mount, IPC)
 
-- **Mandatory Review Workflow**:
-  - All AI-generated PRs require **human review** before merge
-  - Branch protection rules enforce status checks + approvals
-  - No auto-merge allowed for content changes
+**ISMS Alignment**: [Secure Development Policy § Infrastructure Security](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
 
-**Security Benefits**:
-- Prevents repository flooding attacks (size-bounded patches)
-- Ensures human-in-the-loop oversight for AI-generated content
-- Traceable approval chain for all changes
+### 📋 Layer 2: Configuration-Level Trust (Compilation-Time Security)
 
-### Layer 4: JSONL Audit Trail
+**Purpose**: Constrain which components are loaded, how they are connected, which communication channels are permitted, and what privileges are assigned — validated **before** runtime.
 
-**Purpose**: Immutable forensic trail of all tool invocations for post-incident analysis.
+#### 🔐 Lock-File Compilation
 
-**Implementation**:
+**Pinned Version**: `GH_AW_VERSION: v0.77.3` (enforced by `compile-agentic-workflows.yml`)
 
-- **Log Format**: JSON Lines (JSONL) — one tool call per line
-- **Log File**: `agent-stdio.log` in workflow run artifacts
-- **Retention**: Retained as GitHub Actions workflow artifacts (90-day default retention)
+1. **Schema Validation**: All workflow frontmatter validated against JSON schema (valid fields, correct types)
+2. **Expression Safety**: Only allowlisted expressions permitted — no secrets in expressions
+3. **Action SHA Pinning**: All actions resolved to immutable commit SHAs (`actions/checkout@sha # v4`)
+4. **Security Scanners**: `actionlint` (workflow linting + shellcheck), `zizmor` (privilege escalation), `poutine` (supply chain risks)
+5. **Strict Mode Enforcement**:
+   - ✗ No write permissions at top level
+   - ✓ Explicit network configuration required
+   - ✗ No wildcard domains in allowlists
+   - ✗ No deprecated fields
 
-**Logged Data**:
-- Timestamp (ISO 8601)
-- Tool name + parameters
-- Input data (sanitized)
-- Output/response (truncated if >10KB)
-- Execution duration
-- Exit code/status
+**Workflow Source Control**:
+- **Source**: `.github/workflows/*.md` (human-readable, version-controlled)
+- **Artifact**: `.github/workflows/*.lock.yml` (deterministic, compiled)
+- Compilation is **reproducible** (same input = same output)
+- Direct edits to `.lock.yml` files **blocked** by CODEOWNERS
+- Changes to `.md` sources trigger recompilation via CI
 
-**Use Cases**:
-- Security incident investigation
-- Compliance auditing (ISMS § Audit & Logging)
-- Workflow debugging and optimization
-- Anomaly detection (baseline deviation)
+#### 🧹 Content Sanitization (Activation Boundary)
 
-### Layer 5: Lock-File Compilation
+User-generated content (issue titles, PR bodies, comments) is sanitized **before** being passed to the agent:
 
-**Purpose**: Deterministic, tamper-evident workflow execution with version-pinned toolchain.
+| Mechanism | Input → Output | Protection |
+|-----------|---------------|-----------|
+| 🏷️ **@mention Neutralization** | `@user` → `` `@user` `` | Prevents unintended notifications |
+| 🤖 **Bot Trigger Protection** | `fixes #123` → `` `fixes #123` `` | Prevents automatic issue linking |
+| 🔒 **XML/HTML Tag Conversion** | `<script>` → `(script)` | Prevents injection via XML tags |
+| 🌐 **URI Filtering** | `http://evil.com` → `(redacted)` | Restricts to HTTPS from trusted domains |
+| 🔤 **Unicode Normalization** | Homoglyphs → Normalized | Prevents visual spoofing attacks |
+| 📏 **Content Limits** | Large payloads → Truncated | 0.5 MB max, 65k lines max |
+| 🚫 **Control Character Removal** | ANSI escapes → Stripped | Removes terminal manipulation codes |
 
-**Implementation**:
+#### 🔍 Integrity Filtering
 
-1. **`gh aw compile --validate`** (pinned to **v0.71.3**):
-   - Enforced by `.github/workflows/compile-agentic-workflows.yml`
-   - Any version drift = CI failure
-   - Version mismatch blocks PR merge
+The MCP gateway intercepts tool calls and filters content based on **author trust** and **merge status**:
+- Public repositories auto-apply `min-integrity: approved` — restricting content to owners, members, and collaborators
+- Items from blocked users or below minimum trust level removed transparently before AI engine sees them
+- Four configurable levels: `merged` → `approved` → `unapproved` → `none` (most → least restrictive)
 
-2. **Workflow Source Control**:
-   - **Source**: `.github/workflows/*.md` (human-readable, version-controlled)
-   - **Artifact**: `.github/workflows/*.lock.yml` (deterministic, compiled)
-   - Compilation is **reproducible** (same input = same output)
+#### 🧩 Shell Safety Rules
 
-3. **Branch Protection**:
-   - Direct edits to `.lock.yml` files **blocked** by CODEOWNERS
-   - Changes to `.md` sources trigger recompilation via CI
-   - Recompiled `.lock.yml` must match expected SHA-256 hash
-
-**Security Benefits**:
-- Prevents workflow tampering (lock files are deterministic)
-- Ensures toolchain integrity (pinned gh-aw version)
-- Branch protection enforces review-before-merge
-- Audit trail for all workflow changes (Git history)
+Blocked shell patterns (prompt injection defense):
+- ❌ Nested `$()` inside `$(( ))` arithmetic expansion
+- ❌ `${VAR:-$(cmd)}` default-with-fallback command substitution
+- ❌ Complex variable indirection chains
+- ✅ Every bash tool invocation requires explicit `command` + `description` fields
+- ✅ TypeScript-enforced schema validation at compile time
 
 **ISMS Alignment**: [Secure Development Policy § Change Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
 
-### 5-Layer Security Model Diagram
+### 📐 Layer 3: Plan-Level Trust (Staged Execution & Output Vetting)
 
-```mermaid
-graph TB
-    subgraph "Layer 5: Lock-File Compilation"
-        MD[.md Workflow Source]
-        COMPILE[gh aw compile v0.71.3]
-        LOCK[.lock.yml Artifact]
-        MD --> COMPILE
-        COMPILE --> LOCK
-    end
+**Purpose**: Constrain component behavior over time by decomposing workflows into stages with explicit inputs/outputs and mediated transitions. Important external side effects are explicit and undergo thorough vetting.
 
-    subgraph "Layer 4: JSONL Audit Trail"
-        LOG[agent-stdio.log]
-        ARTIFACT[Workflow Artifacts<br/>90-day Retention]
-        LOG --> ARTIFACT
-    end
+#### 🛡️ SafeOutputs Permission Isolation
 
-    subgraph "Layer 3: Safe-Outputs"
-        PR[create-pull-request]
-        SIZE[max-patch-size: 1024 KB]
-        REVIEW[Mandatory Human Review]
-        PR --> SIZE
-        SIZE --> REVIEW
-    end
+The SafeOutputs subsystem enforces **permission separation** — the agent job never has direct write access to external state:
 
-    subgraph "Layer 2: Sandboxed Runner"
-        DOCKER[Docker Container]
-        SHELL[Restricted Shell]
-        PATTERN[Blocked Patterns]
-        DOCKER --> SHELL
-        SHELL --> PATTERN
-    end
-
-    subgraph "Layer 1: AWF Firewall"
-        SQUID[Squid Proxy]
-        ALLOWLIST[Endpoint Allowlist]
-        DENY[Default Deny]
-        SQUID --> ALLOWLIST
-        ALLOWLIST --> DENY
-    end
-
-    subgraph "Agentic Workflow Execution"
-        RUN[Workflow Run]
-    end
-
-    LOCK --> RUN
-    RUN --> LOG
-    RUN --> PR
-    RUN --> DOCKER
-    RUN --> SQUID
-
-    style LOCK fill:#e8f5e9
-    style LOG fill:#e1f5ff
-    style PR fill:#ffe1e1
-    style DOCKER fill:#fff4e1
-    style SQUID fill:#ffe1e1
-    style RUN fill:#f0f0f0
+```
+┌─────────────────────────────┐     ┌───────────────────────────┐     ┌─────────────────────────┐
+│  🤖 Agent Job               │     │  🔍 Threat Detection Job  │     │  ✅ Safe Output Jobs    │
+│  ─────────────────────────  │     │  ─────────────────────────│     │  ─────────────────────  │
+│  • Read-only permissions    │────▶│  • Download artifacts     │────▶│  • create_pull_request  │
+│  • Buffered outputs only    │     │  • AI + custom analysis   │     │  • contents: write      │
+│  • agent_output.json        │     │  • Secret leak detection  │     │  • pull-requests: write │
+│  • aw.patch (git diff)      │     │  • Malicious patch check  │     │  • Scoped permissions   │
+└─────────────────────────────┘     │  • Policy violation scan  │     └─────────────────────────┘
+                                    │  • Pass/Fail verdict      │
+                                    └───────────────────────────┘
 ```
 
-**Defense-in-Depth Principle**: Each layer provides independent security controls. Compromise of any single layer does not bypass the entire security model.
+**EU Parliament Monitor Safe-Output Limits**:
+- Default max patch size: **1024 KB** (most workflows)
+- Extended limit for `news-translate.md`: **10240 KB** (14-language fan-out)
+- Single PR per workflow run (enforced by gh-aw framework)
+- `excluded-files: analysis/**/data/**` (prevents large EP API responses from overflowing patch limit)
+
+#### 🔍 Threat Detection Pipeline
+
+After the agent job completes, a **separate detection job** downloads buffered artifacts and analyzes them for threats:
+
+**Detection Checks**:
+- 🔑 **Secret Leaks**: API keys, tokens, credentials in outputs
+- 🐛 **Malicious Patches**: Backdoors, vulnerabilities, suspicious modifications
+- 📋 **Policy Violations**: Scope violations, unauthorized operations
+- 🔒 **Custom Detection**: Integration with security scanners (Semgrep, TruffleHog)
+
+**Detection Properties**:
+- **Isolated Execution**: Separate job with no write permissions and no access to original agent's runtime state
+- **Prompted Analysis**: Same AI engine with security-focused system prompt
+- **Artifact-Based**: Only sees buffered artifacts (outputs, patches, context), not live repository state
+- **Blocking Verdict**: Must emit "safe" verdict before any safe output jobs execute
+- **Fail-Safe**: If detection fails, all writes are blocked
+
+#### 🔐 Secret Redaction
+
+Before workflow artifacts are uploaded, all files in `/tmp/gh-aw` are scanned and redacted:
+- **Automatic Detection**: Scans workflow YAML for `secrets.*` patterns
+- **Exact String Matching**: Safe string matching (not regex) to prevent injection
+- **Partial Visibility**: First 3 characters + asterisks for debugging
+- **Unconditional Execution**: Runs with `if: always()` even if workflow fails
+
+#### 📋 JSONL Audit Trail & Observability
+
+**Immutable forensic trail** of all tool invocations for post-incident analysis:
+
+- **Log Format**: JSON Lines (JSONL) — one tool call per line
+- **Log File**: `agent-stdio.log` in workflow run artifacts
+- **Retention**: 90-day default retention as GitHub Actions artifacts
+- **CLI Tools**: `gh aw logs` (analyze runs), `gh aw audit` (investigate failures), `gh aw status` (health check)
+
+**Logged Data**:
+- Timestamp (ISO 8601), tool name + parameters, input/output (sanitized), execution duration, exit code
+- Firewall logs: all network requests with domain, status, bytes transferred
+- Engine logs: token usage, timing, model selection
+
+**Use Cases**:
+- 🔍 Security incident investigation
+- 📋 ISMS compliance auditing (§ Audit & Logging)
+- 🐛 Workflow debugging and optimization
+- 📊 Cost tracking (token usage per run)
+- 🚨 Anomaly detection (baseline deviation)
+
+#### 👁️ Mandatory Human Review
+
+- All AI-generated PRs require **human review** before merge
+- Branch protection rules enforce status checks + approvals
+- No auto-merge allowed for content changes
+- Traceable approval chain via Git history
+
+### 🏗️ Complete gh-aw Security Architecture Diagram
+
+```mermaid
+flowchart TB
+    subgraph Input["📥 Input Layer"]
+        WF[/"📝 Workflow .md Source"/]
+        IMPORTS[/"📦 Imports and Includes"/]
+        EVENT[/"⚡ GitHub Event<br/>Schedule / Manual Dispatch"/]
+    end
+
+    subgraph Compile["🔐 Compilation-Time Security (Layer 2)"]
+        SCHEMA["📋 Schema Validation"]
+        EXPR["🔒 Expression Safety Check"]
+        PIN["📌 Action SHA Pinning"]
+        SCAN["🔍 Security Scanners<br/>actionlint + zizmor + poutine"]
+    end
+
+    subgraph Runtime["🛡️ Runtime Security (Layer 3)"]
+        PRE["🚦 Pre-Activation<br/>Role and Permission Checks"]
+        ACT["🧹 Activation<br/>Content Sanitization"]
+        AGENT["🤖 Agent Execution<br/>Read-Only Permissions"]
+        REDACT["🔑 Secret Redaction"]
+    end
+
+    subgraph Isolation["🐳 Isolation Layer (Layer 1)"]
+        AWF["🌐 Agent Workflow Firewall<br/>Squid Proxy Egress Control"]
+        PROXY["🔗 API Proxy<br/>Agent auth-token isolation"]
+        MCP["📦 MCP Server Sandboxing<br/>Container Isolation"]
+        TOOL["🎯 Tool Allowlisting<br/>Explicit Permissions"]
+    end
+
+    subgraph OutputSec["🔍 Output Security (Layer 3)"]
+        DETECT["🧠 Threat Detection<br/>AI-Powered Analysis"]
+        SAFE["✅ Safe Outputs<br/>Permission Separation"]
+        SANITIZE["🧹 Output Sanitization<br/>Content Validation"]
+    end
+
+    subgraph Result["✓ Controlled Actions"]
+        PR["📝 Create Pull Request"]
+    end
+
+    WF --> SCHEMA
+    IMPORTS --> SCHEMA
+    SCHEMA --> EXPR
+    EXPR --> PIN
+    PIN --> SCAN
+    SCAN -->|".lock.yml"| PRE
+
+    EVENT --> ACT
+    PRE --> ACT
+    ACT --> AGENT
+
+    AGENT <--> AWF
+    AGENT <--> PROXY
+    AGENT <--> MCP
+    AGENT <--> TOOL
+
+    AGENT --> REDACT
+    REDACT --> DETECT
+    DETECT --> SAFE
+    SAFE --> SANITIZE
+
+    SANITIZE --> PR
+```
+
+### 🔄 Job Execution Flow
+
+```mermaid
+flowchart TB
+    subgraph PreAct["🚦 Pre-Activation"]
+        ROLE["👤 Role Permission Check"]
+        DEADLINE["⏰ Stop-After Deadline"]
+        SKIP["🔍 Skip-If-Match Check"]
+    end
+
+    subgraph Activation["🧹 Activation"]
+        CONTEXT["📋 Prepare Workflow Context"]
+        SANITIZE2["🔒 Sanitize Event Text"]
+        LOCK_CHECK["✅ Validate Lock File"]
+    end
+
+    subgraph AgentJob["🤖 Agent Job"]
+        CHECKOUT["📥 Repository Checkout"]
+        NODE_SETUP["⚙️ Setup Node.js 26"]
+        MCP_START["🔌 Start MCP Containers"]
+        PROMPT["📝 Generate Prompt"]
+        EXECUTE["🧠 Execute AI Engine"]
+        SECRET_REDACT["🔑 Secret Redaction"]
+        UPLOAD["📤 Upload Output Artifact"]
+    end
+
+    subgraph DetectJob["🔍 Detection Job"]
+        DOWNLOAD["📥 Download Artifact"]
+        ANALYZE["🧠 AI + Custom Analysis"]
+        VERDICT["⚖️ Security Verdict"]
+    end
+
+    subgraph SafeJobs["✅ Safe Output Jobs"]
+        CREATE_PR["📝 create_pull_request<br/>contents: write"]
+    end
+
+    ROLE --> DEADLINE --> SKIP
+    SKIP -->|"Pass"| CONTEXT
+    CONTEXT --> SANITIZE2 --> LOCK_CHECK
+    LOCK_CHECK --> CHECKOUT
+
+    CHECKOUT --> NODE_SETUP --> MCP_START --> PROMPT --> EXECUTE --> SECRET_REDACT --> UPLOAD
+
+    UPLOAD --> DOWNLOAD --> ANALYZE --> VERDICT
+    VERDICT -->|"Safe"| CREATE_PR
+    VERDICT -->|"Threat"| BLOCK["🚫 Block All Outputs"]
+```
+
+### 📊 Security Layers Summary
+
+| Layer | Mechanism | Protection Against | EU Parliament Monitor Implementation |
+|-------|-----------|-------------------|--------------------------------------|
+| 🔒 **Substrate** | GitHub Actions runner (VM, kernel) | Memory corruption, privilege escalation | Ubuntu latest + Docker runtime |
+| 🔒 **Substrate** | Docker container runtime | Process isolation bypass, shared state | `--cap-drop=ALL`, resource limits |
+| 🔒 **Substrate** | AWF network controls (iptables + Squid) | Data exfiltration, unauthorized API calls | 6-domain allowlist, default-deny |
+| 🔒 **Substrate** | MCP sandboxing (container isolation) | Container escape, unauthorized tools | EP/WB/IMF each in isolated containers |
+| 📋 **Configuration** | Schema validation + expression allowlist | Invalid configs, unauthorized expressions | `gh aw compile --validate` |
+| 📋 **Configuration** | Action SHA pinning | Supply chain attacks, tag hijacking | All actions pinned to commit SHA |
+| 📋 **Configuration** | Security scanners | Privilege escalation, misconfigs | actionlint + zizmor + poutine |
+| 📋 **Configuration** | Content sanitization | Prompt injection, bot triggers | @mention neutralization, URI filtering |
+| 📋 **Configuration** | Integrity filtering | Untrusted content injection | `min-integrity: approved` (public repo) |
+| 📐 **Plan** | SafeOutputs permission isolation | Unauthorized writes, state modification | Read-only agent → vetted PR only |
+| 📐 **Plan** | Threat detection pipeline | Secret leakage, malicious patches | AI detection + custom scanners |
+| 📐 **Plan** | Secret redaction | Credential leakage in artifacts | Unconditional scan with `if: always()` |
+| 📐 **Plan** | JSONL audit trail | Undetected compromise, forensics gaps | 90-day retention, `gh aw logs/audit` |
+
+**Defense-in-Depth Principle**: Each layer provides independent security controls. Compromise of any single layer does not bypass the entire security model. Trust violations at the substrate level require vulnerabilities in the firewall, MCP Gateway, container runtime, kernel, hypervisor, or hardware.
 
 **ISMS Compliance**:
 - ISO 27001 Annex A.8.31 (Separation of development, testing, and production environments)
+- ISO 27001 Annex A.8.25 (Secure development lifecycle)
 - NIST CSF 2.0 PR.AC-4 (Access permissions managed, incorporating least privilege)
+- NIST CSF 2.0 DE.CM (Security continuous monitoring)
 - CIS Controls v8.1 Control 4.1 (Establish and maintain a secure configuration process)
+- CIS Controls v8.1 Control 16.1 (Application software security)
 
 ---
 
