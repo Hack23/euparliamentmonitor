@@ -531,7 +531,7 @@ describe('agentic workflow threat detection policy', () => {
         lockContent,
         `${path.basename(lockPath)} must reference one of the PAT-bearing env vars under "github-token" in the safeoutputs/config.json heredoc`,
       ).toMatch(
-        /"github-token":\s*"\$\{(?:COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN|GITHUB_TOKEN)\}"/,
+        /"github-token":\s*"\$\{(?:GH_AW_SECRET_COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN|COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN|GH_AW_SECRET_GITHUB_TOKEN|GITHUB_TOKEN)\}"/,
       );
       expect(
         lockContent,
