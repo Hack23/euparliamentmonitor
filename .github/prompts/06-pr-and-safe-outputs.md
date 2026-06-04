@@ -113,7 +113,7 @@ unavailable" message is rejected. Include the output of
 ```
 MCP CONNECTIVITY DIAGNOSTIC — {workflow-name}
 Timestamp: {ISO-8601 UTC}
-MCP Server: european-parliament-mcp-server@1.3.12
+MCP Server: european-parliament-mcp-server@1.3.14
 AWF Firewall Check: {stdout from scripts/awf-firewall-diagnostic.sh}
 MCP Health Gate:
   get_server_health: {PASS/FAIL}

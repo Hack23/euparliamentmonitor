@@ -7,7 +7,7 @@
 parameter corrections, reliability matrix, and timeout strategy. Workflows
 **link** here; they never copy these tables.
 
-**Server:** `european-parliament-mcp-server@1.3.12`
+**Server:** `european-parliament-mcp-server@1.3.14`
 
 ## 1 · EP Feed Endpoints
 
