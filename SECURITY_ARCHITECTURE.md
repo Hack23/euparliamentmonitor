@@ -630,7 +630,7 @@ The EU Parliament Monitor integrates with **Model Context Protocol (MCP)** serve
   "mcpServers": {
     "european-parliament": {
       "command": "npx",
-      "args": ["-y", "european-parliament-mcp-server@1.3.14"],
+      "args": ["-y", "european-parliament-mcp-server@1.3.15"],
       "env": {
         "EP_MCP_GATEWAY_URL": "http://host.docker.internal:8080/mcp/european-parliament"
       }
