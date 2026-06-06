@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/cdfc1d670a0b5928c7ffb36fcfbb6a11b018e94a",
-        "commitHash": "cdfc1d670a0b5928c7ffb36fcfbb6a11b018e94a",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27032947355"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/f4c4709e2daab60149e1665dfa24534049ad56b4",
+        "commitHash": "f4c4709e2daab60149e1665dfa24534049ad56b4",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27057032853"
       },
       "gitCommit": {
-        "shortHash": "cdfc1d670a",
-        "hash": "cdfc1d670a0b5928c7ffb36fcfbb6a11b018e94a",
+        "shortHash": "f4c4709e2d",
+        "hash": "f4c4709e2daab60149e1665dfa24534049ad56b4",
         "subject": "chore: recompile agentic workflow lock files",
         "body": "chore: recompile agentic workflow lock files\n",
         "author": {
           "name": "github-actions[bot]",
           "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1780684218000
+          "time": 1780733212000
         },
         "committer": {
           "name": "github-actions[bot]",
           "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1780684218000
+          "time": 1780733212000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/cdfc1d670a0b5928c7ffb36fcfbb6a11b018e94a",
-            "commitHash": "cdfc1d670a0b5928c7ffb36fcfbb6a11b018e94a",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27032947355"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/f4c4709e2daab60149e1665dfa24534049ad56b4",
+            "commitHash": "f4c4709e2daab60149e1665dfa24534049ad56b4",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27057032853"
           },
           "gitCommit": {
-            "shortHash": "cdfc1d670a",
-            "hash": "cdfc1d670a0b5928c7ffb36fcfbb6a11b018e94a",
+            "shortHash": "f4c4709e2d",
+            "hash": "f4c4709e2daab60149e1665dfa24534049ad56b4",
             "subject": "chore: recompile agentic workflow lock files",
             "body": "chore: recompile agentic workflow lock files\n",
             "author": {
               "name": "github-actions[bot]",
               "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1780684218000
+              "time": 1780733212000
             },
             "committer": {
               "name": "github-actions[bot]",
               "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1780684218000
+              "time": 1780733212000
             },
             "branch": "main"
           },
@@ -148,12 +148,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1474,
+                      "duration": 1465,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-05T18:41:41.114Z",
+                      "startTime": "2026-06-06T08:17:50.301Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -182,12 +182,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1296,
+                      "duration": 1173,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-05T18:41:40.964Z",
+                      "startTime": "2026-06-06T08:17:50.297Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -216,12 +216,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1151,
+                      "duration": 1124,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-05T18:41:41.115Z",
+                      "startTime": "2026-06-06T08:17:50.209Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -250,12 +250,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 983,
+                      "duration": 1014,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-05T18:41:42.477Z",
+                      "startTime": "2026-06-06T08:17:51.622Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -284,12 +284,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1179,
+                      "duration": 1279,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-05T18:41:42.605Z",
+                      "startTime": "2026-06-06T08:17:51.700Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -318,12 +318,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 973,
+                      "duration": 1009,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-05T18:41:42.788Z",
+                      "startTime": "2026-06-06T08:17:51.997Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -343,8 +343,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-05T18:41:39.381Z",
-    "duration": 4480.756,
+    "startTime": "2026-06-06T08:17:48.576Z",
+    "duration": 4520.626,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
