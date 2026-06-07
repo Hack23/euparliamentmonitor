@@ -93,7 +93,7 @@ mcp-servers:
   european-parliament:
     container: "node:26-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.15", "--timeout", "90000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.17", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
     allowed: ["*"]
