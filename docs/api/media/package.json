@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -173,7 +173,7 @@
     "eslint-plugin-security": "4.0.0",
     "eslint-plugin-sonarjs": "4.0.3",
     "fast-check": "^4.8.0",
-    "happy-dom": "20.10.1",
+    "happy-dom": "20.10.2",
     "html-minifier-terser": "^7.2.0",
     "htmlhint": "1.9.2",
     "husky": "9.1.7",
