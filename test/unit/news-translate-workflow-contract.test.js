@@ -81,11 +81,9 @@ describe('news-translate workflow contract', () => {
     expect(workflow.length).toBeLessThan(48000);
   });
 
-  it('runs 3×/day on cron and is workflow_dispatch-enabled', () => {
+  it('runs 3×/day on an every-8-hours cadence and is workflow_dispatch-enabled', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
-    expect(workflow).toMatch(/cron:\s*"30 6 \* \* \*"/);
-    expect(workflow).toMatch(/cron:\s*"30 12 \* \* \*"/);
-    expect(workflow).toMatch(/cron:\s*"30 18 \* \* \*"/);
+    expect(workflow).toMatch(/schedule:\s*every 8h/);
     expect(workflow).toMatch(/workflow_dispatch:/);
   });
 
@@ -151,7 +149,7 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(/--max-source-lines "\$MAX_SOURCE_LINES"/);
     expect(workflow).toMatch(/MAX_SOURCE_LINES:/);
     // The queue is consumed from a deterministic temp path.
-    expect(workflow).toMatch(/\/tmp\/gh-aw\/discovery\/queue\.json/);
+    expect(workflow).toMatch(/\/tmp\/gh-aw\/agent\/discovery\/queue\.json/);
   });
 
   it('documents the largeSource 2-phase translation strategy in the prompt body', () => {
@@ -192,7 +190,7 @@ describe('news-translate workflow contract', () => {
     // passes them via --paths.
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
     const validatorBlock = workflow.match(/- name: Validate brief translations[\s\S]*?\n\nengine:/)?.[0] ?? '';
-    expect(validatorBlock).toMatch(/\/tmp\/gh-aw\/discovery\/queue\.json/);
+    expect(validatorBlock).toMatch(/\/tmp\/gh-aw\/agent\/discovery\/queue\.json/);
     // The validator is invoked with --paths populated from the queue, not
     // with the repo-wide default fallback (findAllTranslations).
     expect(validatorBlock).toMatch(/--paths "\$\{glob_args\[@\]\}"/);
@@ -365,7 +363,7 @@ describe('news-translate workflow contract', () => {
     // Must contain the exact bash assignment that records the epoch value.
     expect(workflow).toMatch(/WORKFLOW_START_EPOCH=\$\(date -u \+%s\)/);
     // Must redirect the epoch value into the temp file, not just mention the path.
-    expect(workflow).toMatch(/echo "\$\{WORKFLOW_START_EPOCH\}" > \/tmp\/gh-aw\/workflow-start-epoch/);
+    expect(workflow).toMatch(/echo "\$\{WORKFLOW_START_EPOCH\}" > \/tmp\/gh-aw\/agent\/workflow-start-epoch/);
   });
 
   it('contains a resume scan that breaks transient-API-error retry loops', () => {
