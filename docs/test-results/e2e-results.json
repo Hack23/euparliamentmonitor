@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/923a6875d8b38f7e77b31659724d06e882c095e8",
-        "commitHash": "923a6875d8b38f7e77b31659724d06e882c095e8",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27336579530"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/2f8dd466b3e8d2a05162ca55c8a85efeea4c4d7f",
+        "commitHash": "2f8dd466b3e8d2a05162ca55c8a85efeea4c4d7f",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27461997583"
       },
       "gitCommit": {
-        "shortHash": "923a6875d8",
-        "hash": "923a6875d8b38f7e77b31659724d06e882c095e8",
-        "subject": "Merge pull request #2360 from Hack23/aw/upgrade-2026-06-11-09-10-12",
-        "body": "Merge pull request #2360 from Hack23/aw/upgrade-2026-06-11-09-10-12\n\n[aw] Upgrade available",
+        "shortHash": "2f8dd466b3",
+        "hash": "2f8dd466b3e8d2a05162ca55c8a85efeea4c4d7f",
+        "subject": "Merge pull request #2362 from Hack23/dependabot/npm_and_yarn/production-dependencies-836c2af546",
+        "body": "Merge pull request #2362 from Hack23/dependabot/npm_and_yarn/production-dependencies-836c2af546\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.18 to 1.3.20 in the production-dependencies group across 1 directory",
         "author": {
           "name": "James Pether Sörling",
           "email": "pethers@users.noreply.github.com",
-          "time": 1781169054000
+          "time": 1781340254000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1781169054000
+          "time": 1781340254000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/923a6875d8b38f7e77b31659724d06e882c095e8",
-            "commitHash": "923a6875d8b38f7e77b31659724d06e882c095e8",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27336579530"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/2f8dd466b3e8d2a05162ca55c8a85efeea4c4d7f",
+            "commitHash": "2f8dd466b3e8d2a05162ca55c8a85efeea4c4d7f",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27461997583"
           },
           "gitCommit": {
-            "shortHash": "923a6875d8",
-            "hash": "923a6875d8b38f7e77b31659724d06e882c095e8",
-            "subject": "Merge pull request #2360 from Hack23/aw/upgrade-2026-06-11-09-10-12",
-            "body": "Merge pull request #2360 from Hack23/aw/upgrade-2026-06-11-09-10-12\n\n[aw] Upgrade available",
+            "shortHash": "2f8dd466b3",
+            "hash": "2f8dd466b3e8d2a05162ca55c8a85efeea4c4d7f",
+            "subject": "Merge pull request #2362 from Hack23/dependabot/npm_and_yarn/production-dependencies-836c2af546",
+            "body": "Merge pull request #2362 from Hack23/dependabot/npm_and_yarn/production-dependencies-836c2af546\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.18 to 1.3.20 in the production-dependencies group across 1 directory",
             "author": {
               "name": "James Pether Sörling",
               "email": "pethers@users.noreply.github.com",
-              "time": 1781169054000
+              "time": 1781340254000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1781169054000
+              "time": 1781340254000
             },
             "branch": "main"
           },
@@ -148,12 +148,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1373,
+                      "duration": 1388,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-11T09:24:02.032Z",
+                      "startTime": "2026-06-13T08:54:40.363Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -182,12 +182,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1188,
+                      "duration": 1211,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-11T09:24:01.883Z",
+                      "startTime": "2026-06-13T08:54:40.288Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -216,12 +216,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1824,
+                      "duration": 1055,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-11T09:24:02.009Z",
+                      "startTime": "2026-06-13T08:54:40.326Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -247,15 +247,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 953,
+                      "duration": 986,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-11T09:24:03.491Z",
+                      "startTime": "2026-06-13T08:54:41.621Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -281,15 +281,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1100,
+                      "duration": 1158,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-11T09:24:03.688Z",
+                      "startTime": "2026-06-13T08:54:41.772Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -315,15 +315,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 804,
+                      "duration": 925,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-11T09:24:04.152Z",
+                      "startTime": "2026-06-13T08:54:41.933Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -343,8 +343,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-11T09:24:00.322Z",
-    "duration": 4708.063,
+    "startTime": "2026-06-13T08:54:38.683Z",
+    "duration": 4314.87,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
