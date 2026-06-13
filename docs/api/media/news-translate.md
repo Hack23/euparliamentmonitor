@@ -25,14 +25,11 @@ strict: false
 checkout:
   fetch-depth: 1
 on:
-  # 3 scheduled runs / day at 06:30, 12:30, 18:30 UTC, staggered against
-  # article-generation workflows (which cluster around the top of each hour
-  # for fresh EP feeds). Each run translates ≤ MAX_BRIEFS source briefs ×
-  # 13 languages. See README.md "Translation cadence" section for sizing.
-  schedule:
-    - cron: "30 6 * * *"
-    - cron: "30 12 * * *"
-    - cron: "30 18 * * *"
+  # 3 scheduled runs / day, staggered against article-generation workflows
+  # (which cluster around the top of each hour for fresh EP feeds). Each run
+  # translates ≤ MAX_BRIEFS source briefs × 13 languages. See README.md
+  # "Translation cadence" section for sizing.
+  schedule: every 8h  # fuzzy: scatters minute offset across the 8h window to avoid load spikes
   workflow_dispatch:
     inputs:
       max_briefs:
@@ -238,7 +235,7 @@ steps:
       TARGET_BRIEF: ${{ github.event.inputs.target_brief || '' }}
     run: |
       set -euo pipefail
-      mkdir -p /tmp/gh-aw/discovery
+      mkdir -p /tmp/gh-aw/agent/discovery
       EXTENDED_FLAG=""
       if [ "$INCLUDE_EXTENDED" = "true" ]; then
         EXTENDED_FLAG="--include-extended"
@@ -251,10 +248,10 @@ steps:
         --run-number "$RUN_NUMBER" \
         --max-source-lines "$MAX_SOURCE_LINES" \
         --target-brief "$TARGET_BRIEF" \
-        --output /tmp/gh-aw/discovery/queue.json \
+        --output /tmp/gh-aw/agent/discovery/queue.json \
         $EXTENDED_FLAG
       echo "Discovery queue summary:"
-      node -e 'const q=require("/tmp/gh-aw/discovery/queue.json");console.log(JSON.stringify(q.totals,null,2));'
+      node -e 'const q=require("/tmp/gh-aw/agent/discovery/queue.json");console.log(JSON.stringify(q.totals,null,2));'
 
 post-steps:
   # The "Capture agent recovery patch" post-step is provided by the imported
@@ -272,7 +269,7 @@ post-steps:
   # not by the per-run gate).
   #
   # IMPORTANT: scope validation to the briefs THIS RUN was asked to translate
-  # (the entries in /tmp/gh-aw/discovery/queue.json). Pre-existing defects in
+  # (the entries in /tmp/gh-aw/agent/discovery/queue.json). Pre-existing defects in
   # older, unrelated briefs (e.g. a source brief whose H2 layout was extended
   # AFTER its translations were already merged) must NOT fail this run — the
   # translation agent has bounded scope and cannot fix them anyway. See the
@@ -283,15 +280,15 @@ post-steps:
   - name: Validate brief translations
     if: always()
     run: |
-      mkdir -p /tmp/gh-aw/validation
+      mkdir -p /tmp/gh-aw/agent/validation
       # Derive sibling globs from the discovery queue (one per brief the
       # agent was asked to translate). If the queue is missing or empty,
       # there is nothing this run produced to validate — exit cleanly.
       node -e '
         const fs = require("node:fs");
-        const queuePath = "/tmp/gh-aw/discovery/queue.json";
+        const queuePath = "/tmp/gh-aw/agent/discovery/queue.json";
         if (!fs.existsSync(queuePath)) {
-          fs.writeFileSync("/tmp/gh-aw/validation/paths.txt", "");
+          fs.writeFileSync("/tmp/gh-aw/agent/validation/paths.txt", "");
           process.exit(0);
         }
         const q = JSON.parse(fs.readFileSync(queuePath, "utf8"));
@@ -300,12 +297,12 @@ post-steps:
           .map((e) => typeof e.sourcePath === "string" ? e.sourcePath : "")
           .filter((p) => p.endsWith("/executive-brief.md"))
           .map((p) => p.replace(/\/executive-brief\.md$/, "/executive-brief_*.md"));
-        fs.writeFileSync("/tmp/gh-aw/validation/paths.txt", globs.join("\n"));
+        fs.writeFileSync("/tmp/gh-aw/agent/validation/paths.txt", globs.join("\n"));
         console.log("Validator scope (" + globs.length + " brief sibling glob(s)):");
         for (const g of globs) console.log("  " + g);
       '
       # Read globs (one per line) into a bash array without nested expansion.
-      PATHS_FILE="/tmp/gh-aw/validation/paths.txt"
+      PATHS_FILE="/tmp/gh-aw/agent/validation/paths.txt"
       glob_args=()
       if [ -s "$PATHS_FILE" ]; then
         while IFS= read -r line; do
@@ -321,10 +318,10 @@ post-steps:
       set +e
       node scripts/validate-brief-translations.js \
         --paths "${glob_args[@]}" \
-        --report /tmp/gh-aw/validation/report.json
+        --report /tmp/gh-aw/agent/validation/report.json
       VALIDATION_STATUS=$?
       node -e '
-        const r = require("/tmp/gh-aw/validation/report.json");
+        const r = require("/tmp/gh-aw/agent/validation/report.json");
         const t = r.totals || {};
         const blocking = typeof t.blocking === "number" ? t.blocking : t.violations;
         console.log("Translations checked:", t.filesChecked,
@@ -347,7 +344,7 @@ engine:
 # 🌐 Executive-Brief Translation Workflow
 
 > **You are the Translation Agent.** Your only job: take the source
-> `executive-brief.md` files listed in `/tmp/gh-aw/discovery/queue.json` and
+> `executive-brief.md` files listed in `/tmp/gh-aw/agent/discovery/queue.json` and
 > produce high-quality translations into the 13 non-English target
 > languages. **AI translates every word. No scripted substitution.**
 
@@ -356,7 +353,7 @@ engine:
 1. **Per-language register** — the run's `queue.json` already carries the
    style register, EP terminology pairs, and FIXED-TOKEN note for exactly
    the languages you are producing (Step 1 extracts them to
-   `/tmp/gh-aw/register.json`). Read those rows; you do **not** need to
+   `/tmp/gh-aw/agent/register.json`). Read those rows; you do **not** need to
    open the full guide in-session. Consult the **canonical translator
    guide**
    [`analysis/methodologies/executive-brief-translation-guide.md`](../../analysis/methodologies/executive-brief-translation-guide.md)
@@ -374,7 +371,7 @@ engine:
 |------------|--------------|
 | Create `analysis/daily/<date>/<slug>/executive-brief_<lang>.md` siblings | Modify the source `executive-brief.md` |
 | Read any artifact in `analysis/daily/**/` for terminology context | Edit `news/**/*.html`, `.github/**`, `src/**`, `scripts/**`, `package.json` |
-| Read `/tmp/gh-aw/discovery/queue.json` | Read other unrelated repository files |
+| Read `/tmp/gh-aw/agent/discovery/queue.json` | Read other unrelated repository files |
 | Run `node scripts/validate-brief-translations.js --paths …` to self-check | Use `sed`/`awk`/regex/`tr` to translate narrative content |
 | Call `safeoutputs___create_pull_request` after each fully-translated brief | Run `npm run generate-article` or any HTML-producing command |
 | Emergency partial flush when wall-clock budget is exhausted (≥ 40 min elapsed OR ≤ 20 min remaining) — see § Step 4 | Call `safeoutputs___create_pull_request` with zero translations produced (no files on disk) |
@@ -430,7 +427,7 @@ that fail ANY gate will be flagged in the PR comment:
 
 ```bash
 set -euo pipefail
-mkdir -p /tmp/gh-aw
+mkdir -p /tmp/gh-aw/agent
 TODAY=$(date -u +%Y-%m-%d)
 RUN_ID="${GITHUB_RUN_NUMBER:-0}"
 RUN_DATE="$TODAY"
@@ -443,7 +440,7 @@ mkdir -p "${ANALYSIS_DIR}"
 # partial flush (Step 4). Stored in /tmp so subsequent agent steps
 # can re-source it without re-exporting from this block.
 WORKFLOW_START_EPOCH=$(date -u +%s)
-echo "${WORKFLOW_START_EPOCH}" > /tmp/gh-aw/workflow-start-epoch
+echo "${WORKFLOW_START_EPOCH}" > /tmp/gh-aw/agent/workflow-start-epoch
 echo "Workflow start epoch: ${WORKFLOW_START_EPOCH}"
 
 # Record a run marker so safeoutputs always sees ≥1 working-directory change
@@ -466,14 +463,14 @@ echo "PR branch (auto, created by safeoutputs): news/translate-briefs-${RUN_DATE
 ### Step 1 — Read the discovery queue (ONE bash block, parsed to file)
 
 The pre-agent `Discover untranslated executive briefs` step has written
-`/tmp/gh-aw/discovery/queue.json`. Parse it once into a compact summary —
+`/tmp/gh-aw/agent/discovery/queue.json`. Parse it once into a compact summary —
 do **not** `cat` the whole file into the transcript: it carries the
 per-language register and would re-feed on every later turn.
 
 ```bash
 set -euo pipefail
 node -e '
-  const q = require("/tmp/gh-aw/discovery/queue.json");
+  const q = require("/tmp/gh-aw/agent/discovery/queue.json");
   const t = q.totals || {};
   console.log("queued=" + t.queued + " queuedTranslations=" + t.queuedTranslations +
     " fresh=" + t.freshNewestDate + " backlogOldest=" + t.backlogOldestDate);
@@ -483,17 +480,17 @@ node -e '
     " lines=" + e.sourceLineCount));
   // Per-language register (style + EP terminology + fixed-token note) written
   // to a side file so it never re-enters the transcript.
-  require("node:fs").writeFileSync("/tmp/gh-aw/register.json",
+  require("node:fs").writeFileSync("/tmp/gh-aw/agent/register.json",
     JSON.stringify(q.translationRegister || {}, null, 2));
-' | tee /tmp/gh-aw/queue-summary.txt
-echo "register-langs=$(node -e 'process.stdout.write(Object.keys(require("/tmp/gh-aw/register.json")).join(","))')"
+' | tee /tmp/gh-aw/agent/queue-summary.txt
+echo "register-langs=$(node -e 'process.stdout.write(Object.keys(require("/tmp/gh-aw/agent/register.json")).join(","))')"
 ```
 
 The one-line summary above is all you need to keep in context. Two side
 files hold the verbose data — consult them with `view` only when needed,
 never re-`cat` them:
 
-- `/tmp/gh-aw/register.json` — `translationRegister`: per-language style
+- `/tmp/gh-aw/agent/register.json` — `translationRegister`: per-language style
   register, canonical EP terminology pairs, and the FIXED-TOKEN
   preservation note (gate #5). **Read the rows for the languages you are
   producing directly from this file — you do not need to open the 18 KB
@@ -528,21 +525,21 @@ For each queue entry (0-based `entryIndex`), in order:
    set -euo pipefail
    : "${entryIndex:?set entryIndex to the current 0-based queue position}"
    read -r sourcePath largeSource sourceLineCount < <(node -e '
-     const q = require("/tmp/gh-aw/discovery/queue.json");
+     const q = require("/tmp/gh-aw/agent/discovery/queue.json");
      const e = (q.queue || [])[Number(process.argv[2])] || {};
      process.stdout.write([e.sourcePath || "", e.largeSource ? "true" : "false",
        e.sourceLineCount || 0].join(" "));
    ' "$entryIndex")
    [ -n "$sourcePath" ] && [ -f "$sourcePath" ] || { echo "bad sourcePath: ${sourcePath:-<unset>}" >&2; exit 1; }
    BRIEF_DIR=$(dirname "$sourcePath")
-   grep -nE '^## ' "$sourcePath" > /tmp/gh-aw/h2-checklist.txt || true
+   grep -nE '^## ' "$sourcePath" > /tmp/gh-aw/agent/h2-checklist.txt || true
    ls "${BRIEF_DIR}"/executive-brief_*.md 2>/dev/null \
-     | sed 's|.*executive-brief_||;s|\.md$||' | sort > /tmp/gh-aw/on-disk-langs.txt || true
-   echo "brief=${BRIEF_DIR} src_h1=$(grep -cE '^# [^#]' "$sourcePath") src_h2=$(wc -l < /tmp/gh-aw/h2-checklist.txt) largeSource=${largeSource} lines=${sourceLineCount} onDisk=$(paste -sd, /tmp/gh-aw/on-disk-langs.txt)"
+     | sed 's|.*executive-brief_||;s|\.md$||' | sort > /tmp/gh-aw/agent/on-disk-langs.txt || true
+   echo "brief=${BRIEF_DIR} src_h1=$(grep -cE '^# [^#]' "$sourcePath") src_h2=$(wc -l /tmp/gh-aw/agent/h2-checklist.txt | awk '{print $1}') largeSource=${largeSource} lines=${sourceLineCount} onDisk=$(paste -sd, /tmp/gh-aw/agent/on-disk-langs.txt)"
    ```
 
-   `/tmp/gh-aw/h2-checklist.txt` is your **MUST-TRANSLATE** list (the last
-   title is the one most often dropped). `/tmp/gh-aw/on-disk-langs.txt`
+   `/tmp/gh-aw/agent/h2-checklist.txt` is your **MUST-TRANSLATE** list (the last
+   title is the one most often dropped). `/tmp/gh-aw/agent/on-disk-langs.txt`
    lists languages already written — a transient-API-error retry may have
    re-entered this brief, so **skip any `lang` that is already on disk**
    and do not re-`create` it.
@@ -563,7 +560,7 @@ For each queue entry (0-based `entryIndex`), in order:
      re-reads the whole file, expands cramped passages, fixes terminology
      drift, and verifies every FIXED TOKEN.
    - Apply the per-language `register` + `terms` + `fixedTokenNote` rows
-     from `/tmp/gh-aw/register.json`.
+     from `/tmp/gh-aw/agent/register.json`.
    - Preserve every FIXED TOKEN verbatim: `IMF`, `WEO`, `World Bank`,
      `Fiscal Monitor`, `data-vintage="WEO-…"`, `TA-NN-YYYY-NNNN`,
      `YYYY/NNNN(COD|INI|NLE)`, ISO country/currency codes, confidence
@@ -608,7 +605,7 @@ For each queue entry (0-based `entryIndex`), in order:
      fi
    done
    if [ "$fail" -ne 0 ]; then
-     echo "Source H2 titles:" >&2; cat /tmp/gh-aw/h2-checklist.txt >&2
+     echo "Source H2 titles:" >&2; cat /tmp/gh-aw/agent/h2-checklist.txt >&2
      exit 1
    fi
    echo "✅ H2 parity OK for all siblings in ${BRIEF_DIR} (${src_h2} each)"
@@ -626,7 +623,7 @@ For each queue entry (0-based `entryIndex`), in order:
 
    ```bash
    set -euo pipefail
-   START_EPOCH=$(cat /tmp/gh-aw/workflow-start-epoch)
+   START_EPOCH=$(cat /tmp/gh-aw/agent/workflow-start-epoch)
    ELAPSED_MIN=$(( ( $(date -u +%s) - START_EPOCH ) / 60 ))
    REMAINING_MIN=$(( 60 - ELAPSED_MIN ))
    echo "⏱️ elapsed=${ELAPSED_MIN}m remaining=${REMAINING_MIN}m"
@@ -662,7 +659,7 @@ For each queue entry (0-based `entryIndex`), in order:
     REPORT="${ANALYSIS_DIR}/validator-${BRIEF_DIR//\//_}.json"
     if node scripts/validate-brief-translations.js \
          --paths "${BRIEF_DIR}/executive-brief_*.md" \
-         --report "$REPORT" > /tmp/gh-aw/validate.log 2>&1; then
+         --report "$REPORT" > /tmp/gh-aw/agent/validate.log 2>&1; then
       echo "✅ ${BRIEF_DIR} validator-clean — safe to flush."
     else
       echo "❌ violations remain in ${BRIEF_DIR}:" >&2
@@ -695,7 +692,7 @@ For each queue entry (0-based `entryIndex`), in order:
    - `COMPLETED_COUNT` — number of briefs whose 13 language siblings have
      all been written AND validator-clean (incremented after step 5 of
      this iteration).
-   - `QUEUED_COUNT` — `totals.queued` from `/tmp/gh-aw/discovery/queue.json`
+   - `QUEUED_COUNT` — `totals.queued` from `/tmp/gh-aw/agent/discovery/queue.json`
      (read once in Step 1; default runs queue up to `2` briefs, more on
      catch-up runs).
    - `PARTIAL_BRIEF_PATH` *(emergency flush only)* — `sourcePath` of the
@@ -790,7 +787,7 @@ Hard rules — keep tight. Full file-authoring priority lives in `shared/prompts
 - **No manual git operations.** `git checkout`, `git branch`, `git status`, `git log`, `git commit`, `git push`, `git merge`, and any other git command are **banned** from the agent's bash tool. The PR branch (`news/translate-briefs-<date>`) and all commits are created automatically by `safeoutputs___create_pull_request` from staged file changes — see the `concurrency` and `safe-outputs.create-pull-request` blocks at the top of this file. Running git manually wastes wall-clock budget, bloats the context window (every command's output stays in the conversation), and was the proximate trigger for the server-error retry that wiped run #26260612873 before a single translation was written.
 - **No scripted substitution.** Translate by reading and writing prose; `sed` / `awk` / `tr` over the source is forbidden (it cannot resolve FIXED TOKEN preservation, idiom, or tone).
 - **Use the per-language register from `queue.json` first** — read the
-  rows in `/tmp/gh-aw/register.json` (Step 1); open
+  rows in `/tmp/gh-aw/agent/register.json` (Step 1); open
   `analysis/methodologies/executive-brief-translation-guide.md` only for an
   edge case the register does not cover. Do not read the full guide
   end-to-end in-session.

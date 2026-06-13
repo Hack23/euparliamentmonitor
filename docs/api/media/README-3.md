@@ -84,11 +84,11 @@ Each workflow renders articles using `npm run generate-article -- --run "${ANALY
 
 | Workflow (`.md`) | Purpose | Trigger |
 |---|---|---|
-| [`news-translate.md`](news-translate.md) | Translates every untranslated `analysis/daily/**/executive-brief.md` source into 13 non-English language siblings (`executive-brief_<lang>.md`). AI-only translation; scripted substitution is forbidden. Exempt from single-PR rule (one PR per UTC run-date, updated by all 3 daily runs). | Scheduled (cron `30 6,12,18 * * *` UTC) + `workflow_dispatch` |
+| [`news-translate.md`](news-translate.md) | Translates every untranslated `analysis/daily/**/executive-brief.md` source into 13 non-English language siblings (`executive-brief_<lang>.md`). AI-only translation; scripted substitution is forbidden. Exempt from single-PR rule (one PR per UTC run-date, updated by all 3 daily runs). | Every 8 hours (~3×/day) + `workflow_dispatch` |
 
 ##### Translation cadence and sizing
 
-The workflow runs on cron 3×/day at 06:30 / 12:30 / 18:30 UTC (staggered against article-generation slots).
+The workflow runs 3×/day on an every-8-hours cadence (staggered against article-generation slots).
 Each run translates **2 source briefs × 13 languages = 26 markdown files by default** (operator can override `max_briefs` up to 4 via `workflow_dispatch`).
 The default of 2 is enabled by the prompt's bounded per-turn context — batched once-per-brief checks (one H2-parity block + one self-validate instead of per-language), verbose tool output redirected to side files, and the per-language register pre-extracted into `queue.json` so the translator guide is not read in-session. These keep one agent session under the Copilot CAPI 25M effective-token per-session cap that previously forced `max_briefs=1` (regression run #26641760920).
 Steady-state throughput: **78 translations/day**, which clears the typical ~1 100-file backlog in ~14 days and then catches every newly-landed brief same-day.

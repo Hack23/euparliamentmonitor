@@ -12,24 +12,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/2f8dd466b3e8d2a05162ca55c8a85efeea4c4d7f",
-        "commitHash": "2f8dd466b3e8d2a05162ca55c8a85efeea4c4d7f",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27461997583"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/80172152574473f45dd2a9dc23597f271c66628e",
+        "commitHash": "80172152574473f45dd2a9dc23597f271c66628e",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27481552152"
       },
       "gitCommit": {
-        "shortHash": "2f8dd466b3",
-        "hash": "2f8dd466b3e8d2a05162ca55c8a85efeea4c4d7f",
-        "subject": "Merge pull request #2362 from Hack23/dependabot/npm_and_yarn/production-dependencies-836c2af546",
-        "body": "Merge pull request #2362 from Hack23/dependabot/npm_and_yarn/production-dependencies-836c2af546\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.18 to 1.3.20 in the production-dependencies group across 1 directory",
+        "shortHash": "8017215257",
+        "hash": "80172152574473f45dd2a9dc23597f271c66628e",
+        "subject": "Merge pull request #2378 from Hack23/copilot/update-workflows-to-ubuntu-26-04",
+        "body": "Merge pull request #2378 from Hack23/copilot/update-workflows-to-ubuntu-26-04\n\nchore: pin all GitHub Actions runners to ubuntu-26.04",
         "author": {
           "name": "James Pether Sörling",
           "email": "pethers@users.noreply.github.com",
-          "time": 1781340254000
+          "time": 1781389254000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1781340254000
+          "time": 1781389254000
         },
         "branch": "main"
       },
@@ -43,24 +43,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/2f8dd466b3e8d2a05162ca55c8a85efeea4c4d7f",
-            "commitHash": "2f8dd466b3e8d2a05162ca55c8a85efeea4c4d7f",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27461997583"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/80172152574473f45dd2a9dc23597f271c66628e",
+            "commitHash": "80172152574473f45dd2a9dc23597f271c66628e",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27481552152"
           },
           "gitCommit": {
-            "shortHash": "2f8dd466b3",
-            "hash": "2f8dd466b3e8d2a05162ca55c8a85efeea4c4d7f",
-            "subject": "Merge pull request #2362 from Hack23/dependabot/npm_and_yarn/production-dependencies-836c2af546",
-            "body": "Merge pull request #2362 from Hack23/dependabot/npm_and_yarn/production-dependencies-836c2af546\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.18 to 1.3.20 in the production-dependencies group across 1 directory",
+            "shortHash": "8017215257",
+            "hash": "80172152574473f45dd2a9dc23597f271c66628e",
+            "subject": "Merge pull request #2378 from Hack23/copilot/update-workflows-to-ubuntu-26-04",
+            "body": "Merge pull request #2378 from Hack23/copilot/update-workflows-to-ubuntu-26-04\n\nchore: pin all GitHub Actions runners to ubuntu-26.04",
             "author": {
               "name": "James Pether Sörling",
               "email": "pethers@users.noreply.github.com",
-              "time": 1781340254000
+              "time": 1781389254000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1781340254000
+              "time": 1781389254000
             },
             "branch": "main"
           },
@@ -148,12 +148,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1388,
+                      "duration": 2070,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-13T08:54:40.363Z",
+                      "startTime": "2026-06-13T23:01:50.659Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -182,12 +182,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1211,
+                      "duration": 1900,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-13T08:54:40.288Z",
+                      "startTime": "2026-06-13T23:01:50.673Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -216,12 +216,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1055,
+                      "duration": 1816,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-13T08:54:40.326Z",
+                      "startTime": "2026-06-13T23:01:50.655Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -250,12 +250,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 986,
+                      "duration": 830,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-13T08:54:41.621Z",
+                      "startTime": "2026-06-13T23:01:52.702Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -284,12 +284,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1158,
+                      "duration": 1499,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-13T08:54:41.772Z",
+                      "startTime": "2026-06-13T23:01:52.799Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -318,12 +318,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 925,
+                      "duration": 693,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-13T08:54:41.933Z",
+                      "startTime": "2026-06-13T23:01:52.975Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -343,8 +343,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-13T08:54:38.683Z",
-    "duration": 4314.87,
+    "startTime": "2026-06-13T23:01:49.145Z",
+    "duration": 5212.117,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
