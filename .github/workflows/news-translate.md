@@ -535,7 +535,7 @@ For each queue entry (0-based `entryIndex`), in order:
    grep -nE '^## ' "$sourcePath" > /tmp/gh-aw/agent/h2-checklist.txt || true
    ls "${BRIEF_DIR}"/executive-brief_*.md 2>/dev/null \
      | sed 's|.*executive-brief_||;s|\.md$||' | sort > /tmp/gh-aw/agent/on-disk-langs.txt || true
-   echo "brief=${BRIEF_DIR} src_h1=$(grep -cE '^# [^#]' "$sourcePath") src_h2=$(wc -l < /tmp/gh-aw/agent/h2-checklist.txt) largeSource=${largeSource} lines=${sourceLineCount} onDisk=$(paste -sd, /tmp/gh-aw/agent/on-disk-langs.txt)"
+   echo "brief=${BRIEF_DIR} src_h1=$(grep -cE '^# [^#]' "$sourcePath") src_h2=$(wc -l /tmp/gh-aw/agent/h2-checklist.txt | awk '{print $1}') largeSource=${largeSource} lines=${sourceLineCount} onDisk=$(paste -sd, /tmp/gh-aw/agent/on-disk-langs.txt)"
    ```
 
    `/tmp/gh-aw/agent/h2-checklist.txt` is your **MUST-TRANSLATE** list (the last
