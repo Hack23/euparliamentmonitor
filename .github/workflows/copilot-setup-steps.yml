@@ -28,7 +28,7 @@ env:
 jobs:
   # The job MUST be called `copilot-setup-steps` or it will not be picked up by Copilot.
   copilot-setup-steps:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit job cap (default is 360 min). Setup includes MCP server
     # install + Playwright browsers; <20 min typical. 30 min bounds runaway
     # npm/playwright download retries.

@@ -17,7 +17,7 @@ env:
 
 jobs:
   dependency-review:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit cap (default is 360 min). Dependency review on PRs typically
     # completes in <2 min; 10 min bounds runaway transient-network retries.
     timeout-minutes: 10

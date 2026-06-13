@@ -33,7 +33,7 @@ env:
 jobs:
   preview-seo:
     name: Preview SEO from executive briefs
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # English-only preview of ~220 runs completes well under 5 min on a
     # clean runner; 15 min bounds runaway while leaving headroom for growth.
     timeout-minutes: 15

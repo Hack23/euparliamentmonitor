@@ -185,7 +185,7 @@ mindmap
 | **🌐 AWS CloudFront**   | Platform (Primary CDN)    | Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **📦 GitHub Pages**     | Alternative platform (fallback) | Ongoing                    | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **📦 npm registry**     | Published package `euparliamentmonitor@0.9.28` | SemVer + SLSA L3 attestations | N/A (Registry) | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
-| **⚙️ GitHub Actions**   | Platform                  | Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
+| **⚙️ GitHub Actions**   | Platform (`ubuntu-26.04` runners) | Ongoing                   | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 
 ---
 
@@ -593,6 +593,7 @@ Agentic workflows in `.github/workflows/news-*.md` are compiled to `.lock.yml` v
 All actions are SHA-pinned (100%). Deprecation notices from GitHub are tracked weekly; notable current pins:
 
 - `step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0`
+- **Runner image**: `ubuntu-26.04` (all workflows)
 - Action update cadence: Dependabot weekly group (`github-actions`) with auto-merge on passing CI
 
 ---

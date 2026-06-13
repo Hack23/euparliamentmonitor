@@ -17,7 +17,7 @@ env:
 jobs:
   reuse:
     name: REUSE Compliance Check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit cap (default is 360 min). REUSE compliance check is a single
     # Python action; <2 min typical. 10 min bounds container-pull retries.
     timeout-minutes: 10

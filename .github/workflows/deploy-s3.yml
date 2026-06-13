@@ -15,7 +15,7 @@ env:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit job cap (default is 360 min). Build + S3 sync + CloudFront
     # invalidation; <15 min typical. 30 min bounds runaway AWS retries.
     timeout-minutes: 30
