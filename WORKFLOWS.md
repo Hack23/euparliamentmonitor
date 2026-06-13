@@ -1689,7 +1689,7 @@ Supply-chain Levels for Software Artifacts (SLSA) Level 3 compliance is achieved
 | **Build — Scripted build** | `npm ci` + reproducible steps | release.yml |
 | **Build — Build service** | GitHub Actions managed runners | All |
 | **Build — Non-falsifiable provenance** | GitHub Sigstore / OIDC keyless | release.yml |
-| **Build — Isolated** | GitHub-hosted Ubuntu runners | All |
+| **Build — Isolated** | GitHub-hosted Ubuntu `ubuntu-26.04` runners | All |
 | **Provenance — Available** | `.intoto.jsonl` attached to release | release.yml |
 | **Provenance — Authenticated** | OIDC `id-token: write` | release.yml |
 | **Provenance — Service generated** | `actions/attest-build-provenance` | release.yml |

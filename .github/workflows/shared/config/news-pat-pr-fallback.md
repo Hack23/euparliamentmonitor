@@ -63,7 +63,7 @@ jobs:
     if: >
       always() && needs.agent.result != 'skipped' &&
       (needs.detection.result == 'success' || needs.detection.result == 'skipped')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     permissions:
       contents: write
       pull-requests: write

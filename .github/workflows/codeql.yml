@@ -33,7 +33,7 @@ jobs:
     #   - https://gh.io/supported-runners-and-hardware-resources
     #   - https://gh.io/using-larger-runners (GitHub.com only)
     # Consider using larger runners or machines with greater resources for possible analysis time improvements.
-    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-26.04' }}
     # Explicit cap (default is 360 min). CodeQL JS analysis on this repo
     # historically completes in ~12 min; 60 min leaves generous headroom
     # while still bounding runaway runs that hold a self-hosted runner.

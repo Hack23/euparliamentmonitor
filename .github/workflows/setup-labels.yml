@@ -19,7 +19,7 @@ env:
 jobs:
   setup-labels:
     name: Create Repository Labels
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit cap (default is 360 min). Idempotent label sync via gh CLI;
     # <2 min typical. 10 min bounds runaway API-rate-limit retries.
     timeout-minutes: 10

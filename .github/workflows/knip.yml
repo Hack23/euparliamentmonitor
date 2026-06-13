@@ -24,7 +24,7 @@ concurrency:
 jobs:
   knip:
     name: Knip Scan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit job cap (default is 360 min). Knip is a TypeScript static
     # analyzer; <5 min typical. 15 min bounds runaway npm install retries.
     timeout-minutes: 15

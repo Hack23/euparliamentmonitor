@@ -15,7 +15,7 @@ env:
 jobs:
   prepare:
     name: Prepare Environment
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit job cap (default is 360 min). npm ci + cache warming;
     # <5 min typical. 15 min bounds runaway npm registry retries.
     timeout-minutes: 15
@@ -59,7 +59,7 @@ jobs:
   validation:
     name: Validate Code
     needs: prepare
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit job cap (default is 360 min). Lint + format + typecheck;
     # <10 min typical. 30 min bounds runaway eslint/tsc retries.
     timeout-minutes: 30
@@ -140,7 +140,7 @@ jobs:
   functional-tests:
     name: Functional Tests
     needs: [prepare, validation]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit job cap (default is 360 min). Vitest + content generation;
     # <45 min typical. 60 min bounds runaway hangs.
     timeout-minutes: 60
@@ -270,7 +270,7 @@ jobs:
   performance:
     name: Performance Testing
     needs: [prepare, validation]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit job cap (default is 360 min). Lighthouse CI on key routes;
     # <15 min typical. 30 min bounds runaway browser hangs.
     timeout-minutes: 30
@@ -377,7 +377,7 @@ jobs:
   security-check:
     name: Security Check
     needs: prepare
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit job cap (default is 360 min). npm audit + license check;
     # <5 min typical. 15 min bounds runaway audit DB retries.
     timeout-minutes: 15
@@ -486,7 +486,7 @@ jobs:
     # merges (continue-on-error: true) and rerunning on every PR provides no
     # extra signal.
     if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     continue-on-error: true
     # Explicit job cap (default is 360 min). Lint + unit tests on nightly
     # Node; <15 min typical. 30 min bounds runaway nightly-Node regressions.
@@ -533,7 +533,7 @@ jobs:
   report:
     name: Generate Report
     needs: [validation, functional-tests, security-check, performance, node-next]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     if: always()
     # Explicit job cap (default is 360 min). Aggregates artifacts + posts
     # PR comment; <5 min typical. 15 min bounds runaway upload retries.

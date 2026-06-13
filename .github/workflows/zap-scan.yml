@@ -38,7 +38,7 @@ concurrency:
 jobs:
   zap-full-scan:
     name: OWASP ZAP Full Scan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 60
     permissions:
       contents: read

@@ -24,7 +24,7 @@ env:
 jobs:
   prepare:
     name: Prepare Release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit job cap (default is 360 min). Build + E2E + docs generation;
     # <40 min typical. 60 min bounds runaway Playwright + doc retries.
     timeout-minutes: 60
@@ -227,7 +227,7 @@ jobs:
   build:
     name: Build Release Package
     needs: [prepare]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit job cap (default is 360 min). SBOM + attestation generation;
     # <20 min typical. 30 min bounds runaway sigstore / attest retries.
     timeout-minutes: 30
@@ -347,7 +347,7 @@ jobs:
   release:
     name: Create Release
     needs: [prepare, build]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     # Explicit job cap (default is 360 min). gh release create + asset
     # upload; <10 min typical. 20 min bounds runaway upload retries.
     timeout-minutes: 20
