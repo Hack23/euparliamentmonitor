@@ -270,7 +270,7 @@ jobs:
   performance:
     name: Performance Testing
     needs: [prepare, validation]
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-24.04
     # Explicit job cap (default is 360 min). Lighthouse CI on key routes;
     # <15 min typical. 30 min bounds runaway browser hangs.
     timeout-minutes: 30
