@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/21ece45a4d29476b12e169b2c31fb1ba60a70945",
-        "commitHash": "21ece45a4d29476b12e169b2c31fb1ba60a70945",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27568828190"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/967cb517b3ccc6fa685250d6c697de1dc9fbde75",
+        "commitHash": "967cb517b3ccc6fa685250d6c697de1dc9fbde75",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27606814332"
       },
       "gitCommit": {
-        "shortHash": "21ece45a4d",
-        "hash": "21ece45a4d29476b12e169b2c31fb1ba60a70945",
-        "subject": "Merge pull request #2387 from Hack23/dependabot/npm_and_yarn/form-data-4.0.6",
-        "body": "Merge pull request #2387 from Hack23/dependabot/npm_and_yarn/form-data-4.0.6\n\nbuild(deps)(deps): bump form-data from 4.0.5 to 4.0.6",
+        "shortHash": "967cb517b3",
+        "hash": "967cb517b3ccc6fa685250d6c697de1dc9fbde75",
+        "subject": "Merge pull request #2394 from Hack23/dependabot/npm_and_yarn/production-dependencies-1e6773cfee",
+        "body": "Merge pull request #2394 from Hack23/dependabot/npm_and_yarn/production-dependencies-1e6773cfee\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.22 to 1.3.23 in the production-dependencies group",
         "author": {
           "name": "James Pether Sörling",
           "email": "pethers@users.noreply.github.com",
-          "time": 1781549417000
+          "time": 1781600729000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1781549417000
+          "time": 1781600729000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/21ece45a4d29476b12e169b2c31fb1ba60a70945",
-            "commitHash": "21ece45a4d29476b12e169b2c31fb1ba60a70945",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27568828190"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/967cb517b3ccc6fa685250d6c697de1dc9fbde75",
+            "commitHash": "967cb517b3ccc6fa685250d6c697de1dc9fbde75",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27606814332"
           },
           "gitCommit": {
-            "shortHash": "21ece45a4d",
-            "hash": "21ece45a4d29476b12e169b2c31fb1ba60a70945",
-            "subject": "Merge pull request #2387 from Hack23/dependabot/npm_and_yarn/form-data-4.0.6",
-            "body": "Merge pull request #2387 from Hack23/dependabot/npm_and_yarn/form-data-4.0.6\n\nbuild(deps)(deps): bump form-data from 4.0.5 to 4.0.6",
+            "shortHash": "967cb517b3",
+            "hash": "967cb517b3ccc6fa685250d6c697de1dc9fbde75",
+            "subject": "Merge pull request #2394 from Hack23/dependabot/npm_and_yarn/production-dependencies-1e6773cfee",
+            "body": "Merge pull request #2394 from Hack23/dependabot/npm_and_yarn/production-dependencies-1e6773cfee\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.22 to 1.3.23 in the production-dependencies group",
             "author": {
               "name": "James Pether Sörling",
               "email": "pethers@users.noreply.github.com",
-              "time": 1781549417000
+              "time": 1781600729000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1781549417000
+              "time": 1781600729000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1203,
+                      "duration": 1063,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-15T19:01:50.410Z",
+                      "startTime": "2026-06-16T09:17:46.591Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1270,
+                      "duration": 2677,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-15T19:01:50.478Z",
+                      "startTime": "2026-06-16T09:17:46.635Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1158,
+                      "duration": 1032,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-15T19:01:50.473Z",
+                      "startTime": "2026-06-16T09:17:46.638Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -257,12 +257,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1110,
+                      "duration": 762,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-15T19:01:51.886Z",
+                      "startTime": "2026-06-16T09:17:47.931Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -291,12 +291,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1002,
+                      "duration": 780,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-15T19:01:51.921Z",
+                      "startTime": "2026-06-16T09:17:47.954Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1006,
+                      "duration": 689,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-15T19:01:52.010Z",
+                      "startTime": "2026-06-16T09:17:48.719Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-15T19:01:48.838Z",
-    "duration": 4271.4619999999995,
+    "startTime": "2026-06-16T09:17:45.065Z",
+    "duration": 4543.343,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
