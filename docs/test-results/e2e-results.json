@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/967cb517b3ccc6fa685250d6c697de1dc9fbde75",
-        "commitHash": "967cb517b3ccc6fa685250d6c697de1dc9fbde75",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27606814332"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/4b61a1b00d5426e91152478643f5a2a2dac42df9",
+        "commitHash": "4b61a1b00d5426e91152478643f5a2a2dac42df9",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27679153738"
       },
       "gitCommit": {
-        "shortHash": "967cb517b3",
-        "hash": "967cb517b3ccc6fa685250d6c697de1dc9fbde75",
-        "subject": "Merge pull request #2394 from Hack23/dependabot/npm_and_yarn/production-dependencies-1e6773cfee",
-        "body": "Merge pull request #2394 from Hack23/dependabot/npm_and_yarn/production-dependencies-1e6773cfee\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.22 to 1.3.23 in the production-dependencies group",
+        "shortHash": "4b61a1b00d",
+        "hash": "4b61a1b00d5426e91152478643f5a2a2dac42df9",
+        "subject": "Merge pull request #2402 from Hack23/dependabot/npm_and_yarn/production-dependencies-51520f79ad",
+        "body": "Merge pull request #2402 from Hack23/dependabot/npm_and_yarn/production-dependencies-51520f79ad\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.23 to 1.3.24 in the production-dependencies group",
         "author": {
           "name": "James Pether Sörling",
           "email": "pethers@users.noreply.github.com",
-          "time": 1781600729000
+          "time": 1781688271000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1781600729000
+          "time": 1781688271000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/967cb517b3ccc6fa685250d6c697de1dc9fbde75",
-            "commitHash": "967cb517b3ccc6fa685250d6c697de1dc9fbde75",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27606814332"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/4b61a1b00d5426e91152478643f5a2a2dac42df9",
+            "commitHash": "4b61a1b00d5426e91152478643f5a2a2dac42df9",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27679153738"
           },
           "gitCommit": {
-            "shortHash": "967cb517b3",
-            "hash": "967cb517b3ccc6fa685250d6c697de1dc9fbde75",
-            "subject": "Merge pull request #2394 from Hack23/dependabot/npm_and_yarn/production-dependencies-1e6773cfee",
-            "body": "Merge pull request #2394 from Hack23/dependabot/npm_and_yarn/production-dependencies-1e6773cfee\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.22 to 1.3.23 in the production-dependencies group",
+            "shortHash": "4b61a1b00d",
+            "hash": "4b61a1b00d5426e91152478643f5a2a2dac42df9",
+            "subject": "Merge pull request #2402 from Hack23/dependabot/npm_and_yarn/production-dependencies-51520f79ad",
+            "body": "Merge pull request #2402 from Hack23/dependabot/npm_and_yarn/production-dependencies-51520f79ad\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.23 to 1.3.24 in the production-dependencies group",
             "author": {
               "name": "James Pether Sörling",
               "email": "pethers@users.noreply.github.com",
-              "time": 1781600729000
+              "time": 1781688271000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1781600729000
+              "time": 1781688271000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1063,
+                      "duration": 2005,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-16T09:17:46.591Z",
+                      "startTime": "2026-06-17T09:35:24.799Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2677,
+                      "duration": 1344,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-16T09:17:46.635Z",
+                      "startTime": "2026-06-17T09:35:24.811Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1032,
+                      "duration": 1332,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-16T09:17:46.638Z",
+                      "startTime": "2026-06-17T09:35:24.838Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -257,12 +257,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 762,
+                      "duration": 975,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-16T09:17:47.931Z",
+                      "startTime": "2026-06-17T09:35:26.417Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 780,
+                      "duration": 887,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-16T09:17:47.954Z",
+                      "startTime": "2026-06-17T09:35:26.452Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 689,
+                      "duration": 1462,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-16T09:17:48.719Z",
+                      "startTime": "2026-06-17T09:35:27.098Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-16T09:17:45.065Z",
-    "duration": 4543.343,
+    "startTime": "2026-06-17T09:35:23.185Z",
+    "duration": 5438.0109999999995,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
