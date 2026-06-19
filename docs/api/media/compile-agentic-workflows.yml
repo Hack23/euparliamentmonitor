@@ -30,7 +30,7 @@ jobs:
           egress-policy: audit
 
       - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           token: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           # Required true: the final "Commit all generated files" step needs the
@@ -49,7 +49,7 @@ jobs:
 
       - name: Install gh-aw CLI
         run: |
-          GH_AW_VERSION="v0.80.2"
+          GH_AW_VERSION="v0.80.4"
           gh extension install github/gh-aw --pin "$GH_AW_VERSION"
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}

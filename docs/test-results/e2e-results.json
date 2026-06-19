@@ -1,7 +1,7 @@
 {
   "config": {
     "argv": [
-      "/__t/node/26.3.0/x64/bin/node",
+      "/__t/node/26.3.1/x64/bin/node",
       "/__w/euparliamentmonitor/euparliamentmonitor/node_modules/.bin/playwright",
       "test",
       "e2e/tests/homepage.spec.js"
@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/4b61a1b00d5426e91152478643f5a2a2dac42df9",
-        "commitHash": "4b61a1b00d5426e91152478643f5a2a2dac42df9",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27679153738"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/cd06e7e3ff6f6c674de619a1cda7bc02fd8ffff9",
+        "commitHash": "cd06e7e3ff6f6c674de619a1cda7bc02fd8ffff9",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27818854596"
       },
       "gitCommit": {
-        "shortHash": "4b61a1b00d",
-        "hash": "4b61a1b00d5426e91152478643f5a2a2dac42df9",
-        "subject": "Merge pull request #2402 from Hack23/dependabot/npm_and_yarn/production-dependencies-51520f79ad",
-        "body": "Merge pull request #2402 from Hack23/dependabot/npm_and_yarn/production-dependencies-51520f79ad\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.23 to 1.3.24 in the production-dependencies group",
+        "shortHash": "cd06e7e3ff",
+        "hash": "cd06e7e3ff6f6c674de619a1cda7bc02fd8ffff9",
+        "subject": "chore: recompile agentic workflow lock files",
+        "body": "chore: recompile agentic workflow lock files\n",
         "author": {
-          "name": "James Pether Sörling",
-          "email": "pethers@users.noreply.github.com",
-          "time": 1781688271000
+          "name": "github-actions[bot]",
+          "email": "github-actions[bot]@users.noreply.github.com",
+          "time": 1781863029000
         },
         "committer": {
-          "name": "GitHub",
-          "email": "noreply@github.com",
-          "time": 1781688271000
+          "name": "github-actions[bot]",
+          "email": "github-actions[bot]@users.noreply.github.com",
+          "time": 1781863029000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/4b61a1b00d5426e91152478643f5a2a2dac42df9",
-            "commitHash": "4b61a1b00d5426e91152478643f5a2a2dac42df9",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27679153738"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/cd06e7e3ff6f6c674de619a1cda7bc02fd8ffff9",
+            "commitHash": "cd06e7e3ff6f6c674de619a1cda7bc02fd8ffff9",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27818854596"
           },
           "gitCommit": {
-            "shortHash": "4b61a1b00d",
-            "hash": "4b61a1b00d5426e91152478643f5a2a2dac42df9",
-            "subject": "Merge pull request #2402 from Hack23/dependabot/npm_and_yarn/production-dependencies-51520f79ad",
-            "body": "Merge pull request #2402 from Hack23/dependabot/npm_and_yarn/production-dependencies-51520f79ad\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.23 to 1.3.24 in the production-dependencies group",
+            "shortHash": "cd06e7e3ff",
+            "hash": "cd06e7e3ff6f6c674de619a1cda7bc02fd8ffff9",
+            "subject": "chore: recompile agentic workflow lock files",
+            "body": "chore: recompile agentic workflow lock files\n",
             "author": {
-              "name": "James Pether Sörling",
-              "email": "pethers@users.noreply.github.com",
-              "time": 1781688271000
+              "name": "github-actions[bot]",
+              "email": "github-actions[bot]@users.noreply.github.com",
+              "time": 1781863029000
             },
             "committer": {
-              "name": "GitHub",
-              "email": "noreply@github.com",
-              "time": 1781688271000
+              "name": "github-actions[bot]",
+              "email": "github-actions[bot]@users.noreply.github.com",
+              "time": 1781863029000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 2005,
+                      "duration": 1181,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:35:24.799Z",
+                      "startTime": "2026-06-19T10:07:23.065Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1344,
+                      "duration": 1246,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:35:24.811Z",
+                      "startTime": "2026-06-19T10:07:23.017Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1332,
+                      "duration": 1181,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:35:24.838Z",
+                      "startTime": "2026-06-19T10:07:23.121Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 975,
+                      "duration": 972,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:35:26.417Z",
+                      "startTime": "2026-06-19T10:07:24.499Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 887,
+                      "duration": 1036,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:35:26.452Z",
+                      "startTime": "2026-06-19T10:07:24.508Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1462,
+                      "duration": 986,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T09:35:27.098Z",
+                      "startTime": "2026-06-19T10:07:24.582Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-17T09:35:23.185Z",
-    "duration": 5438.0109999999995,
+    "startTime": "2026-06-19T10:07:21.501Z",
+    "duration": 4155.52,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
