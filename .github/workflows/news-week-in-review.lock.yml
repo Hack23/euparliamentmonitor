@@ -56,10 +56,10 @@
 #   - actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
 #   - actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0 (source v9)
 #   - actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
-#   - actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 53b83947a5a98c8d113130e565377fae1a50d02f
+#   - actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # 53b83947a5a98c8d113130e565377fae1a50d02f
 #   - actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-#   - github/gh-aw-actions/setup@00c24a5774577e7282046aa2225105571a8f4195 # v0.80.4
-#   - github/gh-aw/actions/setup-cli@2fcf71dd05bfc8e92fd85f802aa2c3496cfe85a9 # v0.80.4
+#   - github/gh-aw-actions/setup@c20f9e750acfb2da7ce8698626ebeb65efb33300 # v0.80.6
+#   - github/gh-aw/actions/setup-cli@9441310fb463ae6c16e58a793e8cb1796c49d053 # v0.80.5
 #
 # Container images used:
 #   - alpine:latest@sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11
@@ -117,7 +117,7 @@ jobs:
     steps:
       - name: Setup Scripts
         id: setup
-        uses: github/gh-aw-actions/setup@00c24a5774577e7282046aa2225105571a8f4195 # v0.80.4
+        uses: github/gh-aw-actions/setup@c20f9e750acfb2da7ce8698626ebeb65efb33300 # v0.80.6
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
           job-name: ${{ github.job }}
@@ -747,7 +747,7 @@ jobs:
     steps:
       - name: Setup Scripts
         id: setup
-        uses: github/gh-aw-actions/setup@00c24a5774577e7282046aa2225105571a8f4195 # v0.80.4
+        uses: github/gh-aw-actions/setup@c20f9e750acfb2da7ce8698626ebeb65efb33300 # v0.80.6
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
           job-name: ${{ github.job }}
@@ -790,7 +790,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Setup Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # 53b83947a5a98c8d113130e565377fae1a50d02f
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # 53b83947a5a98c8d113130e565377fae1a50d02f
         with:
           node-version: "26"
       - name: Install dependencies
@@ -881,7 +881,7 @@ jobs:
       - name: Download container images
         run: bash "${RUNNER_TEMP}/gh-aw/actions/download_docker_images.sh" alpine:latest@sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11 ghcr.io/github/gh-aw-firewall/agent:0.27.4@sha256:b268ebf37df2428b19efcb383f001d65dc6a5ec10af43feb886d1a8477ab0e3a ghcr.io/github/gh-aw-firewall/api-proxy:0.27.4@sha256:3ea0d12a2d124db8ed6e2d18aff040e30ab3568161f258a132fccdeede4198cd ghcr.io/github/gh-aw-firewall/squid:0.27.4@sha256:87979038897e40caed22245b64d1daa796390d2dca289b99d3d1174c85740af8 ghcr.io/github/gh-aw-mcpg:v0.3.26@sha256:d3b03f54eee3a8176818c9a52087623e45b7f644a28814337fcc0838e2534490 ghcr.io/github/gh-aw-node@sha256:529d02eb970b1161aa25c593a9c3df57fdfad5a8add328cb3b6eccef66f3183b ghcr.io/github/github-mcp-server:v1.3.0@sha256:5c83359327a0bacc3d34db730bea6557d39d341cee0bf6c58c9a896e33150e80 node:26-alpine
       - name: Install gh-aw extension
-        uses: github/gh-aw/actions/setup-cli@2fcf71dd05bfc8e92fd85f802aa2c3496cfe85a9 # v0.80.4
+        uses: github/gh-aw/actions/setup-cli@9441310fb463ae6c16e58a793e8cb1796c49d053 # v0.80.5
         with:
           version: 'v0.80.4'
           github-token: ${{ secrets.GH_AW_GITHUB_MCP_SERVER_TOKEN || secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
@@ -1651,7 +1651,7 @@ jobs:
     steps:
       - name: Setup Scripts
         id: setup
-        uses: github/gh-aw-actions/setup@00c24a5774577e7282046aa2225105571a8f4195 # v0.80.4
+        uses: github/gh-aw-actions/setup@c20f9e750acfb2da7ce8698626ebeb65efb33300 # v0.80.6
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
           job-name: ${{ github.job }}
@@ -1885,7 +1885,7 @@ jobs:
     steps:
       - name: Setup Scripts
         id: setup
-        uses: github/gh-aw-actions/setup@00c24a5774577e7282046aa2225105571a8f4195 # v0.80.4
+        uses: github/gh-aw-actions/setup@c20f9e750acfb2da7ce8698626ebeb65efb33300 # v0.80.6
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
           job-name: ${{ github.job }}
@@ -2212,7 +2212,7 @@ jobs:
     steps:
       - name: Setup Scripts
         id: setup
-        uses: github/gh-aw-actions/setup@00c24a5774577e7282046aa2225105571a8f4195 # v0.80.4
+        uses: github/gh-aw-actions/setup@c20f9e750acfb2da7ce8698626ebeb65efb33300 # v0.80.6
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
           job-name: ${{ github.job }}
@@ -2345,7 +2345,7 @@ jobs:
     steps:
       - name: Setup Scripts
         id: setup
-        uses: github/gh-aw-actions/setup@00c24a5774577e7282046aa2225105571a8f4195 # v0.80.4
+        uses: github/gh-aw-actions/setup@c20f9e750acfb2da7ce8698626ebeb65efb33300 # v0.80.6
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
           job-name: ${{ github.job }}
