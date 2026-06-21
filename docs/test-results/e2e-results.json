@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/cd06e7e3ff6f6c674de619a1cda7bc02fd8ffff9",
-        "commitHash": "cd06e7e3ff6f6c674de619a1cda7bc02fd8ffff9",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27818854596"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/7d338769217d935f79a880444b68d136d3ec5de4",
+        "commitHash": "7d338769217d935f79a880444b68d136d3ec5de4",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27901240503"
       },
       "gitCommit": {
-        "shortHash": "cd06e7e3ff",
-        "hash": "cd06e7e3ff6f6c674de619a1cda7bc02fd8ffff9",
-        "subject": "chore: recompile agentic workflow lock files",
-        "body": "chore: recompile agentic workflow lock files\n",
+        "shortHash": "7d33876921",
+        "hash": "7d338769217d935f79a880444b68d136d3ec5de4",
+        "subject": "Merge pull request #2421 from Hack23/dependabot/npm_and_yarn/development-dependencies-86bea91ec8",
+        "body": "Merge pull request #2421 from Hack23/dependabot/npm_and_yarn/development-dependencies-86bea91ec8\n\nbuild(deps-dev)(deps-dev): bump lint-staged from 17.0.7 to 17.0.8 in the development-dependencies group",
         "author": {
-          "name": "github-actions[bot]",
-          "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1781863029000
+          "name": "James Pether Sörling",
+          "email": "pethers@users.noreply.github.com",
+          "time": 1782032278000
         },
         "committer": {
-          "name": "github-actions[bot]",
-          "email": "github-actions[bot]@users.noreply.github.com",
-          "time": 1781863029000
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "time": 1782032278000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/cd06e7e3ff6f6c674de619a1cda7bc02fd8ffff9",
-            "commitHash": "cd06e7e3ff6f6c674de619a1cda7bc02fd8ffff9",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27818854596"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/7d338769217d935f79a880444b68d136d3ec5de4",
+            "commitHash": "7d338769217d935f79a880444b68d136d3ec5de4",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/27901240503"
           },
           "gitCommit": {
-            "shortHash": "cd06e7e3ff",
-            "hash": "cd06e7e3ff6f6c674de619a1cda7bc02fd8ffff9",
-            "subject": "chore: recompile agentic workflow lock files",
-            "body": "chore: recompile agentic workflow lock files\n",
+            "shortHash": "7d33876921",
+            "hash": "7d338769217d935f79a880444b68d136d3ec5de4",
+            "subject": "Merge pull request #2421 from Hack23/dependabot/npm_and_yarn/development-dependencies-86bea91ec8",
+            "body": "Merge pull request #2421 from Hack23/dependabot/npm_and_yarn/development-dependencies-86bea91ec8\n\nbuild(deps-dev)(deps-dev): bump lint-staged from 17.0.7 to 17.0.8 in the development-dependencies group",
             "author": {
-              "name": "github-actions[bot]",
-              "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1781863029000
+              "name": "James Pether Sörling",
+              "email": "pethers@users.noreply.github.com",
+              "time": 1782032278000
             },
             "committer": {
-              "name": "github-actions[bot]",
-              "email": "github-actions[bot]@users.noreply.github.com",
-              "time": 1781863029000
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "time": 1782032278000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1181,
+                      "duration": 1197,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-19T10:07:23.065Z",
+                      "startTime": "2026-06-21T10:27:00.689Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1246,
+                      "duration": 1245,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-19T10:07:23.017Z",
+                      "startTime": "2026-06-21T10:27:00.612Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1181,
+                      "duration": 1172,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-19T10:07:23.121Z",
+                      "startTime": "2026-06-21T10:27:00.648Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 972,
+                      "duration": 825,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-19T10:07:24.499Z",
+                      "startTime": "2026-06-21T10:27:02.029Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1036,
+                      "duration": 885,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-19T10:07:24.508Z",
+                      "startTime": "2026-06-21T10:27:02.051Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -325,12 +325,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 986,
+                      "duration": 823,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-19T10:07:24.582Z",
+                      "startTime": "2026-06-21T10:27:02.101Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-19T10:07:21.501Z",
-    "duration": 4155.52,
+    "startTime": "2026-06-21T10:26:58.876Z",
+    "duration": 4126.067999999999,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
