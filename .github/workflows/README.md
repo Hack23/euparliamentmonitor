@@ -244,7 +244,42 @@ agent must finish within the 60-minute `timeout-minutes` cap regardless. See
 for the canonical stage budgets and [`.github/prompts/09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5
 for historical rate-limit forensics (run #24963129839).
 
-#### Lock-file compile flow
+#### Cost governance
+
+Every `news-*.md` workflow declares two cost-focus caps **inline** in its
+top-level frontmatter, immediately after `timeout-minutes: 60`:
+
+| Field | Value | Effect |
+|---|---|---|
+| `max-turns` (legacy alias `max-runs`) | `500` | Hard ceiling on AWF agent-invocation loops; backstops a runaway/looping agent independently of the wall-clock `timeout-minutes` cap. Compiles to `apiProxy.maxRuns` + the agent-step `GH_AW_MAX_TURNS` env. |
+| `max-ai-credits` | `1000` | Per-run AI-credit (premium-request) spend ceiling. Compiles to `apiProxy.maxAiCredits` + the agent-step `GH_AW_MAX_AI_CREDITS` env. |
+
+Rationale and constraints:
+
+- **Why inline, not shared:** gh-aw (v0.80.9) silently **ignores** `max-turns`
+  and `max-ai-credits` when they are set in an imported `shared/**` config —
+  the compiler emits `⚠ Ignoring unexpected frontmatter fields …`. This is the
+  same propagation caveat already documented for `safe-outputs.max-patch-size`,
+  so both fields are declared in every `news-*.md` rather than centralised.
+  `test/unit/agentic-workflows-cost-governance.test.js` is the drift-guard that
+  enforces their presence and value across all 15 workflows.
+- **Why explicit at the gh-aw defaults (500 / 1000):** without these fields the
+  agent step falls back to the implicit, externally-mutable org variables
+  `vars.GH_AW_DEFAULT_MAX_TURNS` / `vars.GH_AW_DEFAULT_MAX_AI_CREDITS` (default
+  `500` / `1000`). Declaring them inline makes the per-run ceiling explicit,
+  deterministic, version-controlled, and PR-reviewable — the compiled agent
+  `apiProxy.maxAiCredits` becomes a literal `1000` instead of the
+  `${GH_AW_MAX_AI_CREDITS}` indirection. Tune per workflow here when a slug
+  warrants a tighter or looser budget.
+- **Threat-detection budget is separate:** the safe-outputs `threat-detection`
+  sub-step keeps its own smaller credit budget
+  (`vars.GH_AW_DEFAULT_DETECTION_MAX_AI_CREDITS`, default `400`) and is
+  unaffected by the agent-run caps above.
+- **Translation helper:** `news-translate.md` carries the same two caps plus its
+  pre-existing `max-continuations: 1` guard (post-flush engine-timeout fix, run
+  #219) — the three fields are independent.
+
+
 
 1. Author or edit a `news-*.md` / `shared/mcp/*.md` / imported agent file.
 2. Locally run `gh aw compile --validate` (the repo does **not** commit lock
@@ -302,6 +337,8 @@ uniformly across all 14 article workflows plus `news-translate.md`:
 
 | Concern | Setting | Source-of-truth doc |
 |---|---|---|
+| Per-run agent-invocation cap | `max-turns: 500` (legacy alias `max-runs`) | upstream `reference/engines.md` |
+| Per-run AI-credit spend ceiling | `max-ai-credits: 1000` | upstream `reference/engines.md` |
 | Per-tool-call cap | `tools.timeout: 180` (aligned with EP MCP 180 s request timeout) | upstream `reference/tools.md` |
 | MCP server boot budget | `tools.startup-timeout: 180` | upstream `reference/tools.md` |
 | MCP gateway keepalive | upstream default (no override needed) | upstream `reference/mcp-gateway.md` §4.1.3.5 |

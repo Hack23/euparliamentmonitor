@@ -34,6 +34,18 @@ permissions:
 # create_pull_request by minute ≤ 45. Per-slug budgets in src/config/article-horizons.ts.
 # See .github/workflows/README.md "Workflow timing contract" for full rationale.
 timeout-minutes: 60
+# Cost governance (gh-aw v0.80.9 — see .github/workflows/README.md "Cost governance").
+# Make the per-run AI spend ceiling explicit and version-controlled instead of
+# relying on the implicit org-level vars.GH_AW_DEFAULT_* fallbacks (turns 500 /
+# credits 1000). gh-aw silently ignores both fields when set in a shared import
+# (same caveat as safe-outputs.max-patch-size), so they are declared inline in
+# every news-*.md. The safe-outputs threat-detection sub-step keeps its own
+# separate, smaller credit budget (vars.GH_AW_DEFAULT_DETECTION_MAX_AI_CREDITS,
+# default 400) and is unaffected by these caps.
+#   max-turns      — AWF agent-invocation cap (legacy alias: max-runs).
+#   max-ai-credits — per-run AI-credit (premium-request) spend ceiling.
+max-turns: 500
+max-ai-credits: 1000
 
 
 imports:
