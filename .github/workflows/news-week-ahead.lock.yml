@@ -47,9 +47,9 @@
 #   - IMF_API_SECONDARY_KEY
 #
 # Custom actions used:
-#   - actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
 #   - actions/cache/restore@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
-#   - actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+#   - actions/cache/restore@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
+#   - actions/cache/save@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
 #   - actions/cache/save@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
 #   - actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 #   - actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # de0fac2e4500dabe0009e67214ff5f5447ce83dd
@@ -159,7 +159,7 @@ jobs:
         id: restore-daily-aic-cache
         if: ${{ env.GH_AW_MAX_DAILY_AI_CREDITS != '' }}
         continue-on-error: true
-        uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        uses: actions/cache/restore@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
         with:
           key: agentic-workflow-usage-newsweekahead-${{ github.run_id }}
           restore-keys: agentic-workflow-usage-newsweekahead-
@@ -825,7 +825,7 @@ jobs:
         run: bash "${RUNNER_TEMP}/gh-aw/actions/create_cache_memory_dir.sh"
       - name: Restore cache-memory file share data
         id: restore_cache_memory_0
-        uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        uses: actions/cache/restore@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
         with:
           key: memory-none-nopolicy-news-week-ahead-${{ github.repository_owner }}-${{ github.run_id }}
           path: /tmp/gh-aw/cache-memory
@@ -2402,7 +2402,7 @@ jobs:
             }
       - name: Save cache-memory to cache (default)
         if: steps.check_cache_default.outputs.has_content == 'true'
-        uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        uses: actions/cache/save@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
         with:
           key: memory-none-nopolicy-news-week-ahead-${{ github.repository_owner }}-${{ github.run_id }}
           path: /tmp/gh-aw/cache-memory
