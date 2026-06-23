@@ -1,14 +1,14 @@
 {
   "entries": {
-    "actions/cache/restore@v5.0.5": {
+    "actions/cache/restore@v6.0.0": {
       "repo": "actions/cache/restore",
-      "version": "v5.0.5",
-      "sha": "27d5ce7f107fe9357f9df03efb73ab90386fccae"
+      "version": "v6.0.0",
+      "sha": "2c8a9bd7457de244a408f35966fab2fb45fda9c8"
     },
-    "actions/cache/save@v5.0.5": {
+    "actions/cache/save@v6.0.0": {
       "repo": "actions/cache/save",
-      "version": "v5.0.5",
-      "sha": "27d5ce7f107fe9357f9df03efb73ab90386fccae"
+      "version": "v6.0.0",
+      "sha": "2c8a9bd7457de244a408f35966fab2fb45fda9c8"
     },
     "actions/checkout@v7.0.0": {
       "repo": "actions/checkout",
@@ -44,6 +44,13 @@
       "repo": "github/gh-aw-actions/setup",
       "version": "v0.81.0",
       "sha": "3c7f3b6f423dd721e2f115b7c8fda65287e1f137"
+    }
+  },
+  "containers": {
+    "node:26-alpine": {
+      "image": "node:26-alpine",
+      "digest": "sha256:a2dc166a387cc6ca1e62d0c8e265e49ca985d6e60abc9fe6e6c3d6ce8e63f606",
+      "pinned_image": "node:26-alpine@sha256:a2dc166a387cc6ca1e62d0c8e265e49ca985d6e60abc9fe6e6c3d6ce8e63f606"
     }
   }
 }
