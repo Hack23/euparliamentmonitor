@@ -19,11 +19,7 @@ import type { ArticleCategory, LanguageCode } from './common.js';
  * - `deepens`: Current article provides deeper analysis of the target
  */
 export type CrossReferenceRelationship =
-  | 'follows_up'
-  | 'preceded_by'
-  | 'related'
-  | 'contradicts'
-  | 'deepens';
+  'follows_up' | 'preceded_by' | 'related' | 'contradicts' | 'deepens';
 
 /** Signal strength of a cross-reference link */
 export type CrossReferenceStrength = 'strong' | 'moderate' | 'weak';

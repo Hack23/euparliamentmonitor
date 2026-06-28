@@ -80,10 +80,7 @@ export interface StakeholderPerspective {
  * 4. `final_refinement` — Balanced evidence-based conclusions
  */
 export type AnalysisIterationType =
-  | 'initial'
-  | 'stakeholder_challenge'
-  | 'cross_perspective'
-  | 'final_refinement';
+  'initial' | 'stakeholder_challenge' | 'cross_perspective' | 'final_refinement';
 
 /**
  * A single pass in the iterative multi-pass analysis cycle.

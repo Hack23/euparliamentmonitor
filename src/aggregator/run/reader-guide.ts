@@ -132,8 +132,7 @@ export function renderReaderIntelligenceGuide(
     .map((section) => {
       if (!READER_GUIDE_SECTION_IDS.includes(section.id)) return '';
       const copy = Object.getOwnPropertyDescriptor(READER_GUIDE_EN, section.id)?.value as
-        | { need: string; value: string }
-        | undefined;
+        { need: string; value: string } | undefined;
       if (!copy) return '';
       const source = included.find((artifact) => artifact.sectionId === section.id)?.runRelPath;
       const label = source ? `\`${source}\`` : section.title;

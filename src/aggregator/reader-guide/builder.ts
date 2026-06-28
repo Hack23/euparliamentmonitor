@@ -52,8 +52,7 @@ export function buildReaderIntelligenceGuideHtml(
 
   for (const section of sections) {
     const rowData = Object.getOwnPropertyDescriptor(READER_GUIDE_ROWS, section.id)?.value as
-      | GuideRowData
-      | undefined;
+      GuideRowData | undefined;
     if (!rowData) continue;
 
     const need = getLocalizedString(rowData.need, lang);

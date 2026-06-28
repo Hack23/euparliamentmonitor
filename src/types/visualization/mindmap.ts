@@ -50,14 +50,7 @@ export type ActorType = 'mep' | 'group' | 'committee' | 'external';
  * palette entry (overriding the default category-based colors).
  */
 export type MindmapBranchColor =
-  | 'cyan'
-  | 'magenta'
-  | 'yellow'
-  | 'green'
-  | 'purple'
-  | 'orange'
-  | 'blue'
-  | 'red';
+  'cyan' | 'magenta' | 'yellow' | 'green' | 'purple' | 'orange' | 'blue' | 'red';
 
 /**
  * A single node in the intelligence mindmap.

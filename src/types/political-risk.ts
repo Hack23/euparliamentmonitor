@@ -30,11 +30,7 @@ import type { PoliticalActorType } from './political-classification.js';
  * | almost_certain | 0.9   | Expected to occur in most circumstances        |
  */
 export type PoliticalRiskLikelihood =
-  | 'rare'
-  | 'unlikely'
-  | 'possible'
-  | 'likely'
-  | 'almost_certain';
+  'rare' | 'unlikely' | 'possible' | 'likely' | 'almost_certain';
 
 /**
  * Political risk impact level (adapted from ISMS Impact Assessment).
@@ -351,10 +347,7 @@ export interface RiskInterconnection {
   readonly interconnectionScore: number;
   /** Assessment label reflecting overall systemic risk */
   readonly assessment:
-    | 'isolated'
-    | 'moderate-interconnection'
-    | 'high-interconnection'
-    | 'systemic';
+    'isolated' | 'moderate-interconnection' | 'high-interconnection' | 'systemic';
 }
 
 /**
@@ -377,11 +370,7 @@ export interface RiskVelocity {
    * - `rapidly-de-escalating`: scoreDelta < -1.5
    */
   readonly assessment:
-    | 'rapidly-escalating'
-    | 'escalating'
-    | 'stable'
-    | 'de-escalating'
-    | 'rapidly-de-escalating';
+    'rapidly-escalating' | 'escalating' | 'stable' | 'de-escalating' | 'rapidly-de-escalating';
 }
 
 /**
