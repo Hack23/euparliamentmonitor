@@ -437,8 +437,7 @@ export function runServer(
             send(handleToolsList(msg.id ?? null));
           } else if (msg.method === 'tools/call') {
             const params = msg.params as
-              | { name?: string; arguments?: { url?: string } }
-              | undefined;
+              { name?: string; arguments?: { url?: string } } | undefined;
             if (params?.name === 'fetch_url') {
               const url = params.arguments?.url;
               const result = await handleFetchUrl(msg.id ?? null, url, fetchImpl);

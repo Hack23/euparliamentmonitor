@@ -24,8 +24,7 @@ export interface CommitteeMeeting {
   time?: string | undefined;
   location?: string | undefined;
   agenda?:
-    | Array<{ item?: number | undefined; title: string; type?: string | undefined }>
-    | undefined;
+    Array<{ item?: number | undefined; title: string; type?: string | undefined }> | undefined;
 }
 
 /** Legislative document from MCP */
@@ -442,10 +441,7 @@ export interface CoalitionShiftSignal {
    * - `isolation`: group voting consistently against all others
    */
   readonly patternType:
-    | 'cross-party-alignment'
-    | 'bloc-fragmentation'
-    | 'new-bloc-formation'
-    | 'isolation';
+    'cross-party-alignment' | 'bloc-fragmentation' | 'new-bloc-formation' | 'isolation';
   /** Cohesion score that triggered the signal (0–1) */
   readonly cohesion: number;
   /** Confidence in the signal detection */

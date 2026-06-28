@@ -170,10 +170,7 @@ export interface PoliticalForcesAnalysis {
  * Supported analytical methods that can be applied during classification.
  */
 export type ClassificationMethod =
-  | 'impact-matrix'
-  | 'actor-mapping'
-  | 'forces-analysis'
-  | 'significance-assessment';
+  'impact-matrix' | 'actor-mapping' | 'forces-analysis' | 'significance-assessment';
 
 /**
  * Metadata record written to `analysis/daily/{date}/{article-type}/manifest.json`.

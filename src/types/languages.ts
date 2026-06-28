@@ -9,20 +9,7 @@
 
 /** Supported language codes */
 export type LanguageCode =
-  | 'en'
-  | 'sv'
-  | 'da'
-  | 'no'
-  | 'fi'
-  | 'de'
-  | 'fr'
-  | 'es'
-  | 'nl'
-  | 'ar'
-  | 'he'
-  | 'ja'
-  | 'ko'
-  | 'zh';
+  'en' | 'sv' | 'da' | 'no' | 'fi' | 'de' | 'fr' | 'es' | 'nl' | 'ar' | 'he' | 'ja' | 'ko' | 'zh';
 
 /** RTL language codes */
 export type RTLLanguageCode = 'ar' | 'he';

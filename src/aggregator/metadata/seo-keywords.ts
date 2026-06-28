@@ -45,8 +45,7 @@ export function buildSeoKeywords(
   void runId;
   const localized = getLocalizedString(LOCALIZED_KEYWORDS, lang);
   const base = Object.getOwnPropertyDescriptor(localized, articleType)?.value as
-    | readonly string[]
-    | undefined;
+    readonly string[] | undefined;
   const fallback = ['EU Parliament', 'European Parliament', 'political intelligence'];
   const candidates = [
     // Always-on cross-site portfolio keywords lead the list so they

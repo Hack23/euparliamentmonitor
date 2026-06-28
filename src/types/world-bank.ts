@@ -184,11 +184,7 @@ export interface WBToolIndicatorKeys {
     | 'UNEMPLOYMENT';
   /** Social indicators accepted by `get-social-data` */
   'get-social-data':
-    | 'POPULATION'
-    | 'LIFE_EXPECTANCY'
-    | 'BIRTH_RATE'
-    | 'DEATH_RATE'
-    | 'INTERNET_USERS';
+    'POPULATION' | 'LIFE_EXPECTANCY' | 'BIRTH_RATE' | 'DEATH_RATE' | 'INTERNET_USERS';
   /** Health indicators accepted by `get-health-data` */
   'get-health-data':
     | 'HEALTH_EXPENDITURE'

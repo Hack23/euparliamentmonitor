@@ -60,11 +60,7 @@ export interface ResolvedMetadataEntry {
    * [`.github/prompts/04-article-generation.md`](../../../.github/prompts/04-article-generation.md) § 6.2 priority 3.
    */
   readonly source:
-    | 'manifest'
-    | 'localized-brief'
-    | 'english-brief'
-    | 'english-editorial'
-    | 'template';
+    'manifest' | 'localized-brief' | 'english-brief' | 'english-editorial' | 'template';
 }
 
 /** Fully resolved metadata — one entry per supported language. */
