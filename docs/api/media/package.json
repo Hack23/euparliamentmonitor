@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -156,7 +156,7 @@
     "@playwright/test": "1.61.1",
     "@types/d3": "7.4.3",
     "@types/markdown-it": "^14.1.2",
-    "@types/node": "26.0.1",
+    "@types/node": "26.1.0",
     "@types/papaparse": "5.5.2",
     "@typescript-eslint/eslint-plugin": "8.62.1",
     "@typescript-eslint/parser": "8.62.1",

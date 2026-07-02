@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/ff4171993e56196cb82f4ae81e59f8b547c2993c",
-        "commitHash": "ff4171993e56196cb82f4ae81e59f8b547c2993c",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/28446797647"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/e708d73be7952f71fd09501fd9d9d6bc7abbb6fe",
+        "commitHash": "e708d73be7952f71fd09501fd9d9d6bc7abbb6fe",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/28589983575"
       },
       "gitCommit": {
-        "shortHash": "ff4171993e",
-        "hash": "ff4171993e56196cb82f4ae81e59f8b547c2993c",
-        "subject": "Merge pull request #2478 from Hack23/dependabot/npm_and_yarn/production-dependencies-3dfbd6efe3",
-        "body": "Merge pull request #2478 from Hack23/dependabot/npm_and_yarn/production-dependencies-3dfbd6efe3\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.31 to 1.3.32 in the production-dependencies group",
+        "shortHash": "e708d73be7",
+        "hash": "e708d73be7952f71fd09501fd9d9d6bc7abbb6fe",
+        "subject": "Merge pull request #2483 from Hack23/dependabot/github_actions/github-actions-2c4587cf48",
+        "body": "Merge pull request #2483 from Hack23/dependabot/github_actions/github-actions-2c4587cf48\n\nbuild(deps)(deps): bump the github-actions group with 3 updates",
         "author": {
           "name": "James Pether Sörling",
           "email": "pethers@users.noreply.github.com",
-          "time": 1782824927000
+          "time": 1782988516000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1782824927000
+          "time": 1782988516000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/ff4171993e56196cb82f4ae81e59f8b547c2993c",
-            "commitHash": "ff4171993e56196cb82f4ae81e59f8b547c2993c",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/28446797647"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/e708d73be7952f71fd09501fd9d9d6bc7abbb6fe",
+            "commitHash": "e708d73be7952f71fd09501fd9d9d6bc7abbb6fe",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/28589983575"
           },
           "gitCommit": {
-            "shortHash": "ff4171993e",
-            "hash": "ff4171993e56196cb82f4ae81e59f8b547c2993c",
-            "subject": "Merge pull request #2478 from Hack23/dependabot/npm_and_yarn/production-dependencies-3dfbd6efe3",
-            "body": "Merge pull request #2478 from Hack23/dependabot/npm_and_yarn/production-dependencies-3dfbd6efe3\n\nbuild(deps)(deps): bump european-parliament-mcp-server from 1.3.31 to 1.3.32 in the production-dependencies group",
+            "shortHash": "e708d73be7",
+            "hash": "e708d73be7952f71fd09501fd9d9d6bc7abbb6fe",
+            "subject": "Merge pull request #2483 from Hack23/dependabot/github_actions/github-actions-2c4587cf48",
+            "body": "Merge pull request #2483 from Hack23/dependabot/github_actions/github-actions-2c4587cf48\n\nbuild(deps)(deps): bump the github-actions group with 3 updates",
             "author": {
               "name": "James Pether Sörling",
               "email": "pethers@users.noreply.github.com",
-              "time": 1782824927000
+              "time": 1782988516000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1782824927000
+              "time": 1782988516000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1159,
+                      "duration": 1177,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T13:19:45.791Z",
+                      "startTime": "2026-07-02T12:38:41.955Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1326,
+                      "duration": 1054,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T13:19:45.707Z",
+                      "startTime": "2026-07-02T12:38:41.777Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1247,
+                      "duration": 1956,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T13:19:45.840Z",
+                      "startTime": "2026-07-02T12:38:41.943Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 929,
+                      "duration": 880,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T13:19:47.179Z",
+                      "startTime": "2026-07-02T12:38:43.158Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 913,
+                      "duration": 964,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T13:19:47.253Z",
+                      "startTime": "2026-07-02T12:38:43.315Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -325,12 +325,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1439,
+                      "duration": 626,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-30T13:19:47.359Z",
+                      "startTime": "2026-07-02T12:38:44.067Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-30T13:19:44.206Z",
-    "duration": 4670.8279999999995,
+    "startTime": "2026-07-02T12:38:40.284Z",
+    "duration": 4476.329,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
