@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/e708d73be7952f71fd09501fd9d9d6bc7abbb6fe",
-        "commitHash": "e708d73be7952f71fd09501fd9d9d6bc7abbb6fe",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/28589983575"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/122b21246856119ab207637cd6a4fd3d8d90b7b9",
+        "commitHash": "122b21246856119ab207637cd6a4fd3d8d90b7b9",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/28701483893"
       },
       "gitCommit": {
-        "shortHash": "e708d73be7",
-        "hash": "e708d73be7952f71fd09501fd9d9d6bc7abbb6fe",
-        "subject": "Merge pull request #2483 from Hack23/dependabot/github_actions/github-actions-2c4587cf48",
-        "body": "Merge pull request #2483 from Hack23/dependabot/github_actions/github-actions-2c4587cf48\n\nbuild(deps)(deps): bump the github-actions group with 3 updates",
+        "shortHash": "122b212468",
+        "hash": "122b21246856119ab207637cd6a4fd3d8d90b7b9",
+        "subject": "chore: recompile agentic workflow lock files",
+        "body": "chore: recompile agentic workflow lock files\n",
         "author": {
-          "name": "James Pether Sörling",
-          "email": "pethers@users.noreply.github.com",
-          "time": 1782988516000
+          "name": "github-actions[bot]",
+          "email": "github-actions[bot]@users.noreply.github.com",
+          "time": 1783155113000
         },
         "committer": {
-          "name": "GitHub",
-          "email": "noreply@github.com",
-          "time": 1782988516000
+          "name": "github-actions[bot]",
+          "email": "github-actions[bot]@users.noreply.github.com",
+          "time": 1783155113000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/e708d73be7952f71fd09501fd9d9d6bc7abbb6fe",
-            "commitHash": "e708d73be7952f71fd09501fd9d9d6bc7abbb6fe",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/28589983575"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/122b21246856119ab207637cd6a4fd3d8d90b7b9",
+            "commitHash": "122b21246856119ab207637cd6a4fd3d8d90b7b9",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/28701483893"
           },
           "gitCommit": {
-            "shortHash": "e708d73be7",
-            "hash": "e708d73be7952f71fd09501fd9d9d6bc7abbb6fe",
-            "subject": "Merge pull request #2483 from Hack23/dependabot/github_actions/github-actions-2c4587cf48",
-            "body": "Merge pull request #2483 from Hack23/dependabot/github_actions/github-actions-2c4587cf48\n\nbuild(deps)(deps): bump the github-actions group with 3 updates",
+            "shortHash": "122b212468",
+            "hash": "122b21246856119ab207637cd6a4fd3d8d90b7b9",
+            "subject": "chore: recompile agentic workflow lock files",
+            "body": "chore: recompile agentic workflow lock files\n",
             "author": {
-              "name": "James Pether Sörling",
-              "email": "pethers@users.noreply.github.com",
-              "time": 1782988516000
+              "name": "github-actions[bot]",
+              "email": "github-actions[bot]@users.noreply.github.com",
+              "time": 1783155113000
             },
             "committer": {
-              "name": "GitHub",
-              "email": "noreply@github.com",
-              "time": 1782988516000
+              "name": "github-actions[bot]",
+              "email": "github-actions[bot]@users.noreply.github.com",
+              "time": 1783155113000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1177,
+                      "duration": 1209,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-02T12:38:41.955Z",
+                      "startTime": "2026-07-04T09:18:45.621Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1054,
+                      "duration": 1108,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-02T12:38:41.777Z",
+                      "startTime": "2026-07-04T09:18:45.736Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1956,
+                      "duration": 1308,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-02T12:38:41.943Z",
+                      "startTime": "2026-07-04T09:18:45.804Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -257,12 +257,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 880,
+                      "duration": 1057,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-02T12:38:43.158Z",
+                      "startTime": "2026-07-04T09:18:47.005Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -291,12 +291,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 964,
+                      "duration": 1085,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-02T12:38:43.315Z",
+                      "startTime": "2026-07-04T09:18:47.062Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 626,
+                      "duration": 918,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-02T12:38:44.067Z",
+                      "startTime": "2026-07-04T09:18:47.358Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-02T12:38:40.284Z",
-    "duration": 4476.329,
+    "startTime": "2026-07-04T09:18:44.093Z",
+    "duration": 4267.237999999999,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
