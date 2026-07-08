@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.4-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--30-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.5-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--07--08-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.4 | **📅 Last Updated:** 2026-05-30 (UTC) | **📦 Release:** v0.9.26  
-**🔄 Review Cycle:** Annual (with quarterly delta scans) | **⏰ Next Review:** 2027-05-30
+**📋 Document Owner:** CEO | **📄 Version:** 2.5 | **📅 Last Updated:** 2026-07-08 (UTC) | **📦 Release:** v1.0.27  
+**🔄 Review Cycle:** Annual (with quarterly delta scans) | **⏰ Next Review:** 2027-07-08
 **🏷️ Classification:** Public (Static Site European Parliament Intelligence Platform)
 
 ---
@@ -112,11 +112,11 @@ mindmap
         No EOL
         Progressive Enhancement
     Build and Tooling
-      TypeScript 6.0.3
+      TypeScript 6.0.2 (package alias) + TypeScript 7.0.1-rc compatibility build
         Current Latest
         12-month major cycles
         Strict Mode Enabled
-      ESLint 10.4.1
+      ESLint 10.6.0
         Current Latest
         Active
         Flat Config System
@@ -125,28 +125,28 @@ mindmap
         Current Stable
         Active
         HTML Validation
-      Prettier 3.8.3
+      Prettier 3.9.4
         Active
-      TypeDoc 0.28.19
+      TypeDoc 0.28.20
         API documentation
     Testing and Quality
-      Vitest 4.1.7
+      Vitest 4.1.10
         Current Latest
         Active
         Native ESM Support
-        happy-dom 20.9.0
-      Playwright 1.60.0
+        happy-dom 20.10.6
+      Playwright 1.61.1
         Current Latest
         Active
         E2E Testing
-        axe-core 4.11.4 (WCAG 2.1 AA)
+        axe-core 4.12.1 (WCAG 2.1 AA)
     Visualization
       Chart.js 4.5.1
         Vendored via copy-vendor
       D3 7.9.0
         Vendored via copy-vendor
     Data and Integration
-      EP MCP Server 1.3.12
+      EP MCP Server 1.3.38 (package dep; CI pins 1.3.20)
         Active Development
         Hack23-maintained
         6 sliding + 7 fixed-window feeds
@@ -156,7 +156,7 @@ mindmap
       IMF SDMX 3.0 REST
         Native fetch client
         Monthly WEO+FM forecasts
-      gh-aw v0.77.3
+      gh-aw v0.82.3
         Pinned in compile workflow
       News Generation
         5-stage pipeline
@@ -169,22 +169,22 @@ mindmap
 | **Technology Category** | **Current Version**       | **Release Model**               | **EOL Timeline**   | **Migration Complexity**                                                                                                                                |
 | ----------------------- | ------------------------- | ------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **☕ Node.js Runtime**  | 26.x (LTS, `engines: >=26`) | Annual release (odd = Current, even = LTS) | **~Apr 2029** ✅ | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)     |
-| **📝 TypeScript**       | 6.0.3                    | Major every ~12 months          | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **📝 TypeScript**       | 6.0.2 (package alias) + 7.0.1-rc compatibility | Major every ~12 months          | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **📄 HTML5/CSS3**       | Living Standard           | Evergreen                       | N/A (Perpetual)    | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
-| **⚡ ESLint**           | 10.4.1                   | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
-| **🧪 Vitest**           | 4.1.7                    | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
-| **🔧 Playwright**       | 1.60.0                   | Monthly releases                | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **⚡ ESLint**           | 10.6.0                   | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **🧪 Vitest**           | 4.1.10                    | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **🔧 Playwright**       | 1.61.1                   | Monthly releases                | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **📊 Chart.js**         | 4.5.1 (vendored)         | Annual majors                   | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **📐 D3**               | 7.9.0 (vendored)         | Annual majors                   | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
-| **📚 TypeDoc**          | 0.28.19                  | Monthly minors                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
-| **🇪🇺 EP MCP Server**   | 1.3.12 (pinned) | Hack23-maintained; tracks EP Open Data API | Active development | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **📚 TypeDoc**          | 0.28.20                  | Monthly minors                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **🇪🇺 EP MCP Server**   | 1.3.38 (package dep; CI pins 1.3.20) | Hack23-maintained; tracks EP Open Data API | Active development | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **🌍 World Bank MCP**   | 1.0.1 (optional dep)     | Biannual WDI refresh            | Active             | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **💱 IMF SDMX 3.0 REST**| Native fetch client      | IMF-managed public API          | N/A (External API) | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
-| **🤖 gh-aw CLI**        | v0.77.3 (pinned `GH_AW_VERSION`) | Active development        | Active             | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **🤖 gh-aw CLI**        | v0.82.3 (pinned `GH_AW_VERSION`) | Active development        | Active             | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **☁️ AWS S3**           | Platform (Primary hosting)| Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **🌐 AWS CloudFront**   | Platform (Primary CDN)    | Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **📦 GitHub Pages**     | Alternative platform (fallback) | Ongoing                    | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
-| **📦 npm registry**     | Published package `euparliamentmonitor@0.9.28` | SemVer + SLSA L3 attestations | N/A (Registry) | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
+| **📦 npm registry**     | Published package `euparliamentmonitor@1.0.27` | SemVer + SLSA L3 attestations | N/A (Registry) | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **⚙️ GitHub Actions**   | Platform (`ubuntu-26.04` runners) | Ongoing                   | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 
 ---
