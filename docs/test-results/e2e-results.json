@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/1167ac1639efe524f7781b3adec11392ef67d59d",
-        "commitHash": "1167ac1639efe524f7781b3adec11392ef67d59d",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/28901465622"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/7711c2089e11177fe205d5a85074c4ebcfffa3b3",
+        "commitHash": "7711c2089e11177fe205d5a85074c4ebcfffa3b3",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/28956695463"
       },
       "gitCommit": {
-        "shortHash": "1167ac1639",
-        "hash": "1167ac1639efe524f7781b3adec11392ef67d59d",
-        "subject": "Merge pull request #2499 from Hack23/dependabot/github_actions/github-actions-a7cf821456",
-        "body": "Merge pull request #2499 from Hack23/dependabot/github_actions/github-actions-a7cf821456\n\nbuild(deps)(deps): bump aws-actions/configure-aws-credentials from 6.2.1 to 6.2.2 in the github-actions group",
+        "shortHash": "7711c2089e",
+        "hash": "7711c2089e11177fe205d5a85074c4ebcfffa3b3",
+        "subject": "chore(articles): regenerate all article.md and 14-language HTML output",
+        "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/28954155841\n",
         "author": {
-          "name": "James Pether Sörling",
-          "email": "pethers@users.noreply.github.com",
-          "time": 1783461053000
+          "name": "github-actions[bot]",
+          "email": "github-actions[bot]@users.noreply.github.com",
+          "time": 1783524397000
         },
         "committer": {
-          "name": "GitHub",
-          "email": "noreply@github.com",
-          "time": 1783461053000
+          "name": "github-actions[bot]",
+          "email": "github-actions[bot]@users.noreply.github.com",
+          "time": 1783524397000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/1167ac1639efe524f7781b3adec11392ef67d59d",
-            "commitHash": "1167ac1639efe524f7781b3adec11392ef67d59d",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/28901465622"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/7711c2089e11177fe205d5a85074c4ebcfffa3b3",
+            "commitHash": "7711c2089e11177fe205d5a85074c4ebcfffa3b3",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/28956695463"
           },
           "gitCommit": {
-            "shortHash": "1167ac1639",
-            "hash": "1167ac1639efe524f7781b3adec11392ef67d59d",
-            "subject": "Merge pull request #2499 from Hack23/dependabot/github_actions/github-actions-a7cf821456",
-            "body": "Merge pull request #2499 from Hack23/dependabot/github_actions/github-actions-a7cf821456\n\nbuild(deps)(deps): bump aws-actions/configure-aws-credentials from 6.2.1 to 6.2.2 in the github-actions group",
+            "shortHash": "7711c2089e",
+            "hash": "7711c2089e11177fe205d5a85074c4ebcfffa3b3",
+            "subject": "chore(articles): regenerate all article.md and 14-language HTML output",
+            "body": "chore(articles): regenerate all article.md and 14-language HTML output\n\nDeterministic rerun of `npm run generate-article:all` via the Regenerate Articles workflow. Refreshes every analysis-run article.md and every news/<date>-<slug>-<lang>.{md,html} variant from the committed analysis artifacts (no AI involvement).\n\nWorkflow: .github/workflows/regenerate-articles.yml\n\nRun: https://github.com/Hack23/euparliamentmonitor/actions/runs/28954155841\n",
             "author": {
-              "name": "James Pether Sörling",
-              "email": "pethers@users.noreply.github.com",
-              "time": 1783461053000
+              "name": "github-actions[bot]",
+              "email": "github-actions[bot]@users.noreply.github.com",
+              "time": 1783524397000
             },
             "committer": {
-              "name": "GitHub",
-              "email": "noreply@github.com",
-              "time": 1783461053000
+              "name": "github-actions[bot]",
+              "email": "github-actions[bot]@users.noreply.github.com",
+              "time": 1783524397000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1297,
+                      "duration": 2384,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-07T22:07:00.974Z",
+                      "startTime": "2026-07-08T16:07:56.763Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1226,
+                      "duration": 3854,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-07T22:07:00.906Z",
+                      "startTime": "2026-07-08T16:07:56.735Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1207,
+                      "duration": 2266,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-07T22:07:00.914Z",
+                      "startTime": "2026-07-08T16:07:56.713Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -257,12 +257,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1000,
+                      "duration": 795,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-07T22:07:02.395Z",
+                      "startTime": "2026-07-08T16:07:59.288Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1048,
+                      "duration": 804,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-07T22:07:02.437Z",
+                      "startTime": "2026-07-08T16:07:59.315Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1043,
+                      "duration": 566,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-07T22:07:02.496Z",
+                      "startTime": "2026-07-08T16:08:00.100Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-07T22:06:59.313Z",
-    "duration": 4298.447,
+    "startTime": "2026-07-08T16:07:54.976Z",
+    "duration": 5828.567,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
