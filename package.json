@@ -189,7 +189,8 @@
     "ts-api-utils": "2.5.0",
     "tsx": "4.23.0",
     "typedoc": "0.28.20",
-    "typescript": "6.0.3",
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "typescript-7": "npm:typescript@^7.0.1-rc",
     "vitest": "4.1.10",
     "yaml": "^2.9.0"
   },
