@@ -136,13 +136,14 @@ The published site is the audience-facing companion to this npm/TypeScript packa
 
 **MCP Server Integration**: The project uses the
 [European-Parliament-MCP-Server](https://github.com/Hack23/European-Parliament-MCP-Server)
-v1.3.12 for accessing real EU Parliament data via the Model Context Protocol.
+package version v1.3.38 for accessing real EU Parliament data via the Model Context Protocol; the Copilot runner in `.github/workflows/copilot-setup-steps.yml` currently installs v1.3.20 for the local MCP environment.
 
 - **MCP Server Status**: ✅ Fully operational — 60+ EP data tools available
   (feeds, direct lookups, analytical tools, intelligence correlation)
 - **Agentic Workflows**: 15 unified gh-aw markdown workflows — 14 article types (`news-<type>.md`, Stages A → B → C → D → E in one session) + `news-translate.md` (14-language flush translation) — compiled with
-  `gh-aw v0.69.3` (pin in `.github/workflows/compile-agentic-workflows.yml`) to `.lock.yml` for automated news generation with AI-driven political
+  `gh-aw v0.82.3` (pin in `.github/workflows/compile-agentic-workflows.yml`) to `.lock.yml` for automated news generation with AI-driven political
   intelligence analysis. See [`.github/workflows/README.md`](.github/workflows/README.md).
+- **Toolchain**: The build pipeline targets Node.js 26, uses TypeScript 6.0.2 as the default compiler, and keeps a dedicated TypeScript 7.0.1-rc compatibility build via `npm run tsc:7`.
 - **Analysis-Artifact-Driven Article Pipeline**: Agents author the full
   Stage-B analysis-artifact set (`analysis/daily/<date>/<slug>/`, 39
   structured templates per run; repeat same-day runs reuse the folder and
