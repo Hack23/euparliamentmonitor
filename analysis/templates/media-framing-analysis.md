@@ -508,7 +508,7 @@ flowchart LR
     S1["🟢 L1 Legitimate scrutiny<br/>evidenced, official-capacity"] --> S2["🟡 L2 Character framing<br/>unevidenced integrity attack"]
     S2 --> S3["🟠 L3 Guilt-by-association<br/>family/relationship weaponized"]
     S3 --> S4["🔴 L4 Harassment / smear campaign<br/>coordinated, CIB signals"]
-    S4 --> S5["⚫ L5 Incitement / threat<br/>escalate to SÄPO reporting note"]
+    S4 --> S5["⚫ L5 Incitement / threat<br/>escalate to reporting note"]
     style S1 fill:#4CAF50,color:#FFFFFF
     style S2 fill:#FFC107,color:#000000
     style S3 fill:#FB8C00,color:#FFFFFF
