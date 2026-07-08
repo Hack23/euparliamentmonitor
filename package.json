@@ -58,9 +58,10 @@
   "scripts": {
     "prebuild": "node scripts/generators/build-info.js && node scripts/generators/news-indexes.js && node scripts/generators/sitemap.js",
     "generate-build-info": "node scripts/generators/build-info.js",
-    "build": "tsc",
-    "build:check": "tsc --noEmit",
-    "build:check-tests": "tsc --project tsconfig.test.json --noEmit",
+    "tsc:7": "node ./node_modules/typescript-7/bin/tsc",
+    "build": "npm run tsc:7",
+    "build:check": "npm run tsc:7 -- --noEmit",
+    "build:check-tests": "npm run tsc:7 -- --project tsconfig.test.json --noEmit",
     "copy-vendor": "node scripts/copy-vendor.js",
     "validate-analysis": "node scripts/validate-analysis-completeness.js",
     "discover:untranslated-briefs": "node scripts/discover-untranslated-briefs.js",
