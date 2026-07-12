@@ -49,4 +49,9 @@ updates:
     day: monday
     interval: weekly
     time: "07:00"
+
+- package-ecosystem: npm
+  directory: /docs/api/media
+  schedule:
+    interval: daily
 version: 2
