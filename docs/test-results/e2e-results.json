@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/ddc70299352a4a3dd1075017da65c7a30b64b686",
-        "commitHash": "ddc70299352a4a3dd1075017da65c7a30b64b686",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29121902380"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/61770d98d0fbfa06ea0dc843a5d83284f2936d3c",
+        "commitHash": "61770d98d0fbfa06ea0dc843a5d83284f2936d3c",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29315939333"
       },
       "gitCommit": {
-        "shortHash": "ddc7029935",
-        "hash": "ddc70299352a4a3dd1075017da65c7a30b64b686",
-        "subject": "Update european-parliament-mcp-server to version 1.3.43",
-        "body": "Update european-parliament-mcp-server to version 1.3.43\n\nSigned-off-by: James Pether Sörling <pethers@users.noreply.github.com>",
+        "shortHash": "61770d98d0",
+        "hash": "61770d98d0fbfa06ea0dc843a5d83284f2936d3c",
+        "subject": "Merge pull request #2536 from Hack23/gh-aw-0.82.9",
+        "body": "Merge pull request #2536 from Hack23/gh-aw-0.82.9\n\nUpdate compile-agentic-workflows.yml gh-aw-0.82.9",
         "author": {
           "name": "James Pether Sörling",
           "email": "pethers@users.noreply.github.com",
-          "time": 1783711598000
+          "time": 1784015383000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1783711598000
+          "time": 1784015383000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/ddc70299352a4a3dd1075017da65c7a30b64b686",
-            "commitHash": "ddc70299352a4a3dd1075017da65c7a30b64b686",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29121902380"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/61770d98d0fbfa06ea0dc843a5d83284f2936d3c",
+            "commitHash": "61770d98d0fbfa06ea0dc843a5d83284f2936d3c",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29315939333"
           },
           "gitCommit": {
-            "shortHash": "ddc7029935",
-            "hash": "ddc70299352a4a3dd1075017da65c7a30b64b686",
-            "subject": "Update european-parliament-mcp-server to version 1.3.43",
-            "body": "Update european-parliament-mcp-server to version 1.3.43\n\nSigned-off-by: James Pether Sörling <pethers@users.noreply.github.com>",
+            "shortHash": "61770d98d0",
+            "hash": "61770d98d0fbfa06ea0dc843a5d83284f2936d3c",
+            "subject": "Merge pull request #2536 from Hack23/gh-aw-0.82.9",
+            "body": "Merge pull request #2536 from Hack23/gh-aw-0.82.9\n\nUpdate compile-agentic-workflows.yml gh-aw-0.82.9",
             "author": {
               "name": "James Pether Sörling",
               "email": "pethers@users.noreply.github.com",
-              "time": 1783711598000
+              "time": 1784015383000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1783711598000
+              "time": 1784015383000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1162,
+                      "duration": 1052,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-10T20:45:22.777Z",
+                      "startTime": "2026-07-14T08:13:20.045Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1193,
+                      "duration": 1125,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-10T20:45:22.900Z",
+                      "startTime": "2026-07-14T08:13:20.044Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1071,
+                      "duration": 1085,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-10T20:45:22.908Z",
+                      "startTime": "2026-07-14T08:13:20.045Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1097,
+                      "duration": 911,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-10T20:45:24.158Z",
+                      "startTime": "2026-07-14T08:13:21.347Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1076,
+                      "duration": 926,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-10T20:45:24.226Z",
+                      "startTime": "2026-07-14T08:13:21.363Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -325,12 +325,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1101,
+                      "duration": 915,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-10T20:45:24.255Z",
+                      "startTime": "2026-07-14T08:13:21.402Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-10T20:45:21.235Z",
-    "duration": 4201.126,
+    "startTime": "2026-07-14T08:13:18.523Z",
+    "duration": 3848.2529999999997,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
