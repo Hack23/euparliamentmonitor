@@ -1,3 +1,4 @@
+version: 2
 updates:
 - commit-message:
     include: scope
@@ -28,6 +29,10 @@ updates:
     day: monday
     interval: weekly
     time: "06:00"
+  cooldown:
+    default-days: 1
+    exclude: ["*"]
+
 - commit-message:
     include: scope
     prefix: build(deps)
@@ -49,4 +54,6 @@ updates:
     day: monday
     interval: weekly
     time: "07:00"
-version: 2
+  cooldown:
+    default-days: 1
+    exclude: ["*"]
