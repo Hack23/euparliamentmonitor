@@ -26,9 +26,7 @@ updates:
   open-pull-requests-limit: 10
   package-ecosystem: npm
   schedule:
-    day: monday
-    interval: weekly
-    time: "06:00"
+    interval: daily
   cooldown:
     default-days: 1
     exclude: ["*"]
