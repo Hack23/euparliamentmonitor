@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/120d4625b4c95c9bb306fe2c2e7daa4e608ceed9",
-        "commitHash": "120d4625b4c95c9bb306fe2c2e7daa4e608ceed9",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29371251614"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/541c0f3926603e744063a11ca4cf1d343178a22f",
+        "commitHash": "541c0f3926603e744063a11ca4cf1d343178a22f",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29486631203"
       },
       "gitCommit": {
-        "shortHash": "120d4625b4",
-        "hash": "120d4625b4c95c9bb306fe2c2e7daa4e608ceed9",
-        "subject": "Update release.yml use app for releas (#2539)",
-        "body": "Update release.yml use app for releas (#2539)\n\nSigned-off-by: James Pether Sörling <pethers@users.noreply.github.com>",
+        "shortHash": "541c0f3926",
+        "hash": "541c0f3926603e744063a11ca4cf1d343178a22f",
+        "subject": "build(deps-dev)(deps-dev): bump knip (#2540)",
+        "body": "build(deps-dev)(deps-dev): bump knip (#2540)\n\nBumps the development-dependencies group with 1 update: [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip).\n\n\nUpdates `knip` from 6.26.0 to 6.27.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.27.0/packages/knip)\n\n---\nupdated-dependencies:\n- dependency-name: knip\n  dependency-version: 6.27.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
-          "name": "James Pether Sörling",
-          "email": "pethers@users.noreply.github.com",
-          "time": 1784066095000
+          "name": "dependabot[bot]",
+          "email": "49699333+dependabot[bot]@users.noreply.github.com",
+          "time": 1784140393000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1784066095000
+          "time": 1784140393000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/120d4625b4c95c9bb306fe2c2e7daa4e608ceed9",
-            "commitHash": "120d4625b4c95c9bb306fe2c2e7daa4e608ceed9",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29371251614"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/541c0f3926603e744063a11ca4cf1d343178a22f",
+            "commitHash": "541c0f3926603e744063a11ca4cf1d343178a22f",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29486631203"
           },
           "gitCommit": {
-            "shortHash": "120d4625b4",
-            "hash": "120d4625b4c95c9bb306fe2c2e7daa4e608ceed9",
-            "subject": "Update release.yml use app for releas (#2539)",
-            "body": "Update release.yml use app for releas (#2539)\n\nSigned-off-by: James Pether Sörling <pethers@users.noreply.github.com>",
+            "shortHash": "541c0f3926",
+            "hash": "541c0f3926603e744063a11ca4cf1d343178a22f",
+            "subject": "build(deps-dev)(deps-dev): bump knip (#2540)",
+            "body": "build(deps-dev)(deps-dev): bump knip (#2540)\n\nBumps the development-dependencies group with 1 update: [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip).\n\n\nUpdates `knip` from 6.26.0 to 6.27.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.27.0/packages/knip)\n\n---\nupdated-dependencies:\n- dependency-name: knip\n  dependency-version: 6.27.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
-              "name": "James Pether Sörling",
-              "email": "pethers@users.noreply.github.com",
-              "time": 1784066095000
+              "name": "dependabot[bot]",
+              "email": "49699333+dependabot[bot]@users.noreply.github.com",
+              "time": 1784140393000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1784066095000
+              "time": 1784140393000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1177,
+                      "duration": 1240,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-14T22:06:02.499Z",
+                      "startTime": "2026-07-16T09:29:17.837Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1249,
+                      "duration": 1294,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-14T22:06:02.582Z",
+                      "startTime": "2026-07-16T09:29:17.806Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1092,
+                      "duration": 1219,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-14T22:06:02.589Z",
+                      "startTime": "2026-07-16T09:29:17.746Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -257,12 +257,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1300,
+                      "duration": 1059,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-14T22:06:03.931Z",
+                      "startTime": "2026-07-16T09:29:19.249Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -291,12 +291,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1155,
+                      "duration": 1127,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-14T22:06:03.973Z",
+                      "startTime": "2026-07-16T09:29:19.261Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -325,12 +325,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1219,
+                      "duration": 999,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-14T22:06:04.097Z",
+                      "startTime": "2026-07-16T09:29:19.322Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-14T22:06:00.971Z",
-    "duration": 4425.825,
+    "startTime": "2026-07-16T09:29:16.230Z",
+    "duration": 4213.093000000001,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
