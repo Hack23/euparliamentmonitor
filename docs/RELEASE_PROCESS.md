@@ -30,23 +30,29 @@ This guide describes how to create a new release of EU Parliament Monitor with a
    - ✅ Generate SBOM (Software Bill of Materials)
    - ✅ Create build provenance attestations
    - ✅ Create GitHub release with all artifacts
+   - ✅ Create one annotated `vX.Y.Z` tag and one release run
 
 4. **Review Release**
    - Check the release notes at https://github.com/Hack23/euparliamentmonitor/releases
    - Verify documentation is updated in docs/
    - Verify attestations are present
 
-### Manual Tag Push (Alternative)
+### Release Trigger Policy
 
-1. **Create and Push Tag**
-   ```bash
-   git tag v1.0.0
-   git push origin v1.0.0
-   ```
+Use **Run workflow** on `main` for every release. Do not create or push a
+release tag manually: the release workflow validates the requested version,
+commits the version and generated documentation, then creates and pushes the
+tag atomically. This prevents a workflow-created tag from recursively starting
+a second release run.
 
-2. **Workflow Triggers Automatically**
-   - Same automated steps as above
-   - Release is created automatically
+### Optional Commit and Tag Signing
+
+To sign the release commit and annotated tag, configure the protected
+`RELEASE_SSH_SIGNING_KEY` environment secret with a dedicated SSH signing key,
+and add its public key as a Git signing key for the release bot account. The
+workflow detects the secret and enables SSH commit and tag signing; without it,
+the release remains protected by the GitHub App identity, tag immutability,
+SBOM, and SLSA attestations but is not Git-signature verified.
 
 ## 📚 Documentation Generated
 

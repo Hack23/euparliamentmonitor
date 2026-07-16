@@ -11,9 +11,12 @@ on:
         description: "Is this a pre-release?"
         type: boolean
         default: false
-  push:
-    tags:
-      - "v*"
+
+# A release creates its own tag. Do not also trigger on tag pushes: GitHub App
+# tokens emit push events, which would recursively start a duplicate release.
+concurrency:
+  group: release-${{ github.repository }}
+  cancel-in-progress: false
 
 # Restrict top-level permissions to minimum required defaults
 permissions: read-all
@@ -40,7 +43,7 @@ jobs:
     outputs:
       version: ${{ steps.get-version.outputs.version }}
       npm_version: ${{ steps.get-version.outputs.npm_version }}
-      is_prerelease: ${{ github.event.inputs.prerelease || 'false' }}
+      is_prerelease: ${{ inputs.prerelease }}
     steps:
       - name: Configure git safe.directory
         # This step runs BEFORE actions/checkout. The container runs as root,
@@ -69,20 +72,28 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           persist-credentials: true
           fetch-depth: 0
+          ref: main
 
-      - name: Get version
+      - name: Validate release version
         id: get-version
+        env:
+          RELEASE_TAG: ${{ inputs.version }}
         run: |
-          if [[ "${{ github.event_name }}" == "push" ]]; then
-            VERSION=${GITHUB_REF#refs/tags/}
-          else
-            VERSION=${{ github.event.inputs.version }}
+          if ! [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?(\+[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$ ]]; then
+            echo "Release version must use the vX.Y.Z Semantic Versioning format." >&2
+            exit 1
           fi
-          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+          if git ls-remote --exit-code --tags origin "refs/tags/$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "Release tag $RELEASE_TAG already exists." >&2
+            exit 1
+          fi
+
+          echo "version=${RELEASE_TAG}" >> "$GITHUB_OUTPUT"
           # npm version without 'v' prefix
-          NPM_VERSION="${VERSION#v}"
-          echo "npm_version=${NPM_VERSION}" >> $GITHUB_OUTPUT
-          echo "Version: ${VERSION}"
+          NPM_VERSION="${RELEASE_TAG#v}"
+          echo "npm_version=${NPM_VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Version: ${RELEASE_TAG}"
           echo "npm version: ${NPM_VERSION}"
 
       - name: Setup Node.js
@@ -122,11 +133,10 @@ jobs:
       # and tag.
 
       - name: Set Version for release
-        if: github.event_name == 'workflow_dispatch'
+        env:
+          RELEASE_TAG: ${{ steps.get-version.outputs.version }}
         run: |
-          PLAIN_VERSION="${{ github.event.inputs.version }}"
-          # Remove 'v' prefix if present
-          PLAIN_VERSION="${PLAIN_VERSION#v}"
+          PLAIN_VERSION="${RELEASE_TAG#v}"
           npm version $PLAIN_VERSION --no-git-tag-version
 
 
@@ -219,20 +229,30 @@ jobs:
           
           echo "✅ Documentation structure validated"
 
-      - name: Commit documentation updates
-        uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
-        with:
-          commit_message: "docs: update documentation for ${{ steps.get-version.outputs.version }}"
-          file_pattern: "docs/**/*"
-          skip_fetch: false
-          skip_checkout: false
+      - name: Commit, sign, and tag release
+        env:
+          RELEASE_TAG: ${{ steps.get-version.outputs.version }}
+          RELEASE_SSH_SIGNING_KEY: ${{ secrets.RELEASE_SSH_SIGNING_KEY }}
+        run: |
+          git config user.name "hack23-automation[bot]"
+          git config user.email "304996498+hack23-automation[bot]@users.noreply.github.com"
 
-      - name: Create version tag
-        if: github.event_name == 'workflow_dispatch'
-        uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d # v7.2.0
-        with:
-          commit_message: "chore(release): bump version to ${{ github.event.inputs.version }}"
-          tagging_message: "${{ github.event.inputs.version }}"
+          if [ -n "$RELEASE_SSH_SIGNING_KEY" ]; then
+            signing_key="$RUNNER_TEMP/release-signing-key"
+            umask 077
+            printf '%s\n' "$RELEASE_SSH_SIGNING_KEY" > "$signing_key"
+            git config gpg.format ssh
+            git config user.signingkey "$signing_key"
+            git config commit.gpgsign true
+            git config tag.gpgsign true
+          else
+            echo "RELEASE_SSH_SIGNING_KEY is not configured; commits and tags will not be signed." >&2
+          fi
+
+          git add docs package.json package-lock.json
+          git commit -m "chore(release): bump version to $RELEASE_TAG"
+          git tag -a "$RELEASE_TAG" -m "Release $RELEASE_TAG"
+          git push --atomic origin HEAD:refs/heads/main "refs/tags/$RELEASE_TAG"
 
   build:
     name: Build Release Package
@@ -266,8 +286,7 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           persist-credentials: true
           fetch-depth: 0
-          # Use GITHUB_REF directly for tag events
-          ref: ${{ github.event_name == 'push' && github.ref || github.event_name == 'workflow_dispatch' && github.event.inputs.version || '' }}
+          ref: ${{ needs.prepare.outputs.version }}
 
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -387,14 +406,6 @@ jobs:
         with:
           app-id: ${{ vars.GH_APP_ID }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
-
-      - name: Checkout repository
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-        with:
-          token: ${{ steps.app-token.outputs.token }}
-          persist-credentials: true
-          fetch-depth: 0
-          ref: main # Always use main branch for deployment
 
       - name: Download build artifacts
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
