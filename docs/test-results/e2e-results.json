@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/541c0f3926603e744063a11ca4cf1d343178a22f",
-        "commitHash": "541c0f3926603e744063a11ca4cf1d343178a22f",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29486631203"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/b76f2f301a9da8714f89db76b1b00c2d7fcbb5ca",
+        "commitHash": "b76f2f301a9da8714f89db76b1b00c2d7fcbb5ca",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29499403071"
       },
       "gitCommit": {
-        "shortHash": "541c0f3926",
-        "hash": "541c0f3926603e744063a11ca4cf1d343178a22f",
-        "subject": "build(deps-dev)(deps-dev): bump knip (#2540)",
-        "body": "build(deps-dev)(deps-dev): bump knip (#2540)\n\nBumps the development-dependencies group with 1 update: [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip).\n\n\nUpdates `knip` from 6.26.0 to 6.27.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.27.0/packages/knip)\n\n---\nupdated-dependencies:\n- dependency-name: knip\n  dependency-version: 6.27.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "b76f2f301a",
+        "hash": "b76f2f301a9da8714f89db76b1b00c2d7fcbb5ca",
+        "subject": "Fix Bash shell selection in release version validation (#2542)",
+        "body": "Fix Bash shell selection in release version validation (#2542)\n\n* fix(release): run version validation with Bash\n\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>\n\n* fix(release): run version validation with Bash\n\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>\n\n---------\n\nCo-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>",
         "author": {
-          "name": "dependabot[bot]",
-          "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1784140393000
+          "name": "Copilot",
+          "email": "198982749+Copilot@users.noreply.github.com",
+          "time": 1784205900000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1784140393000
+          "time": 1784205900000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/541c0f3926603e744063a11ca4cf1d343178a22f",
-            "commitHash": "541c0f3926603e744063a11ca4cf1d343178a22f",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29486631203"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/b76f2f301a9da8714f89db76b1b00c2d7fcbb5ca",
+            "commitHash": "b76f2f301a9da8714f89db76b1b00c2d7fcbb5ca",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29499403071"
           },
           "gitCommit": {
-            "shortHash": "541c0f3926",
-            "hash": "541c0f3926603e744063a11ca4cf1d343178a22f",
-            "subject": "build(deps-dev)(deps-dev): bump knip (#2540)",
-            "body": "build(deps-dev)(deps-dev): bump knip (#2540)\n\nBumps the development-dependencies group with 1 update: [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip).\n\n\nUpdates `knip` from 6.26.0 to 6.27.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.27.0/packages/knip)\n\n---\nupdated-dependencies:\n- dependency-name: knip\n  dependency-version: 6.27.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "b76f2f301a",
+            "hash": "b76f2f301a9da8714f89db76b1b00c2d7fcbb5ca",
+            "subject": "Fix Bash shell selection in release version validation (#2542)",
+            "body": "Fix Bash shell selection in release version validation (#2542)\n\n* fix(release): run version validation with Bash\n\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>\n\n* fix(release): run version validation with Bash\n\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>\n\n---------\n\nCo-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>",
             "author": {
-              "name": "dependabot[bot]",
-              "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1784140393000
+              "name": "Copilot",
+              "email": "198982749+Copilot@users.noreply.github.com",
+              "time": 1784205900000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1784140393000
+              "time": 1784205900000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1240,
+                      "duration": 1159,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-16T09:29:17.837Z",
+                      "startTime": "2026-07-16T12:56:04.736Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1294,
+                      "duration": 1185,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-16T09:29:17.806Z",
+                      "startTime": "2026-07-16T12:56:04.781Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1219,
+                      "duration": 1091,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-16T09:29:17.746Z",
+                      "startTime": "2026-07-16T12:56:04.674Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -257,12 +257,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1059,
+                      "duration": 1055,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-16T09:29:19.249Z",
+                      "startTime": "2026-07-16T12:56:06.056Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1127,
+                      "duration": 996,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-16T09:29:19.261Z",
+                      "startTime": "2026-07-16T12:56:06.156Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 999,
+                      "duration": 967,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-16T09:29:19.322Z",
+                      "startTime": "2026-07-16T12:56:06.161Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-16T09:29:16.230Z",
-    "duration": 4213.093000000001,
+    "startTime": "2026-07-16T12:56:03.129Z",
+    "duration": 4115.839999999999,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
