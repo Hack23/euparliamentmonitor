@@ -76,6 +76,7 @@ jobs:
 
       - name: Validate release version
         id: get-version
+        shell: bash
         env:
           RELEASE_TAG: ${{ inputs.version }}
         run: |
