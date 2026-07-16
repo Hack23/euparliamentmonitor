@@ -1,28 +1,40 @@
 version: 2
 updates:
-- commit-message:
-    include: scope
-    prefix: build(deps)
-    prefix-development: build(deps-dev)
+- package-ecosystem: github-actions
   directory: /
+  ignore:
+  - dependency-name: "github/gh-aw-actions/**" # Managed by gh aw compile. Version-locked to the gh-aw compiler; do not bump.
+  schedule:
+    interval: daily
+  cooldown:
+    default-days: 1
+    exclude: ["*"]
+  groups:
+    github-actions:
+      patterns:
+        - "*"
+      update-types:
+        - "minor"
+        - "patch"
+  labels:
+    - "dependencies"
+    - "github-actions"
+
+- directory: /
   groups:
     development-dependencies:
       dependency-type: development
-      patterns:
-      - "*"
       update-types:
       - minor
       - patch
     production-dependencies:
       dependency-type: production
-      patterns:
-      - "*"
       update-types:
       - minor
       - patch
   labels:
   - dependencies
-  - javascript
+  - npm
   open-pull-requests-limit: 10
   package-ecosystem: npm
   schedule:
@@ -30,23 +42,4 @@ updates:
   cooldown:
     default-days: 1
     exclude: ["*"]
-
-  - package-ecosystem: github-actions
-    directory: /
-    ignore:
-    - dependency-name: "github/gh-aw-actions/**" # Managed by gh aw compile. Version-locked to the gh-aw compiler; do not bump.
-    schedule:
-      interval: daily
-    cooldown:
-      default-days: 1
-      exclude: ["*"]
-    groups:
-      github-actions:
-        patterns:
-          - "*"
-        update-types:
-          - "minor"
-          - "patch"
-    labels:
-      - "dependencies"
-      - "github-actions"
+  versioning-strategy: increase
