@@ -1,16 +1,16 @@
-<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="0" time="4.1158399999999995">
-<testsuite name="tests/homepage.spec.js" timestamp="2026-07-16T12:56:04.112Z" hostname="chromium" tests="6" failures="0" skipped="0" time="6.453" errors="0">
-<testcase name="Homepage › should load successfully" classname="tests/homepage.spec.js" time="1.159">
+<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="0" time="4.227963">
+<testsuite name="tests/homepage.spec.js" timestamp="2026-07-16T21:33:30.753Z" hostname="chromium" tests="6" failures="0" skipped="0" time="6.756" errors="0">
+<testcase name="Homepage › should load successfully" classname="tests/homepage.spec.js" time="1.178">
 </testcase>
-<testcase name="Homepage › should display navigation menu" classname="tests/homepage.spec.js" time="1.185">
+<testcase name="Homepage › should display navigation menu" classname="tests/homepage.spec.js" time="1.308">
 </testcase>
-<testcase name="Homepage › should display recent articles" classname="tests/homepage.spec.js" time="1.091">
+<testcase name="Homepage › should display recent articles" classname="tests/homepage.spec.js" time="1.309">
 </testcase>
-<testcase name="Homepage › should have working sitemap link" classname="tests/homepage.spec.js" time="1.055">
+<testcase name="Homepage › should have working sitemap link" classname="tests/homepage.spec.js" time="0.962">
 </testcase>
-<testcase name="Homepage › should have proper HTML structure" classname="tests/homepage.spec.js" time="0.996">
+<testcase name="Homepage › should have proper HTML structure" classname="tests/homepage.spec.js" time="1.028">
 </testcase>
-<testcase name="Homepage › should have SEO meta tags" classname="tests/homepage.spec.js" time="0.967">
+<testcase name="Homepage › should have SEO meta tags" classname="tests/homepage.spec.js" time="0.971">
 </testcase>
 </testsuite>
 </testsuites>
