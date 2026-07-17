@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/7f24fd775685efbadd61a7b82e0b68abf900240f",
-        "commitHash": "7f24fd775685efbadd61a7b82e0b68abf900240f",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29535842042"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/536e0c8f23c3c2ddab80e72e28114e8282e227a5",
+        "commitHash": "536e0c8f23c3c2ddab80e72e28114e8282e227a5",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29594878603"
       },
       "gitCommit": {
-        "shortHash": "7f24fd7756",
-        "hash": "7f24fd775685efbadd61a7b82e0b68abf900240f",
-        "subject": "build(deps)(deps): bump the github-actions group with 4 updates (#2543)",
-        "body": "build(deps)(deps): bump the github-actions group with 4 updates (#2543)\n\nBumps the github-actions group with 4 updates: [github/codeql-action/init](https://github.com/github/codeql-action), [github/codeql-action/analyze](https://github.com/github/codeql-action), [actions/attest](https://github.com/actions/attest) and [github/codeql-action/upload-sarif](https://github.com/github/codeql-action).\n\n\nUpdates `github/codeql-action/init` from 4.37.0 to 4.37.1\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/99df26d4f13ea111d4ec1a7dddef6063f76b97e9...7188fc363630916deb702c7fdcf4e481b751f97a)\n\nUpdates `github/codeql-action/analyze` from 4.37.0 to 4.37.1\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/99df26d4f13ea111d4ec1a7dddef6063f76b97e9...7188fc363630916deb702c7fdcf4e481b751f97a)\n\nUpdates `actions/attest` from 4.1.1 to 4.2.0\n- [Release notes](https://github.com/actions/attest/releases)\n- [Changelog](https://github.com/actions/attest/blob/main/RELEASE.md)\n- [Commits](https://github.com/actions/attest/compare/a1948c3f048ba23858d222213b7c278aabede763...f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6)\n\nUpdates `github/codeql-action/upload-sarif` from 4.37.0 to 4.37.1\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/99df26d4f13ea111d4ec1a7dddef6063f76b97e9...7188fc363630916deb702c7fdcf4e481b751f97a)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action/init\n  dependency-version: 4.37.1\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/analyze\n  dependency-version: 4.37.1\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n- dependency-name: actions/attest\n  dependency-version: 4.2.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/upload-sarif\n  dependency-version: 4.37.1\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nCo-authored-by: James Pether Sörling <pethers@users.noreply.github.com>",
+        "shortHash": "536e0c8f23",
+        "hash": "536e0c8f23c3c2ddab80e72e28114e8282e227a5",
+        "subject": "build(deps-dev): bump eslint-plugin-jsdoc (#2546)",
+        "body": "build(deps-dev): bump eslint-plugin-jsdoc (#2546)\n\nBumps the development-dependencies group with 1 update: [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc).\n\n\nUpdates `eslint-plugin-jsdoc` from 63.0.13 to 63.0.14\n- [Release notes](https://github.com/gajus/eslint-plugin-jsdoc/releases)\n- [Commits](https://github.com/gajus/eslint-plugin-jsdoc/compare/v63.0.13...v63.0.14)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-plugin-jsdoc\n  dependency-version: 63.0.14\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1784235658000
+          "time": 1784290838000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1784235658000
+          "time": 1784290838000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/7f24fd775685efbadd61a7b82e0b68abf900240f",
-            "commitHash": "7f24fd775685efbadd61a7b82e0b68abf900240f",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29535842042"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/536e0c8f23c3c2ddab80e72e28114e8282e227a5",
+            "commitHash": "536e0c8f23c3c2ddab80e72e28114e8282e227a5",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29594878603"
           },
           "gitCommit": {
-            "shortHash": "7f24fd7756",
-            "hash": "7f24fd775685efbadd61a7b82e0b68abf900240f",
-            "subject": "build(deps)(deps): bump the github-actions group with 4 updates (#2543)",
-            "body": "build(deps)(deps): bump the github-actions group with 4 updates (#2543)\n\nBumps the github-actions group with 4 updates: [github/codeql-action/init](https://github.com/github/codeql-action), [github/codeql-action/analyze](https://github.com/github/codeql-action), [actions/attest](https://github.com/actions/attest) and [github/codeql-action/upload-sarif](https://github.com/github/codeql-action).\n\n\nUpdates `github/codeql-action/init` from 4.37.0 to 4.37.1\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/99df26d4f13ea111d4ec1a7dddef6063f76b97e9...7188fc363630916deb702c7fdcf4e481b751f97a)\n\nUpdates `github/codeql-action/analyze` from 4.37.0 to 4.37.1\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/99df26d4f13ea111d4ec1a7dddef6063f76b97e9...7188fc363630916deb702c7fdcf4e481b751f97a)\n\nUpdates `actions/attest` from 4.1.1 to 4.2.0\n- [Release notes](https://github.com/actions/attest/releases)\n- [Changelog](https://github.com/actions/attest/blob/main/RELEASE.md)\n- [Commits](https://github.com/actions/attest/compare/a1948c3f048ba23858d222213b7c278aabede763...f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6)\n\nUpdates `github/codeql-action/upload-sarif` from 4.37.0 to 4.37.1\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/99df26d4f13ea111d4ec1a7dddef6063f76b97e9...7188fc363630916deb702c7fdcf4e481b751f97a)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action/init\n  dependency-version: 4.37.1\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/analyze\n  dependency-version: 4.37.1\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n- dependency-name: actions/attest\n  dependency-version: 4.2.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/upload-sarif\n  dependency-version: 4.37.1\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nCo-authored-by: James Pether Sörling <pethers@users.noreply.github.com>",
+            "shortHash": "536e0c8f23",
+            "hash": "536e0c8f23c3c2ddab80e72e28114e8282e227a5",
+            "subject": "build(deps-dev): bump eslint-plugin-jsdoc (#2546)",
+            "body": "build(deps-dev): bump eslint-plugin-jsdoc (#2546)\n\nBumps the development-dependencies group with 1 update: [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc).\n\n\nUpdates `eslint-plugin-jsdoc` from 63.0.13 to 63.0.14\n- [Release notes](https://github.com/gajus/eslint-plugin-jsdoc/releases)\n- [Commits](https://github.com/gajus/eslint-plugin-jsdoc/compare/v63.0.13...v63.0.14)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-plugin-jsdoc\n  dependency-version: 63.0.14\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1784235658000
+              "time": 1784290838000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1784235658000
+              "time": 1784290838000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1178,
+                      "duration": 1598,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-16T21:33:31.423Z",
+                      "startTime": "2026-07-17T16:19:56.970Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1308,
+                      "duration": 949,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-16T21:33:31.278Z",
+                      "startTime": "2026-07-17T16:19:56.973Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1309,
+                      "duration": 885,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-16T21:33:31.410Z",
+                      "startTime": "2026-07-17T16:19:57.004Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 962,
+                      "duration": 705,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-16T21:33:32.794Z",
+                      "startTime": "2026-07-17T16:19:58.084Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1028,
+                      "duration": 775,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-16T21:33:32.876Z",
+                      "startTime": "2026-07-17T16:19:58.154Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 971,
+                      "duration": 538,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-16T21:33:32.914Z",
+                      "startTime": "2026-07-17T16:19:58.793Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-16T21:33:29.754Z",
-    "duration": 4227.963,
+    "startTime": "2026-07-17T16:19:55.571Z",
+    "duration": 3811.9399999999996,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
