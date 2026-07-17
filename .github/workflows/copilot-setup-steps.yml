@@ -41,17 +41,6 @@ jobs:
     # All other permissions kept at minimum required for setup steps.
     permissions:
       contents: write
-      actions: read
-      attestations: read
-      checks: read
-      deployments: read
-      issues: write
-      models: read
-      discussions: read
-      pages: read
-      pull-requests: write
-      security-events: read
-      statuses: read
 
     # Steps run before the agent starts working
     steps:
