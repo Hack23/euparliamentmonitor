@@ -34,24 +34,8 @@ jobs:
     # npm/playwright download retries.
     timeout-minutes: 30
 
-    # Permissions required for the Copilot coding agent to operate.
-    # contents: write — agent must create branches and push commits
-    # pull-requests: write — agent must open and update pull requests
-    # issues: write — agent must post progress comments on issues
-    # All other permissions kept at minimum required for setup steps.
     permissions:
-      contents: write
-      actions: read
-      attestations: read
-      checks: read
-      deployments: read
-      issues: write
-      models: read
-      discussions: read
-      pages: read
-      pull-requests: write
-      security-events: read
-      statuses: read
+      contents: read
 
     # Steps run before the agent starts working
     steps:
