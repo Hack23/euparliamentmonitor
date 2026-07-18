@@ -146,7 +146,7 @@ mindmap
       D3 7.9.0
         Vendored via copy-vendor
     Data and Integration
-      EP MCP Server 1.3.38 (package dep; CI pins 1.3.20)
+      EP MCP Server 1.4.0 (package dep; CI pins 1.4.0)
         Active Development
         Hack23-maintained
         6 sliding + 7 fixed-window feeds
@@ -177,7 +177,7 @@ mindmap
 | **📊 Chart.js**         | 4.5.1 (vendored)         | Annual majors                   | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **📐 D3**               | 7.9.0 (vendored)         | Annual majors                   | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **📚 TypeDoc**          | 0.28.20                  | Monthly minors                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
-| **🇪🇺 EP MCP Server**   | 1.3.38 (package dep; CI pins 1.3.20) | Hack23-maintained; tracks EP Open Data API | Active development | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **🇪🇺 EP MCP Server**   | 1.4.0 (package dep; CI pins 1.4.0) | Hack23-maintained; tracks EP Open Data API | Active development | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **🌍 World Bank MCP**   | 1.0.1 (optional dep)     | Biannual WDI refresh            | Active             | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **💱 IMF SDMX 3.0 REST**| Native fetch client      | IMF-managed public API          | N/A (External API) | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **🤖 gh-aw CLI**        | v0.82.3 (pinned `GH_AW_VERSION`) | Active development        | Active             | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
@@ -683,7 +683,7 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 - **📦 Dependency Health Score:** OpenSSF Scorecard and vulnerability status
 - **⚡ Build Performance Tracking:** TypeScript compilation and news generation timing
 - **🧪 Test Pass Rate:** 5933+ passing tests (153 test files) + E2E test suite health
-- **📡 MCP Contract Stability:** EP MCP Server 1.3.12 integration tests + IMF SDMX schema tests + optional WB MCP
+- **📡 MCP Contract Stability:** EP MCP Server 1.4.0 integration tests + IMF SDMX schema tests + optional WB MCP
 
 ### 🚨 Alerting Thresholds
 
