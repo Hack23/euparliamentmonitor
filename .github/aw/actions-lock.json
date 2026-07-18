@@ -25,10 +25,10 @@
       "version": "v9.0.0",
       "sha": "3a2844b7e9c422d3c10d287c895573f7108da1b3"
     },
-    "actions/setup-node@v6.4.0": {
+    "actions/setup-node@v7.0.0": {
       "repo": "actions/setup-node",
-      "version": "v6.4.0",
-      "sha": "48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e"
+      "version": "v7.0.0",
+      "sha": "820762786026740c76f36085b0efc47a31fe5020"
     },
     "actions/upload-artifact@v7.0.1": {
       "repo": "actions/upload-artifact",
@@ -47,6 +47,11 @@
     }
   },
   "containers": {
+    "alpine:latest": {
+      "image": "alpine:latest",
+      "digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+      "pinned_image": "alpine:latest@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b"
+    },
     "node:26-alpine": {
       "image": "node:26-alpine",
       "digest": "sha256:725aeba2364a9b16beae49e180d83bd597dbd0b15c47f1f28875c290bfd255b9",
