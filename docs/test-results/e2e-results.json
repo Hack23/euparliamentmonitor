@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/5dab9e862b0bf9de8371eefce4018e6a6ba7c299",
-        "commitHash": "5dab9e862b0bf9de8371eefce4018e6a6ba7c299",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29616840696"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/afa61b0842adc6bcb3c34a3378699090d236d713",
+        "commitHash": "afa61b0842adc6bcb3c34a3378699090d236d713",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29649586155"
       },
       "gitCommit": {
-        "shortHash": "5dab9e862b",
-        "hash": "5dab9e862b0bf9de8371eefce4018e6a6ba7c299",
-        "subject": "Simplify agent permissions in workflow file (#2547)",
-        "body": "Simplify agent permissions in workflow file (#2547)\n\n* Simplify agent permissions in workflow file\n\nRemoved unnecessary permissions for the agent in the workflow.\n\nSigned-off-by: James Pether Sörling <pethers@users.noreply.github.com>\n\n* Update permissions for Copilot in workflow (#2548)\n\nChanged Copilot permissions from write to read for contents.\n\nSigned-off-by: James Pether Sörling <pethers@users.noreply.github.com>\n\n---------\n\nSigned-off-by: James Pether Sörling <pethers@users.noreply.github.com>",
+        "shortHash": "afa61b0842",
+        "hash": "afa61b0842adc6bcb3c34a3378699090d236d713",
+        "subject": "build(deps-dev): bump lint-staged in the development-dependencies group (#2553)",
+        "body": "build(deps-dev): bump lint-staged in the development-dependencies group (#2553)\n\nBumps the development-dependencies group with 1 update: [lint-staged](https://github.com/lint-staged/lint-staged).\n\n\nUpdates `lint-staged` from 17.0.8 to 17.1.0\n- [Release notes](https://github.com/lint-staged/lint-staged/releases)\n- [Changelog](https://github.com/lint-staged/lint-staged/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/lint-staged/lint-staged/compare/v17.0.8...v17.1.0)\n\n---\nupdated-dependencies:\n- dependency-name: lint-staged\n  dependency-version: 17.1.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nCo-authored-by: James Pether Sörling <pethers@users.noreply.github.com>",
         "author": {
-          "name": "James Pether Sörling",
-          "email": "pethers@users.noreply.github.com",
-          "time": 1784324338000
+          "name": "dependabot[bot]",
+          "email": "49699333+dependabot[bot]@users.noreply.github.com",
+          "time": 1784387627000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1784324338000
+          "time": 1784387627000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/5dab9e862b0bf9de8371eefce4018e6a6ba7c299",
-            "commitHash": "5dab9e862b0bf9de8371eefce4018e6a6ba7c299",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29616840696"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/afa61b0842adc6bcb3c34a3378699090d236d713",
+            "commitHash": "afa61b0842adc6bcb3c34a3378699090d236d713",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29649586155"
           },
           "gitCommit": {
-            "shortHash": "5dab9e862b",
-            "hash": "5dab9e862b0bf9de8371eefce4018e6a6ba7c299",
-            "subject": "Simplify agent permissions in workflow file (#2547)",
-            "body": "Simplify agent permissions in workflow file (#2547)\n\n* Simplify agent permissions in workflow file\n\nRemoved unnecessary permissions for the agent in the workflow.\n\nSigned-off-by: James Pether Sörling <pethers@users.noreply.github.com>\n\n* Update permissions for Copilot in workflow (#2548)\n\nChanged Copilot permissions from write to read for contents.\n\nSigned-off-by: James Pether Sörling <pethers@users.noreply.github.com>\n\n---------\n\nSigned-off-by: James Pether Sörling <pethers@users.noreply.github.com>",
+            "shortHash": "afa61b0842",
+            "hash": "afa61b0842adc6bcb3c34a3378699090d236d713",
+            "subject": "build(deps-dev): bump lint-staged in the development-dependencies group (#2553)",
+            "body": "build(deps-dev): bump lint-staged in the development-dependencies group (#2553)\n\nBumps the development-dependencies group with 1 update: [lint-staged](https://github.com/lint-staged/lint-staged).\n\n\nUpdates `lint-staged` from 17.0.8 to 17.1.0\n- [Release notes](https://github.com/lint-staged/lint-staged/releases)\n- [Changelog](https://github.com/lint-staged/lint-staged/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/lint-staged/lint-staged/compare/v17.0.8...v17.1.0)\n\n---\nupdated-dependencies:\n- dependency-name: lint-staged\n  dependency-version: 17.1.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nCo-authored-by: James Pether Sörling <pethers@users.noreply.github.com>",
             "author": {
-              "name": "James Pether Sörling",
-              "email": "pethers@users.noreply.github.com",
-              "time": 1784324338000
+              "name": "dependabot[bot]",
+              "email": "49699333+dependabot[bot]@users.noreply.github.com",
+              "time": 1784387627000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1784324338000
+              "time": 1784387627000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1223,
+                      "duration": 1128,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-17T22:16:29.967Z",
+                      "startTime": "2026-07-18T15:25:22.128Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1216,
+                      "duration": 1848,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-17T22:16:29.980Z",
+                      "startTime": "2026-07-18T15:25:22.082Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1267,
+                      "duration": 1023,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-17T22:16:30.029Z",
+                      "startTime": "2026-07-18T15:25:22.048Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1132,
+                      "duration": 953,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-17T22:16:31.506Z",
+                      "startTime": "2026-07-18T15:25:23.381Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1155,
+                      "duration": 938,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-17T22:16:31.508Z",
+                      "startTime": "2026-07-18T15:25:23.495Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1226,
+                      "duration": 698,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-17T22:16:31.541Z",
+                      "startTime": "2026-07-18T15:25:24.237Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-17T22:16:28.408Z",
-    "duration": 4428.461,
+    "startTime": "2026-07-18T15:25:20.511Z",
+    "duration": 4490.839,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
