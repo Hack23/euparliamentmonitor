@@ -72,7 +72,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.3.20
+      - european-parliament-mcp-server@1.4.0
 
 tools:
   # GitHub tools with specific toolsets
