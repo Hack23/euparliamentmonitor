@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -174,7 +174,7 @@
     "eslint-plugin-security": "4.0.1",
     "eslint-plugin-sonarjs": "4.2.0",
     "fast-check": "4.9.0",
-    "happy-dom": "20.10.6",
+    "happy-dom": "20.11.0",
     "html-minifier-terser": "7.2.0",
     "htmlhint": "1.9.2",
     "husky": "9.1.7",
@@ -199,7 +199,7 @@
     "node": ">=26"
   },
   "dependencies": {
-    "european-parliament-mcp-server": "1.4.0",
+    "european-parliament-mcp-server": "1.4.1",
     "markdown-it": "14.3.0",
     "markdown-it-anchor": "9.2.1",
     "markdown-it-attrs": "5.0.0",

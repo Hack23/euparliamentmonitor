@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/afa61b0842adc6bcb3c34a3378699090d236d713",
-        "commitHash": "afa61b0842adc6bcb3c34a3378699090d236d713",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29649586155"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/034d7996c3f5a499b2687db57496fa916f5a6c44",
+        "commitHash": "034d7996c3f5a499b2687db57496fa916f5a6c44",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29690728435"
       },
       "gitCommit": {
-        "shortHash": "afa61b0842",
-        "hash": "afa61b0842adc6bcb3c34a3378699090d236d713",
-        "subject": "build(deps-dev): bump lint-staged in the development-dependencies group (#2553)",
-        "body": "build(deps-dev): bump lint-staged in the development-dependencies group (#2553)\n\nBumps the development-dependencies group with 1 update: [lint-staged](https://github.com/lint-staged/lint-staged).\n\n\nUpdates `lint-staged` from 17.0.8 to 17.1.0\n- [Release notes](https://github.com/lint-staged/lint-staged/releases)\n- [Changelog](https://github.com/lint-staged/lint-staged/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/lint-staged/lint-staged/compare/v17.0.8...v17.1.0)\n\n---\nupdated-dependencies:\n- dependency-name: lint-staged\n  dependency-version: 17.1.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nCo-authored-by: James Pether Sörling <pethers@users.noreply.github.com>",
+        "shortHash": "034d7996c3",
+        "hash": "034d7996c3f5a499b2687db57496fa916f5a6c44",
+        "subject": "build(deps): bump release-drafter/release-drafter (#2559)",
+        "body": "build(deps): bump release-drafter/release-drafter (#2559)\n\nBumps the github-actions group with 1 update: [release-drafter/release-drafter](https://github.com/release-drafter/release-drafter).\n\n\nUpdates `release-drafter/release-drafter` from 7.5.1 to 7.6.0\n- [Release notes](https://github.com/release-drafter/release-drafter/releases)\n- [Commits](https://github.com/release-drafter/release-drafter/compare/4d75298e00d9e34c483e5ff8c68d0ea1c1940c1e...eada3c96a64734dd381cfbda23511034e328ddb0)\n\n---\nupdated-dependencies:\n- dependency-name: release-drafter/release-drafter\n  dependency-version: 7.6.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1784387627000
+          "time": 1784470949000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1784387627000
+          "time": 1784470949000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/afa61b0842adc6bcb3c34a3378699090d236d713",
-            "commitHash": "afa61b0842adc6bcb3c34a3378699090d236d713",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29649586155"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/034d7996c3f5a499b2687db57496fa916f5a6c44",
+            "commitHash": "034d7996c3f5a499b2687db57496fa916f5a6c44",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29690728435"
           },
           "gitCommit": {
-            "shortHash": "afa61b0842",
-            "hash": "afa61b0842adc6bcb3c34a3378699090d236d713",
-            "subject": "build(deps-dev): bump lint-staged in the development-dependencies group (#2553)",
-            "body": "build(deps-dev): bump lint-staged in the development-dependencies group (#2553)\n\nBumps the development-dependencies group with 1 update: [lint-staged](https://github.com/lint-staged/lint-staged).\n\n\nUpdates `lint-staged` from 17.0.8 to 17.1.0\n- [Release notes](https://github.com/lint-staged/lint-staged/releases)\n- [Changelog](https://github.com/lint-staged/lint-staged/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/lint-staged/lint-staged/compare/v17.0.8...v17.1.0)\n\n---\nupdated-dependencies:\n- dependency-name: lint-staged\n  dependency-version: 17.1.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nCo-authored-by: James Pether Sörling <pethers@users.noreply.github.com>",
+            "shortHash": "034d7996c3",
+            "hash": "034d7996c3f5a499b2687db57496fa916f5a6c44",
+            "subject": "build(deps): bump release-drafter/release-drafter (#2559)",
+            "body": "build(deps): bump release-drafter/release-drafter (#2559)\n\nBumps the github-actions group with 1 update: [release-drafter/release-drafter](https://github.com/release-drafter/release-drafter).\n\n\nUpdates `release-drafter/release-drafter` from 7.5.1 to 7.6.0\n- [Release notes](https://github.com/release-drafter/release-drafter/releases)\n- [Commits](https://github.com/release-drafter/release-drafter/compare/4d75298e00d9e34c483e5ff8c68d0ea1c1940c1e...eada3c96a64734dd381cfbda23511034e328ddb0)\n\n---\nupdated-dependencies:\n- dependency-name: release-drafter/release-drafter\n  dependency-version: 7.6.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1784387627000
+              "time": 1784470949000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1784387627000
+              "time": 1784470949000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1128,
+                      "duration": 1702,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-18T15:25:22.128Z",
+                      "startTime": "2026-07-19T14:33:33.049Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1848,
+                      "duration": 1757,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-18T15:25:22.082Z",
+                      "startTime": "2026-07-19T14:33:33.004Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1023,
+                      "duration": 1659,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-18T15:25:22.048Z",
+                      "startTime": "2026-07-19T14:33:33.079Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -257,12 +257,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 953,
+                      "duration": 896,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-18T15:25:23.381Z",
+                      "startTime": "2026-07-19T14:33:34.917Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -291,12 +291,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 938,
+                      "duration": 887,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-18T15:25:23.495Z",
+                      "startTime": "2026-07-19T14:33:34.997Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -325,12 +325,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 698,
+                      "duration": 894,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-18T15:25:24.237Z",
+                      "startTime": "2026-07-19T14:33:35.030Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-18T15:25:20.511Z",
-    "duration": 4490.839,
+    "startTime": "2026-07-19T14:33:31.536Z",
+    "duration": 4440.929,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
