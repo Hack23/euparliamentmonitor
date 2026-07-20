@@ -19,7 +19,7 @@
  */
 export { escapeXML } from './xml-utils.js';
 export { generateRssFeed, getRssFilename, buildRssChannel, buildRssAlternateLink, DEFAULT_RSS_CHANNEL, } from './rss.js';
-export { generateSitemap, collectDocsHtmlFiles, SITEMAP_DOCS_DIR, } from './xml.js';
+export { generateSitemap, collectDocsHtmlFiles, collectHtmlFiles, SITEMAP_DOCS_DIR, SITEMAP_ANALYSIS_DIR, } from './xml.js';
 export { generateSitemapHTML, getSitemapFilename, getIndexFilename, } from './html.js';
 export { SITEMAP_TITLES, SITEMAP_SECTIONS, SITEMAP_COPY, DOCS_LABELS, DEFAULT_SITEMAP_TITLE, CATEGORY_ORDER, getSitemapCopy, } from './copy.js';
 //# sourceMappingURL=index.js.map

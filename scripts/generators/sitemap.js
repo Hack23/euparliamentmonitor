@@ -25,12 +25,12 @@ import { pathToFileURL } from 'url';
 import { BASE_URL, BUILD_TIME, NEWS_DIR, PROJECT_ROOT } from '../constants/config.js';
 import { ALL_LANGUAGES } from '../constants/languages.js';
 import { getNewsArticles, parseArticleFilename, formatSlug, extractArticleMeta, writeFileIfChanged, } from '../utils/file-utils.js';
-import { collectDocsHtmlFiles, buildRssChannel, generateRssFeed, generateSitemap, generateSitemapHTML, getRssFilename, getSitemapFilename, SITEMAP_DOCS_DIR, } from './sitemap/index.js';
+import { collectDocsHtmlFiles, collectHtmlFiles, buildRssChannel, generateRssFeed, generateSitemap, generateSitemapHTML, getRssFilename, getSitemapFilename, SITEMAP_DOCS_DIR, SITEMAP_ANALYSIS_DIR, } from './sitemap/index.js';
 import { collectPoliticalIntelligenceData, generatePoliticalIntelligenceHTML, getPoliticalIntelligenceFilename, } from './political-intelligence.js';
 // ─── Back-compat re-exports ─────────────────────────────────────────
 // New code should import from `./sitemap/index.js` directly. These
 // re-exports keep existing call sites and external imports stable.
-export { collectDocsHtmlFiles, generateRssFeed, generateSitemap, generateSitemapHTML, getSitemapFilename, } from './sitemap/index.js';
+export { collectDocsHtmlFiles, collectHtmlFiles, generateRssFeed, generateSitemap, generateSitemapHTML, getSitemapFilename, } from './sitemap/index.js';
 /** Console label for a freshly written file. */
 const LABEL_GENERATED = '✅ Generated';
 /** Console label for a file left untouched (byte-identical to existing). */
@@ -185,10 +185,12 @@ function main() {
     console.log(`📊 Found ${articles.length} articles`);
     const docsFiles = collectDocsHtmlFiles(SITEMAP_DOCS_DIR);
     console.log(`📚 Found ${docsFiles.length} docs files`);
-    const sitemap = generateSitemap(articles, docsFiles);
+    const analysisFiles = collectHtmlFiles(SITEMAP_ANALYSIS_DIR);
+    console.log(`🧠 Found ${analysisFiles.length} analysis HTML files`);
+    const sitemap = generateSitemap(articles, docsFiles, analysisFiles);
     const filepath = path.join(PROJECT_ROOT, 'sitemap.xml');
     const sitemapWrote = writeFileIfChanged(filepath, sitemap);
-    const totalUrls = articles.length + ALL_LANGUAGES.length * 3 + docsFiles.length + ALL_LANGUAGES.length;
+    const totalUrls = articles.length + ALL_LANGUAGES.length * 4 + docsFiles.length + analysisFiles.length;
     console.log(`${writeLabel(sitemapWrote)} sitemap.xml with ${totalUrls} URLs`);
     const piData = collectPoliticalIntelligenceData(PROJECT_ROOT);
     console.log(`🧭 Scanned analysis tradecraft: ${piData.methodologies.length} methodologies, ${piData.templates.length} templates, ${piData.dailyGroups.length} daily groups`);

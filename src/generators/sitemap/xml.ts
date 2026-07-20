@@ -64,14 +64,6 @@ export function collectDocsHtmlFiles(dir: string, rootDir: string = PROJECT_ROOT
     return results;
   }
 
-  /**
-   * Recursively collect all `.html` files under a directory.
-   *
-   * @param dir - Directory to scan
-   * @param rootDir - Project root for computing relative paths
-   * @returns Sorted array of relative paths with POSIX separators
-   */
-  export const collectHtmlFiles = collectDocsHtmlFiles;
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
@@ -83,6 +75,15 @@ export function collectDocsHtmlFiles(dir: string, rootDir: string = PROJECT_ROOT
   }
   return results.sort();
 }
+
+/**
+ * Recursively collect all `.html` files under a directory.
+ *
+ * @param dir - Directory to scan
+ * @param rootDir - Project root for computing relative paths
+ * @returns Sorted array of relative paths with POSIX separators
+ */
+export const collectHtmlFiles = collectDocsHtmlFiles;
 
 /**
  * Generate sitemap XML including index pages, news articles, sitemap
@@ -378,7 +379,8 @@ function buildAnalysisUrls(analysisFiles: string[]): SitemapUrlWithAlternates[] 
  */
 function getAnalysisLocale(relPath: string): string | undefined {
   const match = relPath.match(/\.([a-z]{2})\.html$/);
-  return match && ALL_LANGUAGES.includes(match[1]) ? match[1] : undefined;
+  const locale = match?.[1];
+  return locale && (ALL_LANGUAGES as readonly string[]).includes(locale) ? locale : undefined;
 }
 
 /**
