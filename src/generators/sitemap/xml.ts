@@ -360,8 +360,7 @@ function buildAnalysisUrls(analysisFiles: string[]): SitemapUrlWithAlternates[] 
     const locale = getAnalysisLocale(relPath);
     const stem = locale ? relPath.slice(0, -`.${locale}.html`.length) : null;
     const bucket = stem ? byStem.get(stem) : undefined;
-    const alternates =
-      bucket && Object.keys(bucket).length > 1 ? withXDefault(bucket) : undefined;
+    const alternates = bucket && Object.keys(bucket).length > 1 ? withXDefault(bucket) : undefined;
     return {
       loc: `${BASE_URL}/${relPath}`,
       lastmod: getModifiedDate(fullPath),

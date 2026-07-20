@@ -80,6 +80,7 @@ export const collectHtmlFiles = collectDocsHtmlFiles;
  *
  * @param articles - List of article filenames (sourced from the `news/` directory)
  * @param docsFiles - Relative paths to docs HTML files (e.g. `docs/api/index.html`)
+ * @param analysisFiles - Relative paths to generated analysis HTML files
  * @returns Complete sitemap XML string
  */
 export function generateSitemap(articles, docsFiles = [], analysisFiles = []) {
