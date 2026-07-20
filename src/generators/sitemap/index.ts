@@ -32,8 +32,10 @@ export {
 export {
   generateSitemap,
   collectDocsHtmlFiles,
+  collectHtmlFiles,
   type SitemapUrlWithAlternates,
   SITEMAP_DOCS_DIR,
+  SITEMAP_ANALYSIS_DIR,
 } from './xml.js';
 export {
   generateSitemapHTML,

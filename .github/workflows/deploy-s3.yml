@@ -340,6 +340,21 @@ jobs:
             "${EXCL[@]}"
           echo "✅ Pass 9/13: HTML files synced"
 
+          # Analysis source files remain excluded; publish generated HTML
+          # artifacts explicitly so the sitemap and deployment stay aligned.
+          aws s3 sync "$SRC" "$BUCKET" \
+            --checksum-algorithm SHA256 \
+            --no-progress \
+            --exclude '*' \
+            --include 'analysis/**/*.html' \
+            --cache-control 'public, max-age=3600, must-revalidate' \
+            --content-type 'text/html; charset=utf-8' \
+            --no-guess-mime-type \
+            "${EXCL[@]}" \
+            --exclude "analysis/*" \
+            --include "analysis/**/*.html"
+          echo "✅ Analysis HTML files synced"
+
           # ─── Pass 10: JSON metadata (medium cache, ~24hr) ──────────────────
           # --checksum-algorithm SHA256 for correctness — articles-metadata.json and
           # build-info.json are regenerated every deploy; content may change without

@@ -24,6 +24,7 @@ import path from 'node:path';
 import {
   generateSitemap,
   collectDocsHtmlFiles,
+  collectHtmlFiles,
 } from '../../scripts/generators/sitemap/xml.js';
 
 describe('collectDocsHtmlFiles', () => {
@@ -39,6 +40,26 @@ describe('collectDocsHtmlFiles', () => {
     // Non-HTML files are ignored
     fs.writeFileSync(path.join(tmpDir, 'docs', 'README.md'), '# docs');
     fs.writeFileSync(path.join(tmpDir, 'docs', 'logo.svg'), '<svg/>');
+  });
+
+  describe('collectHtmlFiles', () => {
+    it('collects generated HTML recursively from any content directory', () => {
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'collectHtml-'));
+      const analysisDir = path.join(tmpDir, 'analysis');
+      fs.mkdirSync(path.join(analysisDir, 'daily'), { recursive: true });
+      fs.writeFileSync(path.join(analysisDir, 'index.html'), '<html></html>');
+      fs.writeFileSync(path.join(analysisDir, 'daily', 'report.en.html'), '<html></html>');
+      fs.writeFileSync(path.join(analysisDir, 'daily', 'notes.md'), '# notes');
+
+      try {
+        expect(collectHtmlFiles(analysisDir, tmpDir)).toEqual([
+          'analysis/daily/report.en.html',
+          'analysis/index.html',
+        ]);
+      } finally {
+        fs.rmSync(tmpDir, { recursive: true, force: true });
+      }
+    });
   });
 
   afterAll(() => {
@@ -128,6 +149,41 @@ describe('generateSitemap', () => {
       expect(block).not.toContain('xhtml:link');
       expect(block).toContain('<changefreq>weekly</changefreq>');
       expect(block).toContain('<priority>0.3</priority>');
+    }
+  });
+
+  it('includes analysis HTML and links all locale variants', () => {
+    const analysisDir = path.join(
+      path.resolve(import.meta.dirname, '..', '..'),
+      'analysis',
+      '.sitemap-test'
+    );
+    fs.mkdirSync(analysisDir, { recursive: true });
+    const files = ['report.en.html', 'report.sv.html', 'standalone.html'];
+    for (const file of files) {
+      fs.writeFileSync(path.join(analysisDir, file), '<html></html>');
+    }
+
+    try {
+      const xml = generateSitemap(
+        [],
+        [],
+        files.map((file) => `analysis/.sitemap-test/${file}`)
+      );
+      expect(xml).toContain(
+        '<loc>https://euparliamentmonitor.com/analysis/.sitemap-test/report.en.html</loc>'
+      );
+      const reportBlock = xml
+        .split('<url>')
+        .find((block) => block.includes('/analysis/.sitemap-test/report.en.html'));
+      expect(reportBlock).toContain('hreflang="en"');
+      expect(reportBlock).toContain('hreflang="sv"');
+      expect(reportBlock).toContain('hreflang="x-default"');
+      expect(xml).toContain(
+        '<loc>https://euparliamentmonitor.com/analysis/.sitemap-test/standalone.html</loc>'
+      );
+    } finally {
+      fs.rmSync(analysisDir, { recursive: true, force: true });
     }
   });
 

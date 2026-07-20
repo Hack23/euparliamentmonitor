@@ -43,6 +43,8 @@ export interface SitemapUrlWithAlternates extends SitemapUrl {
 
 /** Absolute docs directory under project root */
 const DOCS_DIR: string = path.join(PROJECT_ROOT, 'docs');
+/** Absolute analysis directory under project root. */
+const ANALYSIS_DIR: string = path.join(PROJECT_ROOT, 'analysis');
 
 /**
  * Recursively collect all `.html` files under a directory, returning
@@ -61,6 +63,15 @@ export function collectDocsHtmlFiles(dir: string, rootDir: string = PROJECT_ROOT
   if (!fs.existsSync(dir)) {
     return results;
   }
+
+  /**
+   * Recursively collect all `.html` files under a directory.
+   *
+   * @param dir - Directory to scan
+   * @param rootDir - Project root for computing relative paths
+   * @returns Sorted array of relative paths with POSIX separators
+   */
+  export const collectHtmlFiles = collectDocsHtmlFiles;
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
@@ -88,7 +99,11 @@ export function collectDocsHtmlFiles(dir: string, rootDir: string = PROJECT_ROOT
  * @param docsFiles - Relative paths to docs HTML files (e.g. `docs/api/index.html`)
  * @returns Complete sitemap XML string
  */
-export function generateSitemap(articles: string[], docsFiles: string[] = []): string {
+export function generateSitemap(
+  articles: string[],
+  docsFiles: string[] = [],
+  analysisFiles: string[] = []
+): string {
   const today = new Date().toISOString().slice(0, 10);
   const urls: SitemapUrlWithAlternates[] = [
     ...buildIndexUrls(today),
@@ -97,6 +112,7 @@ export function generateSitemap(articles: string[], docsFiles: string[] = []): s
     ...buildRssFeedUrls(today),
     ...buildArticleUrls(articles),
     ...buildDocsUrls(docsFiles, today),
+    ...buildAnalysisUrls(analysisFiles),
   ];
 
   // REUSE-IgnoreStart
@@ -309,6 +325,7 @@ function buildDocsUrls(docsFiles: string[], today: string): SitemapUrlWithAltern
     } catch {
       // Use today if file stat fails
     }
+
     return {
       loc: `${BASE_URL}/${canonicalDocsPath(relPath)}`,
       lastmod,
@@ -316,6 +333,52 @@ function buildDocsUrls(docsFiles: string[], today: string): SitemapUrlWithAltern
       priority: '0.3',
     };
   });
+}
+
+/**
+ * Build URL entries for generated analysis HTML files. Files sharing a
+ * basename apart from a supported locale suffix receive hreflang alternates.
+ *
+ * @param analysisFiles - Analysis file paths relative to the project root
+ * @returns Sitemap URL entries
+ */
+function buildAnalysisUrls(analysisFiles: string[]): SitemapUrlWithAlternates[] {
+  const byStem = new Map<string, Record<string, string>>();
+  for (const relPath of analysisFiles) {
+    const locale = getAnalysisLocale(relPath);
+    if (!locale) continue;
+    const stem = relPath.slice(0, -`.${locale}.html`.length);
+    const bucket = byStem.get(stem) ?? {};
+    bucket[locale] = `${BASE_URL}/${relPath}`;
+    byStem.set(stem, bucket);
+  }
+
+  return analysisFiles.map((relPath) => {
+    const fullPath = path.join(PROJECT_ROOT, relPath);
+    const locale = getAnalysisLocale(relPath);
+    const stem = locale ? relPath.slice(0, -`.${locale}.html`.length) : null;
+    const bucket = stem ? byStem.get(stem) : undefined;
+    const alternates =
+      bucket && Object.keys(bucket).length > 1 ? withXDefault(bucket) : undefined;
+    return {
+      loc: `${BASE_URL}/${relPath}`,
+      lastmod: getModifiedDate(fullPath),
+      changefreq: 'weekly' as const,
+      priority: '0.4',
+      ...(alternates ? { alternates } : {}),
+    };
+  });
+}
+
+/**
+ * Extract a supported locale suffix from an analysis HTML filename.
+ *
+ * @param relPath - Analysis file path
+ * @returns Locale code when the filename ends in `.<lang>.html`
+ */
+function getAnalysisLocale(relPath: string): string | undefined {
+  const match = relPath.match(/\.([a-z]{2})\.html$/);
+  return match && ALL_LANGUAGES.includes(match[1]) ? match[1] : undefined;
 }
 
 /**
@@ -360,3 +423,5 @@ function renderSitemapUrl(url: SitemapUrlWithAlternates): string {
 
 /** Absolute path of the docs/ directory used by the sitemap CLI. */
 export const SITEMAP_DOCS_DIR: string = DOCS_DIR;
+/** Absolute path of the analysis directory used by the sitemap CLI. */
+export const SITEMAP_ANALYSIS_DIR: string = ANALYSIS_DIR;

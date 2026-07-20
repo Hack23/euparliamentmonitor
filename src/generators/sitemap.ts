@@ -36,6 +36,7 @@ import {
 } from '../utils/file-utils.js';
 import {
   collectDocsHtmlFiles,
+  collectHtmlFiles,
   buildRssChannel,
   generateRssFeed,
   generateSitemap,
@@ -43,6 +44,7 @@ import {
   getRssFilename,
   getSitemapFilename,
   SITEMAP_DOCS_DIR,
+  SITEMAP_ANALYSIS_DIR,
   type RssItem,
   type SitemapArticleInfo,
 } from './sitemap/index.js';
@@ -58,6 +60,7 @@ import {
 
 export {
   collectDocsHtmlFiles,
+  collectHtmlFiles,
   generateRssFeed,
   generateSitemap,
   generateSitemapHTML,
@@ -230,12 +233,13 @@ function main(): void {
 
   const docsFiles = collectDocsHtmlFiles(SITEMAP_DOCS_DIR);
   console.log(`📚 Found ${docsFiles.length} docs files`);
-
-  const sitemap = generateSitemap(articles, docsFiles);
+  const analysisFiles = collectHtmlFiles(SITEMAP_ANALYSIS_DIR);
+  console.log(`🧠 Found ${analysisFiles.length} analysis HTML files`);
+  const sitemap = generateSitemap(articles, docsFiles, analysisFiles);
   const filepath = path.join(PROJECT_ROOT, 'sitemap.xml');
   const sitemapWrote = writeFileIfChanged(filepath, sitemap);
   const totalUrls =
-    articles.length + ALL_LANGUAGES.length * 3 + docsFiles.length + ALL_LANGUAGES.length;
+    articles.length + ALL_LANGUAGES.length * 4 + docsFiles.length + analysisFiles.length;
   console.log(`${writeLabel(sitemapWrote)} sitemap.xml with ${totalUrls} URLs`);
 
   const piData = collectPoliticalIntelligenceData(PROJECT_ROOT);
