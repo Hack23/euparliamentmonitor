@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/f0d8cfb12b01028e3b574fb6c57d32c6c39a9d57",
-        "commitHash": "f0d8cfb12b01028e3b574fb6c57d32c6c39a9d57",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29781058616"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/1bf589044daa91fa40913652f1507e0dc78b37ff",
+        "commitHash": "1bf589044daa91fa40913652f1507e0dc78b37ff",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29939311321"
       },
       "gitCommit": {
-        "shortHash": "f0d8cfb12b",
-        "hash": "f0d8cfb12b01028e3b574fb6c57d32c6c39a9d57",
-        "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2564)",
-        "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2564)\n\n* build(deps-dev): bump the development-dependencies group with 2 updates\n\nBumps the development-dependencies group with 2 updates: [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/eslint-plugin) and [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/parser).\n\n\nUpdates `@typescript-eslint/eslint-plugin` from 8.64.0 to 8.65.0\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.65.0/packages/eslint-plugin)\n\nUpdates `@typescript-eslint/parser` from 8.64.0 to 8.65.0\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/parser/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.65.0/packages/parser)\n\n---\nupdated-dependencies:\n- dependency-name: \"@typescript-eslint/eslint-plugin\"\n  dependency-version: 8.65.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n- dependency-name: \"@typescript-eslint/parser\"\n  dependency-version: 8.65.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\n\n* fix: override axios to patched release\n\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>\n\n---------\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nCo-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>",
+        "shortHash": "1bf589044d",
+        "hash": "1bf589044daa91fa40913652f1507e0dc78b37ff",
+        "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2569)",
+        "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2569)\n\nBumps the development-dependencies group with 2 updates: [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip) and [lint-staged](https://github.com/lint-staged/lint-staged).\n\n\nUpdates `knip` from 6.27.0 to 6.29.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.29.0/packages/knip)\n\nUpdates `lint-staged` from 17.1.0 to 17.1.1\n- [Release notes](https://github.com/lint-staged/lint-staged/releases)\n- [Changelog](https://github.com/lint-staged/lint-staged/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/lint-staged/lint-staged/compare/v17.1.0...v17.1.1)\n\n---\nupdated-dependencies:\n- dependency-name: knip\n  dependency-version: 6.29.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n- dependency-name: lint-staged\n  dependency-version: 17.1.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1784580896000
+          "time": 1784732864000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1784580896000
+          "time": 1784732864000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/f0d8cfb12b01028e3b574fb6c57d32c6c39a9d57",
-            "commitHash": "f0d8cfb12b01028e3b574fb6c57d32c6c39a9d57",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29781058616"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/1bf589044daa91fa40913652f1507e0dc78b37ff",
+            "commitHash": "1bf589044daa91fa40913652f1507e0dc78b37ff",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/29939311321"
           },
           "gitCommit": {
-            "shortHash": "f0d8cfb12b",
-            "hash": "f0d8cfb12b01028e3b574fb6c57d32c6c39a9d57",
-            "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2564)",
-            "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2564)\n\n* build(deps-dev): bump the development-dependencies group with 2 updates\n\nBumps the development-dependencies group with 2 updates: [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/eslint-plugin) and [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/parser).\n\n\nUpdates `@typescript-eslint/eslint-plugin` from 8.64.0 to 8.65.0\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.65.0/packages/eslint-plugin)\n\nUpdates `@typescript-eslint/parser` from 8.64.0 to 8.65.0\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/parser/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.65.0/packages/parser)\n\n---\nupdated-dependencies:\n- dependency-name: \"@typescript-eslint/eslint-plugin\"\n  dependency-version: 8.65.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n- dependency-name: \"@typescript-eslint/parser\"\n  dependency-version: 8.65.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\n\n* fix: override axios to patched release\n\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>\n\n---------\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nCo-authored-by: copilot-swe-agent[bot] <198982749+Copilot@users.noreply.github.com>\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>",
+            "shortHash": "1bf589044d",
+            "hash": "1bf589044daa91fa40913652f1507e0dc78b37ff",
+            "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2569)",
+            "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2569)\n\nBumps the development-dependencies group with 2 updates: [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip) and [lint-staged](https://github.com/lint-staged/lint-staged).\n\n\nUpdates `knip` from 6.27.0 to 6.29.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.29.0/packages/knip)\n\nUpdates `lint-staged` from 17.1.0 to 17.1.1\n- [Release notes](https://github.com/lint-staged/lint-staged/releases)\n- [Changelog](https://github.com/lint-staged/lint-staged/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/lint-staged/lint-staged/compare/v17.1.0...v17.1.1)\n\n---\nupdated-dependencies:\n- dependency-name: knip\n  dependency-version: 6.29.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n- dependency-name: lint-staged\n  dependency-version: 17.1.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1784580896000
+              "time": 1784732864000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1784580896000
+              "time": 1784732864000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1293,
+                      "duration": 3751,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-20T21:50:09.579Z",
+                      "startTime": "2026-07-22T16:57:37.607Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1420,
+                      "duration": 3667,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-20T21:50:09.585Z",
+                      "startTime": "2026-07-22T16:57:37.650Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1367,
+                      "duration": 3572,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-20T21:50:09.558Z",
+                      "startTime": "2026-07-22T16:57:37.716Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1264,
+                      "duration": 1097,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-20T21:50:11.172Z",
+                      "startTime": "2026-07-22T16:57:41.537Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1250,
+                      "duration": 994,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-20T21:50:11.230Z",
+                      "startTime": "2026-07-22T16:57:41.590Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1211,
+                      "duration": 1037,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-20T21:50:11.285Z",
+                      "startTime": "2026-07-22T16:57:41.683Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-20T21:50:07.978Z",
-    "duration": 4605.743,
+    "startTime": "2026-07-22T16:57:36.017Z",
+    "duration": 6787.983,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
