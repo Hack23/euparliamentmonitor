@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "1.0.43",
+  "version": "1.0.44",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -154,7 +154,7 @@
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",
     "@eslint/js": "10.0.1",
-    "@playwright/test": "1.61.1",
+    "@playwright/test": "1.62.0",
     "@types/d3": "7.4.3",
     "@types/markdown-it": "14.1.2",
     "@types/node": "26.1.1",
@@ -168,9 +168,9 @@
     "clean-css": "5.3.3",
     "d3": "7.9.0",
     "esbuild": "0.28.1",
-    "eslint": "10.7.0",
+    "eslint": "10.8.0",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-jsdoc": "63.2.2",
+    "eslint-plugin-jsdoc": "63.3.0",
     "eslint-plugin-security": "4.0.1",
     "eslint-plugin-sonarjs": "4.2.0",
     "fast-check": "4.9.0",
@@ -210,11 +210,16 @@
     "worldbank-mcp": "1.0.1"
   },
   "overrides": {
+    "glob": "13.0.6",
+    "js-yaml": "5.2.2",
     "flatted": "3.4.2",
     "path-to-regexp": "8.4.2",
     "ip-address": "10.2.0",
     "uuid": "14.0.1",
     "qs": "6.15.3",
     "axios": "1.18.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
   }
 }

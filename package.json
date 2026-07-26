@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "1.0.43",
+  "version": "1.0.44",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -210,8 +210,8 @@
     "worldbank-mcp": "1.0.1"
   },
   "overrides": {
-	"glob": "13.0.6",
-	"js-yaml": "5.2.2",
+    "glob": "13.0.6",
+    "js-yaml": "5.2.2",
     "flatted": "3.4.2",
     "path-to-regexp": "8.4.2",
     "ip-address": "10.2.0",

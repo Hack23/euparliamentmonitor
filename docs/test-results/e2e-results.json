@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/c16855599342ff73b3cc940647fe0c54f1da60d9",
-        "commitHash": "c16855599342ff73b3cc940647fe0c54f1da60d9",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/30112506271"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/6bbf45c848d9b69ee20b446770684af6a4621752",
+        "commitHash": "6bbf45c848d9b69ee20b446770684af6a4621752",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/30209017615"
       },
       "gitCommit": {
-        "shortHash": "c168555993",
-        "hash": "c16855599342ff73b3cc940647fe0c54f1da60d9",
-        "subject": "build(deps): bump european-parliament-mcp-server (#2586)",
-        "body": "build(deps): bump european-parliament-mcp-server (#2586)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.4 to 1.4.5\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.4...v1.4.5)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.5\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "6bbf45c848",
+        "hash": "6bbf45c848d9b69ee20b446770684af6a4621752",
+        "subject": "fix security overrirdes (#2591)",
+        "body": "fix security overrirdes (#2591)",
         "author": {
-          "name": "dependabot[bot]",
-          "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1784913504000
+          "name": "James Pether Sörling",
+          "email": "pethers@users.noreply.github.com",
+          "time": 1785079850000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1784913504000
+          "time": 1785079850000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/c16855599342ff73b3cc940647fe0c54f1da60d9",
-            "commitHash": "c16855599342ff73b3cc940647fe0c54f1da60d9",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/30112506271"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/6bbf45c848d9b69ee20b446770684af6a4621752",
+            "commitHash": "6bbf45c848d9b69ee20b446770684af6a4621752",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/30209017615"
           },
           "gitCommit": {
-            "shortHash": "c168555993",
-            "hash": "c16855599342ff73b3cc940647fe0c54f1da60d9",
-            "subject": "build(deps): bump european-parliament-mcp-server (#2586)",
-            "body": "build(deps): bump european-parliament-mcp-server (#2586)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.4 to 1.4.5\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.4...v1.4.5)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.5\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "6bbf45c848",
+            "hash": "6bbf45c848d9b69ee20b446770684af6a4621752",
+            "subject": "fix security overrirdes (#2591)",
+            "body": "fix security overrirdes (#2591)",
             "author": {
-              "name": "dependabot[bot]",
-              "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1784913504000
+              "name": "James Pether Sörling",
+              "email": "pethers@users.noreply.github.com",
+              "time": 1785079850000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1784913504000
+              "time": 1785079850000
             },
             "branch": "main"
           },
@@ -116,7 +116,7 @@
     "tags": [],
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
-    "version": "1.61.1",
+    "version": "1.62.0",
     "workers": 3,
     "webServer": {
       "command": "npm run serve",
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1216,
+                      "duration": 1297,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-24T17:40:03.482Z",
+                      "startTime": "2026-07-26T15:59:49.256Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1295,
+                      "duration": 1308,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-24T17:40:03.407Z",
+                      "startTime": "2026-07-26T15:59:49.311Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1253,
+                      "duration": 1209,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-24T17:40:03.368Z",
+                      "startTime": "2026-07-26T15:59:49.366Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 969,
+                      "duration": 1040,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-24T17:40:04.899Z",
+                      "startTime": "2026-07-26T15:59:50.765Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1026,
+                      "duration": 1084,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-24T17:40:04.937Z",
+                      "startTime": "2026-07-26T15:59:50.843Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -325,12 +325,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1897,
+                      "duration": 986,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-24T17:40:04.974Z",
+                      "startTime": "2026-07-26T15:59:50.875Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-24T17:40:01.832Z",
-    "duration": 5112.68,
+    "startTime": "2026-07-26T15:59:47.678Z",
+    "duration": 4323.892,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
