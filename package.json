@@ -210,11 +210,16 @@
     "worldbank-mcp": "1.0.1"
   },
   "overrides": {
+	"glob": "13.0.6",
+	"js-yaml": "5.2.2",
     "flatted": "3.4.2",
     "path-to-regexp": "8.4.2",
     "ip-address": "10.2.0",
     "uuid": "14.0.1",
     "qs": "6.15.3",
     "axios": "1.18.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
   }
 }
