@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "1.0.44",
+  "version": "1.0.45",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -157,7 +157,7 @@
     "@playwright/test": "1.62.0",
     "@types/d3": "7.4.3",
     "@types/markdown-it": "14.1.2",
-    "@types/node": "26.1.1",
+    "@types/node": "26.1.2",
     "@types/papaparse": "5.5.2",
     "@typescript-eslint/eslint-plugin": "8.65.0",
     "@typescript-eslint/parser": "8.65.0",
@@ -170,7 +170,7 @@
     "esbuild": "0.28.1",
     "eslint": "10.8.0",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-jsdoc": "63.3.0",
+    "eslint-plugin-jsdoc": "63.3.1",
     "eslint-plugin-security": "4.0.1",
     "eslint-plugin-sonarjs": "4.2.0",
     "fast-check": "4.9.0",
@@ -178,7 +178,7 @@
     "html-minifier-terser": "7.2.0",
     "htmlhint": "1.9.2",
     "husky": "9.1.7",
-    "jscpd": "5.0.12",
+    "jscpd": "5.0.14",
     "knip": "6.29.0",
     "lint-staged": "17.2.0",
     "mermaid": "11.16.0",
@@ -199,11 +199,11 @@
     "node": ">=26"
   },
   "dependencies": {
-    "european-parliament-mcp-server": "1.4.5",
+    "european-parliament-mcp-server": "1.4.6",
     "markdown-it": "14.3.0",
     "markdown-it-anchor": "9.2.1",
-    "markdown-it-attrs": "5.0.0",
-    "markdown-it-deflist": "3.0.1",
+    "markdown-it-attrs": "5.0.1",
+    "markdown-it-deflist": "4.0.0",
     "markdown-it-footnote": "4.0.0"
   },
   "optionalDependencies": {
