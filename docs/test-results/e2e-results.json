@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/8c84412e50653244c005f91f021d2822992b32b0",
-        "commitHash": "8c84412e50653244c005f91f021d2822992b32b0",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/30384970192"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/e5c2cf322029d7a1b3921701bf8399a320a060e5",
+        "commitHash": "e5c2cf322029d7a1b3921701bf8399a320a060e5",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/30447452495"
       },
       "gitCommit": {
-        "shortHash": "8c84412e50",
-        "hash": "8c84412e50653244c005f91f021d2822992b32b0",
-        "subject": "chore: upgrade agentic workflows (#2598)",
-        "body": "chore: upgrade agentic workflows (#2598)\n\nCo-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>",
+        "shortHash": "e5c2cf3220",
+        "hash": "e5c2cf322029d7a1b3921701bf8399a320a060e5",
+        "subject": "build(deps): bump release-drafter/release-drafter (#2600)",
+        "body": "build(deps): bump release-drafter/release-drafter (#2600)\n\nBumps the github-actions group with 1 update: [release-drafter/release-drafter](https://github.com/release-drafter/release-drafter).\n\n\nUpdates `release-drafter/release-drafter` from 7.6.0 to 7.7.0\n- [Release notes](https://github.com/release-drafter/release-drafter/releases)\n- [Commits](https://github.com/release-drafter/release-drafter/compare/eada3c96a64734dd381cfbda23511034e328ddb0...34d80673e067bdc0c24568d3af899c216adcfaa9)\n\n---\nupdated-dependencies:\n- dependency-name: release-drafter/release-drafter\n  dependency-version: 7.7.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
-          "name": "github-actions[bot]",
-          "email": "41898282+github-actions[bot]@users.noreply.github.com",
-          "time": 1785258563000
+          "name": "dependabot[bot]",
+          "email": "49699333+dependabot[bot]@users.noreply.github.com",
+          "time": 1785323889000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1785258563000
+          "time": 1785323889000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/8c84412e50653244c005f91f021d2822992b32b0",
-            "commitHash": "8c84412e50653244c005f91f021d2822992b32b0",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/30384970192"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/e5c2cf322029d7a1b3921701bf8399a320a060e5",
+            "commitHash": "e5c2cf322029d7a1b3921701bf8399a320a060e5",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/30447452495"
           },
           "gitCommit": {
-            "shortHash": "8c84412e50",
-            "hash": "8c84412e50653244c005f91f021d2822992b32b0",
-            "subject": "chore: upgrade agentic workflows (#2598)",
-            "body": "chore: upgrade agentic workflows (#2598)\n\nCo-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>",
+            "shortHash": "e5c2cf3220",
+            "hash": "e5c2cf322029d7a1b3921701bf8399a320a060e5",
+            "subject": "build(deps): bump release-drafter/release-drafter (#2600)",
+            "body": "build(deps): bump release-drafter/release-drafter (#2600)\n\nBumps the github-actions group with 1 update: [release-drafter/release-drafter](https://github.com/release-drafter/release-drafter).\n\n\nUpdates `release-drafter/release-drafter` from 7.6.0 to 7.7.0\n- [Release notes](https://github.com/release-drafter/release-drafter/releases)\n- [Commits](https://github.com/release-drafter/release-drafter/compare/eada3c96a64734dd381cfbda23511034e328ddb0...34d80673e067bdc0c24568d3af899c216adcfaa9)\n\n---\nupdated-dependencies:\n- dependency-name: release-drafter/release-drafter\n  dependency-version: 7.7.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
-              "name": "github-actions[bot]",
-              "email": "41898282+github-actions[bot]@users.noreply.github.com",
-              "time": 1785258563000
+              "name": "dependabot[bot]",
+              "email": "49699333+dependabot[bot]@users.noreply.github.com",
+              "time": 1785323889000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1785258563000
+              "time": 1785323889000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1120,
+                      "duration": 1162,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-28T18:33:55.790Z",
+                      "startTime": "2026-07-29T11:35:11.475Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1199,
+                      "duration": 1270,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-28T18:33:55.746Z",
+                      "startTime": "2026-07-29T11:35:11.472Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1187,
+                      "duration": 1081,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-28T18:33:55.805Z",
+                      "startTime": "2026-07-29T11:35:11.526Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1035,
+                      "duration": 933,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-28T18:33:57.194Z",
+                      "startTime": "2026-07-29T11:35:12.818Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1000,
+                      "duration": 862,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-28T18:33:57.250Z",
+                      "startTime": "2026-07-29T11:35:12.919Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1046,
+                      "duration": 884,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-28T18:33:57.291Z",
+                      "startTime": "2026-07-29T11:35:13.030Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-28T18:33:54.171Z",
-    "duration": 4236.939,
+    "startTime": "2026-07-29T11:35:09.949Z",
+    "duration": 4032.597,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
