@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/ddd1e10af6bf2cc14ebdbdb1e827b140b3b52abb",
-        "commitHash": "ddd1e10af6bf2cc14ebdbdb1e827b140b3b52abb",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/30548898503"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/e2f26d932cb6ced532fee961a5cec00d884a1c30",
+        "commitHash": "e2f26d932cb6ced532fee961a5cec00d884a1c30",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/30662403766"
       },
       "gitCommit": {
-        "shortHash": "ddd1e10af6",
-        "hash": "ddd1e10af6bf2cc14ebdbdb1e827b140b3b52abb",
-        "subject": "build(deps): bump the github-actions group with 3 updates (#2603)",
-        "body": "build(deps): bump the github-actions group with 3 updates (#2603)\n\nBumps the github-actions group with 3 updates: [github/codeql-action/init](https://github.com/github/codeql-action), [github/codeql-action/analyze](https://github.com/github/codeql-action) and [github/codeql-action/upload-sarif](https://github.com/github/codeql-action).\n\n\nUpdates `github/codeql-action/init` from 4.37.3 to 4.37.4\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/e4fba868fa4b1b91e1fdab776edc8cfbe6e9fb81...f205ea1c3313d32999d8d6a48b4f6530d4437b38)\n\nUpdates `github/codeql-action/analyze` from 4.37.3 to 4.37.4\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/e4fba868fa4b1b91e1fdab776edc8cfbe6e9fb81...f205ea1c3313d32999d8d6a48b4f6530d4437b38)\n\nUpdates `github/codeql-action/upload-sarif` from 4.37.3 to 4.37.4\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/e4fba868fa4b1b91e1fdab776edc8cfbe6e9fb81...f205ea1c3313d32999d8d6a48b4f6530d4437b38)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action/init\n  dependency-version: 4.37.4\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/analyze\n  dependency-version: 4.37.4\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/upload-sarif\n  dependency-version: 4.37.4\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "e2f26d932c",
+        "hash": "e2f26d932cb6ced532fee961a5cec00d884a1c30",
+        "subject": "build(deps-dev): bump knip in the development-dependencies group (#2608)",
+        "body": "build(deps-dev): bump knip in the development-dependencies group (#2608)\n\nBumps the development-dependencies group with 1 update: [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip).\n\n\nUpdates `knip` from 6.30.0 to 6.31.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.31.0/packages/knip)\n\n---\nupdated-dependencies:\n- dependency-name: knip\n  dependency-version: 6.31.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1785418889000
+          "time": 1785510583000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1785418889000
+          "time": 1785510583000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/ddd1e10af6bf2cc14ebdbdb1e827b140b3b52abb",
-            "commitHash": "ddd1e10af6bf2cc14ebdbdb1e827b140b3b52abb",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/30548898503"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/e2f26d932cb6ced532fee961a5cec00d884a1c30",
+            "commitHash": "e2f26d932cb6ced532fee961a5cec00d884a1c30",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/30662403766"
           },
           "gitCommit": {
-            "shortHash": "ddd1e10af6",
-            "hash": "ddd1e10af6bf2cc14ebdbdb1e827b140b3b52abb",
-            "subject": "build(deps): bump the github-actions group with 3 updates (#2603)",
-            "body": "build(deps): bump the github-actions group with 3 updates (#2603)\n\nBumps the github-actions group with 3 updates: [github/codeql-action/init](https://github.com/github/codeql-action), [github/codeql-action/analyze](https://github.com/github/codeql-action) and [github/codeql-action/upload-sarif](https://github.com/github/codeql-action).\n\n\nUpdates `github/codeql-action/init` from 4.37.3 to 4.37.4\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/e4fba868fa4b1b91e1fdab776edc8cfbe6e9fb81...f205ea1c3313d32999d8d6a48b4f6530d4437b38)\n\nUpdates `github/codeql-action/analyze` from 4.37.3 to 4.37.4\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/e4fba868fa4b1b91e1fdab776edc8cfbe6e9fb81...f205ea1c3313d32999d8d6a48b4f6530d4437b38)\n\nUpdates `github/codeql-action/upload-sarif` from 4.37.3 to 4.37.4\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/e4fba868fa4b1b91e1fdab776edc8cfbe6e9fb81...f205ea1c3313d32999d8d6a48b4f6530d4437b38)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action/init\n  dependency-version: 4.37.4\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/analyze\n  dependency-version: 4.37.4\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/upload-sarif\n  dependency-version: 4.37.4\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "e2f26d932c",
+            "hash": "e2f26d932cb6ced532fee961a5cec00d884a1c30",
+            "subject": "build(deps-dev): bump knip in the development-dependencies group (#2608)",
+            "body": "build(deps-dev): bump knip in the development-dependencies group (#2608)\n\nBumps the development-dependencies group with 1 update: [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip).\n\n\nUpdates `knip` from 6.30.0 to 6.31.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.31.0/packages/knip)\n\n---\nupdated-dependencies:\n- dependency-name: knip\n  dependency-version: 6.31.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1785418889000
+              "time": 1785510583000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1785418889000
+              "time": 1785510583000
             },
             "branch": "main"
           },
@@ -116,7 +116,7 @@
     "tags": [],
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
-    "version": "1.62.0",
+    "version": "1.62.1",
     "workers": 3,
     "webServer": {
       "command": "npm run serve",
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1150,
+                      "duration": 1099,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-30T14:02:25.631Z",
+                      "startTime": "2026-07-31T20:29:20.985Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1175,
+                      "duration": 1158,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-30T14:02:25.639Z",
+                      "startTime": "2026-07-31T20:29:21.020Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 992,
+                      "duration": 1140,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-30T14:02:25.572Z",
+                      "startTime": "2026-07-31T20:29:21.046Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 887,
+                      "duration": 938,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-30T14:02:26.891Z",
+                      "startTime": "2026-07-31T20:29:22.420Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 920,
+                      "duration": 1076,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-30T14:02:27.036Z",
+                      "startTime": "2026-07-31T20:29:22.441Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -325,12 +325,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 962,
+                      "duration": 998,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-07-30T14:02:27.059Z",
+                      "startTime": "2026-07-31T20:29:22.478Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-07-30T14:02:24.055Z",
-    "duration": 4028.25,
+    "startTime": "2026-07-31T20:29:19.450Z",
+    "duration": 4143.7570000000005,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
