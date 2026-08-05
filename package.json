@@ -188,7 +188,7 @@
     "sharp": "0.35.3",
     "terser": "5.49.1",
     "ts-api-utils": "2.5.0",
-    "tsx": "4.23.5",
+    "tsx": "4.23.7",
     "typedoc": "0.28.20",
     "typescript": "npm:@typescript/typescript6@6.0.2",
     "typescript-7": "npm:typescript@7.0.2",
