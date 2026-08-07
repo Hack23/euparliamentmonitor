@@ -31,6 +31,7 @@ Load these files from `github/gh-aw` (they are not available locally).
 - `.github/aw/debug-agentic-workflow.md`
 - `.github/aw/dependabot.md`
 - `.github/aw/deployment-status.md`
+- `.github/aw/designer-mappings.md`
 - `.github/aw/designer.md`
 - `.github/aw/evals.md`
 - `.github/aw/experiments.md`
@@ -42,6 +43,7 @@ Load these files from `github/gh-aw` (they are not available locally).
 - `.github/aw/llms.md`
 - `.github/aw/loop.md`
 - `.github/aw/lsp.md`
+- `.github/aw/maintainer.md`
 - `.github/aw/mcp-clis.md`
 - `.github/aw/memory-stateful-patterns.md`
 - `.github/aw/memory.md`
