@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/d531cbae23c77663cd884436ac1289f88b0488cb",
-        "commitHash": "d531cbae23c77663cd884436ac1289f88b0488cb",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31264714274"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/7b21948adf47c07397dee5d62e7320ebdb9d8358",
+        "commitHash": "7b21948adf47c07397dee5d62e7320ebdb9d8358",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31437526499"
       },
       "gitCommit": {
-        "shortHash": "d531cbae23",
-        "hash": "d531cbae23c77663cd884436ac1289f88b0488cb",
-        "subject": "build(deps-dev): bump dompurify from 3.4.12 to 3.4.13 (#2639)",
-        "body": "build(deps-dev): bump dompurify from 3.4.12 to 3.4.13 (#2639)\n\nBumps [dompurify](https://github.com/cure53/DOMPurify) from 3.4.12 to 3.4.13.\n- [Release notes](https://github.com/cure53/DOMPurify/releases)\n- [Commits](https://github.com/cure53/DOMPurify/compare/3.4.12...3.4.13)\n\n---\nupdated-dependencies:\n- dependency-name: dompurify\n  dependency-version: 3.4.13\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "7b21948adf",
+        "hash": "7b21948adf47c07397dee5d62e7320ebdb9d8358",
+        "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2645)",
+        "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2645)\n\nBumps the development-dependencies group with 2 updates: [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/eslint-plugin) and [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/parser).\n\n\nUpdates `@typescript-eslint/eslint-plugin` from 8.66.0 to 8.67.0\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.67.0/packages/eslint-plugin)\n\nUpdates `@typescript-eslint/parser` from 8.66.0 to 8.67.0\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/parser/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.67.0/packages/parser)\n\n---\nupdated-dependencies:\n- dependency-name: \"@typescript-eslint/eslint-plugin\"\n  dependency-version: 8.67.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n- dependency-name: \"@typescript-eslint/parser\"\n  dependency-version: 8.67.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1786193101000
+          "time": 1786393470000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1786193101000
+          "time": 1786393470000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/d531cbae23c77663cd884436ac1289f88b0488cb",
-            "commitHash": "d531cbae23c77663cd884436ac1289f88b0488cb",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31264714274"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/7b21948adf47c07397dee5d62e7320ebdb9d8358",
+            "commitHash": "7b21948adf47c07397dee5d62e7320ebdb9d8358",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31437526499"
           },
           "gitCommit": {
-            "shortHash": "d531cbae23",
-            "hash": "d531cbae23c77663cd884436ac1289f88b0488cb",
-            "subject": "build(deps-dev): bump dompurify from 3.4.12 to 3.4.13 (#2639)",
-            "body": "build(deps-dev): bump dompurify from 3.4.12 to 3.4.13 (#2639)\n\nBumps [dompurify](https://github.com/cure53/DOMPurify) from 3.4.12 to 3.4.13.\n- [Release notes](https://github.com/cure53/DOMPurify/releases)\n- [Commits](https://github.com/cure53/DOMPurify/compare/3.4.12...3.4.13)\n\n---\nupdated-dependencies:\n- dependency-name: dompurify\n  dependency-version: 3.4.13\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "7b21948adf",
+            "hash": "7b21948adf47c07397dee5d62e7320ebdb9d8358",
+            "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2645)",
+            "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2645)\n\nBumps the development-dependencies group with 2 updates: [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/eslint-plugin) and [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/parser).\n\n\nUpdates `@typescript-eslint/eslint-plugin` from 8.66.0 to 8.67.0\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.67.0/packages/eslint-plugin)\n\nUpdates `@typescript-eslint/parser` from 8.66.0 to 8.67.0\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/parser/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.67.0/packages/parser)\n\n---\nupdated-dependencies:\n- dependency-name: \"@typescript-eslint/eslint-plugin\"\n  dependency-version: 8.67.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n- dependency-name: \"@typescript-eslint/parser\"\n  dependency-version: 8.67.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1786193101000
+              "time": 1786393470000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1786193101000
+              "time": 1786393470000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1108,
+                      "duration": 1072,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-08T15:43:11.342Z",
+                      "startTime": "2026-08-10T22:25:58.882Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1150,
+                      "duration": 1117,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-08T15:43:11.403Z",
+                      "startTime": "2026-08-10T22:25:58.949Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1028,
+                      "duration": 1131,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-08T15:43:11.482Z",
+                      "startTime": "2026-08-10T22:25:58.923Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1013,
+                      "duration": 966,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-08T15:43:12.697Z",
+                      "startTime": "2026-08-10T22:26:00.235Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 987,
+                      "duration": 958,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-08T15:43:12.750Z",
+                      "startTime": "2026-08-10T22:26:00.279Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1023,
+                      "duration": 967,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-08T15:43:12.787Z",
+                      "startTime": "2026-08-10T22:26:00.323Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-08T15:43:09.805Z",
-    "duration": 4073.0000000000005,
+    "startTime": "2026-08-10T22:25:57.361Z",
+    "duration": 3995.4779999999996,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
