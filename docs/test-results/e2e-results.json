@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/48f59f1d490b9383642bbf18dbd16aa110f8f16c",
-        "commitHash": "48f59f1d490b9383642bbf18dbd16aa110f8f16c",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31511004762"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/95c200568e92f56b58fe2ebe22d3510b45ed4cbb",
+        "commitHash": "95c200568e92f56b58fe2ebe22d3510b45ed4cbb",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31515575476"
       },
       "gitCommit": {
-        "shortHash": "48f59f1d49",
-        "hash": "48f59f1d490b9383642bbf18dbd16aa110f8f16c",
-        "subject": "chore: upgrade agentic workflows (#2648)",
-        "body": "chore: upgrade agentic workflows (#2648)\n\nCo-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>",
+        "shortHash": "95c200568e",
+        "hash": "95c200568e92f56b58fe2ebe22d3510b45ed4cbb",
+        "subject": "chore(release): bump version to v1.0.57",
+        "body": "chore(release): bump version to v1.0.57\n",
         "author": {
-          "name": "github-actions[bot]",
-          "email": "41898282+github-actions[bot]@users.noreply.github.com",
-          "time": 1786464422000
+          "name": "hack23-automation[bot]",
+          "email": "304996498+hack23-automation[bot]@users.noreply.github.com",
+          "time": 1786465272000
         },
         "committer": {
-          "name": "GitHub",
-          "email": "noreply@github.com",
-          "time": 1786464422000
+          "name": "hack23-automation[bot]",
+          "email": "304996498+hack23-automation[bot]@users.noreply.github.com",
+          "time": 1786465272000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/48f59f1d490b9383642bbf18dbd16aa110f8f16c",
-            "commitHash": "48f59f1d490b9383642bbf18dbd16aa110f8f16c",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31511004762"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/95c200568e92f56b58fe2ebe22d3510b45ed4cbb",
+            "commitHash": "95c200568e92f56b58fe2ebe22d3510b45ed4cbb",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31515575476"
           },
           "gitCommit": {
-            "shortHash": "48f59f1d49",
-            "hash": "48f59f1d490b9383642bbf18dbd16aa110f8f16c",
-            "subject": "chore: upgrade agentic workflows (#2648)",
-            "body": "chore: upgrade agentic workflows (#2648)\n\nCo-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>",
+            "shortHash": "95c200568e",
+            "hash": "95c200568e92f56b58fe2ebe22d3510b45ed4cbb",
+            "subject": "chore(release): bump version to v1.0.57",
+            "body": "chore(release): bump version to v1.0.57\n",
             "author": {
-              "name": "github-actions[bot]",
-              "email": "41898282+github-actions[bot]@users.noreply.github.com",
-              "time": 1786464422000
+              "name": "hack23-automation[bot]",
+              "email": "304996498+hack23-automation[bot]@users.noreply.github.com",
+              "time": 1786465272000
             },
             "committer": {
-              "name": "GitHub",
-              "email": "noreply@github.com",
-              "time": 1786464422000
+              "name": "hack23-automation[bot]",
+              "email": "304996498+hack23-automation[bot]@users.noreply.github.com",
+              "time": 1786465272000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1201,
+                      "duration": 1236,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T16:20:57.604Z",
+                      "startTime": "2026-08-11T17:14:22.086Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1160,
+                      "duration": 1369,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T16:20:57.662Z",
+                      "startTime": "2026-08-11T17:14:22.064Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1097,
+                      "duration": 1149,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T16:20:57.521Z",
+                      "startTime": "2026-08-11T17:14:22.060Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -257,12 +257,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 879,
+                      "duration": 949,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T16:20:58.937Z",
+                      "startTime": "2026-08-11T17:14:23.495Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1035,
+                      "duration": 928,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T16:20:59.016Z",
+                      "startTime": "2026-08-11T17:14:23.616Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1006,
+                      "duration": 923,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T16:20:59.067Z",
+                      "startTime": "2026-08-11T17:14:23.755Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-11T16:20:55.982Z",
-    "duration": 4158.312,
+    "startTime": "2026-08-11T17:14:20.464Z",
+    "duration": 4283.371,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
