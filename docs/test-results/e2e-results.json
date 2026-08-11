@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/7b21948adf47c07397dee5d62e7320ebdb9d8358",
-        "commitHash": "7b21948adf47c07397dee5d62e7320ebdb9d8358",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31437526499"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/48f59f1d490b9383642bbf18dbd16aa110f8f16c",
+        "commitHash": "48f59f1d490b9383642bbf18dbd16aa110f8f16c",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31511004762"
       },
       "gitCommit": {
-        "shortHash": "7b21948adf",
-        "hash": "7b21948adf47c07397dee5d62e7320ebdb9d8358",
-        "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2645)",
-        "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2645)\n\nBumps the development-dependencies group with 2 updates: [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/eslint-plugin) and [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/parser).\n\n\nUpdates `@typescript-eslint/eslint-plugin` from 8.66.0 to 8.67.0\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.67.0/packages/eslint-plugin)\n\nUpdates `@typescript-eslint/parser` from 8.66.0 to 8.67.0\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/parser/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.67.0/packages/parser)\n\n---\nupdated-dependencies:\n- dependency-name: \"@typescript-eslint/eslint-plugin\"\n  dependency-version: 8.67.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n- dependency-name: \"@typescript-eslint/parser\"\n  dependency-version: 8.67.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "48f59f1d49",
+        "hash": "48f59f1d490b9383642bbf18dbd16aa110f8f16c",
+        "subject": "chore: upgrade agentic workflows (#2648)",
+        "body": "chore: upgrade agentic workflows (#2648)\n\nCo-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>",
         "author": {
-          "name": "dependabot[bot]",
-          "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1786393470000
+          "name": "github-actions[bot]",
+          "email": "41898282+github-actions[bot]@users.noreply.github.com",
+          "time": 1786464422000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1786393470000
+          "time": 1786464422000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/7b21948adf47c07397dee5d62e7320ebdb9d8358",
-            "commitHash": "7b21948adf47c07397dee5d62e7320ebdb9d8358",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31437526499"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/48f59f1d490b9383642bbf18dbd16aa110f8f16c",
+            "commitHash": "48f59f1d490b9383642bbf18dbd16aa110f8f16c",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31511004762"
           },
           "gitCommit": {
-            "shortHash": "7b21948adf",
-            "hash": "7b21948adf47c07397dee5d62e7320ebdb9d8358",
-            "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2645)",
-            "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2645)\n\nBumps the development-dependencies group with 2 updates: [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/eslint-plugin) and [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/parser).\n\n\nUpdates `@typescript-eslint/eslint-plugin` from 8.66.0 to 8.67.0\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.67.0/packages/eslint-plugin)\n\nUpdates `@typescript-eslint/parser` from 8.66.0 to 8.67.0\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/parser/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.67.0/packages/parser)\n\n---\nupdated-dependencies:\n- dependency-name: \"@typescript-eslint/eslint-plugin\"\n  dependency-version: 8.67.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n- dependency-name: \"@typescript-eslint/parser\"\n  dependency-version: 8.67.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "48f59f1d49",
+            "hash": "48f59f1d490b9383642bbf18dbd16aa110f8f16c",
+            "subject": "chore: upgrade agentic workflows (#2648)",
+            "body": "chore: upgrade agentic workflows (#2648)\n\nCo-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>",
             "author": {
-              "name": "dependabot[bot]",
-              "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1786393470000
+              "name": "github-actions[bot]",
+              "email": "41898282+github-actions[bot]@users.noreply.github.com",
+              "time": 1786464422000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1786393470000
+              "time": 1786464422000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1072,
+                      "duration": 1201,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-10T22:25:58.882Z",
+                      "startTime": "2026-08-11T16:20:57.604Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1117,
+                      "duration": 1160,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-10T22:25:58.949Z",
+                      "startTime": "2026-08-11T16:20:57.662Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1131,
+                      "duration": 1097,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-10T22:25:58.923Z",
+                      "startTime": "2026-08-11T16:20:57.521Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 966,
+                      "duration": 879,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-10T22:26:00.235Z",
+                      "startTime": "2026-08-11T16:20:58.937Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -291,12 +291,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 958,
+                      "duration": 1035,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-10T22:26:00.279Z",
+                      "startTime": "2026-08-11T16:20:59.016Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 967,
+                      "duration": 1006,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-10T22:26:00.323Z",
+                      "startTime": "2026-08-11T16:20:59.067Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-10T22:25:57.361Z",
-    "duration": 3995.4779999999996,
+    "startTime": "2026-08-11T16:20:55.982Z",
+    "duration": 4158.312,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
