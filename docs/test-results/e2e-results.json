@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/95c200568e92f56b58fe2ebe22d3510b45ed4cbb",
-        "commitHash": "95c200568e92f56b58fe2ebe22d3510b45ed4cbb",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31515575476"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/aa3c03289ad41a6cff8b9b7b048b61ffb1566842",
+        "commitHash": "aa3c03289ad41a6cff8b9b7b048b61ffb1566842",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31573537478"
       },
       "gitCommit": {
-        "shortHash": "95c200568e",
-        "hash": "95c200568e92f56b58fe2ebe22d3510b45ed4cbb",
-        "subject": "chore(release): bump version to v1.0.57",
-        "body": "chore(release): bump version to v1.0.57\n",
+        "shortHash": "aa3c03289a",
+        "hash": "aa3c03289ad41a6cff8b9b7b048b61ffb1566842",
+        "subject": "build(deps-dev): bump the development-dependencies group with 3 updates (#2649)",
+        "body": "build(deps-dev): bump the development-dependencies group with 3 updates (#2649)\n\nBumps the development-dependencies group with 3 updates: [@axe-core/playwright](https://github.com/dequelabs/axe-core-npm), [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip) and [terser](https://github.com/terser/terser).\n\n\nUpdates `@axe-core/playwright` from 4.12.1 to 4.13.0\n- [Release notes](https://github.com/dequelabs/axe-core-npm/releases)\n- [Changelog](https://github.com/dequelabs/axe-core-npm/blob/develop/CHANGELOG.md)\n- [Commits](https://github.com/dequelabs/axe-core-npm/commits/v4.13.0)\n\nUpdates `knip` from 6.32.1 to 6.32.2\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.32.2/packages/knip)\n\nUpdates `terser` from 5.49.2 to 5.50.0\n- [Changelog](https://github.com/terser/terser/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/terser/terser/compare/v5.49.2...v5.50.0)\n\n---\nupdated-dependencies:\n- dependency-name: \"@axe-core/playwright\"\n  dependency-version: 4.13.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n- dependency-name: knip\n  dependency-version: 6.32.2\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: terser\n  dependency-version: 5.50.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
-          "name": "hack23-automation[bot]",
-          "email": "304996498+hack23-automation[bot]@users.noreply.github.com",
-          "time": 1786465272000
+          "name": "dependabot[bot]",
+          "email": "49699333+dependabot[bot]@users.noreply.github.com",
+          "time": 1786517259000
         },
         "committer": {
-          "name": "hack23-automation[bot]",
-          "email": "304996498+hack23-automation[bot]@users.noreply.github.com",
-          "time": 1786465272000
+          "name": "GitHub",
+          "email": "noreply@github.com",
+          "time": 1786517259000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/95c200568e92f56b58fe2ebe22d3510b45ed4cbb",
-            "commitHash": "95c200568e92f56b58fe2ebe22d3510b45ed4cbb",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31515575476"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/aa3c03289ad41a6cff8b9b7b048b61ffb1566842",
+            "commitHash": "aa3c03289ad41a6cff8b9b7b048b61ffb1566842",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31573537478"
           },
           "gitCommit": {
-            "shortHash": "95c200568e",
-            "hash": "95c200568e92f56b58fe2ebe22d3510b45ed4cbb",
-            "subject": "chore(release): bump version to v1.0.57",
-            "body": "chore(release): bump version to v1.0.57\n",
+            "shortHash": "aa3c03289a",
+            "hash": "aa3c03289ad41a6cff8b9b7b048b61ffb1566842",
+            "subject": "build(deps-dev): bump the development-dependencies group with 3 updates (#2649)",
+            "body": "build(deps-dev): bump the development-dependencies group with 3 updates (#2649)\n\nBumps the development-dependencies group with 3 updates: [@axe-core/playwright](https://github.com/dequelabs/axe-core-npm), [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip) and [terser](https://github.com/terser/terser).\n\n\nUpdates `@axe-core/playwright` from 4.12.1 to 4.13.0\n- [Release notes](https://github.com/dequelabs/axe-core-npm/releases)\n- [Changelog](https://github.com/dequelabs/axe-core-npm/blob/develop/CHANGELOG.md)\n- [Commits](https://github.com/dequelabs/axe-core-npm/commits/v4.13.0)\n\nUpdates `knip` from 6.32.1 to 6.32.2\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.32.2/packages/knip)\n\nUpdates `terser` from 5.49.2 to 5.50.0\n- [Changelog](https://github.com/terser/terser/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/terser/terser/compare/v5.49.2...v5.50.0)\n\n---\nupdated-dependencies:\n- dependency-name: \"@axe-core/playwright\"\n  dependency-version: 4.13.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n- dependency-name: knip\n  dependency-version: 6.32.2\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: terser\n  dependency-version: 5.50.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
-              "name": "hack23-automation[bot]",
-              "email": "304996498+hack23-automation[bot]@users.noreply.github.com",
-              "time": 1786465272000
+              "name": "dependabot[bot]",
+              "email": "49699333+dependabot[bot]@users.noreply.github.com",
+              "time": 1786517259000
             },
             "committer": {
-              "name": "hack23-automation[bot]",
-              "email": "304996498+hack23-automation[bot]@users.noreply.github.com",
-              "time": 1786465272000
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "time": 1786517259000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1236,
+                      "duration": 1093,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T17:14:22.086Z",
+                      "startTime": "2026-08-12T07:30:42.237Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1369,
+                      "duration": 1178,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T17:14:22.064Z",
+                      "startTime": "2026-08-12T07:30:42.221Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1149,
+                      "duration": 1306,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T17:14:22.060Z",
+                      "startTime": "2026-08-12T07:30:42.081Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 949,
+                      "duration": 960,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T17:14:23.495Z",
+                      "startTime": "2026-08-12T07:30:43.493Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 928,
+                      "duration": 984,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T17:14:23.616Z",
+                      "startTime": "2026-08-12T07:30:43.551Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 923,
+                      "duration": 858,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-11T17:14:23.755Z",
+                      "startTime": "2026-08-12T07:30:43.635Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-11T17:14:20.464Z",
-    "duration": 4283.371,
+    "startTime": "2026-08-12T07:30:40.625Z",
+    "duration": 3970.4089999999997,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
