@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-26.04
     # Explicit job cap (default is 360 min). Build + S3 sync + CloudFront
     # invalidation; <15 min typical. 30 min bounds runaway AWS retries.
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@05e31511f85b41b11d1cf0ef85d0992719546e2c # v2.21.0
