@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/a4a7d336ca0a4ab4acfed3761a2732c1dd3f243d",
-        "commitHash": "a4a7d336ca0a4ab4acfed3761a2732c1dd3f243d",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31883118589"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/15208616b5d4914f4280b0517908467cca804ffa",
+        "commitHash": "15208616b5d4914f4280b0517908467cca804ffa",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/32020359636"
       },
       "gitCommit": {
-        "shortHash": "a4a7d336ca",
-        "hash": "a4a7d336ca0a4ab4acfed3761a2732c1dd3f243d",
-        "subject": "build(deps-dev): bump eslint-plugin-jsdoc (#2654)",
-        "body": "build(deps-dev): bump eslint-plugin-jsdoc (#2654)\n\nBumps the development-dependencies group with 1 update: [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc).\n\n\nUpdates `eslint-plugin-jsdoc` from 64.1.0 to 64.2.0\n- [Release notes](https://github.com/gajus/eslint-plugin-jsdoc/releases)\n- [Commits](https://github.com/gajus/eslint-plugin-jsdoc/compare/v64.1.0...v64.2.0)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-plugin-jsdoc\n  dependency-version: 64.2.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "15208616b5",
+        "hash": "15208616b5d4914f4280b0517908467cca804ffa",
+        "subject": "build(deps): bump european-parliament-mcp-server (#2658)",
+        "body": "build(deps): bump european-parliament-mcp-server (#2658)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.21 to 1.4.22\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.21...v1.4.22)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.22\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1786779611000
+          "time": 1786958183000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1786779611000
+          "time": 1786958183000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/a4a7d336ca0a4ab4acfed3761a2732c1dd3f243d",
-            "commitHash": "a4a7d336ca0a4ab4acfed3761a2732c1dd3f243d",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/31883118589"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/15208616b5d4914f4280b0517908467cca804ffa",
+            "commitHash": "15208616b5d4914f4280b0517908467cca804ffa",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/32020359636"
           },
           "gitCommit": {
-            "shortHash": "a4a7d336ca",
-            "hash": "a4a7d336ca0a4ab4acfed3761a2732c1dd3f243d",
-            "subject": "build(deps-dev): bump eslint-plugin-jsdoc (#2654)",
-            "body": "build(deps-dev): bump eslint-plugin-jsdoc (#2654)\n\nBumps the development-dependencies group with 1 update: [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc).\n\n\nUpdates `eslint-plugin-jsdoc` from 64.1.0 to 64.2.0\n- [Release notes](https://github.com/gajus/eslint-plugin-jsdoc/releases)\n- [Commits](https://github.com/gajus/eslint-plugin-jsdoc/compare/v64.1.0...v64.2.0)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-plugin-jsdoc\n  dependency-version: 64.2.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "15208616b5",
+            "hash": "15208616b5d4914f4280b0517908467cca804ffa",
+            "subject": "build(deps): bump european-parliament-mcp-server (#2658)",
+            "body": "build(deps): bump european-parliament-mcp-server (#2658)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.21 to 1.4.22\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.21...v1.4.22)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.22\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1786779611000
+              "time": 1786958183000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1786779611000
+              "time": 1786958183000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1074,
+                      "duration": 1253,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-15T12:02:04.137Z",
+                      "startTime": "2026-08-17T10:40:08.641Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1323,
+                      "duration": 1190,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-15T12:02:04.137Z",
+                      "startTime": "2026-08-17T10:40:08.584Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1231,
+                      "duration": 1069,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-15T12:02:03.986Z",
+                      "startTime": "2026-08-17T10:40:08.584Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1725,
+                      "duration": 1162,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-15T12:02:05.421Z",
+                      "startTime": "2026-08-17T10:40:09.908Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 957,
+                      "duration": 1154,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-15T12:02:05.494Z",
+                      "startTime": "2026-08-17T10:40:10.036Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 870,
+                      "duration": 1069,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-15T12:02:05.663Z",
+                      "startTime": "2026-08-17T10:40:10.092Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-15T12:02:02.446Z",
-    "duration": 4767.514,
+    "startTime": "2026-08-17T10:40:07.032Z",
+    "duration": 4220.318,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
