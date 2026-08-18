@@ -161,8 +161,8 @@
     "@types/papaparse": "5.5.2",
     "@typescript-eslint/eslint-plugin": "8.67.0",
     "@typescript-eslint/parser": "8.67.0",
-    "@vitest/coverage-v8": "4.1.10",
-    "@vitest/ui": "4.1.10",
+    "@vitest/coverage-v8": "4.1.11",
+    "@vitest/ui": "4.1.11",
     "chart.js": "4.5.1",
     "chartjs-plugin-annotation": "3.1.0",
     "clean-css": "5.3.3",
@@ -192,7 +192,7 @@
     "typedoc": "0.28.20",
     "typescript": "npm:@typescript/typescript6@6.0.2",
     "typescript-7": "npm:typescript@7.0.2",
-    "vitest": "4.1.10",
+    "vitest": "4.1.11",
     "yaml": "2.9.0"
   },
   "engines": {
