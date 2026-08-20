@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/66692071f81e17ab6ccb1eb4ee0689addd8827e3",
-        "commitHash": "66692071f81e17ab6ccb1eb4ee0689addd8827e3",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/32188999065"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/c8baaa7c3be60a4713b3337e3f08556854231b7f",
+        "commitHash": "c8baaa7c3be60a4713b3337e3f08556854231b7f",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/32362945566"
       },
       "gitCommit": {
-        "shortHash": "66692071f8",
-        "hash": "66692071f81e17ab6ccb1eb4ee0689addd8827e3",
-        "subject": "build(deps-dev): bump the development-dependencies group with 3 updates (#2661)",
-        "body": "build(deps-dev): bump the development-dependencies group with 3 updates (#2661)\n\nBumps the development-dependencies group with 3 updates: [@vitest/coverage-v8](https://github.com/vitest-dev/vitest/tree/HEAD/packages/coverage-v8), [@vitest/ui](https://github.com/vitest-dev/vitest/tree/HEAD/packages/ui) and [vitest](https://github.com/vitest-dev/vitest/tree/HEAD/packages/vitest).\n\n\nUpdates `@vitest/coverage-v8` from 4.1.10 to 4.1.11\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v4.1.11/packages/coverage-v8)\n\nUpdates `@vitest/ui` from 4.1.10 to 4.1.11\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v4.1.11/packages/ui)\n\nUpdates `vitest` from 4.1.10 to 4.1.11\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v4.1.11/packages/vitest)\n\n---\nupdated-dependencies:\n- dependency-name: \"@vitest/coverage-v8\"\n  dependency-version: 4.1.11\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: \"@vitest/ui\"\n  dependency-version: 4.1.11\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: vitest\n  dependency-version: 4.1.11\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "c8baaa7c3b",
+        "hash": "c8baaa7c3be60a4713b3337e3f08556854231b7f",
+        "subject": "chore: upgrade agentic workflows (#2665)",
+        "body": "chore: upgrade agentic workflows (#2665)\n\nCo-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>",
         "author": {
-          "name": "dependabot[bot]",
-          "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1787067669000
+          "name": "github-actions[bot]",
+          "email": "41898282+github-actions[bot]@users.noreply.github.com",
+          "time": 1787224505000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1787067669000
+          "time": 1787224505000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/66692071f81e17ab6ccb1eb4ee0689addd8827e3",
-            "commitHash": "66692071f81e17ab6ccb1eb4ee0689addd8827e3",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/32188999065"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/c8baaa7c3be60a4713b3337e3f08556854231b7f",
+            "commitHash": "c8baaa7c3be60a4713b3337e3f08556854231b7f",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/32362945566"
           },
           "gitCommit": {
-            "shortHash": "66692071f8",
-            "hash": "66692071f81e17ab6ccb1eb4ee0689addd8827e3",
-            "subject": "build(deps-dev): bump the development-dependencies group with 3 updates (#2661)",
-            "body": "build(deps-dev): bump the development-dependencies group with 3 updates (#2661)\n\nBumps the development-dependencies group with 3 updates: [@vitest/coverage-v8](https://github.com/vitest-dev/vitest/tree/HEAD/packages/coverage-v8), [@vitest/ui](https://github.com/vitest-dev/vitest/tree/HEAD/packages/ui) and [vitest](https://github.com/vitest-dev/vitest/tree/HEAD/packages/vitest).\n\n\nUpdates `@vitest/coverage-v8` from 4.1.10 to 4.1.11\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v4.1.11/packages/coverage-v8)\n\nUpdates `@vitest/ui` from 4.1.10 to 4.1.11\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v4.1.11/packages/ui)\n\nUpdates `vitest` from 4.1.10 to 4.1.11\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v4.1.11/packages/vitest)\n\n---\nupdated-dependencies:\n- dependency-name: \"@vitest/coverage-v8\"\n  dependency-version: 4.1.11\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: \"@vitest/ui\"\n  dependency-version: 4.1.11\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: vitest\n  dependency-version: 4.1.11\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "c8baaa7c3b",
+            "hash": "c8baaa7c3be60a4713b3337e3f08556854231b7f",
+            "subject": "chore: upgrade agentic workflows (#2665)",
+            "body": "chore: upgrade agentic workflows (#2665)\n\nCo-authored-by: github-actions[bot] <github-actions[bot]@users.noreply.github.com>",
             "author": {
-              "name": "dependabot[bot]",
-              "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1787067669000
+              "name": "github-actions[bot]",
+              "email": "41898282+github-actions[bot]@users.noreply.github.com",
+              "time": 1787224505000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1787067669000
+              "time": 1787224505000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 837,
+                      "duration": 1185,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-18T21:49:16.197Z",
+                      "startTime": "2026-08-20T11:26:10.132Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 889,
+                      "duration": 1214,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-18T21:49:16.101Z",
+                      "startTime": "2026-08-20T11:26:10.236Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 863,
+                      "duration": 1095,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-18T21:49:16.160Z",
+                      "startTime": "2026-08-20T11:26:10.268Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 723,
+                      "duration": 1055,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-18T21:49:17.358Z",
+                      "startTime": "2026-08-20T11:26:11.595Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 768,
+                      "duration": 1068,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-18T21:49:17.381Z",
+                      "startTime": "2026-08-20T11:26:11.634Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -325,12 +325,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 725,
+                      "duration": 961,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-18T21:49:17.398Z",
+                      "startTime": "2026-08-20T11:26:11.698Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-18T21:49:14.492Z",
-    "duration": 3704.89,
+    "startTime": "2026-08-20T11:26:08.619Z",
+    "duration": 4166.198,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
