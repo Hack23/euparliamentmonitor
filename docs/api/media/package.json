@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "1.0.66",
+  "version": "1.0.67",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -181,7 +181,7 @@
     "jscpd": "5.0.16",
     "knip": "6.32.2",
     "lint-staged": "17.3.0",
-    "mermaid": "11.17.1",
+    "mermaid": "11.17.2",
     "papaparse": "5.7.0",
     "prettier": "3.9.6",
     "purgecss": "8.0.0",
