@@ -129,7 +129,7 @@ safe-outputs:
 
 steps:
   - name: Setup Node.js
-    uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+    uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020  # v7.0.0
     with:
       node-version: '26'
 
@@ -152,7 +152,7 @@ steps:
 
 engine:
   id: copilot
-  model: claude-opus-4.8
+  model: claude-opus-5
 ---
 # 📰 EU Parliament Election Cycle — Unified Workflow
 

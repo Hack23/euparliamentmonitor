@@ -3,7 +3,7 @@ mcp-servers:
   european-parliament:
     container: "node:26-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.4.0", "--timeout", "180000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.4.30", "--timeout", "180000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "180000"
   world-bank:

@@ -1,7 +1,7 @@
 {
   "config": {
     "argv": [
-      "/__t/node/26.7.0/x64/bin/node",
+      "/__t/node/26.8.1/x64/bin/node",
       "/__w/euparliamentmonitor/euparliamentmonitor/node_modules/.bin/playwright",
       "test",
       "e2e/tests/homepage.spec.js"
@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/8c3390a4d6f1ddcc1f88aec33c370d6be7086d6e",
-        "commitHash": "8c3390a4d6f1ddcc1f88aec33c370d6be7086d6e",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/33008973637"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/ddfc90177befa3efe9d4496ede9459f62bef57de",
+        "commitHash": "ddfc90177befa3efe9d4496ede9459f62bef57de",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/33214079025"
       },
       "gitCommit": {
-        "shortHash": "8c3390a4d6",
-        "hash": "8c3390a4d6f1ddcc1f88aec33c370d6be7086d6e",
-        "subject": "build(deps): bump the github-actions group with 3 updates (#2677)",
-        "body": "build(deps): bump the github-actions group with 3 updates (#2677)\n\nBumps the github-actions group with 3 updates: [github/codeql-action/init](https://github.com/github/codeql-action), [github/codeql-action/analyze](https://github.com/github/codeql-action) and [github/codeql-action/upload-sarif](https://github.com/github/codeql-action).\n\n\nUpdates `github/codeql-action/init` from 4.37.8 to 4.37.9\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/db488ddef3bf6cb639b32c2e9a7c0a7ea8271d28...cdf488f595d80d6e07e03d4674febd5ab45fa938)\n\nUpdates `github/codeql-action/analyze` from 4.37.8 to 4.37.9\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/db488ddef3bf6cb639b32c2e9a7c0a7ea8271d28...cdf488f595d80d6e07e03d4674febd5ab45fa938)\n\nUpdates `github/codeql-action/upload-sarif` from 4.37.8 to 4.37.9\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/db488ddef3bf6cb639b32c2e9a7c0a7ea8271d28...cdf488f595d80d6e07e03d4674febd5ab45fa938)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action/init\n  dependency-version: 4.37.9\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/analyze\n  dependency-version: 4.37.9\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/upload-sarif\n  dependency-version: 4.37.9\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "ddfc90177b",
+        "hash": "ddfc90177befa3efe9d4496ede9459f62bef57de",
+        "subject": "build(deps): bump anchore/sbom-action in the github-actions group (#2684)",
+        "body": "build(deps): bump anchore/sbom-action in the github-actions group (#2684)\n\nBumps the github-actions group with 1 update: [anchore/sbom-action](https://github.com/anchore/sbom-action).\n\n\nUpdates `anchore/sbom-action` from 0.24.1 to 0.24.2\n- [Release notes](https://github.com/anchore/sbom-action/releases)\n- [Changelog](https://github.com/anchore/sbom-action/blob/main/RELEASE.md)\n- [Commits](https://github.com/anchore/sbom-action/compare/aa80c8c5bd439a416a62804f2151ab38c671a638...3ad7283483fc7af8ff2b4ea19663c2d5ca935e26)\n\n---\nupdated-dependencies:\n- dependency-name: anchore/sbom-action\n  dependency-version: 0.24.2\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1787774616000
+          "time": 1787950396000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1787774616000
+          "time": 1787950396000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/8c3390a4d6f1ddcc1f88aec33c370d6be7086d6e",
-            "commitHash": "8c3390a4d6f1ddcc1f88aec33c370d6be7086d6e",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/33008973637"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/ddfc90177befa3efe9d4496ede9459f62bef57de",
+            "commitHash": "ddfc90177befa3efe9d4496ede9459f62bef57de",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/33214079025"
           },
           "gitCommit": {
-            "shortHash": "8c3390a4d6",
-            "hash": "8c3390a4d6f1ddcc1f88aec33c370d6be7086d6e",
-            "subject": "build(deps): bump the github-actions group with 3 updates (#2677)",
-            "body": "build(deps): bump the github-actions group with 3 updates (#2677)\n\nBumps the github-actions group with 3 updates: [github/codeql-action/init](https://github.com/github/codeql-action), [github/codeql-action/analyze](https://github.com/github/codeql-action) and [github/codeql-action/upload-sarif](https://github.com/github/codeql-action).\n\n\nUpdates `github/codeql-action/init` from 4.37.8 to 4.37.9\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/db488ddef3bf6cb639b32c2e9a7c0a7ea8271d28...cdf488f595d80d6e07e03d4674febd5ab45fa938)\n\nUpdates `github/codeql-action/analyze` from 4.37.8 to 4.37.9\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/db488ddef3bf6cb639b32c2e9a7c0a7ea8271d28...cdf488f595d80d6e07e03d4674febd5ab45fa938)\n\nUpdates `github/codeql-action/upload-sarif` from 4.37.8 to 4.37.9\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/db488ddef3bf6cb639b32c2e9a7c0a7ea8271d28...cdf488f595d80d6e07e03d4674febd5ab45fa938)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action/init\n  dependency-version: 4.37.9\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/analyze\n  dependency-version: 4.37.9\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/upload-sarif\n  dependency-version: 4.37.9\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "ddfc90177b",
+            "hash": "ddfc90177befa3efe9d4496ede9459f62bef57de",
+            "subject": "build(deps): bump anchore/sbom-action in the github-actions group (#2684)",
+            "body": "build(deps): bump anchore/sbom-action in the github-actions group (#2684)\n\nBumps the github-actions group with 1 update: [anchore/sbom-action](https://github.com/anchore/sbom-action).\n\n\nUpdates `anchore/sbom-action` from 0.24.1 to 0.24.2\n- [Release notes](https://github.com/anchore/sbom-action/releases)\n- [Changelog](https://github.com/anchore/sbom-action/blob/main/RELEASE.md)\n- [Commits](https://github.com/anchore/sbom-action/compare/aa80c8c5bd439a416a62804f2151ab38c671a638...3ad7283483fc7af8ff2b4ea19663c2d5ca935e26)\n\n---\nupdated-dependencies:\n- dependency-name: anchore/sbom-action\n  dependency-version: 0.24.2\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1787774616000
+              "time": 1787950396000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1787774616000
+              "time": 1787950396000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1264,
+                      "duration": 1013,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-26T20:20:31.536Z",
+                      "startTime": "2026-08-28T21:56:27.662Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1290,
+                      "duration": 1022,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-26T20:20:31.430Z",
+                      "startTime": "2026-08-28T21:56:27.726Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1234,
+                      "duration": 977,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-26T20:20:31.432Z",
+                      "startTime": "2026-08-28T21:56:27.671Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -257,12 +257,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1043,
+                      "duration": 808,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-26T20:20:32.946Z",
+                      "startTime": "2026-08-28T21:56:28.894Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1028,
+                      "duration": 846,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-26T20:20:33.006Z",
+                      "startTime": "2026-08-28T21:56:28.927Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1023,
+                      "duration": 887,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-08-26T20:20:33.031Z",
+                      "startTime": "2026-08-28T21:56:28.940Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-08-26T20:20:29.872Z",
-    "duration": 4272.177000000001,
+    "startTime": "2026-08-28T21:56:26.241Z",
+    "duration": 3634.693,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,

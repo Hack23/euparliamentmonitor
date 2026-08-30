@@ -173,7 +173,7 @@ architecture.
 ### Key Characteristics
 
 - **Minimal Runtime Dependencies**: Pure static HTML/CSS output with no server-side
-  execution; one pinned production dependency (`european-parliament-mcp-server@1.4.0`) plus one optional dependency (`worldbank-mcp@1.0.1`) used only at build time; `markdown-it` + plugins (`markdown-it-anchor`, `markdown-it-footnote`, `markdown-it-attrs`, `markdown-it-deflist`) vendored in the aggregator for deterministic artifact rendering
+  execution; one pinned production dependency (`european-parliament-mcp-server@1.4.30`) plus one optional dependency (`worldbank-mcp@1.0.1`) used only at build time; `markdown-it` + plugins (`markdown-it-anchor`, `markdown-it-footnote`, `markdown-it-attrs`, `markdown-it-deflist`) vendored in the aggregator for deterministic artifact rendering
 - **TypeScript Source**: All source in `src/` written in TypeScript 6.0.3 (strict, ESM, `"type": "module"`), compiled via `tsc` — `rootDir: ./src`, `outDir: ./scripts`, `target: ES2025`, `module: NodeNext`
 - **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
 - **Article Types**: 15 registered content types in [`src/config/article-horizons.ts`](src/config/article-horizons.ts) (ADR-007) — 14 scheduled production types (`breaking`, `committee-reports`, `election-cycle`, `month-ahead`, `month-in-review`, `motions`, `propositions`, `quarter-ahead`, `quarter-in-review`, `term-outlook`, `week-ahead`, `week-in-review`, `year-ahead`, `year-in-review`) + `deep-analysis` (manual/`workflow_dispatch` only) — each type is a slug, not a strategy module; the aggregator renders the same canonical artifact order for every type and per-type content differences are carried by the Stage-B artifacts themselves
@@ -326,7 +326,7 @@ C4Container
         Container(template_lib, "Template Library", "60 Markdown templates", "60 top-level content templates + 6 partial fragments under _partials/ (analysis/templates/)")
         ContainerDb(analysis_runs, "Analysis Runs", "Markdown + JSON", "analysis/daily/YYYY-MM-DD/<type>/{manifest.json,intelligence/,classification/,risk-scoring/,threat-assessment/,documents/,extended/}")
         Container(aggregator, "Aggregator (5 modules)", "TypeScript", "src/aggregator/**: artifact-order · clean-artifact · analysis-aggregator · markdown-renderer · article-html · article-metadata · article-generator (CLI)")
-        Container(ep_client, "EP MCP Client", "TypeScript", "Stdio JSON-RPC to european-parliament-mcp-server@1.4.0+; 60+ tools; getVotingRecordsWithFallback() to EP Open Data Portal (src/mcp/ep-mcp-client.ts)")
+        Container(ep_client, "EP MCP Client", "TypeScript", "Stdio JSON-RPC to european-parliament-mcp-server@1.4.30+; 60+ tools; getVotingRecordsWithFallback() to EP Open Data Portal (src/mcp/ep-mcp-client.ts)")
         Container(wb_client, "World Bank MCP Client", "TypeScript", "WORLD_BANK_MCP_TOOLS — non-economic indicators only (src/mcp/wb-mcp-client.ts)")
         Container(imf_client, "IMF REST Client", "TypeScript", "IMF_MCP_TOOLS — primary economic source: WEO/Fiscal Monitor/IFS/BOP/ER/PCPS (src/mcp/imf-mcp-client.ts)")
         Container(stage_c_review, "Stage-C Review", "Editorial agent + thresholds", "Reads .github/prompts/03-analysis-completeness-gate.md + reference-quality-thresholds.json — replaces purged content-validator.ts")
@@ -533,7 +533,7 @@ C4Component
 |---|---|---|---|
 | 🟢 **Aggregator pipeline** | Discover `manifest.json` → clean artifacts → aggregate (19-section canonical order, Provenance & Audit at end, `.md` only excluding `data/runs/pass1/`) → render Markdown → wrap HTML with TOC sidebar + shared chrome + progressive disclosure layers (`quick`/`analysis`/`intelligence`) + per-layer reading-time estimates + anchor-aware auto-expansion runtime → write `<slug>.en.md` + 14 `<slug>-<lang>.html` | `markdown-it` + `markdown-it-anchor`/`-footnote`/`-attrs`/`-deflist` | `src/aggregator/{article-generator,analysis-aggregator,markdown-renderer,article-html,artifact-order,clean-artifact,article-metadata,progressive-disclosure}.ts` |
 | 🧠 **Analysis artifacts** | 60 top-level content templates under `analysis/daily/<date>/<type>/` with `manifest.json` declaring `articleType` + `files` map. 3-variant manifest schema (`articleType` / `articleTypes[]` / legacy `runType`) handled by `resolveArticleTypeFromManifest()`. Optional `dataMode` (`full`/`title-only`/`degraded-imf`/`degraded-voting`/`minimal`) applies depth-floor reduction factors for structurally constrained runs (see DATA_MODEL.md § Reference Quality Thresholds) | 19 methodologies (10-step protocol, Rules 1–22) | `analysis/methodologies/*.md`, `analysis/templates/**`, `analysis/daily/**` |
-| 🔌 **EP MCP Client** | 60+ EP tools via stdio JSON-RPC; `safeCallTool()` + `callToolWithRetry()` wrappers; recess-mode detection ([1952,2100] year window); slow-feed warning downgrade for `get_events_feed` | `european-parliament-mcp-server@1.4.0+` (PR #405 normalises political-group codes) | `src/mcp/ep-mcp-client.ts` |
+| 🔌 **EP MCP Client** | 60+ EP tools via stdio JSON-RPC; `safeCallTool()` + `callToolWithRetry()` wrappers; recess-mode detection ([1952,2100] year window); slow-feed warning downgrade for `get_events_feed` | `european-parliament-mcp-server@1.4.30+` (PR #405 normalises political-group codes) | `src/mcp/ep-mcp-client.ts` |
 | 🗳️ **EP Open Data fallback** | Three-state voting fallback: (a) MCP has data → use it · (b) MCP empty → query `/api/v2/decision` · (c) both empty → 🔴 unavailability marker via virtual tool name `ep-get-voting-records` | EP Open Data Portal | `src/mcp/ep-open-data-client.ts` (see `getVotingRecordsWithFallback()`) |
 | 💰 **IMF Client** | `class IMFMCPClient` + `IMF_MCP_TOOLS`; primary economic source per IMF Indicator Mapping; native Node 26 `fetch` SDMX 3.0; env `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS` | None (REST) | `src/mcp/imf-mcp-client.ts` |
 | 🌱 **World Bank Client** | `WORLD_BANK_MCP_TOOLS`; non-economic WDI indicators only (health, education, environment, governance, innovation) | `worldbank-mcp` (optional) | `src/mcp/wb-mcp-client.ts` |
@@ -736,14 +736,14 @@ All 15 news workflows are **markdown source files compiled to YAML** (`.md` → 
 | **Chart.js** | 4.5.1 | 4.0.0 | N/A | Vendored; update with copy-vendor script |
 | **D3** | 7.9.0 | 7.0.0 | N/A | Vendored; update with copy-vendor script |
 | **TypeDoc** | 0.28.19 | 0.28.0 | N/A | Major within 60 days |
-| **european-parliament-mcp-server** | 1.4.0 (pinned) | 1.3.20 | Per upstream | Track releases; repository workflows and package dependency pin `european-parliament-mcp-server@1.4.0` for EP MCP data access |
+| **european-parliament-mcp-server** | 1.4.0 (pinned) | 1.3.20 | Per upstream | Track releases; repository workflows and package dependency pin `european-parliament-mcp-server@1.4.30` for EP MCP data access |
 | **worldbank-mcp** | 1.0.1 (optional) | 1.0.0 | Per upstream | Biannual WDI refresh cadence |
 | **gh-aw CLI** | v0.77.0 (pinned `GH_AW_VERSION`) | v0.77.0 | Per upstream | Workflow-level pin in `compile-agentic-workflows.yml`; `.md` workflows compile to committed `.lock.yml` files |
 
 ### Dependency Management
 
 **Production Dependencies (1 required + 1 optional):**
-- **`european-parliament-mcp-server@1.4.0`** — Primary data surface; 6 sliding-window feed tools (`timeframe` + `startDate` when `custom`) and 7 fixed-window feed tools (`limit`/`offset` only — `documents`, `plenary_documents`, `committee_documents`, `plenary_session_documents`, `parliamentary_questions`, `corporate_bodies`, `controlled_vocabularies`); returns uniform `{status:"unavailable", items:[]}` envelope on upstream failure.
+- **`european-parliament-mcp-server@1.4.30`** — Primary data surface; 6 sliding-window feed tools (`timeframe` + `startDate` when `custom`) and 7 fixed-window feed tools (`limit`/`offset` only — `documents`, `plenary_documents`, `committee_documents`, `plenary_session_documents`, `parliamentary_questions`, `corporate_bodies`, `controlled_vocabularies`); returns uniform `{status:"unavailable", items:[]}` envelope on upstream failure.
 - **`worldbank-mcp@1.0.1`** (`optionalDependencies`) — WDI macro/social/environment/health indicators.
 
 **IMF REST** is integrated via native TypeScript fetch in `src/mcp/imf-mcp-client.ts` (`class IMFMCPClient`) — this is NOT an MCP server; calls go directly to `https://dataservices.imf.org/REST/SDMX_3.0/`. Env: `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`. Supplies WEO + FM monthly forecasts up to five years ahead.
@@ -2273,7 +2273,7 @@ Non-functional requirements define system qualities that are not directly relate
 - **Code Complexity**: Moderate (5-stage artifact pipeline + deterministic aggregator modules; no SPA framework)
 - **Test Coverage**: 82%+ lines, 83%+ branches across 76 test files; **3026+ passing tests** (unit, integration incl. EP/IMF/WB MCP contract tests, E2E Playwright)
 - **Documentation**: Comprehensive (25+ architecture & ISMS docs — see Architecture Documentation Map)
-- **Dependencies**: 1 pinned production (`european-parliament-mcp-server@1.4.0`), 1 optional (`worldbank-mcp@1.0.1`), ~40 dev dependencies
+- **Dependencies**: 1 pinned production (`european-parliament-mcp-server@1.4.30`), 1 optional (`worldbank-mcp@1.0.1`), ~40 dev dependencies
 
 ---
 
