@@ -152,7 +152,7 @@ steps:
 
 engine:
   id: copilot
-  model: claude-opus-4.8
+  model: claude-opus-5
 ---
 # 📰 EU Parliament Year In Review — Unified Workflow
 

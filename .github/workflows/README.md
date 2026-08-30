@@ -319,7 +319,7 @@ Key rules (enforced by [`scripts/lint-prompts.js`](../../scripts/lint-prompts.js
 Rationale and exceptions: [`06-pr-and-safe-outputs.md`](../prompts/06-pr-and-safe-outputs.md).
 
 #### Common features across all news workflows
-- Uses `european-parliament-mcp-server@1.4.0` as primary data source
+- Uses `european-parliament-mcp-server@1.4.30` as primary data source
 - Mandatory date context establishment via `date -u` command
 - Supports 14 languages: en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
 - HTML validation and quality checks before PR creation
@@ -739,14 +739,14 @@ All workflows follow Hack23 ISMS security requirements:
 ### Pinned Action Versions
 Every action uses SHA256 pinning for security:
 ```yaml
-uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 ```
 
 ### Harden Runner
 All workflows include StepSecurity Harden Runner:
 ```yaml
 - name: Harden Runner
-  uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+  uses: step-security/harden-runner@05e31511f85b41b11d1cf0ef85d0992719546e2c  # v2.21.0
   with:
     egress-policy: audit
 ```

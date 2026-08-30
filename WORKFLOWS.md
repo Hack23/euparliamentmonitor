@@ -224,7 +224,7 @@ flowchart TB
 
 ### 1. Agentic News Workflows (×15)
 
-**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot. The 14 unified `news-<type>.md` article workflows run on the `claude-opus-4.8` model; the `news-translate.md` translation helper runs on `claude-sonnet-4.6`.
+**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot. The 14 unified `news-<type>.md` article workflows run on the `claude-opus-5` model; the `news-translate.md` translation helper runs on `claude-sonnet-4.6`.
 **📁 Architecture:** 15 markdown source files (14 unified `news-<type>.md` covering 14 article types + 1 `news-translate.md` helper) compiled to 15 `.lock.yml` files via `gh aw compile` (GitHub Agentic Workflows CLI)
 **🌐 Languages:** 14 (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 **📜 Horizon registry:** Every horizon's data window, cadence, mandatory artifacts, stage budgets, scenario depth and electoral overlay is defined in [`src/config/article-horizons.ts`](src/config/article-horizons.ts) — the single source of truth consumed by the aggregator, the forward-statements registry, and the drift-guard tests.
@@ -277,7 +277,7 @@ All 15 agentic workflows share a common architecture. The 14 article workflows r
 graph TD
     A[🕐 Schedule / Manual Trigger] --> B[🔑 Activation Job]
     B --> C{Conditions Met?}
-    C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-opus-4.8<br/>translate: claude-sonnet-4.6]
+    C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-opus-5<br/>translate: claude-sonnet-4.6]
     C -->|❌ No| E[⏭️ Skip]
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 26]
@@ -352,13 +352,13 @@ import { hasPlaceholders, computeEffectiveMinLines } from './workflows/completen
 |----------|-------|
 | **Source format** | Markdown (`.md`) compiled by `gh aw compile` |
 | **Lock format** | YAML (`.lock.yml`) — auto-generated, do not edit directly |
-| **AI Model** | `claude-opus-4.8` (14 article workflows) / `claude-sonnet-4.6` (`news-translate.md`) via GitHub Copilot CLI |
+| **AI Model** | `claude-opus-5` (14 article workflows) / `claude-sonnet-4.6` (`news-translate.md`) via GitHub Copilot CLI |
 | **Top-level permissions** | `{}` (empty — no default permissions) |
 | **Activation job permissions** | `contents: read` |
 | **Agent job permissions** | `contents: write`, `pull-requests: write`, `issues: write`, `models: read` |
 | **Concurrency group** | `gh-aw-${{ github.workflow }}` |
 | **Node.js version** | 26 |
-| **EP MCP Server** | `european-parliament-mcp-server@1.4.0` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL` resolved dynamically from MCP config; default `http://host.docker.internal:8080/mcp/european-parliament`) |
+| **EP MCP Server** | `european-parliament-mcp-server@1.4.30` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL` resolved dynamically from MCP config; default `http://host.docker.internal:8080/mcp/european-parliament`) |
 | **Data sources** | European Parliament MCP Server `v1.4.0+` (primary, 60+ tools — sliding + fixed-window feeds + analytical), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, **primary economic source** — WEO+FM+IFS+BOP+ER+PCPS+GFSR+EREO+FSI+GFS+DOT), World Bank Open Data MCP (non-economic only — WDI social/health/education/environment/governance). Economic-context enforcement is editorial at the Stage-C completeness review against [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) and the per-artifact line floors in [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) — the runtime `articlePolicyHas*` gates were purged in April-2026 |
 | **Analysis stage** | Stage B writes structured Markdown artifacts under the run directory using the 10-step AI-driven analysis protocol |
 | **Analysis output** | `analysis/daily/{date}/{article-type}/` (or suffixed same-day variants) containing `manifest.json`, raw data, Stage-B artifacts, `article.md`, and `article-meta.json`. Article-type scoping prevents merge conflicts between concurrent workflows. |
@@ -2261,7 +2261,7 @@ flowchart LR
     end
 
     subgraph "🤖 Agent Layer"
-        Agent["GitHub Copilot<br/>claude-opus-4.8 (articles)<br/>claude-sonnet-4.6 (translate)"]
+        Agent["GitHub Copilot<br/>claude-opus-5 (articles)<br/>claude-sonnet-4.6 (translate)"]
         Analyze["Analysis Pipeline<br/>11 methodology assets<br/>39 templates"]
     end
 
