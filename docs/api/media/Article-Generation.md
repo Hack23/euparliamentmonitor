@@ -146,7 +146,7 @@ Each workflow declares the operational envelope used by gh-aw:
 | Concern | Current pattern |
 |---|---|
 | Runtime | Node.js 26. |
-| AI model | `claude-opus-4.8` for the 14 article workflows; `claude-sonnet-4.6` for `news-translate.md`. |
+| AI model | `claude-opus-5` for the 14 article workflows; `claude-sonnet-4.6` for `news-translate.md`. |
 | MCP gateway | `features.mcp-gateway: true`, sandbox MCP port `8080`. |
 | Network allowlist | GitHub, EP data domains, IMF data services, World Bank, Hack23 sites, project domains, defaults. |
 | Safe output | `create-pull-request.max: 1` for article workflows. |

@@ -101,7 +101,7 @@ planning and resource allocation.
 - **Aggregator pipeline**: deterministic Markdown→HTML rendering via `src/aggregator/**` (5 modules) — no per-type strategies, no AI-authored HTML, no runtime content-validator
 - **5933+ automated tests** across **153 test files** (Vitest 4.1.7 + Playwright 1.60.0 + @axe-core/playwright 4.11.3)
 - **Stack**: Node 26, TypeScript 6.0.3 strict mode, ESM-only, Apache-2.0 license
-- **Data sources**: `european-parliament-mcp-server@1.4.0+` (60+ tools, primary EP data) + `worldbank-mcp` (non-economic context) + IMF SDMX 3.0 REST (primary economic source)
+- **Data sources**: `european-parliament-mcp-server@1.4.30+` (60+ tools, primary EP data) + `worldbank-mcp` (non-economic context) + IMF SDMX 3.0 REST (primary economic source)
 - **Delivery**: AWS S3 + CloudFront (OIDC-based, no long-lived secrets) primary; GitHub Pages fallback runbook
 - **Supply chain**: npm provenance + SLSA L3 + OpenSSF Scorecard + OpenSSF Best Practices badge #12068
 
@@ -1350,7 +1350,7 @@ Funding** | €0 | €10-20k | 🔴 Critical |
 
 **Weaknesses (W16–W19):**
 
-- **W16: EP MCP 1.3.20 Skeleton Coverage** — pinned `european-parliament-mcp-server@1.4.0` exposes 60+ tools but several endpoints (committee-documents, plenary-session-document-items, controlled-vocabularies feed) remain fixed-window with no timeframe filtering, limiting historical-query precision. *Risk: 🟢 Low.*
+- **W16: EP MCP 1.3.20 Skeleton Coverage** — pinned `european-parliament-mcp-server@1.4.30` exposes 60+ tools but several endpoints (committee-documents, plenary-session-document-items, controlled-vocabularies feed) remain fixed-window with no timeframe filtering, limiting historical-query precision. *Risk: 🟢 Low.*
 - **W17: IMF Probe Degradation Modes** — when `cache/imf/imf-probe-summary.json` reports failure, manifest `dataMode` falls back to `degraded-imf` (-15% line floor) or `minimal` (-35%); WB satisfies the OR-gate but tradecraft on monetary/fiscal claims still relies on IMF as primary. *Risk: 🟡 Medium.*
 - **W18: Single-Session 60-Min Workflow Timeout** — every unified `news-<type>.md` workflow runs Stages A→E in one 60-min session and creates exactly one PR. The hard PR deadline minute ≤ 45 (target ≤ 42 standard slugs, ≤ 47 electoral) leaves no margin if upstream MCP latency spikes mid-run. *Risk: 🟡 Medium.*
 - **W19: MCP Gateway Keepalive Issues** — the current `v0.77.3` pin still relies on the upstream-default gateway keepalive; the `engine.mcp.session-timeout` field first advertised in gh-aw v0.71.3 was rejected by the bundled gateway image v0.3.1 (run #25275823699 fingerprint) and remains unverified on the current pin. *Risk: 🟡 Medium.*
