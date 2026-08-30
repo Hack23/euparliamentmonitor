@@ -19,11 +19,15 @@
  */
 
 import MarkdownIt from 'markdown-it';
+import type {
+  MarkdownIt as MarkdownItType,
+  RendererRule,
+  Token as MarkdownToken,
+} from 'markdown-it';
 import anchor from 'markdown-it-anchor';
 import footnote from 'markdown-it-footnote';
 import attrs from 'markdown-it-attrs';
 import deflist from 'markdown-it-deflist';
-import type Token from 'markdown-it/lib/token.mjs';
 
 /** Options controlling `renderMarkdown`. */
 export interface RenderOptions {
@@ -63,7 +67,7 @@ export interface TocEntry {
  * @returns Configured MarkdownIt instance with anchor, footnote, attrs,
  *          deflist, mermaid fence override, and table wrapping installed
  */
-export function buildMarkdownIt(): MarkdownIt {
+export function buildMarkdownIt(): MarkdownItType {
   const md = new MarkdownIt({
     html: true, // artifacts already contain hand-authored HTML wrappers
     linkify: false, // avoid surprising auto-linking of plain text URLs
@@ -312,15 +316,15 @@ export function sanitizeMermaidQuadrantChart(content: string): string {
  *
  * @param md - MarkdownIt instance to patch in-place
  */
-function installMermaidFence(md: MarkdownIt): void {
-  const defaultFence =
+function installMermaidFence(md: MarkdownItType): void {
+  const defaultFence: RendererRule =
     md.renderer.rules.fence ??
     ((tokens, idx, opts, _env, self) => self.renderToken(tokens, idx, opts));
   let mermaidIndex = 0;
   md.renderer.rules.fence = (tokens, idx, opts, env, self) => {
     const token = tokens[idx];
     if (!token) return '';
-    const info = (token.info || '').trim().toLowerCase();
+    const info = (token.info ?? '').trim().toLowerCase();
     if (info === 'mermaid') {
       const currentIndex = mermaidIndex++;
       const env2 = env as { mermaidLabel?: RenderOptions['mermaidLabel'] };
@@ -343,7 +347,7 @@ function installMermaidFence(md: MarkdownIt): void {
  *
  * @param md - MarkdownIt instance to patch in-place
  */
-function installTableWrapper(md: MarkdownIt): void {
+function installTableWrapper(md: MarkdownItType): void {
   const defaultOpen =
     md.renderer.rules.table_open ??
     ((tokens, idx, opts, _env, self) => self.renderToken(tokens, idx, opts));
@@ -363,7 +367,7 @@ function installTableWrapper(md: MarkdownIt): void {
  *
  * @param md - MarkdownIt instance to patch in-place
  */
-function installImageLazyLoading(md: MarkdownIt): void {
+function installImageLazyLoading(md: MarkdownItType): void {
   const defaultImage =
     md.renderer.rules.image ??
     ((tokens, idx, opts, _env, self) => self.renderToken(tokens, idx, opts));
@@ -413,14 +417,15 @@ function escapeUppercasePlaceholders(html: string): string {
  * @param tokens - Token stream produced by MarkdownIt's parser
  * @returns Flat array of {@link TocEntry} items for H2–H6 headings
  */
-function harvestToc(tokens: readonly Token[]): TocEntry[] {
+function harvestToc(tokens: readonly MarkdownToken[]): TocEntry[] {
   const out: TocEntry[] = [];
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i];
     if (token?.type !== 'heading_open') continue;
     const level = Number.parseInt(token.tag.slice(1), 10);
     if (!Number.isFinite(level) || level < 2 || level > 6) continue;
-    const slug = typeof token.attrGet === 'function' ? token.attrGet('id') : null;
+    const slugValue = token.attrGet('id');
+    const slug = typeof slugValue === 'string' ? slugValue : null;
     const inline = tokens[i + 1];
     if (inline?.type !== 'inline') continue;
     const text = (inline.content ?? '').trim();
@@ -435,7 +440,7 @@ function harvestToc(tokens: readonly Token[]): TocEntry[] {
  * @param tokens - Token stream produced by MarkdownIt's parser
  * @returns Number of mermaid fence tokens in the stream
  */
-function countMermaidTokens(tokens: readonly Token[]): number {
+function countMermaidTokens(tokens: readonly MarkdownToken[]): number {
   let n = 0;
   for (const token of tokens) {
     if (token.type === 'fence' && (token.info ?? '').trim().toLowerCase() === 'mermaid') n++;
