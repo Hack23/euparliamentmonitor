@@ -19,7 +19,11 @@
  */
 
 import MarkdownIt from 'markdown-it';
-import type { MarkdownIt as MarkdownItType, RendererRule, Token as MarkdownToken } from 'markdown-it';
+import type {
+  MarkdownIt as MarkdownItType,
+  RendererRule,
+  Token as MarkdownToken,
+} from 'markdown-it';
 import anchor from 'markdown-it-anchor';
 import footnote from 'markdown-it-footnote';
 import attrs from 'markdown-it-attrs';
