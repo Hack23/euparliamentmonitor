@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.46% </span>
+                <span class="strong">93.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>143/153</span>
+                <span class='fraction'>144/154</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.03% </span>
+                <span class="strong">97.05% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>131/135</span>
+                <span class='fraction'>132/136</span>
             </div>
         
             
@@ -507,7 +507,16 @@
 <a name='L442'></a><a href='#L442'>442</a>
 <a name='L443'></a><a href='#L443'>443</a>
 <a name='L444'></a><a href='#L444'>444</a>
-<a name='L445'></a><a href='#L445'>445</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L445'></a><a href='#L445'>445</a>
+<a name='L446'></a><a href='#L446'>446</a>
+<a name='L447'></a><a href='#L447'>447</a>
+<a name='L448'></a><a href='#L448'>448</a>
+<a name='L449'></a><a href='#L449'>449</a>
+<a name='L450'></a><a href='#L450'>450</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -930,6 +939,7 @@
 <span class="cline-any cline-yes">138x</span>
 <span class="cline-any cline-yes">138x</span>
 <span class="cline-any cline-yes">120x</span>
+<span class="cline-any cline-yes">120x</span>
 <span class="cline-any cline-yes">4839x</span>
 <span class="cline-any cline-yes">4839x</span>
 <span class="cline-any cline-yes">120x</span>
@@ -972,11 +982,15 @@
  */
 &nbsp;
 import MarkdownIt from 'markdown-it';
+import type {
+  MarkdownIt as MarkdownItType,
+  RendererRule,
+  Token as MarkdownToken,
+} from 'markdown-it';
 import anchor from 'markdown-it-anchor';
 import footnote from 'markdown-it-footnote';
 import attrs from 'markdown-it-attrs';
 import deflist from 'markdown-it-deflist';
-import type Token from 'markdown-it/lib/token.mjs';
 &nbsp;
 /** Options controlling `renderMarkdown`. */
 export interface RenderOptions {
@@ -1016,7 +1030,7 @@ export interface TocEntry {
  * @returns Configured MarkdownIt instance with anchor, footnote, attrs,
  *          deflist, mermaid fence override, and table wrapping installed
  */
-export function buildMarkdownIt(): MarkdownIt {
+export function buildMarkdownIt(): MarkdownItType {
   const md = new MarkdownIt({
     html: true, // artifacts already contain hand-authored HTML wrappers
     linkify: false, // avoid surprising auto-linking of plain text URLs
@@ -1265,15 +1279,15 @@ export function sanitizeMermaidQuadrantChart(content: string): string {
  *
  * @param md - MarkdownIt instance to patch in-place
  */
-function installMermaidFence(md: MarkdownIt): void {
-  const defaultFence =
+function installMermaidFence(md: MarkdownItType): void {
+  const defaultFence: RendererRule =
     md.renderer.rules.fence ??
     (<span class="fstat-no" title="function not covered" ><span class="branch-1 cbranch-no" title="branch not covered" >(t</span>okens, idx, opts, _env, self) =&gt; <span class="cstat-no" title="statement not covered" >self.renderToken(tokens, idx, opts))</span></span>;
   let mermaidIndex = 0;
   md.renderer.rules.fence = (tokens, idx, opts, env, self) =&gt; {
     const token = tokens[idx];
     <span class="missing-if-branch" title="if path not taken" >I</span>if (!token) <span class="cstat-no" title="statement not covered" >return '';</span>
-    const info = (token.info || <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>.trim().toLowerCase();
+    const info = (token.info ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>.trim().toLowerCase();
     if (info === 'mermaid') {
       const currentIndex = mermaidIndex++;
       const env2 = env as { mermaidLabel?: RenderOptions['mermaidLabel'] };
@@ -1296,7 +1310,7 @@ function installMermaidFence(md: MarkdownIt): void {
  *
  * @param md - MarkdownIt instance to patch in-place
  */
-function installTableWrapper(md: MarkdownIt): void {
+function installTableWrapper(md: MarkdownItType): void {
   const defaultOpen =
     md.renderer.rules.table_open ??
     ((tokens, idx, opts, _env, self) =&gt; self.renderToken(tokens, idx, opts));
@@ -1316,7 +1330,7 @@ function installTableWrapper(md: MarkdownIt): void {
  *
  * @param md - MarkdownIt instance to patch in-place
  */
-function installImageLazyLoading(md: MarkdownIt): void {
+function installImageLazyLoading(md: MarkdownItType): void {
   const defaultImage =
     md.renderer.rules.image ??
     (<span class="fstat-no" title="function not covered" ><span class="branch-1 cbranch-no" title="branch not covered" >(t</span>okens, idx, opts, _env, self) =&gt; <span class="cstat-no" title="statement not covered" >self.renderToken(tokens, idx, opts))</span></span>;
@@ -1366,14 +1380,15 @@ function escapeUppercasePlaceholders(html: string): string {
  * @param tokens - Token stream produced by MarkdownIt's parser
  * @returns Flat array of {@link TocEntry} items for H2–H6 headings
  */
-function harvestToc(tokens: readonly Token[]): TocEntry[] {
+function harvestToc(tokens: readonly MarkdownToken[]): TocEntry[] {
   const out: TocEntry[] = [];
   for (let i = 0; i &lt; tokens.length; i++) {
     const token = tokens[i];
     if (token?.type !== 'heading_open') continue;
     const level = Number.parseInt(token.tag.slice(1), 10);
     if (!Number.isFinite(level) || level &lt; 2 || level &gt; 6) continue;
-    const slug = typeof token.attrGet === 'function' ? token.attrGet('id') : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    const slugValue = token.attrGet('id');
+    const slug = typeof slugValue === 'string' ? slugValue : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
     const inline = tokens[i + 1];
     <span class="missing-if-branch" title="if path not taken" >I</span>if (inline?.type !== 'inline') <span class="cstat-no" title="statement not covered" >continue;</span>
     const text = (inline.content ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>.trim();
@@ -1388,7 +1403,7 @@ function harvestToc(tokens: readonly Token[]): TocEntry[] {
  * @param tokens - Token stream produced by MarkdownIt's parser
  * @returns Number of mermaid fence tokens in the stream
  */
-function countMermaidTokens(tokens: readonly Token[]): number {
+function countMermaidTokens(tokens: readonly MarkdownToken[]): number {
   let n = 0;
   for (const token of tokens) {
     if (token.type === 'fence' &amp;&amp; (token.info ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>.trim().toLowerCase() === 'mermaid') n++;
@@ -1402,7 +1417,7 @@ function countMermaidTokens(tokens: readonly Token[]): number {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-08-28T21:55:56.975Z
+                at 2026-08-30T22:22:13.576Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
