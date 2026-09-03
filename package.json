@@ -178,7 +178,7 @@
     "html-minifier-terser": "7.2.0",
     "htmlhint": "1.9.2",
     "husky": "9.1.7",
-    "jscpd": "5.1.1",
+    "jscpd": "5.1.2",
     "knip": "6.34.0",
     "lint-staged": "17.4.1",
     "mermaid": "11.17.2",
