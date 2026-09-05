@@ -154,7 +154,7 @@
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
     "@eslint/js": "10.0.1",
-    "@playwright/test": "1.62.1",
+    "@playwright/test": "1.63.0",
     "@types/d3": "7.4.3",
     "@types/markdown-it": "14.2.0",
     "@types/node": "26.4.1",
