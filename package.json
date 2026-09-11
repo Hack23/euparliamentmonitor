@@ -173,7 +173,7 @@
     "eslint-plugin-jsdoc": "64.3.9",
     "eslint-plugin-security": "4.0.1",
     "eslint-plugin-sonarjs": "4.2.0",
-    "fast-check": "4.9.0",
+    "fast-check": "4.10.0",
     "happy-dom": "20.14.3",
     "html-minifier-terser": "7.2.0",
     "htmlhint": "1.9.2",
