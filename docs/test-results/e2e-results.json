@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/41018ca6ea591bcce1182a16c5f1090bdbba21a8",
-        "commitHash": "41018ca6ea591bcce1182a16c5f1090bdbba21a8",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/34711914844"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/78c15c5a1f4655986fa0d75e07f38f48d5bd52ac",
+        "commitHash": "78c15c5a1f4655986fa0d75e07f38f48d5bd52ac",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/34960585682"
       },
       "gitCommit": {
-        "shortHash": "41018ca6ea",
-        "hash": "41018ca6ea591bcce1182a16c5f1090bdbba21a8",
-        "subject": "build(deps-dev): bump eslint-plugin-jsdoc (#2736)",
-        "body": "build(deps-dev): bump eslint-plugin-jsdoc (#2736)\n\nBumps the development-dependencies group with 1 update: [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc).\n\n\nUpdates `eslint-plugin-jsdoc` from 64.3.9 to 64.3.10\n- [Release notes](https://github.com/gajus/eslint-plugin-jsdoc/releases)\n- [Commits](https://github.com/gajus/eslint-plugin-jsdoc/compare/v64.3.9...v64.3.10)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-plugin-jsdoc\n  dependency-version: 64.3.10\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "78c15c5a1f",
+        "hash": "78c15c5a1f4655986fa0d75e07f38f48d5bd52ac",
+        "subject": "build(deps-dev): bump the development-dependencies group across 1 directory with 5 updates (#2742)",
+        "body": "build(deps-dev): bump the development-dependencies group across 1 directory with 5 updates (#2742)\n\nBumps the development-dependencies group with 5 updates in the / directory:\n\n| Package | From | To |\n| --- | --- | --- |\n| [@vitest/coverage-v8](https://github.com/vitest-dev/vitest/tree/HEAD/packages/coverage-v8) | `5.0.0` | `5.0.1` |\n| [@vitest/ui](https://github.com/vitest-dev/vitest/tree/HEAD/packages/ui) | `5.0.0` | `5.0.1` |\n| [eslint-plugin-sonarjs](https://github.com/SonarSource/SonarJS) | `4.2.0` | `4.2.1` |\n| [jscpd](https://github.com/kucherenko/jscpd/tree/HEAD/rust/jscpd) | `5.2.0` | `5.2.1` |\n| [vitest](https://github.com/vitest-dev/vitest/tree/HEAD/packages/vitest) | `5.0.0` | `5.0.1` |\n\n\n\nUpdates `@vitest/coverage-v8` from 5.0.0 to 5.0.1\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v5.0.1/packages/coverage-v8)\n\nUpdates `@vitest/ui` from 5.0.0 to 5.0.1\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v5.0.1/packages/ui)\n\nUpdates `eslint-plugin-sonarjs` from 4.2.0 to 4.2.1\n- [Release notes](https://github.com/SonarSource/SonarJS/releases)\n- [Changelog](https://github.com/SonarSource/SonarJS/blob/master/docs/RELEASE.md)\n- [Commits](https://github.com/SonarSource/SonarJS/commits)\n\nUpdates `jscpd` from 5.2.0 to 5.2.1\n- [Release notes](https://github.com/kucherenko/jscpd/releases)\n- [Commits](https://github.com/kucherenko/jscpd/commits/v5.2.1/rust/jscpd)\n\nUpdates `vitest` from 5.0.0 to 5.0.1\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v5.0.1/packages/vitest)\n\n---\nupdated-dependencies:\n- dependency-name: \"@vitest/coverage-v8\"\n  dependency-version: 5.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: \"@vitest/ui\"\n  dependency-version: 5.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: eslint-plugin-sonarjs\n  dependency-version: 4.2.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: jscpd\n  dependency-version: 5.2.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: vitest\n  dependency-version: 5.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1789238374000
+          "time": 1789469053000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1789238374000
+          "time": 1789469053000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/41018ca6ea591bcce1182a16c5f1090bdbba21a8",
-            "commitHash": "41018ca6ea591bcce1182a16c5f1090bdbba21a8",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/34711914844"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/78c15c5a1f4655986fa0d75e07f38f48d5bd52ac",
+            "commitHash": "78c15c5a1f4655986fa0d75e07f38f48d5bd52ac",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/34960585682"
           },
           "gitCommit": {
-            "shortHash": "41018ca6ea",
-            "hash": "41018ca6ea591bcce1182a16c5f1090bdbba21a8",
-            "subject": "build(deps-dev): bump eslint-plugin-jsdoc (#2736)",
-            "body": "build(deps-dev): bump eslint-plugin-jsdoc (#2736)\n\nBumps the development-dependencies group with 1 update: [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc).\n\n\nUpdates `eslint-plugin-jsdoc` from 64.3.9 to 64.3.10\n- [Release notes](https://github.com/gajus/eslint-plugin-jsdoc/releases)\n- [Commits](https://github.com/gajus/eslint-plugin-jsdoc/compare/v64.3.9...v64.3.10)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-plugin-jsdoc\n  dependency-version: 64.3.10\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "78c15c5a1f",
+            "hash": "78c15c5a1f4655986fa0d75e07f38f48d5bd52ac",
+            "subject": "build(deps-dev): bump the development-dependencies group across 1 directory with 5 updates (#2742)",
+            "body": "build(deps-dev): bump the development-dependencies group across 1 directory with 5 updates (#2742)\n\nBumps the development-dependencies group with 5 updates in the / directory:\n\n| Package | From | To |\n| --- | --- | --- |\n| [@vitest/coverage-v8](https://github.com/vitest-dev/vitest/tree/HEAD/packages/coverage-v8) | `5.0.0` | `5.0.1` |\n| [@vitest/ui](https://github.com/vitest-dev/vitest/tree/HEAD/packages/ui) | `5.0.0` | `5.0.1` |\n| [eslint-plugin-sonarjs](https://github.com/SonarSource/SonarJS) | `4.2.0` | `4.2.1` |\n| [jscpd](https://github.com/kucherenko/jscpd/tree/HEAD/rust/jscpd) | `5.2.0` | `5.2.1` |\n| [vitest](https://github.com/vitest-dev/vitest/tree/HEAD/packages/vitest) | `5.0.0` | `5.0.1` |\n\n\n\nUpdates `@vitest/coverage-v8` from 5.0.0 to 5.0.1\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v5.0.1/packages/coverage-v8)\n\nUpdates `@vitest/ui` from 5.0.0 to 5.0.1\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v5.0.1/packages/ui)\n\nUpdates `eslint-plugin-sonarjs` from 4.2.0 to 4.2.1\n- [Release notes](https://github.com/SonarSource/SonarJS/releases)\n- [Changelog](https://github.com/SonarSource/SonarJS/blob/master/docs/RELEASE.md)\n- [Commits](https://github.com/SonarSource/SonarJS/commits)\n\nUpdates `jscpd` from 5.2.0 to 5.2.1\n- [Release notes](https://github.com/kucherenko/jscpd/releases)\n- [Commits](https://github.com/kucherenko/jscpd/commits/v5.2.1/rust/jscpd)\n\nUpdates `vitest` from 5.0.0 to 5.0.1\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v5.0.1/packages/vitest)\n\n---\nupdated-dependencies:\n- dependency-name: \"@vitest/coverage-v8\"\n  dependency-version: 5.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: \"@vitest/ui\"\n  dependency-version: 5.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: eslint-plugin-sonarjs\n  dependency-version: 4.2.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: jscpd\n  dependency-version: 5.2.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: vitest\n  dependency-version: 5.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1789238374000
+              "time": 1789469053000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1789238374000
+              "time": 1789469053000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1167,
+                      "duration": 1043,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-12T18:50:39.516Z",
+                      "startTime": "2026-09-15T11:07:05.538Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1151,
+                      "duration": 1083,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-12T18:50:39.509Z",
+                      "startTime": "2026-09-15T11:07:05.528Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1116,
+                      "duration": 1003,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-12T18:50:39.395Z",
+                      "startTime": "2026-09-15T11:07:05.611Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -257,12 +257,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1051,
+                      "duration": 854,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-12T18:50:40.811Z",
+                      "startTime": "2026-09-15T11:07:06.786Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 955,
+                      "duration": 894,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-12T18:50:40.857Z",
+                      "startTime": "2026-09-15T11:07:06.831Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1044,
+                      "duration": 883,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-12T18:50:40.890Z",
+                      "startTime": "2026-09-15T11:07:06.867Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-12T18:50:38.424Z",
-    "duration": 3578.801,
+    "startTime": "2026-09-15T11:07:04.599Z",
+    "duration": 3209.3100000000004,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
