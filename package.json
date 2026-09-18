@@ -183,7 +183,7 @@
     "lint-staged": "17.5.1",
     "mermaid": "12.0.0",
     "papaparse": "5.7.0",
-    "prettier": "3.9.7",
+    "prettier": "3.9.8",
     "purgecss": "8.0.0",
     "sharp": "0.35.4",
     "terser": "5.51.2",
