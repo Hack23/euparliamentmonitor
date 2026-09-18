@@ -1,7 +1,7 @@
 {
   "config": {
     "argv": [
-      "/__t/node/26.8.2/x64/bin/node",
+      "/__t/node/26.9.0/x64/bin/node",
       "/__w/euparliamentmonitor/euparliamentmonitor/node_modules/.bin/playwright",
       "test",
       "e2e/tests/homepage.spec.js"
@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/78c15c5a1f4655986fa0d75e07f38f48d5bd52ac",
-        "commitHash": "78c15c5a1f4655986fa0d75e07f38f48d5bd52ac",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/34960585682"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/f844be2096df41b9ce11d5a8ad79e638f2fcfd51",
+        "commitHash": "f844be2096df41b9ce11d5a8ad79e638f2fcfd51",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/35335762304"
       },
       "gitCommit": {
-        "shortHash": "78c15c5a1f",
-        "hash": "78c15c5a1f4655986fa0d75e07f38f48d5bd52ac",
-        "subject": "build(deps-dev): bump the development-dependencies group across 1 directory with 5 updates (#2742)",
-        "body": "build(deps-dev): bump the development-dependencies group across 1 directory with 5 updates (#2742)\n\nBumps the development-dependencies group with 5 updates in the / directory:\n\n| Package | From | To |\n| --- | --- | --- |\n| [@vitest/coverage-v8](https://github.com/vitest-dev/vitest/tree/HEAD/packages/coverage-v8) | `5.0.0` | `5.0.1` |\n| [@vitest/ui](https://github.com/vitest-dev/vitest/tree/HEAD/packages/ui) | `5.0.0` | `5.0.1` |\n| [eslint-plugin-sonarjs](https://github.com/SonarSource/SonarJS) | `4.2.0` | `4.2.1` |\n| [jscpd](https://github.com/kucherenko/jscpd/tree/HEAD/rust/jscpd) | `5.2.0` | `5.2.1` |\n| [vitest](https://github.com/vitest-dev/vitest/tree/HEAD/packages/vitest) | `5.0.0` | `5.0.1` |\n\n\n\nUpdates `@vitest/coverage-v8` from 5.0.0 to 5.0.1\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v5.0.1/packages/coverage-v8)\n\nUpdates `@vitest/ui` from 5.0.0 to 5.0.1\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v5.0.1/packages/ui)\n\nUpdates `eslint-plugin-sonarjs` from 4.2.0 to 4.2.1\n- [Release notes](https://github.com/SonarSource/SonarJS/releases)\n- [Changelog](https://github.com/SonarSource/SonarJS/blob/master/docs/RELEASE.md)\n- [Commits](https://github.com/SonarSource/SonarJS/commits)\n\nUpdates `jscpd` from 5.2.0 to 5.2.1\n- [Release notes](https://github.com/kucherenko/jscpd/releases)\n- [Commits](https://github.com/kucherenko/jscpd/commits/v5.2.1/rust/jscpd)\n\nUpdates `vitest` from 5.0.0 to 5.0.1\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v5.0.1/packages/vitest)\n\n---\nupdated-dependencies:\n- dependency-name: \"@vitest/coverage-v8\"\n  dependency-version: 5.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: \"@vitest/ui\"\n  dependency-version: 5.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: eslint-plugin-sonarjs\n  dependency-version: 4.2.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: jscpd\n  dependency-version: 5.2.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: vitest\n  dependency-version: 5.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "f844be2096",
+        "hash": "f844be2096df41b9ce11d5a8ad79e638f2fcfd51",
+        "subject": "build(deps): bump european-parliament-mcp-server (#2751)",
+        "body": "build(deps): bump european-parliament-mcp-server (#2751)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.43 to 1.4.44\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.43...v1.4.44)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.44\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1789469053000
+          "time": 1789727905000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1789469053000
+          "time": 1789727905000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/78c15c5a1f4655986fa0d75e07f38f48d5bd52ac",
-            "commitHash": "78c15c5a1f4655986fa0d75e07f38f48d5bd52ac",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/34960585682"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/f844be2096df41b9ce11d5a8ad79e638f2fcfd51",
+            "commitHash": "f844be2096df41b9ce11d5a8ad79e638f2fcfd51",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/35335762304"
           },
           "gitCommit": {
-            "shortHash": "78c15c5a1f",
-            "hash": "78c15c5a1f4655986fa0d75e07f38f48d5bd52ac",
-            "subject": "build(deps-dev): bump the development-dependencies group across 1 directory with 5 updates (#2742)",
-            "body": "build(deps-dev): bump the development-dependencies group across 1 directory with 5 updates (#2742)\n\nBumps the development-dependencies group with 5 updates in the / directory:\n\n| Package | From | To |\n| --- | --- | --- |\n| [@vitest/coverage-v8](https://github.com/vitest-dev/vitest/tree/HEAD/packages/coverage-v8) | `5.0.0` | `5.0.1` |\n| [@vitest/ui](https://github.com/vitest-dev/vitest/tree/HEAD/packages/ui) | `5.0.0` | `5.0.1` |\n| [eslint-plugin-sonarjs](https://github.com/SonarSource/SonarJS) | `4.2.0` | `4.2.1` |\n| [jscpd](https://github.com/kucherenko/jscpd/tree/HEAD/rust/jscpd) | `5.2.0` | `5.2.1` |\n| [vitest](https://github.com/vitest-dev/vitest/tree/HEAD/packages/vitest) | `5.0.0` | `5.0.1` |\n\n\n\nUpdates `@vitest/coverage-v8` from 5.0.0 to 5.0.1\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v5.0.1/packages/coverage-v8)\n\nUpdates `@vitest/ui` from 5.0.0 to 5.0.1\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v5.0.1/packages/ui)\n\nUpdates `eslint-plugin-sonarjs` from 4.2.0 to 4.2.1\n- [Release notes](https://github.com/SonarSource/SonarJS/releases)\n- [Changelog](https://github.com/SonarSource/SonarJS/blob/master/docs/RELEASE.md)\n- [Commits](https://github.com/SonarSource/SonarJS/commits)\n\nUpdates `jscpd` from 5.2.0 to 5.2.1\n- [Release notes](https://github.com/kucherenko/jscpd/releases)\n- [Commits](https://github.com/kucherenko/jscpd/commits/v5.2.1/rust/jscpd)\n\nUpdates `vitest` from 5.0.0 to 5.0.1\n- [Release notes](https://github.com/vitest-dev/vitest/releases)\n- [Changelog](https://github.com/vitest-dev/vitest/blob/main/docs/releases.md)\n- [Commits](https://github.com/vitest-dev/vitest/commits/v5.0.1/packages/vitest)\n\n---\nupdated-dependencies:\n- dependency-name: \"@vitest/coverage-v8\"\n  dependency-version: 5.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: \"@vitest/ui\"\n  dependency-version: 5.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: eslint-plugin-sonarjs\n  dependency-version: 4.2.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: jscpd\n  dependency-version: 5.2.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: vitest\n  dependency-version: 5.0.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "f844be2096",
+            "hash": "f844be2096df41b9ce11d5a8ad79e638f2fcfd51",
+            "subject": "build(deps): bump european-parliament-mcp-server (#2751)",
+            "body": "build(deps): bump european-parliament-mcp-server (#2751)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.43 to 1.4.44\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.43...v1.4.44)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.44\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1789469053000
+              "time": 1789727905000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1789469053000
+              "time": 1789727905000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1043,
+                      "duration": 1044,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-15T11:07:05.538Z",
+                      "startTime": "2026-09-18T10:48:45.568Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1083,
+                      "duration": 1049,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-15T11:07:05.528Z",
+                      "startTime": "2026-09-18T10:48:45.524Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1003,
+                      "duration": 1076,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-15T11:07:05.611Z",
+                      "startTime": "2026-09-18T10:48:45.646Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 854,
+                      "duration": 977,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-15T11:07:06.786Z",
+                      "startTime": "2026-09-18T10:48:46.865Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 894,
+                      "duration": 1040,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-15T11:07:06.831Z",
+                      "startTime": "2026-09-18T10:48:46.877Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 883,
+                      "duration": 1011,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-15T11:07:06.867Z",
+                      "startTime": "2026-09-18T10:48:46.916Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-15T11:07:04.599Z",
-    "duration": 3209.3100000000004,
+    "startTime": "2026-09-18T10:48:44.532Z",
+    "duration": 3463.891,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
