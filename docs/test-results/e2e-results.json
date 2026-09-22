@@ -1,7 +1,7 @@
 {
   "config": {
     "argv": [
-      "/__t/node/26.9.0/x64/bin/node",
+      "/__t/node/26.10.0/x64/bin/node",
       "/__w/euparliamentmonitor/euparliamentmonitor/node_modules/.bin/playwright",
       "test",
       "e2e/tests/homepage.spec.js"
@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/2a7f9ba5f7cf1b39b10284c6418f1eeddd72bf41",
-        "commitHash": "2a7f9ba5f7cf1b39b10284c6418f1eeddd72bf41",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/35442797254"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/57cc7168dc522fc460e806005ebf6fe07fa7b2b6",
+        "commitHash": "57cc7168dc522fc460e806005ebf6fe07fa7b2b6",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/35787449600"
       },
       "gitCommit": {
-        "shortHash": "2a7f9ba5f7",
-        "hash": "2a7f9ba5f7cf1b39b10284c6418f1eeddd72bf41",
-        "subject": "build(deps-dev): bump the development-dependencies group with 3 updates (#2754)",
-        "body": "build(deps-dev): bump the development-dependencies group with 3 updates (#2754)\n\nBumps the development-dependencies group with 3 updates: [@types/node](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/node), [eslint](https://github.com/eslint/eslint) and [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc).\n\n\nUpdates `@types/node` from 26.6.1 to 26.6.2\n- [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)\n- [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/node)\n\nUpdates `eslint` from 10.10.0 to 10.11.0\n- [Release notes](https://github.com/eslint/eslint/releases)\n- [Commits](https://github.com/eslint/eslint/compare/v10.10.0...v10.11.0)\n\nUpdates `eslint-plugin-jsdoc` from 64.5.3 to 64.5.4\n- [Release notes](https://github.com/gajus/eslint-plugin-jsdoc/releases)\n- [Commits](https://github.com/gajus/eslint-plugin-jsdoc/compare/v64.5.3...v64.5.4)\n\n---\nupdated-dependencies:\n- dependency-name: \"@types/node\"\n  dependency-version: 26.6.2\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: eslint\n  dependency-version: 10.11.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n- dependency-name: eslint-plugin-jsdoc\n  dependency-version: 64.5.4\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "57cc7168dc",
+        "hash": "57cc7168dc522fc460e806005ebf6fe07fa7b2b6",
+        "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2760)",
+        "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2760)\n\nBumps the development-dependencies group with 2 updates: [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/eslint-plugin) and [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/parser).\n\n\nUpdates `@typescript-eslint/eslint-plugin` from 8.70.0 to 8.70.1\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.70.1/packages/eslint-plugin)\n\nUpdates `@typescript-eslint/parser` from 8.70.0 to 8.70.1\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/parser/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.70.1/packages/parser)\n\n---\nupdated-dependencies:\n- dependency-name: \"@typescript-eslint/eslint-plugin\"\n  dependency-version: 8.70.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: \"@typescript-eslint/parser\"\n  dependency-version: 8.70.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1789819137000
+          "time": 1790061319000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1789819137000
+          "time": 1790061319000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/2a7f9ba5f7cf1b39b10284c6418f1eeddd72bf41",
-            "commitHash": "2a7f9ba5f7cf1b39b10284c6418f1eeddd72bf41",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/35442797254"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/57cc7168dc522fc460e806005ebf6fe07fa7b2b6",
+            "commitHash": "57cc7168dc522fc460e806005ebf6fe07fa7b2b6",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/35787449600"
           },
           "gitCommit": {
-            "shortHash": "2a7f9ba5f7",
-            "hash": "2a7f9ba5f7cf1b39b10284c6418f1eeddd72bf41",
-            "subject": "build(deps-dev): bump the development-dependencies group with 3 updates (#2754)",
-            "body": "build(deps-dev): bump the development-dependencies group with 3 updates (#2754)\n\nBumps the development-dependencies group with 3 updates: [@types/node](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/node), [eslint](https://github.com/eslint/eslint) and [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc).\n\n\nUpdates `@types/node` from 26.6.1 to 26.6.2\n- [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)\n- [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/node)\n\nUpdates `eslint` from 10.10.0 to 10.11.0\n- [Release notes](https://github.com/eslint/eslint/releases)\n- [Commits](https://github.com/eslint/eslint/compare/v10.10.0...v10.11.0)\n\nUpdates `eslint-plugin-jsdoc` from 64.5.3 to 64.5.4\n- [Release notes](https://github.com/gajus/eslint-plugin-jsdoc/releases)\n- [Commits](https://github.com/gajus/eslint-plugin-jsdoc/compare/v64.5.3...v64.5.4)\n\n---\nupdated-dependencies:\n- dependency-name: \"@types/node\"\n  dependency-version: 26.6.2\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: eslint\n  dependency-version: 10.11.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n- dependency-name: eslint-plugin-jsdoc\n  dependency-version: 64.5.4\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "57cc7168dc",
+            "hash": "57cc7168dc522fc460e806005ebf6fe07fa7b2b6",
+            "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2760)",
+            "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2760)\n\nBumps the development-dependencies group with 2 updates: [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/eslint-plugin) and [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/parser).\n\n\nUpdates `@typescript-eslint/eslint-plugin` from 8.70.0 to 8.70.1\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.70.1/packages/eslint-plugin)\n\nUpdates `@typescript-eslint/parser` from 8.70.0 to 8.70.1\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/parser/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.70.1/packages/parser)\n\n---\nupdated-dependencies:\n- dependency-name: \"@typescript-eslint/eslint-plugin\"\n  dependency-version: 8.70.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: \"@typescript-eslint/parser\"\n  dependency-version: 8.70.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1789819137000
+              "time": 1790061319000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1789819137000
+              "time": 1790061319000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 975,
+                      "duration": 1032,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-19T12:33:25.421Z",
+                      "startTime": "2026-09-22T21:42:38.083Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 982,
+                      "duration": 1126,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-19T12:33:25.480Z",
+                      "startTime": "2026-09-22T21:42:38.107Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 810,
+                      "duration": 964,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-19T12:33:25.500Z",
+                      "startTime": "2026-09-22T21:42:38.084Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -257,12 +257,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 809,
+                      "duration": 847,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-19T12:33:26.468Z",
+                      "startTime": "2026-09-22T21:42:39.290Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -291,12 +291,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 807,
+                      "duration": 841,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-19T12:33:26.648Z",
+                      "startTime": "2026-09-22T21:42:39.359Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -325,12 +325,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 815,
+                      "duration": 688,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-19T12:33:26.676Z",
+                      "startTime": "2026-09-22T21:42:39.435Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-19T12:33:24.595Z",
-    "duration": 2947.1499999999996,
+    "startTime": "2026-09-22T21:42:37.153Z",
+    "duration": 3103.6349999999998,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
