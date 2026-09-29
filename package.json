@@ -170,7 +170,7 @@
     "esbuild": "0.28.2",
     "eslint": "10.11.0",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-jsdoc": "64.5.4",
+    "eslint-plugin-jsdoc": "65.0.0",
     "eslint-plugin-security": "4.1.0",
     "eslint-plugin-sonarjs": "4.2.2",
     "fast-check": "4.10.2",
