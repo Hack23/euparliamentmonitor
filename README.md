@@ -136,7 +136,7 @@ The published site is the audience-facing companion to this npm/TypeScript packa
 
 **MCP Server Integration**: The project uses the
 [European-Parliament-MCP-Server](https://github.com/Hack23/European-Parliament-MCP-Server)
-package version v1.4.0 for accessing real EU Parliament data via the Model Context Protocol; the Copilot runner in `.github/workflows/copilot-setup-steps.yml` currently installs v1.4.0 for the local MCP environment.
+package version v1.4.54 for accessing real EU Parliament data via the Model Context Protocol; the Copilot runner in `.github/workflows/copilot-setup-steps.yml` currently installs v1.4.54 for the local MCP environment.
 
 - **MCP Server Status**: ✅ Fully operational — 60+ EP data tools available
   (feeds, direct lookups, analytical tools, intelligence correlation)
