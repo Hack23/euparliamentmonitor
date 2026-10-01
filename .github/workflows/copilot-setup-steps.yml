@@ -132,13 +132,13 @@ jobs:
             echo "🧹 Clearing npx cache to prevent stale EP MCP server versions..."
             find "$npx_cache_dir" -path "*/european-parliament-mcp-server*" -type d -exec rm -rf {} + 2>/dev/null || true
           fi
-          npm_install_global european-parliament-mcp-server@1.4.30
+          npm_install_global european-parliament-mcp-server@1.4.54
 
           # Verify the installed version matches expected
           EP_VERSION=$(european-parliament-mcp-server --version 2>/dev/null || echo "unknown")
           echo "📍 Installed EP MCP Server version: $EP_VERSION"
-          if [ "$EP_VERSION" != "1.4.30" ]; then
-            echo "⚠️ Warning: Expected version 1.4.30 but got $EP_VERSION"
+          if [ "$EP_VERSION" != "1.4.54" ]; then
+            echo "⚠️ Warning: Expected version 1.4.54 but got $EP_VERSION"
           fi
 
           echo "✅ Node.js MCP server packages installed globally"
