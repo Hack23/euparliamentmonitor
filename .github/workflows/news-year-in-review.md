@@ -2,6 +2,8 @@
 name: "News: EU Parliament Year In Review — Unified"
 description: Generates a single PR containing analysis artifacts and the rendered year-in-review article (Stages A → B → C → D → E in one workflow).
 strict: false
+features:
+  mcp-gateway: true
 # Checkout (gh-aw v0.76+): shallow clone (fetch-depth: 1) for fast checkout.
 # Rationale:
 #   * Full-history clones (fetch-depth: 0) took 14+ min on large repos,

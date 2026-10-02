@@ -1,6 +1,4 @@
 ---
-features:
-  mcp-gateway: true
 runtimes:
   node:
     version: "26"
