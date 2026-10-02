@@ -351,7 +351,7 @@ post-steps:
 
 engine:
   id: copilot
-  model: claude-sonnet-4.6
+  model: claude-opus-5.5
   max-continuations: 1
 ---
 # 🌐 Executive-Brief Translation Workflow

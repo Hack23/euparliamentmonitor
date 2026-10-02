@@ -151,7 +151,7 @@ steps:
 
 engine:
   id: copilot
-  model: claude-opus-5
+  model: claude-opus-5.5
 ---
 # 📰 EU Parliament Breaking News — Unified Workflow
 
@@ -190,4 +190,3 @@ records / meeting decisions into `${ANALYSIS_DIR}/data/`. Target ≤ 4 min.
 
 <!-- Date Context + Stages B → E + 🚫 Never section: imported from
      shared/prompts/news-unified-stages.md (with slug: breaking). -->
-
