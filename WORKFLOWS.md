@@ -224,7 +224,7 @@ flowchart TB
 
 ### 1. Agentic News Workflows (×15)
 
-**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot. The 14 unified `news-<type>.md` article workflows run on the `claude-opus-5` model; the `news-translate.md` translation helper runs on `claude-sonnet-4.6`.
+**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot and Claude Opus 5.5 across all 15 agentic workflows.
 **📁 Architecture:** 15 markdown source files (14 unified `news-<type>.md` covering 14 article types + 1 `news-translate.md` helper) compiled to 15 `.lock.yml` files via `gh aw compile` (GitHub Agentic Workflows CLI)
 **🌐 Languages:** 14 (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 **📜 Horizon registry:** Every horizon's data window, cadence, mandatory artifacts, stage budgets, scenario depth and electoral overlay is defined in [`src/config/article-horizons.ts`](src/config/article-horizons.ts) — the single source of truth consumed by the aggregator, the forward-statements registry, and the drift-guard tests.
@@ -277,7 +277,7 @@ All 15 agentic workflows share a common architecture. The 14 article workflows r
 graph TD
     A[🕐 Schedule / Manual Trigger] --> B[🔑 Activation Job]
     B --> C{Conditions Met?}
-    C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-opus-5<br/>translate: claude-sonnet-4.6]
+    C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-opus-5.5]
     C -->|❌ No| E[⏭️ Skip]
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 26]
@@ -352,7 +352,7 @@ import { hasPlaceholders, computeEffectiveMinLines } from './workflows/completen
 |----------|-------|
 | **Source format** | Markdown (`.md`) compiled by `gh aw compile` |
 | **Lock format** | YAML (`.lock.yml`) — auto-generated, do not edit directly |
-| **AI Model** | `claude-opus-5` (14 article workflows) / `claude-sonnet-4.6` (`news-translate.md`) via GitHub Copilot CLI |
+| **AI Model** | `claude-opus-5.5` (all 15 workflows) via GitHub Copilot CLI |
 | **Top-level permissions** | `{}` (empty — no default permissions) |
 | **Activation job permissions** | `contents: read` |
 | **Agent job permissions** | `contents: write`, `pull-requests: write`, `issues: write`, `models: read` |
@@ -2261,7 +2261,7 @@ flowchart LR
     end
 
     subgraph "🤖 Agent Layer"
-        Agent["GitHub Copilot<br/>claude-opus-5 (articles)<br/>claude-sonnet-4.6 (translate)"]
+        Agent["GitHub Copilot<br/>claude-opus-5.5 (all news workflows)"]
         Analyze["Analysis Pipeline<br/>11 methodology assets<br/>39 templates"]
     end
 

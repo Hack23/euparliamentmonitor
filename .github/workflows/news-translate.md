@@ -9,6 +9,8 @@ description: |
   scripts/validate-brief-translations.js so the workflow body stays focused
   on AI orchestration.
 strict: false
+features:
+  mcp-gateway: true
 # Checkout (gh-aw v0.76+): shallow clone (fetch-depth: 1) for fast checkout.
 # Rationale:
 #   * Full-history clones (fetch-depth: 0) took 14+ min on large repos,
@@ -351,7 +353,7 @@ post-steps:
 
 engine:
   id: copilot
-  model: claude-sonnet-4.6
+  model: claude-opus-5.5
   max-continuations: 1
 ---
 # 🌐 Executive-Brief Translation Workflow

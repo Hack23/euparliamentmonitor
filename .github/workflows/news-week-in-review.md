@@ -2,6 +2,8 @@
 name: "News: EU Parliament Week in Review — Unified"
 description: Generates a single PR containing analysis artifacts and the rendered week-in-review article (Stages A → B → C → D → E in one workflow).
 strict: false
+features:
+  mcp-gateway: true
 # Checkout (gh-aw v0.76+): shallow clone (fetch-depth: 1) for fast checkout.
 # Rationale:
 #   * Full-history clones (fetch-depth: 0) took 14+ min on large repos,
@@ -151,7 +153,7 @@ steps:
 
 engine:
   id: copilot
-  model: claude-opus-5
+  model: claude-opus-5.5
 ---
 # 📰 EU Parliament Week in Review — Unified Workflow
 

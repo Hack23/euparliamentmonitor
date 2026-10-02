@@ -119,9 +119,9 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(/^timeout-minutes:\s*60$/m);
   });
 
-  it('uses claude-sonnet-4.6 as the engine (per approved allow-list)', () => {
+  it('uses claude-opus-5.5 as the engine (per fleet policy)', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
-    expect(workflow).toMatch(/\n  model:\s*claude-sonnet-4\.6\b/);
+    expect(workflow).toMatch(/\n  model:\s*claude-opus-5\.5\b/);
   });
 
   it('limits max-continuations to 1 to prevent post-flush engine timeout', () => {
