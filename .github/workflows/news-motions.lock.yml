@@ -670,7 +670,7 @@ jobs:
                     "properties": {
                       "aw_context": {
                         "default": "",
-                        "description": "Agent caller context (used internally by Agentic Workflows).",
+                        "description": "Agent caller context (Reserved for Agentic Workflows).",
                         "type": "string"
                       },
                       "include_extended": {

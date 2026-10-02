@@ -715,31 +715,28 @@ describe('agentic workflow threat detection policy', () => {
   // ─────────────────────────────────────────────────────────────────────────
   // Phase 1 — Engine model allow-list
   //
-  // Locks the currently-deployed engine.model per article workflow so a stray
-  // edit can't quietly downgrade an Opus 4.8 article slug to Sonnet or upgrade
-  // the translation helper to Opus (both are runtime behaviour changes).
+  // Locks the currently-deployed engine.model per workflow so a stray edit
+  // cannot silently change the model used by any news workflow.
   //
-  // Current fleet policy: all 14 unified `news-<type>.md` article workflows run
-  // on `claude-opus-5`; only the `news-translate.md` translation helper runs
-  // on `claude-sonnet-4.6`.
+  // Current fleet policy: all 15 news workflows run on `claude-opus-5.5`.
   // ─────────────────────────────────────────────────────────────────────────
   it('locks the engine.model per workflow to the approved allow-list', () => {
     const APPROVED_MODELS = {
-      'news-breaking.md': 'claude-opus-5',
-      'news-committee-reports.md': 'claude-opus-5',
-      'news-election-cycle.md': 'claude-opus-5',
-      'news-month-ahead.md': 'claude-opus-5',
-      'news-month-in-review.md': 'claude-opus-5',
-      'news-motions.md': 'claude-opus-5',
-      'news-propositions.md': 'claude-opus-5',
-      'news-quarter-ahead.md': 'claude-opus-5',
-      'news-quarter-in-review.md': 'claude-opus-5',
-      'news-term-outlook.md': 'claude-opus-5',
-      'news-translate.md': 'claude-sonnet-4.6',
-      'news-week-ahead.md': 'claude-opus-5',
-      'news-week-in-review.md': 'claude-opus-5',
-      'news-year-ahead.md': 'claude-opus-5',
-      'news-year-in-review.md': 'claude-opus-5',
+      'news-breaking.md': 'claude-opus-5.5',
+      'news-committee-reports.md': 'claude-opus-5.5',
+      'news-election-cycle.md': 'claude-opus-5.5',
+      'news-month-ahead.md': 'claude-opus-5.5',
+      'news-month-in-review.md': 'claude-opus-5.5',
+      'news-motions.md': 'claude-opus-5.5',
+      'news-propositions.md': 'claude-opus-5.5',
+      'news-quarter-ahead.md': 'claude-opus-5.5',
+      'news-quarter-in-review.md': 'claude-opus-5.5',
+      'news-term-outlook.md': 'claude-opus-5.5',
+      'news-translate.md': 'claude-opus-5.5',
+      'news-week-ahead.md': 'claude-opus-5.5',
+      'news-week-in-review.md': 'claude-opus-5.5',
+      'news-year-ahead.md': 'claude-opus-5.5',
+      'news-year-in-review.md': 'claude-opus-5.5',
     };
     for (const [workflow, expectedModel] of Object.entries(APPROVED_MODELS)) {
       const wfPath = path.join(WORKFLOWS_DIR, workflow);
