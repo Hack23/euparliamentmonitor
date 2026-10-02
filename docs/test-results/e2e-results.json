@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/21c41158f3f17187a4bb11fd46102871b145247e",
-        "commitHash": "21c41158f3f17187a4bb11fd46102871b145247e",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/36859438073"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/96e091212ff042c7f4f3ab5cf6e254aa5bd9948a",
+        "commitHash": "96e091212ff042c7f4f3ab5cf6e254aa5bd9948a",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/36972557264"
       },
       "gitCommit": {
-        "shortHash": "21c41158f3",
-        "hash": "21c41158f3f17187a4bb11fd46102871b145247e",
-        "subject": "build(deps-dev): bump eslint-plugin-security (#2780)",
-        "body": "build(deps-dev): bump eslint-plugin-security (#2780)\n\nBumps the development-dependencies group with 1 update: [eslint-plugin-security](https://github.com/eslint-community/eslint-plugin-security).\n\n\nUpdates `eslint-plugin-security` from 4.1.0 to 4.2.0\n- [Release notes](https://github.com/eslint-community/eslint-plugin-security/releases)\n- [Changelog](https://github.com/eslint-community/eslint-plugin-security/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/eslint-community/eslint-plugin-security/compare/eslint-plugin-security-v4.1.0...eslint-plugin-security-v4.2.0)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-plugin-security\n  dependency-version: 4.2.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "96e091212f",
+        "hash": "96e091212ff042c7f4f3ab5cf6e254aa5bd9948a",
+        "subject": "build(deps): bump release-drafter/release-drafter (#2785)",
+        "body": "build(deps): bump release-drafter/release-drafter (#2785)\n\nBumps the github-actions group with 1 update: [release-drafter/release-drafter](https://github.com/release-drafter/release-drafter).\n\n\nUpdates `release-drafter/release-drafter` from 7.8.0 to 7.9.0\n- [Release notes](https://github.com/release-drafter/release-drafter/releases)\n- [Commits](https://github.com/release-drafter/release-drafter/compare/c345907820e0396f6f44bcfd9ac4763325f8feb0...72967cdc98ddd3160f1fc3dff619de365e137dd0)\n\n---\nupdated-dependencies:\n- dependency-name: release-drafter/release-drafter\n  dependency-version: 7.9.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1790854505000
+          "time": 1790918741000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1790854505000
+          "time": 1790918741000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/21c41158f3f17187a4bb11fd46102871b145247e",
-            "commitHash": "21c41158f3f17187a4bb11fd46102871b145247e",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/36859438073"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/96e091212ff042c7f4f3ab5cf6e254aa5bd9948a",
+            "commitHash": "96e091212ff042c7f4f3ab5cf6e254aa5bd9948a",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/36972557264"
           },
           "gitCommit": {
-            "shortHash": "21c41158f3",
-            "hash": "21c41158f3f17187a4bb11fd46102871b145247e",
-            "subject": "build(deps-dev): bump eslint-plugin-security (#2780)",
-            "body": "build(deps-dev): bump eslint-plugin-security (#2780)\n\nBumps the development-dependencies group with 1 update: [eslint-plugin-security](https://github.com/eslint-community/eslint-plugin-security).\n\n\nUpdates `eslint-plugin-security` from 4.1.0 to 4.2.0\n- [Release notes](https://github.com/eslint-community/eslint-plugin-security/releases)\n- [Changelog](https://github.com/eslint-community/eslint-plugin-security/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/eslint-community/eslint-plugin-security/compare/eslint-plugin-security-v4.1.0...eslint-plugin-security-v4.2.0)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-plugin-security\n  dependency-version: 4.2.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "96e091212f",
+            "hash": "96e091212ff042c7f4f3ab5cf6e254aa5bd9948a",
+            "subject": "build(deps): bump release-drafter/release-drafter (#2785)",
+            "body": "build(deps): bump release-drafter/release-drafter (#2785)\n\nBumps the github-actions group with 1 update: [release-drafter/release-drafter](https://github.com/release-drafter/release-drafter).\n\n\nUpdates `release-drafter/release-drafter` from 7.8.0 to 7.9.0\n- [Release notes](https://github.com/release-drafter/release-drafter/releases)\n- [Commits](https://github.com/release-drafter/release-drafter/compare/c345907820e0396f6f44bcfd9ac4763325f8feb0...72967cdc98ddd3160f1fc3dff619de365e137dd0)\n\n---\nupdated-dependencies:\n- dependency-name: release-drafter/release-drafter\n  dependency-version: 7.9.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1790854505000
+              "time": 1790918741000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1790854505000
+              "time": 1790918741000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1182,
+                      "duration": 1047,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-01T12:12:54.290Z",
+                      "startTime": "2026-10-02T06:23:28.063Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 992,
+                      "duration": 1132,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-01T12:12:54.274Z",
+                      "startTime": "2026-10-02T06:23:28.029Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1150,
+                      "duration": 1026,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-01T12:12:54.291Z",
+                      "startTime": "2026-10-02T06:23:28.101Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 722,
+                      "duration": 949,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-01T12:12:55.616Z",
+                      "startTime": "2026-10-02T06:23:29.370Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 664,
+                      "duration": 1003,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-01T12:12:55.636Z",
+                      "startTime": "2026-10-02T06:23:29.396Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 693,
+                      "duration": 877,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-01T12:12:55.650Z",
+                      "startTime": "2026-10-02T06:23:29.478Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-01T12:12:52.976Z",
-    "duration": 3423.135,
+    "startTime": "2026-10-02T06:23:27.026Z",
+    "duration": 3454.309,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
