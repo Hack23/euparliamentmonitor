@@ -71,7 +71,7 @@ jobs:
         # replacing the old "delete every lock then recompile" workaround.
         # The generated lock files are committed verbatim — this workflow does
         # NOT post-process them.
-        run: gh aw compile --validate --purge
+        run: gh aw compile --validate --actionlint --purge
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
