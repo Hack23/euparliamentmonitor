@@ -72,7 +72,7 @@ sandbox:
 # session lifetime.
 engine:
   id: copilot
-  model: claude-sonnet-4.6
+  model: claude-opus-5.5
 
 tools:
   timeout: 180                # per-tool-call cap (bash, MCP, github, edit, web-fetch)
@@ -329,7 +329,7 @@ Sandbox-safe patterns:
 ## 7 · gh-aw CLI Version
 
 Pinned in [`compile-agentic-workflows.yml`](../workflows/compile-agentic-workflows.yml)
-(`GH_AW_VERSION: "v0.69.3"`). If this drifts, verify the current value in
+(`GH_AW_VERSION: "v0.90.1"`). If this drifts, verify the current value in
 that workflow file. Harden Runner pinned by SHA.
 
 ## 8 · `gh aw mcp inspect` (debugging)
