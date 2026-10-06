@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/44cca0d7bce29c26823f6319a0cd7d7a7301bfd5",
-        "commitHash": "44cca0d7bce29c26823f6319a0cd7d7a7301bfd5",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/37339334303"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/af3edd60358aae91e9823dc4c393973ca469ddb4",
+        "commitHash": "af3edd60358aae91e9823dc4c393973ca469ddb4",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/37536076564"
       },
       "gitCommit": {
-        "shortHash": "44cca0d7bc",
-        "hash": "44cca0d7bce29c26823f6319a0cd7d7a7301bfd5",
-        "subject": "build(deps): bump european-parliament-mcp-server (#2795)",
-        "body": "build(deps): bump european-parliament-mcp-server (#2795)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.56 to 1.4.57\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.56...v1.4.57)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.57\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "af3edd6035",
+        "hash": "af3edd60358aae91e9823dc4c393973ca469ddb4",
+        "subject": "build(deps-dev): bump knip (#2802)",
+        "body": "build(deps-dev): bump knip (#2802)\n\nBumps the development-dependencies group with 1 update: [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip).\n\n\nUpdates `knip` from 6.39.0 to 6.40.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.40.0/packages/knip)\n\n---\nupdated-dependencies:\n- dependency-name: knip\n  dependency-version: 6.40.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1791216251000
+          "time": 1791321406000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1791216251000
+          "time": 1791321406000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/44cca0d7bce29c26823f6319a0cd7d7a7301bfd5",
-            "commitHash": "44cca0d7bce29c26823f6319a0cd7d7a7301bfd5",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/37339334303"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/af3edd60358aae91e9823dc4c393973ca469ddb4",
+            "commitHash": "af3edd60358aae91e9823dc4c393973ca469ddb4",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/37536076564"
           },
           "gitCommit": {
-            "shortHash": "44cca0d7bc",
-            "hash": "44cca0d7bce29c26823f6319a0cd7d7a7301bfd5",
-            "subject": "build(deps): bump european-parliament-mcp-server (#2795)",
-            "body": "build(deps): bump european-parliament-mcp-server (#2795)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.56 to 1.4.57\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.56...v1.4.57)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.57\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "af3edd6035",
+            "hash": "af3edd60358aae91e9823dc4c393973ca469ddb4",
+            "subject": "build(deps-dev): bump knip (#2802)",
+            "body": "build(deps-dev): bump knip (#2802)\n\nBumps the development-dependencies group with 1 update: [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip).\n\n\nUpdates `knip` from 6.39.0 to 6.40.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.40.0/packages/knip)\n\n---\nupdated-dependencies:\n- dependency-name: knip\n  dependency-version: 6.40.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1791216251000
+              "time": 1791321406000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1791216251000
+              "time": 1791321406000
             },
             "branch": "main"
           },
@@ -155,12 +155,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1593,
+                      "duration": 1102,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-05T16:23:06.282Z",
+                      "startTime": "2026-10-06T22:21:48.970Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -189,12 +189,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 866,
+                      "duration": 1199,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-05T16:23:06.280Z",
+                      "startTime": "2026-10-06T22:21:49.059Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -223,12 +223,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 840,
+                      "duration": 1120,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-05T16:23:06.222Z",
+                      "startTime": "2026-10-06T22:21:48.960Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,15 +254,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 639,
+                      "duration": 1066,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-05T16:23:07.290Z",
+                      "startTime": "2026-10-06T22:21:50.369Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,15 +288,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 636,
+                      "duration": 990,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-05T16:23:07.313Z",
+                      "startTime": "2026-10-06T22:21:50.370Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,15 +322,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 448,
+                      "duration": 1017,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-05T16:23:07.946Z",
+                      "startTime": "2026-10-06T22:21:50.466Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,8 +350,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-05T16:23:05.398Z",
-    "duration": 3044.228,
+    "startTime": "2026-10-06T22:21:47.914Z",
+    "duration": 3634.414,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
