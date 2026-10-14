@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/💜_Code_of_Conduct-Contributor_Covenant_2.1-7B1FA2?style=for-the-badge" alt="Code of Conduct"/></a>
+  <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/💜_No_Code_of_Conduct-7B1FA2?style=for-the-badge" alt="Code of Conduct"/></a>
   <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md"><img src="https://img.shields.io/badge/🛡️_Security-Policy-D32F2F?style=for-the-badge" alt="Security Policy"/></a>
   <a href="https://github.com/Hack23/ISMS-PUBLIC"><img src="https://img.shields.io/badge/🏛️_Hack23-ISMS--PUBLIC-7B1FA2?style=for-the-badge" alt="Hack23 ISMS"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
