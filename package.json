@@ -154,7 +154,7 @@
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
     "@eslint/js": "10.0.1",
-    "@playwright/test": "1.64.0",
+    "@playwright/test": "1.64.1",
     "@types/d3": "7.4.3",
     "@types/markdown-it": "14.2.0",
     "@types/node": "26.6.5",
@@ -170,7 +170,7 @@
     "esbuild": "0.28.2",
     "eslint": "10.12.0",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-jsdoc": "65.3.2",
+    "eslint-plugin-jsdoc": "65.3.4",
     "eslint-plugin-security": "4.2.0",
     "eslint-plugin-sonarjs": "4.2.2",
     "fast-check": "4.10.2",
