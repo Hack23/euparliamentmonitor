@@ -50,7 +50,9 @@ Thank you for your interest in contributing to **[EU Parliament Monitor](https:/
 
 ## 💜 Code of Conduct
 
-This project adheres to the [Contributor Covenant 2.1](CODE_OF_CONDUCT.md). By participating, you agree to maintain a respectful and inclusive environment. Report unacceptable behaviour to [conduct@hack23.com](mailto:conduct@hack23.com).
+This project adheres to No Code of Conduct. We are all adults. We accept anyone's contributions. Nothing else matters.
+
+For more information please visit the [No Code of Conduct](CODE_OF_CONDUCT.md) homepage.
 
 ## 👥 Who Should Contribute
 
