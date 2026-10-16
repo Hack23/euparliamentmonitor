@@ -125,7 +125,7 @@ function buildSitemapLangSwitcher(currentLang: string): string {
     const active = code === currentLang ? ' active' : '';
     const ariaCurrent = code === currentLang ? ' aria-current="page"' : '';
     const href = getSitemapFilename(code);
-    return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${escapeHTML(name)}" aria-label="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
+    return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${escapeHTML(name)}" aria-label="${code.toUpperCase()} — ${escapeHTML(name)}"${ariaCurrent}><span aria-hidden="true">${flag}</span> ${code.toUpperCase()}</a>`;
   }).join('\n        ');
 }
 

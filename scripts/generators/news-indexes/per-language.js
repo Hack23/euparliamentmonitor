@@ -46,7 +46,7 @@ function buildLangSwitcher(currentLang) {
         const safeHref = escapeHTML(href);
         const safeCode = escapeHTML(code);
         const safeName = escapeHTML(name);
-        return `<a href="${safeHref}" class="lang-link${active}" hreflang="${safeCode}" lang="${safeCode}" title="${safeName}" aria-label="${safeName}"${current}>${flag} ${code.toUpperCase()}</a>`;
+        return `<a href="${safeHref}" class="lang-link${active}" hreflang="${safeCode}" lang="${safeCode}" title="${safeName}" aria-label="${safeCode.toUpperCase()} — ${safeName}"${current}><span aria-hidden="true">${flag}</span> ${safeCode.toUpperCase()}</a>`;
     }).join('\n        ');
 }
 /**

@@ -28,7 +28,7 @@ function buildFooterLangGrid(currentLang, pathPrefix) {
         const href = code === 'en' ? `${pathPrefix}index.html` : `${pathPrefix}index-${code}.html`;
         const active = code === currentLang ? ' class="active"' : '';
         const current = code === currentLang ? ' aria-current="page"' : '';
-        return `<a href="${escapeHTML(href)}"${active} hreflang="${code}" lang="${code}" title="${safeName}" aria-label="${safeName}"${current}>${flag} ${code.toUpperCase()}</a>`;
+        return `<a href="${escapeHTML(href)}"${active} hreflang="${code}" lang="${code}" title="${safeName}" aria-label="${code.toUpperCase()} — ${safeName}"${current}><span aria-hidden="true">${flag}</span> ${code.toUpperCase()}</a>`;
     }).join('\n            ');
 }
 /**
