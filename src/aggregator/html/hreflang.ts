@@ -66,6 +66,6 @@ export function buildLanguageSwitcher(articleSlug: string, current: LanguageCode
     const active = code === current ? ' active' : '';
     const ariaCurrent = code === current ? ' aria-current="page"' : '';
     const href = getArticleFilename(articleSlug, code);
-    return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeName}" aria-label="${safeName}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
+    return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeName}" aria-label="${code.toUpperCase()} — ${safeName}"${ariaCurrent}><span aria-hidden="true">${flag}</span> ${code.toUpperCase()}</a>`;
   }).join('\n        ');
 }

@@ -226,7 +226,7 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         const active = code === safeLang ? ' active' : '';
         const ariaCurrent = code === safeLang ? ' aria-current="page"' : '';
         const href = getPoliticalIntelligenceFilename(code);
-        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${escapeHTML(name)}" aria-label="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
+        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${escapeHTML(name)}" aria-label="${code.toUpperCase()} — ${escapeHTML(name)}"${ariaCurrent}><span aria-hidden="true">${flag}</span> ${code.toUpperCase()}</a>`;
     }).join('\n        ');
     const header = buildSiteHeader({
         lang: safeLang,

@@ -92,12 +92,12 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
 
   return `<header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
-      <a href="${escapeHTML(homeHref)}" class="site-header__brand" aria-label="${safeTitle}">
+      <a href="${escapeHTML(homeHref)}" class="site-header__brand">
         ${buildResponsiveBannerPicture({
           pathPrefix,
           pictureClass: 'site-header__logo-picture',
           imageClass: 'site-header__logo site-header__logo--banner',
-          alt: siteTitle,
+          alt: '',
           sizes: '(max-width: 640px) 58vw, (max-width: 1200px) 15vw, 260px',
         })}
         <span class="site-header__brand-text">

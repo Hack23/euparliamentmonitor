@@ -435,7 +435,9 @@ describe('generate-news-indexes', () => {
       expect(activeGermanLink).not.toBeNull();
       expect(activeGermanLink.getAttribute('hreflang')).toBe('de');
       expect(activeGermanLink.getAttribute('lang')).toBe('de');
-      expect(activeGermanLink.getAttribute('aria-label')).toBe('Deutsch');
+      expect(activeGermanLink.getAttribute('aria-label')).toBe('DE — Deutsch');
+      expect(activeGermanLink.querySelector('[aria-hidden="true"]').textContent).toBe('🇩🇪');
+      expect(activeGermanLink.textContent.trim()).toBe('🇩🇪 DE');
       expect(activeGermanLink.getAttribute('aria-current')).toBe('page');
     });
 
@@ -467,10 +469,10 @@ describe('generate-news-indexes', () => {
         const activeEnglishLink = document.querySelector('a.lang-link.active[href="index.html"]');
 
         expect(html).toContain(`title="${expectedEscaped}"`);
-        expect(html).toContain(`aria-label="${expectedEscaped}"`);
+        expect(html).toContain(`aria-label="EN — ${expectedEscaped}"`);
         expect(activeEnglishLink).not.toBeNull();
         expect(activeEnglishLink.getAttribute('title')).toBe(maliciousName);
-        expect(activeEnglishLink.getAttribute('aria-label')).toBe(maliciousName);
+        expect(activeEnglishLink.getAttribute('aria-label')).toBe(`EN — ${maliciousName}`);
         expect(activeEnglishLink.getAttribute('onclick')).toBeNull();
         expect(activeEnglishLink.onclick).toBeNull();
       } finally {
@@ -502,6 +504,8 @@ describe('generate-news-indexes', () => {
       expect(headerLogoSources[1].getAttribute('type')).toBe('image/webp');
       expect(headerLogoSources[1].getAttribute('srcset')).toContain('images/banner-1200.webp 1200w');
       expect(headerLogo).not.toBeNull();
+      expect(headerLogo.getAttribute('alt')).toBe('');
+      expect(document.querySelector('.site-header__brand').hasAttribute('aria-label')).toBe(false);
       expect(headerLogo.classList.contains('site-header__logo--banner')).toBe(true);
       expect(headerLogo.getAttribute('src')).toBe('images/banner.jpg');
       expect(headerLogo.getAttribute('srcset')).toContain('images/banner-1200.jpg 1200w');
