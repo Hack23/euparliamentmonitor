@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/200df63f7bdf24479ebd3789bb0f1e2dd5b15061",
-        "commitHash": "200df63f7bdf24479ebd3789bb0f1e2dd5b15061",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/39214210195"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/00d6d3d8c7a16859e62ca2cc2f65a873eaf035d5",
+        "commitHash": "00d6d3d8c7a16859e62ca2cc2f65a873eaf035d5",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/39560686011"
       },
       "gitCommit": {
-        "shortHash": "200df63f7b",
-        "hash": "200df63f7bdf24479ebd3789bb0f1e2dd5b15061",
-        "subject": "build(deps): bump european-parliament-mcp-server (#2836)",
-        "body": "build(deps): bump european-parliament-mcp-server (#2836)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.64 to 1.4.66\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.64...v1.4.66)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.66\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "00d6d3d8c7",
+        "hash": "00d6d3d8c7a16859e62ca2cc2f65a873eaf035d5",
+        "subject": "build(deps): bump european-parliament-mcp-server (#2845)",
+        "body": "build(deps): bump european-parliament-mcp-server (#2845)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.66 to 1.4.67\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.66...v1.4.67)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.67\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1792393756000
+          "time": 1792566663000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1792393756000
+          "time": 1792566663000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/200df63f7bdf24479ebd3789bb0f1e2dd5b15061",
-            "commitHash": "200df63f7bdf24479ebd3789bb0f1e2dd5b15061",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/39214210195"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/00d6d3d8c7a16859e62ca2cc2f65a873eaf035d5",
+            "commitHash": "00d6d3d8c7a16859e62ca2cc2f65a873eaf035d5",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/39560686011"
           },
           "gitCommit": {
-            "shortHash": "200df63f7b",
-            "hash": "200df63f7bdf24479ebd3789bb0f1e2dd5b15061",
-            "subject": "build(deps): bump european-parliament-mcp-server (#2836)",
-            "body": "build(deps): bump european-parliament-mcp-server (#2836)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.64 to 1.4.66\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.64...v1.4.66)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.66\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "00d6d3d8c7",
+            "hash": "00d6d3d8c7a16859e62ca2cc2f65a873eaf035d5",
+            "subject": "build(deps): bump european-parliament-mcp-server (#2845)",
+            "body": "build(deps): bump european-parliament-mcp-server (#2845)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.66 to 1.4.67\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.66...v1.4.67)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.67\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1792393756000
+              "time": 1792566663000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1792393756000
+              "time": 1792566663000
             },
             "branch": "main"
           },
@@ -92,24 +92,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/200df63f7bdf24479ebd3789bb0f1e2dd5b15061",
-            "commitHash": "200df63f7bdf24479ebd3789bb0f1e2dd5b15061",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/39214210195"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/00d6d3d8c7a16859e62ca2cc2f65a873eaf035d5",
+            "commitHash": "00d6d3d8c7a16859e62ca2cc2f65a873eaf035d5",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/39560686011"
           },
           "gitCommit": {
-            "shortHash": "200df63f7b",
-            "hash": "200df63f7bdf24479ebd3789bb0f1e2dd5b15061",
-            "subject": "build(deps): bump european-parliament-mcp-server (#2836)",
-            "body": "build(deps): bump european-parliament-mcp-server (#2836)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.64 to 1.4.66\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.64...v1.4.66)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.66\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "00d6d3d8c7",
+            "hash": "00d6d3d8c7a16859e62ca2cc2f65a873eaf035d5",
+            "subject": "build(deps): bump european-parliament-mcp-server (#2845)",
+            "body": "build(deps): bump european-parliament-mcp-server (#2845)\n\nBumps the production-dependencies group with 1 update: [european-parliament-mcp-server](https://github.com/Hack23/European-Parliament-MCP-Server).\n\n\nUpdates `european-parliament-mcp-server` from 1.4.66 to 1.4.67\n- [Release notes](https://github.com/Hack23/European-Parliament-MCP-Server/releases)\n- [Changelog](https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/Hack23/European-Parliament-MCP-Server/compare/v1.4.66...v1.4.67)\n\n---\nupdated-dependencies:\n- dependency-name: european-parliament-mcp-server\n  dependency-version: 1.4.67\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: production-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1792393756000
+              "time": 1792566663000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1792393756000
+              "time": 1792566663000
             },
             "branch": "main"
           },
@@ -217,12 +217,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1228,
+                      "duration": 1477,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-19T07:19:55.935Z",
+                      "startTime": "2026-10-21T07:26:21.608Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -251,12 +251,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1267,
+                      "duration": 1466,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-19T07:19:56.011Z",
+                      "startTime": "2026-10-21T07:26:21.716Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -285,12 +285,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1187,
+                      "duration": 1302,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-19T07:19:55.909Z",
+                      "startTime": "2026-10-21T07:26:21.782Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -319,12 +319,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 929,
+                      "duration": 919,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-19T07:19:57.390Z",
+                      "startTime": "2026-10-21T07:26:23.290Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,15 +350,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 954,
+                      "duration": 910,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-19T07:19:57.453Z",
+                      "startTime": "2026-10-21T07:26:23.366Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -384,15 +384,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 932,
+                      "duration": 935,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-19T07:19:57.463Z",
+                      "startTime": "2026-10-21T07:26:23.415Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -412,8 +412,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-19T07:19:54.911Z",
-    "duration": 3605.6379999999995,
+    "startTime": "2026-10-21T07:26:20.599Z",
+    "duration": 3826.1769999999997,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
