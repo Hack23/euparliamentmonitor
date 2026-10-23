@@ -2,6 +2,8 @@
 runtimes:
   node:
     version: "26"
+engine:
+  copilot-sdk: true
 network:
   allowed:
     - defaults
