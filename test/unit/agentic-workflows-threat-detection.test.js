@@ -594,6 +594,15 @@ describe('agentic workflow threat detection policy', () => {
     }
   });
 
+  it('enables Copilot SDK mode for proxy-aware web-fetch support', () => {
+    const commonSettings = fs.readFileSync(
+      path.join(WORKFLOWS_DIR, 'shared', 'config', 'news-common-settings.md'),
+      'utf8',
+    );
+
+    expect(commonSettings).toMatch(/^engine:\n  copilot-sdk: true$/m);
+  });
+
   it('does not re-inline the 18-line timeout-minutes scheduling rationale (Phase D)', () => {
     // Phase D of the agentic-workflow refactor compressed the 18-line
     // YAML-comment explanation above `timeout-minutes: 60` down to a
