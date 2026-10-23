@@ -48,7 +48,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "european-parliament-mcp-server@1.4.54",
+        "european-parliament-mcp-server@1.4.68",
         "--timeout",
         "180000"
       ],
