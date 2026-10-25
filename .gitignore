@@ -184,5 +184,3 @@ analysis/**/data/
 #js/vendor/mermaid/
 
 # Generated PWA artifacts (rendered by scripts/generators/build-info.js on prebuild)
-/sw.js
-/build-info.json
