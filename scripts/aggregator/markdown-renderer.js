@@ -284,7 +284,7 @@ function installMermaidFence(md) {
         const token = tokens[idx];
         if (!token)
             return '';
-        const info = (token.info || '').trim().toLowerCase();
+        const info = (token.info ?? '').trim().toLowerCase();
         if (info === 'mermaid') {
             const currentIndex = mermaidIndex++;
             const env2 = env;
@@ -376,7 +376,8 @@ function harvestToc(tokens) {
         const level = Number.parseInt(token.tag.slice(1), 10);
         if (!Number.isFinite(level) || level < 2 || level > 6)
             continue;
-        const slug = typeof token.attrGet === 'function' ? token.attrGet('id') : null;
+        const slugValue = token.attrGet('id');
+        const slug = typeof slugValue === 'string' ? slugValue : null;
         const inline = tokens[i + 1];
         if (inline?.type !== 'inline')
             continue;
