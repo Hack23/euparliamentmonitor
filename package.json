@@ -214,11 +214,17 @@
     "js-yaml": "5.2.2",
     "flatted": "3.4.2",
     "path-to-regexp": "8.4.2",
-    "ip-address": "10.3.1",
-    "brace-expansion": "5.0.9",
+    "ip-address": "10.7.5",
+    "brace-expansion": "5.0.12",
     "uuid": "14.0.1",
-    "qs": "6.15.3",
-    "axios": "1.18.1"
+    "qs": "6.17.0",
+    "axios": "1.21.0",
+    "typedoc": {
+      "markdown-it": "14.3.3"
+    },
+    "worldbank-mcp": {
+      "zod": "4.6.6"
+    }
   },
   "allowScripts": {
     "esbuild@0.28.1": true
