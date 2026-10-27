@@ -35,13 +35,13 @@ const PARITY_ALLOWLIST = new Set([
   // dark theme attribute (so the light icon shows when the page is not
   // explicitly in dark mode). The system-pref pair is the inverse rule
   // earlier in the file (`html:not([data-theme='dark']) .theme-toggle__icon--light`).
-  ":not([data-theme='dark']) .theme-toggle__icon--light",
-  ":not([data-theme='dark']) .theme-toggle__svg--light",
+  ':not([data-theme=dark]) .theme-toggle__icon--light',
+  ':not([data-theme=dark]) .theme-toggle__svg--light',
 ]);
 
 /** Find every `{ … }` body of a given top-level @media block. */
 function findMediaBlocks(css) {
-  const re = /@media \(prefers-color-scheme: dark\)\s*\{/g;
+  const re = /@media\s*\(\s*prefers-color-scheme\s*:\s*dark\s*\)\s*\{/g;
   const blocks = [];
   let m;
   while ((m = re.exec(css))) {
@@ -60,8 +60,9 @@ function findMediaBlocks(css) {
 function normaliseSelector(sel) {
   let n = sel.trim();
   n = n.replace(/^html\s*/, '');
-  n = n.replace(/^:not\(\[data-theme=.light.\]\)\s*/, '');
-  n = n.replace(/^\[data-theme=.dark.\]\s*/, '');
+  n = n.replace(/(data-theme=)(["'])(dark|light)\2/g, '$1$3');
+  n = n.replace(/^:not\(\[data-theme=light\]\)\s*/, '');
+  n = n.replace(/^\[data-theme=dark\]\s*/, '');
   return n.trim();
 }
 
@@ -88,10 +89,9 @@ function extractManualDarkSelectors(css) {
   let m;
   while ((m = ruleRe.exec(stripped))) {
     const sel = m[2].trim();
-    // Cheap guard: rule must mention data-theme='dark'
-    if (!/data-theme=.dark./.test(sel)) continue;
+    if (!/data-theme=(?:"dark"|'dark'|dark)(?:\]|\))/.test(sel)) continue;
     for (const part of sel.split(',')) {
-      if (!/data-theme=.dark./.test(part)) continue;
+      if (!/data-theme=(?:"dark"|'dark'|dark)(?:\]|\))/.test(part)) continue;
       const n = normaliseSelector(part);
       if (n) out.add(n);
     }

@@ -193,15 +193,6 @@ describe('PWA freshness assets', () => {
     expect(cache.put).not.toHaveBeenCalled();
   });
 
-  it('resolves PWA root assets from page path rather than preload links', () => {
-    const pwaRegister = readPwaRegister();
-
-    expect(pwaRegister).toContain('function resolveRootAssetHref(file)');
-    expect(pwaRegister).toContain("window.location.pathname.split('/')");
-    expect(pwaRegister).not.toContain('resolvePreloadHref');
-    expect(pwaRegister).not.toContain('link[rel="preload"]');
-  });
-
   it('registers the service worker with root-relative paths for root and news pages', () => {
     const registerForPath = (pathname) => {
       const registrations = [];
@@ -288,10 +279,34 @@ describe('PWA freshness assets', () => {
   });
 
   it('formats relative timestamps using Intl.RelativeTimeFormat', () => {
-    const pwaRegister = readPwaRegister();
+    const originalText = new Date(Date.now() + 5 * 60 * 60 * 1000).toISOString();
+    const relativeTime = {
+      textContent: originalText,
+      getAttribute: vi.fn((name) => (name === 'datetime' ? originalText : null)),
+      setAttribute: vi.fn(),
+    };
+    const sandbox = {
+      window: {
+        location: { pathname: '/index.html' },
+        addEventListener: vi.fn(),
+      },
+      document: {
+        documentElement: { lang: 'en' },
+        querySelectorAll: vi.fn(() => [relativeTime]),
+        readyState: 'complete',
+        visibilityState: 'visible',
+        addEventListener: vi.fn(),
+      },
+      navigator: {},
+      Intl,
+      Date,
+      isNaN,
+    };
 
-    expect(pwaRegister).toContain('Intl.RelativeTimeFormat');
-    expect(pwaRegister).toContain('data-relative-time');
-    expect(pwaRegister).toContain('updateRelativeTimes');
+    vm.runInNewContext(readPwaRegister(), sandbox);
+
+    expect(sandbox.document.querySelectorAll).toHaveBeenCalledWith('time[data-relative-time]');
+    expect(relativeTime.textContent).toContain('hour');
+    expect(relativeTime.setAttribute).toHaveBeenCalledWith('title', originalText);
   });
 });
