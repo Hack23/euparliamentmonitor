@@ -1,27 +1,16 @@
-<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="0" time="34.18279999999999">
-<testsuite name="tests/homepage.spec.js" timestamp="2026-10-27T22:27:30.751Z" hostname="chromium" tests="6" failures="0" skipped="0" time="35.552" errors="0">
-<testcase name="Homepage › should load successfully" classname="tests/homepage.spec.js" time="0.887">
+<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="0" time="3.629438">
+<testsuite name="tests/homepage.spec.js" timestamp="2026-10-30T10:54:09.422Z" hostname="chromium" tests="6" failures="0" skipped="0" time="6.383" errors="0">
+<testcase name="Homepage › should load successfully" classname="tests/homepage.spec.js" time="1.093">
 </testcase>
-<testcase name="Homepage › should display navigation menu" classname="tests/homepage.spec.js" time="0.878">
+<testcase name="Homepage › should display navigation menu" classname="tests/homepage.spec.js" time="1.24">
 </testcase>
-<testcase name="Homepage › should display recent articles" classname="tests/homepage.spec.js" time="0.786">
+<testcase name="Homepage › should display recent articles" classname="tests/homepage.spec.js" time="1.022">
 </testcase>
-<testcase name="Homepage › should have working sitemap link" classname="tests/homepage.spec.js" time="0.7">
+<testcase name="Homepage › should have working sitemap link" classname="tests/homepage.spec.js" time="1.024">
 </testcase>
-<testcase name="Homepage › should have proper HTML structure" classname="tests/homepage.spec.js" time="0.569">
+<testcase name="Homepage › should have proper HTML structure" classname="tests/homepage.spec.js" time="1.038">
 </testcase>
-<testcase name="Homepage › should have SEO meta tags" classname="tests/homepage.spec.js" time="31.732">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|../../test-results/tests-homepage-Homepage-should-have-SEO-meta-tags-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-homepage-Homepage-should-have-SEO-meta-tags-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-homepage-Homepage-should-have-SEO-meta-tags-chromium/error-context.md]]
-
-[[ATTACHMENT|../../test-results/tests-homepage-Homepage-should-have-SEO-meta-tags-chromium-retry1/trace.zip]]
-]]>
-</system-out>
+<testcase name="Homepage › should have SEO meta tags" classname="tests/homepage.spec.js" time="0.966">
 </testcase>
 </testsuite>
 </testsuites>

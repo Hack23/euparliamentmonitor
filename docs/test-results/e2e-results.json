@@ -1,7 +1,7 @@
 {
   "config": {
     "argv": [
-      "/__t/node/26.12.1/x64/bin/node",
+      "/__t/node/26.13.0/x64/bin/node",
       "/__w/euparliamentmonitor/euparliamentmonitor/node_modules/.bin/playwright",
       "test",
       "e2e/tests/homepage.spec.js"
@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/ad8b338408d48493b885802c2784b18813a6add1",
-        "commitHash": "ad8b338408d48493b885802c2784b18813a6add1",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/40593932127"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/c6d914808687f61d88b0b3b0269717bed4734133",
+        "commitHash": "c6d914808687f61d88b0b3b0269717bed4734133",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/41042948220"
       },
       "gitCommit": {
-        "shortHash": "ad8b338408",
-        "hash": "ad8b338408d48493b885802c2784b18813a6add1",
-        "subject": "build(deps): bump step-security/harden-runner (#2859)",
-        "body": "build(deps): bump step-security/harden-runner (#2859)\n\nBumps the github-actions group with 1 update: [step-security/harden-runner](https://github.com/step-security/harden-runner).\n\n\nUpdates `step-security/harden-runner` from 2.22.2 to 2.22.3\n- [Release notes](https://github.com/step-security/harden-runner/releases)\n- [Commits](https://github.com/step-security/harden-runner/compare/dc2769abcc0fcfbadfc1df54081c1608579ef6b2...46b06cea07f9e64621fdf066ba77ac6915163d43)\n\n---\nupdated-dependencies:\n- dependency-name: step-security/harden-runner\n  dependency-version: 2.22.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+        "shortHash": "c6d9148086",
+        "hash": "c6d914808687f61d88b0b3b0269717bed4734133",
+        "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2862)",
+        "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2862)\n\nBumps the development-dependencies group with 2 updates: [eslint-plugin-security](https://github.com/eslint-community/eslint-plugin-security) and [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip).\n\n\nUpdates `eslint-plugin-security` from 4.2.0 to 4.2.1\n- [Release notes](https://github.com/eslint-community/eslint-plugin-security/releases)\n- [Changelog](https://github.com/eslint-community/eslint-plugin-security/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/eslint-community/eslint-plugin-security/compare/eslint-plugin-security-v4.2.0...eslint-plugin-security-v4.2.1)\n\nUpdates `knip` from 6.43.0 to 6.44.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.44.0/packages/knip)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-plugin-security\n  dependency-version: 4.2.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: knip\n  dependency-version: 6.44.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
           "name": "dependabot[bot]",
           "email": "49699333+dependabot[bot]@users.noreply.github.com",
-          "time": 1793138927000
+          "time": 1793355926000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1793138927000
+          "time": 1793355926000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/ad8b338408d48493b885802c2784b18813a6add1",
-            "commitHash": "ad8b338408d48493b885802c2784b18813a6add1",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/40593932127"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/c6d914808687f61d88b0b3b0269717bed4734133",
+            "commitHash": "c6d914808687f61d88b0b3b0269717bed4734133",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/41042948220"
           },
           "gitCommit": {
-            "shortHash": "ad8b338408",
-            "hash": "ad8b338408d48493b885802c2784b18813a6add1",
-            "subject": "build(deps): bump step-security/harden-runner (#2859)",
-            "body": "build(deps): bump step-security/harden-runner (#2859)\n\nBumps the github-actions group with 1 update: [step-security/harden-runner](https://github.com/step-security/harden-runner).\n\n\nUpdates `step-security/harden-runner` from 2.22.2 to 2.22.3\n- [Release notes](https://github.com/step-security/harden-runner/releases)\n- [Commits](https://github.com/step-security/harden-runner/compare/dc2769abcc0fcfbadfc1df54081c1608579ef6b2...46b06cea07f9e64621fdf066ba77ac6915163d43)\n\n---\nupdated-dependencies:\n- dependency-name: step-security/harden-runner\n  dependency-version: 2.22.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "c6d9148086",
+            "hash": "c6d914808687f61d88b0b3b0269717bed4734133",
+            "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2862)",
+            "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2862)\n\nBumps the development-dependencies group with 2 updates: [eslint-plugin-security](https://github.com/eslint-community/eslint-plugin-security) and [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip).\n\n\nUpdates `eslint-plugin-security` from 4.2.0 to 4.2.1\n- [Release notes](https://github.com/eslint-community/eslint-plugin-security/releases)\n- [Changelog](https://github.com/eslint-community/eslint-plugin-security/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/eslint-community/eslint-plugin-security/compare/eslint-plugin-security-v4.2.0...eslint-plugin-security-v4.2.1)\n\nUpdates `knip` from 6.43.0 to 6.44.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.44.0/packages/knip)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-plugin-security\n  dependency-version: 4.2.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: knip\n  dependency-version: 6.44.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1793138927000
+              "time": 1793355926000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1793138927000
+              "time": 1793355926000
             },
             "branch": "main"
           },
@@ -92,24 +92,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/ad8b338408d48493b885802c2784b18813a6add1",
-            "commitHash": "ad8b338408d48493b885802c2784b18813a6add1",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/40593932127"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/c6d914808687f61d88b0b3b0269717bed4734133",
+            "commitHash": "c6d914808687f61d88b0b3b0269717bed4734133",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/41042948220"
           },
           "gitCommit": {
-            "shortHash": "ad8b338408",
-            "hash": "ad8b338408d48493b885802c2784b18813a6add1",
-            "subject": "build(deps): bump step-security/harden-runner (#2859)",
-            "body": "build(deps): bump step-security/harden-runner (#2859)\n\nBumps the github-actions group with 1 update: [step-security/harden-runner](https://github.com/step-security/harden-runner).\n\n\nUpdates `step-security/harden-runner` from 2.22.2 to 2.22.3\n- [Release notes](https://github.com/step-security/harden-runner/releases)\n- [Commits](https://github.com/step-security/harden-runner/compare/dc2769abcc0fcfbadfc1df54081c1608579ef6b2...46b06cea07f9e64621fdf066ba77ac6915163d43)\n\n---\nupdated-dependencies:\n- dependency-name: step-security/harden-runner\n  dependency-version: 2.22.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+            "shortHash": "c6d9148086",
+            "hash": "c6d914808687f61d88b0b3b0269717bed4734133",
+            "subject": "build(deps-dev): bump the development-dependencies group with 2 updates (#2862)",
+            "body": "build(deps-dev): bump the development-dependencies group with 2 updates (#2862)\n\nBumps the development-dependencies group with 2 updates: [eslint-plugin-security](https://github.com/eslint-community/eslint-plugin-security) and [knip](https://github.com/webpro-nl/knip/tree/HEAD/packages/knip).\n\n\nUpdates `eslint-plugin-security` from 4.2.0 to 4.2.1\n- [Release notes](https://github.com/eslint-community/eslint-plugin-security/releases)\n- [Changelog](https://github.com/eslint-community/eslint-plugin-security/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/eslint-community/eslint-plugin-security/compare/eslint-plugin-security-v4.2.0...eslint-plugin-security-v4.2.1)\n\nUpdates `knip` from 6.43.0 to 6.44.0\n- [Release notes](https://github.com/webpro-nl/knip/releases)\n- [Commits](https://github.com/webpro-nl/knip/commits/knip@6.44.0/packages/knip)\n\n---\nupdated-dependencies:\n- dependency-name: eslint-plugin-security\n  dependency-version: 4.2.1\n  dependency-type: direct:development\n  update-type: version-update:semver-patch\n  dependency-group: development-dependencies\n- dependency-name: knip\n  dependency-version: 6.44.0\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n  dependency-group: development-dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
               "name": "dependabot[bot]",
               "email": "49699333+dependabot[bot]@users.noreply.github.com",
-              "time": 1793138927000
+              "time": 1793355926000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1793138927000
+              "time": 1793355926000
             },
             "branch": "main"
           },
@@ -217,12 +217,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 887,
+                      "duration": 1093,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T22:27:31.160Z",
+                      "startTime": "2026-10-30T10:54:10.084Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -251,12 +251,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 878,
+                      "duration": 1240,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T22:27:31.201Z",
+                      "startTime": "2026-10-30T10:54:10.010Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -285,12 +285,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 786,
+                      "duration": 1022,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T22:27:31.183Z",
+                      "startTime": "2026-10-30T10:54:10.042Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -319,12 +319,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 700,
+                      "duration": 1024,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T22:27:32.182Z",
+                      "startTime": "2026-10-30T10:54:11.379Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -353,12 +353,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 569,
+                      "duration": 1038,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-10-27T22:27:32.285Z",
+                      "startTime": "2026-10-30T10:54:11.447Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -386,69 +386,18 @@
                     {
                       "workerIndex": 1,
                       "parallelIndex": 1,
-                      "status": "timedOut",
-                      "duration": 31078,
-                      "error": {
-                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
-                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                      },
-                      "errors": [
-                        {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
-                          "location": {
-                            "file": "/__w/euparliamentmonitor/euparliamentmonitor/e2e/tests/homepage.spec.js",
-                            "column": 16,
-                            "line": 102
-                          },
-                          "message": "Error: page.goto: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/\", waiting until \"load\"\u001b[22m\n\n\n  100 |\n  101 |   test('should have SEO meta tags', async ({ page }) => {\n> 102 |     await page.goto('/');\n      |                ^\n  103 |\n  104 |     // Verify description meta tag\n  105 |     const description = page.locator('meta[name=\"description\"]');\n    at /__w/euparliamentmonitor/euparliamentmonitor/e2e/tests/homepage.spec.js:102:16"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-10-27T22:27:32.287Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-have-SEO-meta-tags-chromium/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-have-SEO-meta-tags-chromium/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-have-SEO-meta-tags-chromium/error-context.md"
-                        }
-                      ]
-                    },
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 654,
+                      "duration": 966,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
-                      "retry": 1,
-                      "startTime": "2026-10-27T22:28:03.716Z",
+                      "retry": 0,
+                      "startTime": "2026-10-30T10:54:11.549Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "/__w/euparliamentmonitor/euparliamentmonitor/test-results/tests-homepage-Homepage-should-have-SEO-meta-tags-chromium-retry1/trace.zip"
-                        }
-                      ]
+                      "attachments": []
                     }
                   ],
-                  "status": "flaky"
+                  "status": "expected"
                 }
               ],
               "id": "2911e419fbc39a4e7680-ea69d3afeb7ab8bd5f0e",
@@ -463,11 +412,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-27T22:27:30.317Z",
-    "duration": 34182.799999999996,
-    "expected": 5,
+    "startTime": "2026-10-30T10:54:08.961Z",
+    "duration": 3629.438,
+    "expected": 6,
     "skipped": 0,
     "unexpected": 0,
-    "flaky": 1
+    "flaky": 0
   }
 }
