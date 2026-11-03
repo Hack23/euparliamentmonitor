@@ -65,10 +65,12 @@ describe('agentic workflow cost governance', () => {
     for (const workflow of listNewsWorkflows()) {
       const lockPath = path.join(WORKFLOWS_DIR, workflow.replace(/\.md$/u, '.lock.yml'));
       const lock = fs.readFileSync(lockPath, 'utf8');
-      // Agent run uses the literal caps (deterministic, no org-var indirection).
+      // The workflow sets literal agent caps; the proxy config consumes the AI-credit env value.
       expect(lock, workflow).toContain('GH_AW_MAX_TURNS: 500');
       expect(lock, workflow).toContain('GH_AW_MAX_AI_CREDITS: "1000"');
-      expect(lock, workflow).toContain('"maxRuns":500,"maxCacheMisses":5,"maxAiCredits":1000');
+      expect(lock, workflow).toContain(
+        '\\"maxRuns\\":500,\\"maxCacheMisses\\":5,\\"maxAiCredits\\":${GH_AW_MAX_AI_CREDITS}',
+      );
       // The threat-detection sub-step keeps its own separate, smaller budget.
       expect(lock, workflow).toContain(
         "vars.GH_AW_DEFAULT_DETECTION_MAX_AI_CREDITS || '400'",

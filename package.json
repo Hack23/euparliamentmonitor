@@ -166,7 +166,7 @@
     "chart.js": "4.6.1",
     "chartjs-plugin-annotation": "3.1.0",
     "clean-css": "5.3.3",
-    "d3": "7.9.1",
+    "d3": "7.9.2",
     "esbuild": "0.28.2",
     "eslint": "10.14.0",
     "eslint-config-prettier": "10.1.8",
@@ -210,7 +210,8 @@
     "worldbank-mcp": "1.0.1"
   },
   "overrides": {
-    "glob": "13.0.6",
+    "glob": "14.0.3",
+    "minimatch": "11.0.4",
     "js-yaml": "5.2.2",
     "flatted": "3.4.2",
     "path-to-regexp": "8.4.2",

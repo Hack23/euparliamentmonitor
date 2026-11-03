@@ -154,6 +154,7 @@ steps:
 
 engine:
   id: copilot
+  copilot-sdk: true
   model: claude-opus-5.5
 ---
 # 📰 EU Parliament Motions — Unified Workflow
