@@ -595,12 +595,16 @@ describe('agentic workflow threat detection policy', () => {
   });
 
   it('enables Copilot SDK mode for proxy-aware web-fetch support', () => {
-    const commonSettings = fs.readFileSync(
-      path.join(WORKFLOWS_DIR, 'shared', 'config', 'news-common-settings.md'),
-      'utf8',
-    );
+    const workflows = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) => name.startsWith('news-') && name.endsWith('.md'));
 
-    expect(commonSettings).toMatch(/^engine:\n  copilot-sdk: true$/m);
+    for (const workflow of workflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+      expect(content, `${workflow} must enable Copilot SDK mode`).toMatch(
+        /^engine:\n  id: copilot\n  copilot-sdk: true$/m,
+      );
+    }
   });
 
   it('does not re-inline the 18-line timeout-minutes scheduling rationale (Phase D)', () => {
