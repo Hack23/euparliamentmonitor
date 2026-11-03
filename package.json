@@ -221,7 +221,8 @@
     "qs": "6.17.0",
     "axios": "1.21.0",
     "typedoc": {
-      "markdown-it": "14.3.3"
+      "markdown-it": "14.3.3",
+      "minimatch": "10.2.6"
     },
     "worldbank-mcp": {
       "zod": "4.6.6"
