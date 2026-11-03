@@ -153,6 +153,7 @@ steps:
 
 engine:
   id: copilot
+  copilot-sdk: true
   model: claude-opus-5.5
 ---
 # 📰 EU Parliament Breaking News — Unified Workflow
