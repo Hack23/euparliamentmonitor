@@ -19,24 +19,24 @@
     "maxFailures": 0,
     "metadata": {
       "ci": {
-        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/0c7f2a9b0b8cab36961a85b16834d1ed156b9c3a",
-        "commitHash": "0c7f2a9b0b8cab36961a85b16834d1ed156b9c3a",
-        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/41739988276"
+        "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/c0ff657a4a4887dbbd157f44f246154ce27933d4",
+        "commitHash": "c0ff657a4a4887dbbd157f44f246154ce27933d4",
+        "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/42256244642"
       },
       "gitCommit": {
-        "shortHash": "0c7f2a9b0b",
-        "hash": "0c7f2a9b0b8cab36961a85b16834d1ed156b9c3a",
-        "subject": "fix: pin TypeDoc minimatch compatibility (#2874)",
-        "body": "fix: pin TypeDoc minimatch compatibility (#2874)\n\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>",
+        "shortHash": "c0ff657a4a",
+        "hash": "c0ff657a4a4887dbbd157f44f246154ce27933d4",
+        "subject": "build(deps): bump step-security/harden-runner (#2880)",
+        "body": "build(deps): bump step-security/harden-runner (#2880)\n\nBumps the github-actions group with 1 update: [step-security/harden-runner](https://github.com/step-security/harden-runner).\n\n\nUpdates `step-security/harden-runner` from 2.22.3 to 2.22.4\n- [Release notes](https://github.com/step-security/harden-runner/releases)\n- [Commits](https://github.com/step-security/harden-runner/compare/46b06cea07f9e64621fdf066ba77ac6915163d43...1d88384fd173af6ecb012dfd0264a306b711241a)\n\n---\nupdated-dependencies:\n- dependency-name: step-security/harden-runner\n  dependency-version: 2.22.4\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
         "author": {
-          "name": "Copilot",
-          "email": "198982749+Copilot@users.noreply.github.com",
-          "time": 1793748724000
+          "name": "dependabot[bot]",
+          "email": "49699333+dependabot[bot]@users.noreply.github.com",
+          "time": 1793983833000
         },
         "committer": {
           "name": "GitHub",
           "email": "noreply@github.com",
-          "time": 1793748724000
+          "time": 1793983833000
         },
         "branch": "main"
       },
@@ -50,24 +50,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/0c7f2a9b0b8cab36961a85b16834d1ed156b9c3a",
-            "commitHash": "0c7f2a9b0b8cab36961a85b16834d1ed156b9c3a",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/41739988276"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/c0ff657a4a4887dbbd157f44f246154ce27933d4",
+            "commitHash": "c0ff657a4a4887dbbd157f44f246154ce27933d4",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/42256244642"
           },
           "gitCommit": {
-            "shortHash": "0c7f2a9b0b",
-            "hash": "0c7f2a9b0b8cab36961a85b16834d1ed156b9c3a",
-            "subject": "fix: pin TypeDoc minimatch compatibility (#2874)",
-            "body": "fix: pin TypeDoc minimatch compatibility (#2874)\n\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>",
+            "shortHash": "c0ff657a4a",
+            "hash": "c0ff657a4a4887dbbd157f44f246154ce27933d4",
+            "subject": "build(deps): bump step-security/harden-runner (#2880)",
+            "body": "build(deps): bump step-security/harden-runner (#2880)\n\nBumps the github-actions group with 1 update: [step-security/harden-runner](https://github.com/step-security/harden-runner).\n\n\nUpdates `step-security/harden-runner` from 2.22.3 to 2.22.4\n- [Release notes](https://github.com/step-security/harden-runner/releases)\n- [Commits](https://github.com/step-security/harden-runner/compare/46b06cea07f9e64621fdf066ba77ac6915163d43...1d88384fd173af6ecb012dfd0264a306b711241a)\n\n---\nupdated-dependencies:\n- dependency-name: step-security/harden-runner\n  dependency-version: 2.22.4\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
-              "name": "Copilot",
-              "email": "198982749+Copilot@users.noreply.github.com",
-              "time": 1793748724000
+              "name": "dependabot[bot]",
+              "email": "49699333+dependabot[bot]@users.noreply.github.com",
+              "time": 1793983833000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1793748724000
+              "time": 1793983833000
             },
             "branch": "main"
           },
@@ -92,24 +92,24 @@
         "retries": 2,
         "metadata": {
           "ci": {
-            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/0c7f2a9b0b8cab36961a85b16834d1ed156b9c3a",
-            "commitHash": "0c7f2a9b0b8cab36961a85b16834d1ed156b9c3a",
-            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/41739988276"
+            "commitHref": "https://github.com/Hack23/euparliamentmonitor/commit/c0ff657a4a4887dbbd157f44f246154ce27933d4",
+            "commitHash": "c0ff657a4a4887dbbd157f44f246154ce27933d4",
+            "buildHref": "https://github.com/Hack23/euparliamentmonitor/actions/runs/42256244642"
           },
           "gitCommit": {
-            "shortHash": "0c7f2a9b0b",
-            "hash": "0c7f2a9b0b8cab36961a85b16834d1ed156b9c3a",
-            "subject": "fix: pin TypeDoc minimatch compatibility (#2874)",
-            "body": "fix: pin TypeDoc minimatch compatibility (#2874)\n\nCo-authored-by: pethers <1726836+pethers@users.noreply.github.com>\nCo-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>",
+            "shortHash": "c0ff657a4a",
+            "hash": "c0ff657a4a4887dbbd157f44f246154ce27933d4",
+            "subject": "build(deps): bump step-security/harden-runner (#2880)",
+            "body": "build(deps): bump step-security/harden-runner (#2880)\n\nBumps the github-actions group with 1 update: [step-security/harden-runner](https://github.com/step-security/harden-runner).\n\n\nUpdates `step-security/harden-runner` from 2.22.3 to 2.22.4\n- [Release notes](https://github.com/step-security/harden-runner/releases)\n- [Commits](https://github.com/step-security/harden-runner/compare/46b06cea07f9e64621fdf066ba77ac6915163d43...1d88384fd173af6ecb012dfd0264a306b711241a)\n\n---\nupdated-dependencies:\n- dependency-name: step-security/harden-runner\n  dependency-version: 2.22.4\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
             "author": {
-              "name": "Copilot",
-              "email": "198982749+Copilot@users.noreply.github.com",
-              "time": 1793748724000
+              "name": "dependabot[bot]",
+              "email": "49699333+dependabot[bot]@users.noreply.github.com",
+              "time": 1793983833000
             },
             "committer": {
               "name": "GitHub",
               "email": "noreply@github.com",
-              "time": 1793748724000
+              "time": 1793983833000
             },
             "branch": "main"
           },
@@ -126,7 +126,7 @@
           "trace": "on-first-retry",
           "screenshot": "only-on-failure",
           "video": "retain-on-failure",
-          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.8127.18 Safari/537.36",
           "viewport": {
             "width": 1280,
             "height": 720
@@ -178,7 +178,7 @@
     "tags": [],
     "updateSnapshots": "default",
     "updateSourceMethod": "patch",
-    "version": "1.64.1",
+    "version": "1.65.0",
     "workers": 3,
     "webServer": {
       "command": "npm run serve",
@@ -217,12 +217,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1986,
+                      "duration": 1109,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-03T23:42:45.344Z",
+                      "startTime": "2026-11-06T17:01:07.666Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -251,12 +251,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 1957,
+                      "duration": 1099,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-03T23:42:45.496Z",
+                      "startTime": "2026-11-06T17:01:07.660Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -285,12 +285,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1966,
+                      "duration": 1004,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-03T23:42:45.518Z",
+                      "startTime": "2026-11-06T17:01:07.600Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -316,15 +316,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 918,
+                      "duration": 960,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-03T23:42:47.589Z",
+                      "startTime": "2026-11-06T17:01:08.928Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -350,15 +350,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 926,
+                      "duration": 861,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-03T23:42:47.623Z",
+                      "startTime": "2026-11-06T17:01:09.025Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -387,12 +387,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 887,
+                      "duration": 913,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-03T23:42:47.632Z",
+                      "startTime": "2026-11-06T17:01:09.033Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -412,8 +412,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-03T23:42:44.417Z",
-    "duration": 4259.907999999999,
+    "startTime": "2026-11-06T17:01:06.613Z",
+    "duration": 3452.853,
     "expected": 6,
     "skipped": 0,
     "unexpected": 0,
