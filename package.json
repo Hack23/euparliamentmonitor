@@ -199,9 +199,9 @@
     "node": ">=26"
   },
   "dependencies": {
-    "european-parliament-mcp-server": "1.4.72",
+    "european-parliament-mcp-server": "1.4.73",
     "markdown-it": "15.0.3",
-    "markdown-it-anchor": "10.0.0",
+    "markdown-it-anchor": "10.1.0",
     "markdown-it-attrs": "5.0.1",
     "markdown-it-deflist": "4.0.0",
     "markdown-it-footnote": "4.0.0"
